@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="Clanpage using webSPELL NOR CMS">
+    <meta name="author" content="webspell.org">
+    <meta name="copyright" content="Copyright 2005-2018 by webspell.org / webspell-nor.de">
+    <meta name="generator" content="webSPELL">
+
+    <title>$pagetitle</title>
+    <base href="$rewriteBase">
+    <link href="components/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="css/lockpage.css" rel="stylesheet" type="text/css">
+    
+</head>
+
+<body>
+<div class="lock_wrapper">
+	<div class="container text-center">
+		<div class="col-lg-12">
+			<img class="img-responsive" src="images/logo.png" alt=""/>
+			<div class="shdw"></div>
+		</div>
+		<h2>The page is currently locked, please try again later!</h2>
+		<p>$reason</p>
+		<h4>Admin Login</h4> 
+		<form class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4 col-lg-4 col-lg-offset-4" method="post" name="login" action="checklogin.php">
+			<div class="form-group">
+				<input class="form-control text-center" name="ws_user" type="text" placeholder="Username">
+			</div>
+			<div class="form-group">
+				<input class="form-control text-center" name="password" type="password" placeholder="Password">
+			</div>
+			<div class="form-group">
+				<input class="form-control btn-success" type="submit" name="Submit" value="login">
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
