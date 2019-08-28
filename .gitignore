@@ -63,6 +63,7 @@ images/userpics/
 !images/userpics/nouserpic.png
 tmp/
 !tmp/index.php
+install/locked.txt
 _mysql.php
 
 # Compiled source #
