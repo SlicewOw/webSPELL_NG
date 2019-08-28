@@ -2574,13 +2574,8 @@ function update_40000_40100($_database)
     $transaction->addQuery("ALTER TABLE `" . PREFIX . "forum_topics` ADD `sticky` INT(1) NOT NULL DEFAULT '0'");
 
     // birthday converter
-    mysqli_query($_database, "ALTER TABLE `" . PREFIX . "user` ADD `birthday2` DATETIME NOT NULL AFTER `birthday`");
-    $q = mysqli_query($_database, "SELECT userID, birthday FROM `" . PREFIX . "user`");
-    while ($ds = mysqli_fetch_array($q)) {
-        $transaction->addQuery("UPDATE `" . PREFIX . "user` SET birthday2='" . date("Y", $ds['birthday']) . "-" . date("m", $ds['birthday']) . "-" . date("d", $ds['birthday']) . "' WHERE userID='" . $ds['userID'] . "'");
-    }
     $transaction->addQuery("ALTER TABLE `" . PREFIX . "user` DROP `birthday`");
-    $transaction->addQuery("ALTER TABLE `" . PREFIX . "user` CHANGE `birthday2` `birthday` DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL");
+    $transaction->addQuery("ALTER TABLE `" . PREFIX . "user` ADD `birthday` DATETIME NOT NULL");
 
     if ($transaction->successful()) {
         return array('status' => 'success', 'message' => 'Updated to webSPELL 4.1');
