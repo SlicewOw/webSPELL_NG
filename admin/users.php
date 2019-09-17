@@ -341,7 +341,7 @@ if ($action == "activate") {
 } elseif ($action == "ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> ' . $_language->module[ 'users' ] . '
+                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
@@ -407,7 +407,7 @@ if ($action == "activate") {
 					}
 				}
 			</script>
-			
+
             <form class="form-horizontal" method="post" action="admincenter.php?site=users" enctype="multipart/form-data">
 
              <div class="form-group">
@@ -415,7 +415,7 @@ if ($action == "activate") {
     <div class="col-sm-8"><span class="text-muted small"><em>
       ' . $nickname . '</em></span>
     </div>
-  </div>   
+  </div>
   <div class="form-group"  id="until_date" ' . $hide . '>
     <label class="col-sm-2 control-label">' . $_language->module[ 'ban_until' ] . ':</label>
     <div class="col-sm-8"><span class="text-muted small"><em>
@@ -424,9 +424,9 @@ if ($action == "activate") {
                 '" />.<input type="text" onchange="kill_form(\'until\');" name="u_month" id="u_month" size="2"
                 value="' . $u_month .
                 '" />.<input type="text" onchange="kill_form(\'until\');" name="u_year" id="u_year" size="4" value="' .
-                $u_year . '" /> <i>dd.mm.YY</i></em></span>
+                $u_year . '" /> <span>dd.mm.YY</span></em></span>
     </div>
-  </div>   
+  </div>
 
   <div class="form-group" id="ban_for" ' . $hide . '>
     <label class="col-sm-2 control-label">' . $_language->module[ 'ban_for' ] . ':</label>
@@ -436,7 +436,7 @@ if ($action == "activate") {
                 $_language->module[ 'days' ] . '</option><option value="7">' . $_language->module[ 'weeks' ] .
                 '</option><option value="28">' . $_language->module[ 'month' ] . '</option></select></em></span>
     </div>
-  </div>   
+  </div>
 
   <div class="form-group">
     <label class="col-sm-2 control-label">' . $_language->module[ 'permanently' ] . ':</label>
@@ -444,17 +444,17 @@ if ($action == "activate") {
       <input type="checkbox" id="permanent" onchange="hide_forms();" value="1" name="permanent" ' .
                 $checked . ' /></em></span>
     </div>
-  </div>   
+  </div>
 
 <div class="form-group">
     <label class="col-sm-2 control-label">' . $_language->module[ 'reason' ] . ':</label>
     <div class="col-sm-8"><span class="text-muted small"><em>
       <textarea class="form-control" name="reason" rows="3" cols="" style="width: 50%;">' . $reason . '</textarea></em></span>
     </div>
-  </div>   
+  </div>
 
- 
-			 
+
+
 			 ';
 
             if ($data[ 'banned' ]) {
@@ -466,7 +466,7 @@ if ($action == "activate") {
   </div>  ';
             }
             echo '
-			
+
 
 
  <div class="form-group">
@@ -493,7 +493,7 @@ if ($action == "activate") {
 } elseif ($action == "addtoclan") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> ' . $_language->module[ 'users' ] . '
+                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
@@ -506,7 +506,7 @@ if ($action == "activate") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-    
+
 
 
 
@@ -549,7 +549,7 @@ if ($action == "activate") {
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> ' . $_language->module[ 'users' ] . '
+                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
 
@@ -580,13 +580,13 @@ if ($action == "activate") {
     </div>
   </div>
 
-  
+
   </form>
   </div></div>';
 } elseif ($action == "profile") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> ' . $_language->module[ 'users' ] . '
+                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
@@ -662,7 +662,7 @@ if ($action == "activate") {
   </div>
   <form class="form-horizontal">
   <div class="form-group">
-    <label class="col-sm-2 control-label"><i>'.$_language->module['general'].'</i></label>
+    <label class="col-sm-2 control-label"><span>'.$_language->module['general'].'</span></label>
     <div class="col-sm-8">
       <p class="form-control-static"></p>
     </div>
@@ -681,7 +681,7 @@ if ($action == "activate") {
   </div>
   <form class="form-horizontal">
   <div class="form-group">
-    <label class="col-sm-2 control-label"><i>'.$_language->module['pictures'].'</i></label>
+    <label class="col-sm-2 control-label"><span>'.$_language->module['pictures'].'</span></label>
     <div class="col-sm-8">
       <p class="form-control-static"></p>
     </div>
@@ -700,7 +700,7 @@ if ($action == "activate") {
   </div>
   <form class="form-horizontal">
   <div class="form-group">
-    <label class="col-sm-2 control-label"><i>'.$_language->module['personal'].'</i></label>
+    <label class="col-sm-2 control-label"><span>'.$_language->module['personal'].'</span></label>
     <div class="col-sm-8">
       <p class="form-control-static"></p>
     </div>
@@ -770,7 +770,7 @@ if ($action == "activate") {
   </div>
   <form class="form-horizontal">
   <div class="form-group">
-    <label class="col-sm-2 control-label"><i>'.$_language->module['various'].'</i></label>
+    <label class="col-sm-2 control-label"><span>'.$_language->module['various'].'</span></label>
     <div class="col-sm-8">
       <p class="form-control-static"></p>
     </div>
@@ -875,7 +875,7 @@ if ($action == "activate") {
 } else {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> ' . $_language->module[ 'users' ] . '
+                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">';
 
@@ -1009,12 +1009,12 @@ if ($action == "activate") {
 
         echo '<br />
     <table class="table table-striped">
-    
+
 <thead>
 
 
       <tr>
-      
+
         <th><a href="admincenter.php?site=users&amp;type=' . $type .
             '&amp;sort=registerdate&amp;page=' . $page . '&amp;type=' . $type . '&amp;search=' . $search . '"><b>' .
             $_language->module[ 'registered_since' ] . '</b></a></th>
@@ -1033,7 +1033,7 @@ if ($action == "activate") {
         $n = 1;
         $i = 1;
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            
+
 
             $id = $ds[ 'userID' ];
             $registered = getformatdatetime($ds[ 'registerdate' ]);
@@ -1092,19 +1092,19 @@ if ($action == "activate") {
         <td>' . $actions . '</td>
         <td align="center" width="6%">
 
-       
+
 
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=users&amp;page=' . $page .
                 '&amp;type=' . $type . '&amp;sort=' . $sort . '&amp;search=' . $search . '&amp;delete=true&amp;id=' .
-                $ds[ 'userID' ] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['del'] . '" />       
+                $ds[ 'userID' ] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['del'] . '" />
 
 
 
 
  <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=users&amp;page=' . $page .
                 '&amp;type=' . $type . '&amp;sort=' . $sort . '&amp;search=' . $search . '&amp;delete=true&amp;id=' .
-                $ds[ 'userID' ] . '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></a>
+                $ds[ 'userID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
 
 
 

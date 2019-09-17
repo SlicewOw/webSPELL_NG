@@ -433,13 +433,13 @@ function youtubereplace($content) {
 	$content = preg_replace("/\[youtube\](?:http?:\/\/)?(?:https?:\/\/)(?:www\.)?youtu(?:\.be\/|be\.com\/watch\?v=)([A-Z0-9\-_]+)(?:&(.*?))?\[\/youtube\]/si", "<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" src=\"//www.youtube.com/embed/\\1\" frameborder=\"0\" class=\"embed-responsive-item\"></iframe></div>", $content);
 	$content = preg_replace("/\[youtube\]([A-Z0-9\-_]+)(?:&(.*?))?\[\/youtube\]/si", "<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" src=\"//www.youtube.com/embed/\\1\" frameborder=\"0\" class=\"embed-responsive-item\"></iframe></div>" ,$content);
 	return $content;
-	
+
 }
 
 function gistreplace($content) {
 	$content = preg_replace("/\[gist\](.*?)\[\/gist\]/si", "<script src=\"https://gist.github.com/\\1.js\"></script>", $content);
 	return $content;
-	
+
 }
 
 //replace [quote]-tags
@@ -666,7 +666,7 @@ function smiley_callback($match)
     return
         '<i ' .
             'class="em em-' . removeIllegalCharacerts($match[2]) . '" ' .
-            'alt="' . removeIllegalCharacerts($match[1]) . '" ></i>';
+            'alt="' . removeIllegalCharacerts($match[1]) . '" ></span>';
 }
 
 function replacement($content, $bbcode = true)
@@ -709,7 +709,7 @@ function replacement($content, $bbcode = true)
             $content = preg_replace_callback("#\[align=([a-z0-9]*)\](.*?)\[/align\]#si", "align_callback", $content);
         }
         $content = preg_replace("#\[b\](.*?)\[/b\]#si", "<b>\\1</b>", $content);
-        $content = preg_replace("#\[i\](.*?)\[/i\]#si", "<i>\\1</i>", $content);
+        $content = preg_replace("#\[i\](.*?)\[/i\]#si", "<span>\\1</span>", $content);
         $content = preg_replace("#\[u\](.*?)\[/u\]#si", "<u>\\1</u>", $content);
         $content = preg_replace("#\[s\](.*?)\[/s\]#si", "<s>\\1</s>", $content);
         $content = preg_replace("#\[list\][\s]{0,}(.*?)\[/list\]#si", "<ul class='list'>\\1</ul>", $content);
@@ -724,7 +724,7 @@ function replacement($content, $bbcode = true)
         $content = preg_replace("#\[hr]#si", "<hr />", $content);
         $content = preg_replace("#\[center]#si", "<p class=\"text-center\">", $content);
         $content = preg_replace("#\[/center]#si", "</p>", $content);
-        
+
     }
     $content = preg_replace_callback("#\[SMILE=(.*?)\](.*?)\[/SMILE\]#si", "smiley_callback", $content);
 
@@ -735,10 +735,10 @@ function toggle($content, $id)
 {
     global $_language;
     $_language->readModule('bbcode', true);
-	
+
     $replace1 = '<div style="width: 100%;">
             		<a class="btn btn-default" role="button" data-toggle="collapse" href="#ToggleRow_' . $id . '_%d" aria-expanded="false" aria-controls="collapseRow">
-						' . $_language->module['read_more'] . '				
+						' . $_language->module['read_more'] . '
             		</a>
         			<div class="collapse" id="ToggleRow_' . $id . '_%d">';
     $replace2 = '</div></div>';

@@ -182,7 +182,7 @@ if (isset($_GET[ 'action' ])) {
 if ($action == "user") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Spam
+                            <span class="fa fa-exclamation-triangle"></span> Spam
 </div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -215,7 +215,7 @@ if ($action == "user") {
 } elseif ($action == "user_ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Spam
+                            <span class="fa fa-exclamation-triangle"></span> Spam
 </div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -236,7 +236,7 @@ if ($action == "user") {
 } elseif ($action == "multi") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Multiple Accounts
+                            <span class="fa fa-exclamation-triangle"></span> Multiple Accounts
 </div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -329,7 +329,7 @@ if ($action == "user") {
 } elseif ($action == "multi_ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <<i class="fa fa-exclamation-triangle"></i> Multiple Accounts
+                            <<span class="fa fa-exclamation-triangle"></span> Multiple Accounts
 </div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -351,7 +351,7 @@ if ($action == "user") {
 } elseif ($action == "multi_just_block") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Multiple Accounts
+                            <span class="fa fa-exclamation-triangle"></span> Multiple Accounts
 </div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -392,7 +392,7 @@ if ($action == "user") {
 } elseif ($action == "api_log") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Api-Log
+                            <span class="fa fa-exclamation-triangle"></span> Api-Log
 </div>
 <div class="panel-body">';
 
@@ -435,7 +435,7 @@ if ($action == "user") {
 } elseif ($action == "forum_spam") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Forum Spam
+                            <span class="fa fa-exclamation-triangle"></span> Forum Spam
 </div>
 <div class="panel-body">';
 
@@ -473,7 +473,7 @@ if ($action == "user") {
 echo '</div></div>';
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Topics
+                            <span class="fa fa-exclamation-triangle"></span> Topics
 </div>
 <div class="panel-body">';
 
@@ -514,7 +514,7 @@ echo '</div></div>';
         }
 
         echo '</table>';
-        
+
     } else {
         echo "n/a";
     }
@@ -522,7 +522,7 @@ echo '</div></div>';
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Posts
+                            <span class="fa fa-exclamation-triangle"></span> Posts
 </div>
 <div class="panel-body">';
 
@@ -568,7 +568,7 @@ echo '</div></div>';
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-exclamation-triangle"></i> Comments
+                            <span class="fa fa-exclamation-triangle"></span> Comments
 </div>
 <div class="panel-body">';
 

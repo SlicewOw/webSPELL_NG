@@ -24,11 +24,11 @@
 #                                                                        #
 ##########################################################################
 */
- 
+
 $_language->readModule('carousel');
- 
+
 $carousel = safe_query("SELECT * FROM " . PREFIX . "carousel WHERE (displayed = '1') ORDER BY sort");
- 
+
 echo '<div id="myCarousel" class="carousel slide" data-ride="carousel"> <!-- Carousel start -->
       <!-- Indicators -->
       <ol class="carousel-indicators">';
@@ -39,7 +39,7 @@ echo '<div id="myCarousel" class="carousel slide" data-ride="carousel"> <!-- Car
                } else {
                     echo '<li data-target="#myCarousel" data-slide-to="'.$i.'"></li>';
                }
-           }       
+           }
        }
        echo '</ol><div class="carousel-inner" role="listbox">';
 $x = 1;
@@ -57,12 +57,12 @@ if (mysqli_num_rows($carousel)) {
 		$title = $db[ 'title' ];
         if (stristr($db[ 'link' ], "http://")) {
 			$link = $db[ 'link' ];
-			
+
 		} else {
 			$link = 'http://' . $db[ 'link' ] . '';
 		}
         $description = $db[ 'description' ];
- 
+
         $data_array = array();
         $data_array['$carouselID'] = $carouselID;
         $data_array['$carousel_pic'] = $carousel_pic;
@@ -76,11 +76,11 @@ if (mysqli_num_rows($carousel)) {
     echo '</div>';
 }
     echo '<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+        <span class="fa fa-chevron-left fa-2x" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+        <span class="fa fa-chevron-right fa-2x" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>';

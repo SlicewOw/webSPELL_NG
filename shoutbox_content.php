@@ -137,10 +137,10 @@ if ($action == "save") {
 
     if ($type == "ASC") {
         $sorter = '<a href="index.php?site=shoutbox_content&amp;action=showall&amp;page=' . $page . '&amp;type=DESC">' .
-            $_language->module[ 'sort' ] . '</a> <i class="fa fa-chevron-down"></i>';
+            $_language->module[ 'sort' ] . '</a> <span class="fa fa-chevron-down"></span>';
     } else {
         $sorter = '<a href="index.php?site=shoutbox_content&amp;action=showall&amp;page=' . $page . '&amp;type=ASC">' .
-            $_language->module[ 'sort' ] . '</a> <i class="fa fa-chevron-up"></i>';
+            $_language->module[ 'sort' ] . '</a> <span class="fa fa-chevron-up"></span>';
     }
 
     $data_array = array();

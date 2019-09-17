@@ -85,13 +85,13 @@ function addonnav()
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."dashnavi_categories WHERE sort>'9' ORDER BY sort");
     while ($ds=mysqli_fetch_array($ergebnis)) {
         $links .= '<li>
-        <a href="#"><i class="fa fa-plus"></i> '.$ds['name'].'<span class="fa arrow"></span></a>';
+        <a href="#"><span class="fa fa-plus"></span> '.$ds['name'].'<span class="fa arrow"></span></a>';
         $catlinks = safe_query("SELECT * FROM ".PREFIX."dashnavi_links WHERE catID='".$ds['catID']."' ORDER BY sort");
         while ($db=mysqli_fetch_array($catlinks)) {
             $accesslevel = 'is'.$db['accesslevel'].'admin';
             if ($accesslevel($userID)) {
                 $links .= '<ul class="nav nav-second-level">
-                                    <li><a href="'.$db['url'].'">'.$ds['name'].'</a></li>        
+                                    <li><a href="'.$db['url'].'">'.$ds['name'].'</a></li>
                         </ul>';
             }
         }
@@ -112,13 +112,13 @@ $ds =
     $data_array['$registerdate'] = $registerdate;
 }
 
-   
+
     if ($getavatar = getavatar($userID)) {
         $l_avatar = '<img src="../images/avatars/' . $getavatar . '" alt="Avatar" class="img-circle profile_img">';
     } else {
         $l_avatar = $_language->module[ 'n_a' ];
     }
-   
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -136,7 +136,7 @@ $ds =
     <!-- Bootstrap Core CSS -->
     <link href="../components/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-   
+
     <!-- Custom CSS -->
     <link href="../components/admin/css/page.css" rel="stylesheet">
 
@@ -177,40 +177,40 @@ $ds =
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                
+
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-question-circle"></i> Support <i class="fa fa-caret-down"></i>
+                        <span class="fa fa-question-circle"></span> Support <span class="fa fa-caret-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                   <li><a href="https://webspell-nor.de/index.php?site=forum"><i class="fa fa-commenting-o"></i> Forum</a>
+                   <li><a href="https://webspell-nor.de/index.php?site=forum"><span class="fa fa-commenting-o"></span> Forum</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="https://discord.gg/KVSfXQa"><i class="fa fa fa-comments"></i> open Discord</a>
+                        <li><a href="https://discord.gg/KVSfXQa"><span class="fa fa fa-comments"></span> open Discord</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-               
+
                 <!-- /.dropdown -->
 
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-times"></i> Logout <i class="fa fa-caret-down"></i>
+                        <span class="fa fa-times"></span> Logout <span class="fa fa-caret-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        
-                        <li><a href="../index.php"><i class="fa fa-undo"></i> Back to Website</a>
+
+                        <li><a href="../index.php"><span class="fa fa-undo"></span> Back to Website</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+                        <li><a href="../logout.php"><span class="fa fa-sign-out"></span> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-               
+
                 <!-- /.dropdown -->
 
             </ul>
@@ -221,42 +221,42 @@ $ds =
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
 
-        
- 
+
+
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                
-                                
+
+
                                 <div class="profile_pic">
                 <?php echo $l_avatar ?>
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
                 <h2><?php echo $username ?></h2>
-        
+
               </div>
-                           
+
                             </div>
                             <!-- /input-group -->
                         </li>
-                        
+
                         <li>
-                            <a href="#"><i class="fa fa-area-chart"></i> <?php echo $_language->module['main_panel']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-area-chart"></span> <?php echo $_language->module['main_panel']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                     <li><a href="admincenter.php"><?php echo $_language->module['overview']; ?></a></li>
                                     <li><a href="admincenter.php?site=page_statistic"><?php echo $_language->module['page_statistics']; ?></a></li>
                                     <li><a href="admincenter.php?site=visitor_statistic"><?php echo $_language->module['visitor_statistics']; ?></a></li>
                                        <?php echo admincenternav(1); ?>
-                                                                        
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        
-                        
-                        <?php if(isuseradmin($userID)) { ?>    
+
+
+                        <?php if(isuseradmin($userID)) { ?>
                         <li>
-                            <a href="#"><i class="fa fa-user"></i> <?php echo $_language->module['user_administration']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-user"></span> <?php echo $_language->module['user_administration']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                     <li><a href="admincenter.php?site=users"><?php echo $_language->module['registered_users']; ?></a></li>
                                     <li><a href="admincenter.php?site=squads"><?php echo $_language->module['squads']; ?></a></li>
@@ -267,24 +267,24 @@ $ds =
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        
-        
+
+
                         <?php } if (ispageadmin($userID)) { ?>
                         <li>
-                            <a href="#"><i class="fa fa-warning"></i> <?php echo $_language->module['spam']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-warning"></span> <?php echo $_language->module['spam']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                     <li><a href="admincenter.php?site=spam&amp;action=forum_spam"><?php echo $_language->module['blocked_content']; ?></a></li>
                                     <li><a href="admincenter.php?site=spam&amp;action=user"><?php echo $_language->module['spam_user']; ?></a></li>
                                     <li><a href="admincenter.php?site=spam&amp;action=multi"><?php echo $_language->module['multiaccounts']; ?></a></li>
                                     <li><a href="admincenter.php?site=spam&amp;action=api_log"><?php echo $_language->module['api_log']; ?></a></li>
-                              <?php echo admincenternav(3); ?>   
+                              <?php echo admincenternav(3); ?>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                       
+
                         <?php }if(isnewsadmin($userID) || isfileadmin($userID) || ispageadmin($userID)) { ?>
                         <li>
-                            <a href="#"><i class="fa fa-indent"></i> <?php echo $_language->module['rubrics']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-indent"></span> <?php echo $_language->module['rubrics']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <?php } if(isnewsadmin($userID)) { ?>
                                 <li><a href="admincenter.php?site=rubrics"><?php echo $_language->module['news_rubrics']; ?></a></li>
@@ -298,11 +298,11 @@ $ds =
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                       
 
-                        <?php } if(ispageadmin($userID)) { ?>   
+
+                        <?php } if(ispageadmin($userID)) { ?>
                         <li>
-                            <a href="#"><i class="fa fa-pencil-square"></i> <?php echo $_language->module['settings']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-pencil-square"></span> <?php echo $_language->module['settings']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="admincenter.php?site=settings"><?php echo $_language->module['settings']; ?></a></li>
                                 <li><a href="admincenter.php?site=styles"><?php echo $_language->module['styles']; ?></a></li>
@@ -314,13 +314,13 @@ $ds =
                                 <li><a href="admincenter.php?site=database"><?php echo $_language->module['database']; ?></a></li>
                                 <li><a href="admincenter.php?site=update&amp;action=update"><?php echo $_language->module['update_webspell']; ?></a></li>
                                 <li><a href="admincenter.php?site=email"><?php echo $_language->module['email']; ?></a></li>
-                            
+
                         <?php echo admincenternav(5); ?>
                         </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-font"></i> <?php echo $_language->module['content']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-font"></span> <?php echo $_language->module['content']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="admincenter.php?site=carousel"><?php echo $_language->module['carousel']; ?></a></li>
                                 <li><a href="admincenter.php?site=static"><?php echo $_language->module['static_pages']; ?></a></li>
@@ -342,7 +342,7 @@ $ds =
                         ?>
 
                         <li>
-                            <a href="#"><i class="fa fa-list"></i> <?php echo $_language->module['forum']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-list"></span> <?php echo $_language->module['forum']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="admincenter.php?site=boards"><?php echo $_language->module['boards']; ?></a></li>
                                 <li><a href="admincenter.php?site=groups"><?php echo $_language->module['manage_user_groups']; ?></a></li>
@@ -352,12 +352,12 @@ $ds =
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
- 
+
                         <?php
                         } if (isgalleryadmin($userID)) {
                         ?>
                         <li>
-                            <a href="#"><i class="fa fa-file-image-o"></i> <?php echo $_language->module['gallery']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-file-image-o"></span> <?php echo $_language->module['gallery']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="admincenter.php?site=gallery&amp;part=groups"><?php echo $_language->module['manage_groups']; ?></a></li>
                                 <li><a href="admincenter.php?site=gallery&amp;part=gallerys"><?php echo $_language->module['manage_galleries']; ?></a></li>
@@ -370,21 +370,21 @@ $ds =
                         } if (ispageadmin($userID)) {
                         ?>
                         <li>
-                            <a href="#"><i class="fa fa-arrow-right"></i> <?php echo $_language->module['plugin_base']; ?><span class="fa arrow"></span></a>
+                            <a href="#"><span class="fa fa-arrow-right"></span> <?php echo $_language->module['plugin_base']; ?><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                             <li><a href="admincenter.php?site=plugin-manager"><?php echo $_language->module['plugin_manages']; ?></a></li>
-                            
+
                                 <?php echo admincenternav(9); ?>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
 
-                                
+
                         <?php echo addonnav(); ?>
                         </li>
                         <?php
                         } ?>
-                       
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -398,7 +398,7 @@ $ds =
 
         <div id="page-wrapper">
             <div class="row">
-                
+
                 <!-- /.col-lg-12 -->
                 <div class="col-lg-12">
                 <br>
@@ -413,7 +413,7 @@ $ds =
 			chdir("../");
 			$plugin = $load->plugin_data($site,0,true);
 			$plugin_path = $plugin['path'];
-			if(file_exists($plugin_path."admin/".$plugin['admin_file'].".php")) {		
+			if(file_exists($plugin_path."admin/".$plugin['admin_file'].".php")) {
 				include($plugin_path."admin/".$plugin['admin_file'].".php");
 			} else {
 				chdir("admin");
@@ -425,7 +425,7 @@ $ds =
         include('overview.php');
     }
 
-    
+
     ?>
 
             </div>
@@ -441,9 +441,9 @@ $ds =
     <link rel="stylesheet" type="text/css" media="all" href="../components/admin/css/style-nav.css">
     <link href="../components/admin/css/bootstrap-colorpicker.min.css" rel="stylesheet">
     <script src="../components/admin/js/bootstrap-colorpicker.js"></script>
-    <script>  
-        jQuery(function($) { 
-            $('#cp1').colorpicker(); 
+    <script>
+        jQuery(function($) {
+            $('#cp1').colorpicker();
             $('#cp2').colorpicker();
             $('#cp3').colorpicker();
             $('#cp4').colorpicker();
@@ -468,9 +468,9 @@ $ds =
             $('#cp23').colorpicker();
             $('#cp24').colorpicker();
             $(document).ready(function(){
-                $('[data-toggle="tooltip"]').tooltip(); 
+                $('[data-toggle="tooltip"]').tooltip();
             });
-        }); 
+        });
     </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../components/bootstrap/bootstrap.min.js"></script>

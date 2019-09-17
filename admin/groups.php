@@ -53,7 +53,7 @@ if ($action == "delete") {
 } elseif ($action == "add") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> '.$_language->module['groups'].'
+                            <span class="fa fa-users"></span> '.$_language->module['groups'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=groups" class="white">' . $_language->module[ 'groups' ] .
@@ -62,7 +62,7 @@ if ($action == "delete") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=groups&amp;action=save">
    <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['group_name'].':</label>
@@ -113,7 +113,7 @@ if ($action == "delete") {
 } elseif ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> '.$_language->module['groups'].'
+                            <span class="fa fa-users"></span> '.$_language->module['groups'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=groups" class="white">' . $_language->module[ 'groups' ] .
@@ -129,7 +129,7 @@ if ($action == "delete") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=groups&amp;action=saveedit">
    <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['group_name'].':</label>
@@ -149,23 +149,23 @@ if ($action == "delete") {
 }
 
 else {
-	
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-users"></i> '.$_language->module['groups'].'
+                            <span class="fa fa-users"></span> '.$_language->module['groups'].'
                         </div>
                         <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=groups&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_group' ] . '</a><br /><br />';
 
 	$ergebnis = safe_query("SELECT * FROM " . PREFIX . "forum_groups ORDER BY fgrID");
-	
+
   echo'<table class="table table-striped">
     <thead>
       <th><b>'.$_language->module['group_name'].'</b></th>
       <th><b>'.$_language->module['actions'].'</b></th>
     </thead>';
-  
+
   $i = 1;
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -184,13 +184,13 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=groups&amp;action=delete&amp;fgrID='.$ds["fgrID"].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-    <a href="admincenter.php?site=groups&amp;action=edit&amp;fgrID='.$ds["fgrID"].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=groups&amp;action=delete&amp;fgrID='.$ds["fgrID"].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+    <a href="admincenter.php?site=groups&amp;action=edit&amp;fgrID='.$ds["fgrID"].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=groups&amp;action=delete&amp;fgrID='.$ds["fgrID"].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 
 
       </td>
 		</tr>';
-      
+
       $i++;
 	}
 

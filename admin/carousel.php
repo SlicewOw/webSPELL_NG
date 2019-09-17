@@ -24,34 +24,34 @@
 #                                                                        #
 ##########################################################################
 */
- 
+
 $_language->readModule('carousel', false, true);
- 
+
 if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
     die($_language->module[ 'access_denied' ]);
 }
- 
+
 $filepath = "../images/carousel/";
- 
+
 if (isset($_GET[ 'action' ])) {
     $action = $_GET[ 'action' ];
 } else {
     $action = '';
 }
- 
+
 if ($action == "add") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-object-group"></i> ' . $_language->module[ 'carousel' ] . '
+                            <span class="fa fa-object-group"></span> ' . $_language->module[ 'carousel' ] . '
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=carousel" class="white">' . $_language->module[ 'carousel' ] .
     '</a> &raquo; ' . $_language->module[ 'add_carousel' ] . '<br><br>';
- 
+
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
- 
+
     echo'<form class="form-horizontal" method="post" action="admincenter.php?site=carousel" enctype="multipart/form-data">
    <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['carousel_pic'].':</label>
@@ -94,12 +94,12 @@ if ($action == "add") {
 } elseif ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-object-group"></i> ' . $_language->module[ 'carousel' ] . '
+                            <span class="fa fa-object-group"></span> ' . $_language->module[ 'carousel' ] . '
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=carousel" class="white">' . $_language->module[ 'carousel' ] .
     '</a> &raquo; ' . $_language->module[ 'edit_carousel' ] . '<br><br>';
- 
+
     $ds = mysqli_fetch_array(
         safe_query(
             "SELECT * FROM " . PREFIX . "carousel WHERE carouselID='" . intval($_GET['carouselID']) ."'"
@@ -110,17 +110,17 @@ if ($action == "add") {
     } else {
         $pic = $_language->module[ 'no_upload' ];
     }
- 
+
     if ($ds[ 'displayed' ] == 1) {
         $displayed = '<input type="checkbox" name="displayed" value="1" checked="checked" />';
     } else {
         $displayed = '<input type="checkbox" name="displayed" value="1" />';
     }
- 
+
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
- 
+
     echo '<form class="form-horizontal" method="post" action="admincenter.php?site=carousel" enctype="multipart/form-data">
 <input type="hidden" name="carouselID" value="' . $ds['carouselID'] . '" />
 <div class="form-group">
@@ -193,23 +193,23 @@ if ($action == "add") {
     if (!$displayed) {
         $displayed = 0;
     }
- 
+
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
     safe_query("INSERT INTO `".PREFIX."carousel` (title, link, description, displayed, sort) values ('".$title."', '".$link."', '".$description."', '".intval($displayed)."','1')");
-               
+
         $id = mysqli_insert_id($_database);
- 
+
         $errors = array();
- 
+
         $upload = new \webspell\HttpUpload('carousel_pic');
         if ($upload->hasFile()) {
             if ($upload->hasError() === false) {
                 $mime_types = array('image/jpeg','image/png','image/gif');
- 
+
                 if ($upload->supportedMimeType($mime_types)) {
                     $imageInformation =  getimagesize($upload->getTempFile());
- 
+
                     if (is_array($imageInformation)) {
                         switch ($imageInformation[ 2 ]) {
                             case 1:
@@ -223,7 +223,7 @@ if ($action == "add") {
                                 break;
                         }
                         $file = $id.$endung;
- 
+
                         if ($upload->saveAs($filepath.$file, true)) {
                             @chmod($file, $new_chmod);
                             safe_query(
@@ -265,25 +265,25 @@ if ($action == "add") {
         } else {
             $link = 'http://' . $link;
         }
- 
+
         safe_query(
             "UPDATE " . PREFIX . "carousel SET title='" . $title . "', link='" . $link . "', description='" . $description .
             "', displayed='" . $displayed . "' WHERE carouselID='" .
             $_POST[ "carouselID" ] . "'"
         );
- 
+
         $id = $_POST[ 'carouselID' ];
- 
+
         $errors = array();
- 
+
         $upload = new \webspell\HttpUpload('carousel_pic');
         if ($upload->hasFile()) {
             if ($upload->hasError() === false) {
                 $mime_types = array('image/jpeg','image/png','image/gif');
- 
+
                 if ($upload->supportedMimeType($mime_types)) {
                     $imageInformation =  getimagesize($upload->getTempFile());
- 
+
                     if (is_array($imageInformation)) {
                         switch ($imageInformation[ 2 ]) {
                             case 1:
@@ -297,7 +297,7 @@ if ($action == "add") {
                                 break;
                         }
                         $file = $id.$endung;
- 
+
                         if ($upload->saveAs($filepath.$file, true)) {
                             @chmod($file, $new_chmod);
                             safe_query(
@@ -328,7 +328,7 @@ if ($action == "add") {
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         $get = safe_query("SELECT * FROM " . PREFIX . "carousel WHERE carouselID='" . $_GET[ "carouselID" ] . "'");
         $data = mysqli_fetch_assoc($get);
- 
+
         if (safe_query("DELETE FROM " . PREFIX . "carousel WHERE carouselID='" . $_GET[ "carouselID" ] . "'")) {
             @unlink($filepath.$data['carousel_pic']);
             redirect("admincenter.php?site=carousel", "", 0);
@@ -341,12 +341,12 @@ if ($action == "add") {
 } else {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-object-group"></i> ' . $_language->module[ 'carousel' ] . '
+                            <span class="fa fa-object-group"></span> ' . $_language->module[ 'carousel' ] . '
                         </div>
                         <div class="panel-body">';
- 
+
     echo '<a href="admincenter.php?site=carousel&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_carousel' ] . '</a><br /><br />';
- 
+
     echo '<form method="post" action="admincenter.php?site=carousel">
     <table class="table table-striped">
     <thead>
@@ -360,7 +360,7 @@ if ($action == "add") {
    $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
- 
+
     $qry = safe_query("SELECT * FROM " . PREFIX . "carousel ORDER BY sort");
     $anz = mysqli_num_rows($qry);
     if ($anz) {
@@ -371,18 +371,18 @@ if ($action == "add") {
             } else {
                 $td = 'td2';
             }
- 
+
             $ds[ 'displayed' ] == 1 ?
             $displayed = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
             $displayed = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
-           
+
             if (stristr($ds[ 'link' ], 'http://')) {
                 $title = '<a href="' . getinput($ds[ 'link' ]) . '" target="_blank">' . getinput($ds[ 'title' ]) . '</a>';
             } else {
                 $title = '<a href="http://' . getinput($ds[ 'link' ]) . '" target="_blank">' . getinput($ds[ 'title' ]) .
                 '</a>';
             }
- 
+
             echo '<tr>
            <td class="' . $td . '">' . $title . '</td>
            <td class="' . $td . '"><img class="img-thumbnail" style="width: 100%; max-width: 350px" align="center" src="../images/carousel/' . $ds[ 'carousel_pic' ] . '" alt="{img}" /></td>
@@ -393,10 +393,10 @@ if ($action == "add") {
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=carousel&amp;delete=true&amp;carouselID=' . $ds[ 'carouselID' ] .
                     '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
-      
-      <a href="admincenter.php?site=carousel&amp;action=edit&amp;carouselID=' . $ds[ 'carouselID' ] . '"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
+
+      <a href="admincenter.php?site=carousel&amp;action=edit&amp;carouselID=' . $ds[ 'carouselID' ] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
       <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=carousel&amp;delete=true&amp;carouselID=' . $ds[ 'carouselID' ] .
-                    '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></a></td>
+                    '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a></td>
 <td class="' . $td . '" align="center"><select name="sort[]">';
             for ($j = 1; $j <= $anz; $j++) {
                 if ($ds[ 'sort' ] == $j) {
@@ -414,7 +414,7 @@ if ($action == "add") {
     } else {
         echo '<tr><td class="td1" colspan="6">' . $_language->module[ 'no_entries' ] . '</td></tr>';
     }
- 
+
     echo '<tr>
 <td class="td_head" colspan="6" align="right"><input type="hidden" name="captcha_hash" value="' . $hash .
     '"><input class="btn btn-primary btn-xs" type="submit" name="sortieren" value="' . $_language->module[ 'to_sort' ] . '" /></td>

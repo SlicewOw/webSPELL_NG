@@ -320,7 +320,7 @@ if ($action == "new") {
     if (($ds[ 'poster' ] != $userID || !isnewswriter($userID)) && !isnewsadmin($userID)) {
         die($_language->module[ 'no_access' ]);
     }
-	
+
 	$css = '';
 	foreach ($components['css'] as $component) {
 		$css.= '<link href="' . $component . '" rel="stylesheet">';
@@ -339,7 +339,7 @@ if ($action == "new") {
     <title>' . PAGETITLE . '</title>
     <link href="_stylesheet.css" rel="stylesheet" type="text/css">
     <link href="css/page.css" rel="stylesheet">
-    
+
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <link href="css/styles.css.php" rel="styleSheet" type="text/css">
     <link href="css/button.css.php" rel="styleSheet" type="text/css">
@@ -996,11 +996,11 @@ if ($action == "new") {
         if ($type == "ASC") {
             echo '<a href="index.php?site=news&amp;action=archive&amp;page=' . $page . '&amp;sort=' . $sort .
                 '&amp;type=DESC">' . $_language->module[ 'sort' ] .
-                '</a> <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;&nbsp;';
         } else {
             echo '<a href="index.php?site=news&amp;action=archive&amp;page=' . $page . '&amp;sort=' . $sort .
                 '&amp;type=ASC">' . $_language->module[ 'sort' ] .
-                '</a> <i class="fa fa-chevron-up"></i>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="fa fa-chevron-up"></span>&nbsp;&nbsp;&nbsp;';
         }
 
         if ($pages > 1) {
@@ -1322,15 +1322,15 @@ if ($action == "new") {
                 '\', \'news.php?action=delete&amp;id=' . $ds[ 'newsID' ] . '\')" value="' .
                 $_language->module[ 'delete' ] . '" class="btn btn-danger">';
         }
-		
+
 		$data_array = array();
-		if($rubricpic!='') { 
-			$data_array['$rubric_pic'] =  '<div><div class="thumbnail pull-left">'.$rubricpic.'</div></div>'; 
+		if($rubricpic!='') {
+			$data_array['$rubric_pic'] =  '<div><div class="thumbnail pull-left">'.$rubricpic.'</div></div>';
 		} else {
 			$data_array['$rubric_pic']='';
 		}
         $data_array['$langs'] = $langs;
-		$data_array['$related'] = $related;	
+		$data_array['$related'] = $related;
         $data_array['$newsID'] = $newsID;
         $data_array['$headline'] = $headline;
         $data_array['$rubrikname'] = $rubrikname;

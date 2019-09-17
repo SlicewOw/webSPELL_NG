@@ -66,11 +66,11 @@ if (isset($_GET[ 'type' ])) {
 if ($type == "ASC") {
     $sorter =
         '<a href="index.php?site=whoisonline&amp;sort=' . $sort . '&amp;type=DESC">' . $_language->module[ 'sort' ] . '
-        </a> <i class="fa fa-chevron-down"></i>';
+        </a> <span class="fa fa-chevron-down"></span>';
 } else {
     $sorter =
         '<a href="index.php?site=whoisonline&amp;sort=' . $sort . '&amp;type=ASC">' . $_language->module[ 'sort' ] . '
-        </a> <i class="fa fa-chevron-up"></i>';
+        </a> <span class="fa fa-chevron-up"></span>';
 }
 
 $ergebnis = safe_query(
@@ -108,7 +108,7 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
             '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' . $ds[ 'nickname' ] .
             '</strong></a>';
         if (isclanmember($ds[ 'userID' ])) {
-            $member = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+            $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
         } else {
             $member = '';
         }
@@ -116,7 +116,7 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
             $email = '';
         } else {
             $email = '<a href="mailto:' . mail_protect(getemail($ds[ 'userID' ])) . '">
-            <i class="fa fa-envelope" title="email"></i>
+            <span class="fa fa-envelope" title="email"></span>
         </a>';
         }
 
@@ -126,28 +126,28 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
         if (!validate_url(gethomepage($ds[ 'userID' ]))) {
             $homepage = '';
         } else {
-            $homepage = '<a href="' . gethomepage($ds[ 'userID' ]) . '" target="_blank"><i class="fa fa-home" aria-hidden="true" title="Homepage"></i></a>';
+            $homepage = '<a href="' . gethomepage($ds[ 'userID' ]) . '" target="_blank"><span class="fa fa-home" aria-hidden="true" title="Homepage"></span></a>';
         }
 
         $pm = '';
         $buddy = '';
         if ($loggedin && $ds[ 'userID' ] != $userID) {
             $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $ds[ 'userID' ] . '">
-                <i class="fa fa-envelope" title="Messenger"></i>
+                <span class="fa fa-envelope" title="Messenger"></span>
             </a>';
             if (isignored($userID, $ds[ 'userID' ])) {
                 $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
-                    <i class="fa fa-user-plus"></i>
+                    <span class="fa fa-user-plus"></span>
                 </a>';
             } elseif (isbuddy($userID, $ds[ 'userID' ])) {
                 $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
-                    <i class="fa fa-user-times"></i></a>
+                    <span class="fa fa-user-times"></span></a>
                 </a>';
             } elseif ($userID == $ds[ 'userID' ]) {
                 $buddy = '';
             } else {
                 $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
-                    <i class="fa fa-user-plus"></i>
+                    <span class="fa fa-user-plus"></span>
                 </a>';
             }
         }
@@ -239,11 +239,11 @@ echo $whoisonline_foot;
 if ($type == "ASC") {
     $sorter =
         '<a href="index.php?site=whoisonline&amp;sort=' . $sort . '&amp;type=DESC">' . $_language->module[ 'sort' ] .
-        '</a> <i class="fa fa-chevron-down"></i>';
+        '</a> <span class="fa fa-chevron-down"></span>';
 } else {
     $sorter =
         '<a href="index.php?site=whoisonline&amp;sort=' . $sort . '&amp;type=ASC">' . $_language->module[ 'sort' ] .
-        '</a> <i class="fa fa-chevron-up"></i>';
+        '</a> <span class="fa fa-chevron-up"></span>';
 }
 
 $ergebnis = safe_query(
@@ -280,7 +280,7 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
     $nickname = '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' . $ds[ 'nickname' ] .
         '</strong></a>';
     if (isclanmember($ds[ 'userID' ])) {
-        $member = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+        $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
     } else {
         $member = '';
     }
@@ -288,7 +288,7 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
         $email = '';
     } else {
         $email = '<a href="mailto:' . mail_protect(getemail($ds[ 'userID' ])) . '">
-            <i class="fa fa-envelope" title="email"></i>
+            <span class="fa fa-envelope" title="email"></span>
         </a>';
     }
 
@@ -299,7 +299,7 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
         $homepage = '';
     } else {
         $homepage = '<a href="' . gethomepage($ds[ 'userID' ]) . '" target="_blank">
-            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+            <span class="fa fa-home" aria-hidden="true" title="Homepage"></span>
         </a>';
     }
 
@@ -307,21 +307,21 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
     $buddy = '';
     if ($loggedin && $ds[ 'userID' ] != $userID) {
         $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $ds[ 'userID' ] . '">
-            <i class="fa fa-envelope"></i>
+            <span class="fa fa-envelope"></span>
         </a>';
         if (isignored($userID, $ds[ 'userID' ])) {
             $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
-                <i class="fa fa-user-plus"></i>
+                <span class="fa fa-user-plus"></span>
             </a>';
         } elseif (isbuddy($userID, $ds[ 'userID' ])) {
             $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
-                <i class="fa fa-user-times"></i></a>
+                <span class="fa fa-user-times"></span></a>
             </a>';
         } elseif ($userID == $ds[ 'userID' ]) {
             $buddy = '';
         } else {
             $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
-                <i class="fa fa-user-plus"></i>
+                <span class="fa fa-user-plus"></span>
             </a>';
         }
     }

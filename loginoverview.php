@@ -198,7 +198,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
 
     if (isclanmember($userID)) {
         $cashboxpic =
-            '<a class="thumbnail text-center" href="index.php?site=cashbox"><i class="fa fa-money fa-4x" alt="Cashbox"></i><br>'.$login_lang[ 'cash-box' ].'</a>';
+            '<a class="thumbnail text-center" href="index.php?site=cashbox"><span class="fa fa-money fa-4x" alt="Cashbox"></span><br>'.$login_lang[ 'cash-box' ].'</a>';
     } else {
         $cashboxpic = '';
     }
@@ -206,7 +206,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
     if (isanyadmin($userID)) {
         $admincenterpic =
             '<a class="thumbnail text-center" href="admin/admincenter.php" target="_blank">
-                <i class="fa fa-cogs fa-4x" alt="Admincenter"></i><br>
+                <span class="fa fa-cogs fa-4x" alt="Admincenter"></span><br>
                 '.$login_lang[ 'admin' ].'
             </a>';
     } else {
@@ -215,7 +215,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
 
     if (isset($_SESSION[ 'referer' ])) {
         $referer_uri = '<a class="btn" href="' . $_SESSION[ 'referer' ] . '">
-            <i class="fa fa-chevron-left"></i> ' .
+            <span class="fa fa-chevron-left"></span> ' .
             $_language->module[ 'back_last_page' ] . '</a>';
         unset($_SESSION[ 'referer' ]);
     } else {
@@ -360,7 +360,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
         }
     } else {
         $events = '<tr>
-        <td colspan="5"><i>' . $_language->module[ 'no_events' ] . '</i></td>
+        <td colspan="5"><span>' . $_language->module[ 'no_events' ] . '</span></td>
     </tr>';
     }
 

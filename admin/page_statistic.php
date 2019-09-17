@@ -113,7 +113,7 @@ foreach ($tables_array as $table) {
 <div class="panel panel-default">
 
 <div class="panel-heading">
-                            <i class="fa fa-database"></i> <?php echo $_language->module['database']; ?>
+                            <span class="fa fa-database"></span> <?php echo $_language->module['database']; ?>
                         </div>
 
 <div class="panel-body">
@@ -154,7 +154,7 @@ foreach ($tables_array as $table) {
 <div class="panel panel-default">
 
 <div class="panel-heading">
-                            <i class="fa fa-pie-chart"></i> <?php echo $_language->module['page_stats']; ?>
+                            <span class="fa fa-pie-chart"></span> <?php echo $_language->module['page_stats']; ?>
                         </div>
 
 <div class="panel-body">
@@ -177,8 +177,8 @@ foreach ($tables_array as $table) {
 	<div class="col-md-6">
 <div class="row bte"><div class="col-md-6"><?php echo $count_array[$i + 1][0]; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_array[$i + 1][1]; ?></em></span></div></div>
 </div>
-    <?php 
-		} 
+    <?php
+		}
   	else { ?>
 
     <?php } ?>

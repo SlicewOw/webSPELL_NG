@@ -328,8 +328,8 @@ function boardmain()
             if ($moderators) {
                 $moderators = $_language->module[ 'moderated_by' ] . ': ' . $moderators;
             }
-			
-			
+
+
 
             $postlink = '';
             $date = '';
@@ -361,7 +361,7 @@ function boardmain()
                         getnickname($lp[ 'lastposter' ]) . '</a>';
                     if (isclanmember($lp[ 'lastposter' ])) {
                         $member =
-                            '<i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                            '<span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                     } else {
                         $member = '';
                     }
@@ -394,9 +394,9 @@ function boardmain()
             }
 
             if ($found) {
-                $icon = '<button type="button" class="btn btn-info"><i class="fa fa-comment"></i></button>';
+                $icon = '<button type="button" class="btn btn-info"><span class="fa fa-comment"></span></button>';
             } else {
-                $icon = '<button type="button" class="btn btn-default"><i class="fa fa-comment"></i></button>';
+                $icon = '<button type="button" class="btn btn-default"><span class="fa fa-comment"></span></button>';
 			}
 
 
@@ -504,7 +504,7 @@ function boardmain()
                 $poster = '<a href="index.php?site=profile&amp;id=' . $lp[ 'lastposter' ] . '">' .
                     getnickname($lp[ 'lastposter' ]) . '</a>';
                 if (isclanmember($lp[ 'lastposter' ])) {
-                    $member = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                    $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                 } else {
                     $member = '';
                 }
@@ -677,12 +677,12 @@ function showboard($board)
         $moderators = '(' . $_language->module[ 'moderated_by' ] . ': ' . $moderators . ')';
     }
 
-    $actions = '<a href="index.php?site=search" class="btn btn-default"><i class="fa fa-search"></i> Search</a>';
+    $actions = '<a href="index.php?site=search" class="btn btn-default"><span class="fa fa-search"></span> Search</a>';
     if ($loggedin) {
         $mark = '<a href="index.php?site=forum&amp;board=' . $board . '&amp;action=markall">' .
             $_language->module[ 'mark_topics_read' ] . '</a>';
         if ($writer) {
-            $actions .= ' <a href="index.php?site=forum&amp;addtopic=true&amp;board=' .$board . '" class="btn btn-primary"><i class="fa fa-comment"></i> ' .$_language->module[ 'new_topic' ] . '</a>';
+            $actions .= ' <a href="index.php?site=forum&amp;addtopic=true&amp;board=' .$board . '" class="btn btn-primary"><span class="fa fa-comment"></span> ' .$_language->module[ 'new_topic' ] . '</a>';
         }
     } else {
         $mark = '';
@@ -748,29 +748,29 @@ function showboard($board)
 
             if ($dt[ 'sticky' ]) {
                 $onicon =
-                    '<button type="button" class="btn btn-info"><i class="fa fa-thumb-tack"></i></button>';
+                    '<button type="button" class="btn btn-info"><span class="fa fa-thumb-tack"></span></button>';
                 $officon =
-                    '<button type="button" class="btn btn-warning"><i class="fa fa-thumb-tack"></i></button>';
+                    '<button type="button" class="btn btn-warning"><span class="fa fa-thumb-tack"></span></button>';
                 $onhoticon =
-                    '<button type="button" class="btn btn-info"><i class="fa fa-thumb-tack"></i>></button>';
+                    '<button type="button" class="btn btn-info"><span class="fa fa-thumb-tack"></span>></button>';
                 $offhoticon =
-                    '<button type="button" class="btn btn-warning"><i class="fa fa-thumb-tack"></i></button>';
+                    '<button type="button" class="btn btn-warning"><span class="fa fa-thumb-tack"></span></button>';
             } else {
                 $onicon =
-                    '<button type="button" class="btn btn-info"><i class="fa fa-comment"></i></button>';
+                    '<button type="button" class="btn btn-info"><span class="fa fa-comment"></span></button>';
                 $officon =
-                    '<button type="button" class="btn btn-default"><i class="fa fa-comment"></i></button>';
+                    '<button type="button" class="btn btn-default"><span class="fa fa-comment"></span></button>';
                 $onhoticon =
-                    '<button type="button" class="btn btn-info"><i class="fa fa-comment"></i></button>';
+                    '<button type="button" class="btn btn-info"><span class="fa fa-comment"></span></button>';
                 $offhoticon =
-                    '<button type="button" class="btn btn-default"><i class="fa fa-comment"></i></button>';
+                    '<button type="button" class="btn btn-default"><span class="fa fa-comment"></span></button>';
             }
 
             if ($dt[ 'closed' ]) {
                 $folder =
-                    '<button type="button" class="btn btn-danger"><i class="fa fa-lock"></i></button>';
+                    '<button type="button" class="btn btn-danger"><span class="fa fa-lock"></span></button>';
             } elseif ($dt[ 'moveID' ]) {
-                $folder = '<button type="button" class="btn btn-default"><i class="fa fa-arrow-right"></i></button>';
+                $folder = '<button type="button" class="btn btn-default"><span class="fa fa-arrow-right"></span></button>';
             } elseif ($userID) {
                 $is_unread = mysqli_num_rows(
                     safe_query(
@@ -808,7 +808,7 @@ function showboard($board)
                 '<a href="index.php?site=profile&amp;id=' . $dt[ 'userID' ] . '">' . getnickname($dt[ 'userID' ]) .
                 '</a>';
             if (isset($posterID) && isclanmember($posterID)) {
-                $member1 = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                $member1 = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
             } else {
                 $member1 = '';
             }
@@ -842,7 +842,7 @@ function showboard($board)
                 $lastposter = '<a href="index.php?site=profile&amp;id=' . $dm[ 'lastposter' ] . '">' .
                     getnickname($dm[ 'lastposter' ]) . '</a>';
                 if (isclanmember($dm[ 'lastposter' ])) {
-                    $member = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                    $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                 } else {
                     $member = '';
                 }
@@ -871,7 +871,7 @@ function showboard($board)
                 $lastposter = '<a href="index.php?site=profile&amp;id=' . $dt[ 'lastposter' ] . '">' .
                     getnickname($dt[ 'lastposter' ]) . '</a>';
                 if (isclanmember($dt[ 'lastposter' ])) {
-                    $member = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                    $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                 } else {
                     $member = '';
                 }
@@ -1385,7 +1385,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
                 }
 
                 if (isclanmember($userID)) {
-                    $member = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                    $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                 } else {
                     $member = '';
                 }
@@ -1401,21 +1401,21 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
                 }
                 if (getemail($userID) && !getemailhide($userID)) {
                     $email = '<a href="mailto:' . mail_protect(getemail($userID)) .
-                        '"><i class="fa fa-envelope" title="mail"></i></a>';
+                        '"><span class="fa fa-envelope" title="mail"></span></a>';
                 } else {
                     $email = '';
                 }
 
                 $pm = '';
                 $buddy = '';
-                $statuspic = '<i class="fa fa-circle text-success" aria-hidden="true"></i>';
+                $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
 
                 if (!validate_url(gethomepage($userID))) {
                     $hp = '';
                 } else {
                     $hp = '<a href="' . gethomepage($userID) .
-                        '" target="_blank"><i class="fa fa-home" aria-hidden="true" title="' .
-                        $_language->module[ 'homepage' ] . '"></i></a>';
+                        '" target="_blank"><span class="fa fa-home" aria-hidden="true" title="' .
+                        $_language->module[ 'homepage' ] . '"></span></a>';
                 }
 
                 $registered = getregistered($userID);

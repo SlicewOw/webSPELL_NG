@@ -41,7 +41,7 @@ echo '<!DOCTYPE html>
     <title>Smilies</title>';
     $componentsCss = generateComponents($components['css'], 'css');
     echo $componentsCss;
-    
+
     echo '
     <link href="_stylesheet.css" rel="stylesheet">
     <script src="js/bbcode.js"></script>
@@ -53,18 +53,18 @@ echo '<!DOCTYPE html>
 	    <h1>Smilies</h1>
 	</div>
 	<div class="row">
-	
+
 		<div class="col-md-12 col-xs-12 col-sm-12">
 			<ul class="list-inline">';
 				$emojiQuery = safe_query("SELECT * FROM ".PREFIX."smileys");
 				while($sm = mysqli_fetch_array($emojiQuery)) {
 					echo '<li>
-						<a href="javascript:AddCodeFromWindow(\'' . $sm['pattern'] . ' \')"><i class="em em-'.$sm['name'].'"></i></a>
+						<a href="javascript:AddCodeFromWindow(\'' . $sm['pattern'] . ' \')"><span class="em em-'.$sm['name'].'"></span></a>
 					</li>';
 				}
 	echo'		</ul>
 		</div>
-	
+
 	</div>
 </div>
 </body>

@@ -104,11 +104,11 @@ if ($action == "add") {
     $country = str_replace("<img", "<img id='getcountry'", $country);
 
   echo'<div class="panel panel-default"><div class="panel-heading">
-                            <i class="fa fa-file-text"></i> '.$_language->module['news_languages'].'
+                            <span class="fa fa-file-text"></span> '.$_language->module['news_languages'].'
                         </div>
       <div class="panel-body">
   <a href="admincenter.php?site=newslanguages" class="white">'.$_language->module['news_languages'].'</a> &raquo; '.$_language->module['add_language'].'<br><br>';
-  
+
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=newslanguages">
     <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['language'].'</label>
@@ -140,10 +140,10 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-file-text"></i> '.$_language->module['news_languages'].'
+                            <span class="fa fa-file-text"></span> '.$_language->module['news_languages'].'
                         </div>
             <div class="panel-body">
   <a href="admincenter.php?site=newslanguages" class="white">'.$_language->module['news_languages'].'</a> &raquo; '.$_language->module['edit_language'].'<br><br>';
@@ -155,7 +155,7 @@ if ($action == "add") {
     $country = str_replace("<img", "<img id='getcountry'", $country);
     $langs = str_replace(' selected="selected"', '', $langs);
     $langs = str_replace('value="' . $ds[ 'lang' ] . '"', 'value="' . $ds[ 'lang' ] . '" selected="selected"', $langs);
-  
+
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=newslanguages">
   <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['language'].'</label>
@@ -188,16 +188,16 @@ else {
 
   if(isset($_GET['page'])) $page=(int)$_GET['page'];
   else $page = 1;
-	
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-file-text"></i> '.$_language->module['news_languages'].'
+                            <span class="fa fa-file-text"></span> '.$_language->module['news_languages'].'
                         </div>
             <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=newslanguages&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_language' ] . '</a><br /><br />';
 
-	
+
   $alle=safe_query("SELECT langID FROM ".PREFIX."news_languages");
   $gesamt = mysqli_num_rows($alle);
   $pages=1;
@@ -220,7 +220,7 @@ else {
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."news_languages ORDER BY lang ASC LIMIT $start,$max");
     $n = ($gesamt+1)-$page*$max+$max;
   }
-  
+
    echo'<table class="table table-striped">
     <thead>
       <th><b>'.$_language->module['flag'].'</b></th>
@@ -238,7 +238,7 @@ else {
 
 
 $getflag = '<img src="../images/flags/' . $ds[ 'lang' ] . '.gif" alt="' . $ds[ 'alt' ] . '">';
-      
+
     echo'<tr>
       <td>'.$getflag.'</td>
       <td>'.getinput($ds['language']).'</td>
@@ -247,8 +247,8 @@ $getflag = '<img src="../images/flags/' . $ds[ 'lang' ] . '.gif" alt="' . $ds[ '
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=newslanguages&amp;delete=true&amp;langID='.$ds['langID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-      <a href="admincenter.php?site=newslanguages&amp;action=edit&amp;langID='.$ds['langID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=newslanguages&amp;delete=true&amp;langID='.$ds['langID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+      <a href="admincenter.php?site=newslanguages&amp;action=edit&amp;langID='.$ds['langID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=newslanguages&amp;delete=true&amp;langID='.$ds['langID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 
       </td>
     </tr>';
@@ -256,7 +256,7 @@ $getflag = '<img src="../images/flags/' . $ds[ 'lang' ] . '.gif" alt="' . $ds[ '
 $n++;
   }
     echo'</table>';
-  
+
 if($pages>1) echo $page_link;
 
 

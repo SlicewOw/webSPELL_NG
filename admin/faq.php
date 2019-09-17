@@ -152,7 +152,7 @@ if (isset($_GET[ 'action' ])) {
 
         echo '<div class="panel panel-default">
          <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['faq'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['faq'].'
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=faq" class="white">' . $_language->module[ 'faq' ] .
@@ -165,7 +165,7 @@ if (isset($_GET[ 'action' ])) {
                 }
             }
         </script>';
-		
+
     echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=faq" onsubmit="return chkFormular();">
      <div class="row">
 	 <div class="form-group">
@@ -187,18 +187,18 @@ if (isset($_GET[ 'action' ])) {
     </div>
   </div>
    </div>
- 
 
-  
+
+
   <div class="col-md-12">';
 
  	$addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
     $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-  
+
   echo ''.$addflags.'<br>'.$addbbcode.'<br>';
   echo '
   <div class="form-group">
-    
+
     <div class="col-md-12"><span class="text-muted small"><em>
       <textarea class="form-control" id="message" name="message" rows="10" cols="" >'.$answer.'</textarea></em></span>
     </div>
@@ -243,7 +243,7 @@ if (isset($_GET[ 'action' ])) {
 
         echo '<div class="panel panel-default">
         <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['faq'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['faq'].'
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=faq" class="white">' . $_language->module[ 'faq' ] .
@@ -256,7 +256,7 @@ if (isset($_GET[ 'action' ])) {
                 }
             }
         </script>';
-		
+
     echo '<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=faq" onsubmit="return chkFormular();">
     <div class="row">
 	 <div class="form-group">
@@ -280,18 +280,18 @@ if (isset($_GET[ 'action' ])) {
 
 
   </div>
- 
 
-  
+
+
   <div class="col-md-12">';
-  
+
  	$addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
     $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-  
+
   echo ''.$addflags.'<br>'.$addbbcode.'<br>';
   echo '
   <div class="form-group">
-    
+
     <div class="col-md-12"><span class="text-muted small"><em>
       <textarea class="form-control" id="message" name="message" rows="10" cols="" >'.getinput($ds['answer']).'</textarea></em></span>
     </div>
@@ -310,14 +310,14 @@ if (isset($_GET[ 'action' ])) {
 }
 
 else {
-	
+
   echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['faq'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['faq'].'
                         </div>
                         <div class="panel-body">';
-  
-  echo'<a href="admincenter.php?site=faq&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_faq' ] . '</a><br /><br />';	
+
+  echo'<a href="admincenter.php?site=faq&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_faq' ] . '</a><br /><br />';
 
 	echo'<form method="post" action="admincenter.php?site=faq">
   <table class="table table-striped">
@@ -364,8 +364,8 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faq&amp;delete=true&amp;faqID='.$db['faqID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=faq&amp;action=edit&amp;faqID='.$db['faqID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faq&amp;delete=true&amp;faqID='.$db['faqID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+	  <a href="admincenter.php?site=faq&amp;action=edit&amp;faqID='.$db['faqID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faq&amp;delete=true&amp;faqID='.$db['faqID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
         </td>
         <td><select name="sortfaq[]">';
             for ($j = 1; $j <= $anzfaq; $j++) {
@@ -377,7 +377,7 @@ else {
                 }
             }
             echo '</select></td></tr>';
-      
+
       $i++;
 		}
 	}

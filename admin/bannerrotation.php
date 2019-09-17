@@ -42,7 +42,7 @@ if (isset($_GET['action'])) {
 if ($action == "add") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-repeat"></i> '.$_language->module['bannerrotation'].'
+                            <span class="fa fa-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=bannerrotation" class="white">' .
@@ -51,13 +51,13 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-	
+
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=bannerrotation" enctype="multipart/form-data">
   <div class="row">
 
 <div class="col-md-6">
 
-  
+
   <div class="form-group">
     <label class="col-sm-4 control-label">'.$_language->module['banner_name'].':</label>
     <div class="col-sm-8"><span class="text-muted small"><em>
@@ -103,7 +103,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-repeat"></i> '.$_language->module['bannerrotation'].'
+                            <span class="fa fa-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=bannerrotation" class="white">'.$_language->module['bannerrotation'].'</a> &raquo; '.$_language->module['edit_banner'].'<br><br>';
@@ -174,7 +174,7 @@ if ($action == "add") {
 
   </div>
 
-   
+
 <div class="col-md-12">
   <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['is_displayed'].':</label>
@@ -402,12 +402,12 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-repeat"></i> '.$_language->module['bannerrotation'].'
+                            <span class="fa fa-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
         <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=bannerrotation&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_banner' ] . '</a><br /><br />';
-  
+
   echo'<form method="post" action="admincenter.php?site=bannerrotation">
   <table class="table table-striped">
     <thead>
@@ -417,7 +417,7 @@ if ($action == "add") {
       <th class="hidden-xs hidden-sm"><b>'.$_language->module['is_displayed'].'</b></th>
       <th><b>'.$_language->module['actions'].'</b></th>
     </thead>';
-  
+
   $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -463,18 +463,18 @@ if ($action == "add") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=bannerrotation&amp;delete=true&amp;bannerID='.$ds['bannerID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=bannerrotation&amp;action=edit&amp;bannerID='.$ds['bannerID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=bannerrotation&amp;delete=true&amp;bannerID='.$ds['bannerID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+	  <a href="admincenter.php?site=bannerrotation&amp;action=edit&amp;bannerID='.$ds['bannerID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=bannerrotation&amp;delete=true&amp;bannerID='.$ds['bannerID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 
 
         </td>
       </tr>';
-      
+
       $i++;
 		}
 	}
   else echo'<tr><td class="td1" colspan="5">'.$_language->module['no_entries'].'</td></tr>';
-	
+
   echo '</table></form>';
 }
 echo '</div></div>';

@@ -33,12 +33,12 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 1
 
 echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-thumbs-up"></i> '.$_language->module['styles'].'
+                            <span class="fa fa-thumbs-up"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
                         <div class="panel panel-default">
-                        
-            <ul class="nav nav-tabs-primary">    
+
+            <ul class="nav nav-tabs-primary">
     <li role="presentation" class="active"><a href="admincenter.php?site=styles">Style</a></li>
     <li role="presentation"><a href="admincenter.php?site=buttons">Buttons</a></li>
     <li role="presentation"><a href="admincenter.php?site=moduls">Module</a></li>
@@ -52,7 +52,7 @@ if (isset($_POST[ 'submit' ])) {
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $error = array();
         $sem = '/^#[a-fA-F0-9]{6}/';
-        
+
         if (!(preg_match($sem, $_POST[ 'win' ]))) {
             $error[ ] = $_language->module[ 'error_win_color' ];
         }
@@ -98,7 +98,7 @@ if (isset($_POST[ 'submit' ])) {
                 nav5='" . $_POST[ 'nav5' ] . "',
                 nav6='" . $_POST[ 'nav6' ] . "' "
             );
-           
+
             redirect("admincenter.php?site=styles", "", 0);
         }
     } else {
@@ -108,7 +108,7 @@ if (isset($_POST[ 'submit' ])) {
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "styles");
     $ds = mysqli_fetch_array($ergebnis);
 
-    
+
 
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -119,8 +119,8 @@ if (isset($_POST[ 'submit' ])) {
 
 <div class="page-header">
   <h1>Info</h1>
-</div> 
-<div class="row"> 
+</div>
+<div class="row">
 <div class="col-md-6">
 
 <div class="form-group">
@@ -136,37 +136,37 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-2 control-label">' . $_language->module[ 'win_color' ] . ':</label>
     <div id="cp9" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'win' ] . '" class="form-control" name="win" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'win' ] . '" class="form-control" name="win" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
   <div class="form-group">
     <label class="col-sm-2 control-label">' . $_language->module[ 'loose_color' ] . ':</label>
     <div id="cp10" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'loose' ] . '" class="form-control" name="loose" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'loose' ] . '" class="form-control" name="loose" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
   <div class="form-group">
     <label class="col-sm-2 control-label">' . $_language->module[ 'draw_color' ] . ':</label>
     <div id="cp11" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'draw' ] . '" class="form-control" name="draw" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'draw' ] . '" class="form-control" name="draw" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
-  
+
   </div>
   </div>
 
   <div class="page-header">
   <h1>Navi</h1>
-</div> 
-<div class="row"> 
+</div>
+<div class="row">
 <div class="col-md-6">
 
 <div class="form-group">
     <label class="col-sm-2 control-label">Background:</label>
     <div id="cp12" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'nav1' ] . '" class="form-control" name="nav1" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'nav1' ] . '" class="form-control" name="nav1" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
   <div class="form-group">
@@ -188,31 +188,31 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
     <label class="col-sm-2 control-label">Sub a:</label>
     <div id="cp13" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'nav3' ] . '" class="form-control" name="nav3" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'nav3' ] . '" class="form-control" name="nav3" /></em></span> <span class="input-group-addon"><span></span></span>
       </div>
   </div>
   <div class="form-group">
     <label class="col-sm-2 control-label">Sub hover:</label>
     <div id="cp14" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'nav4' ] . '" class="form-control" name="nav4" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'nav4' ] . '" class="form-control" name="nav4" /></em></span> <span class="input-group-addon"><span></span></span>
       </div>
   </div>
   <div class="form-group">
     <label class="col-sm-2 control-label">border-top color:</label>
     <div id="cp15" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'nav5' ] . '" class="form-control" name="nav5" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'nav5' ] . '" class="form-control" name="nav5" /></em></span> <span class="input-group-addon"><span></span></span>
       </div>
   </div>
-  
+
 
 </div>
 
 </div>
-  
+
 <div class="page-header">
   <h1>Body</h1>
-</div> 
-<div class="row"> 
+</div>
+<div class="row">
 <div class="col-md-6">
 
 <div class="form-group">
@@ -234,14 +234,14 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
     <label class="col-sm-2 control-label">Background:</label>
     <div id="cp1" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'body3' ] . '" class="form-control" name="body3" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'body3' ] . '" class="form-control" name="body3" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
   <div class="form-group">
     <label class="col-sm-2 control-label">Color:</label>
     <div id="cp2" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'body4' ] . '" class="form-control" name="body4" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'body4' ] . '" class="form-control" name="body4" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -254,9 +254,9 @@ if (isset($_POST[ 'submit' ])) {
     <h1>Typography</h1>
   </div>
 
-  
+
   <div class="row">
-    
+
 
     <div class="col-md-4">
       <div class="well" style="background: '.$ds['typo1'].';">
@@ -268,14 +268,14 @@ if (isset($_POST[ 'submit' ])) {
         <h6 style="color: '.$ds['typo3'].';">h6. Heading 6</h6>
       </div>
     </div>
-    
+
    <div class="col-md-4">
       <h3 style="color: '.$ds['typo2'].';">Example body text</h3>
       <p style="font-size: '.$ds['typo5'].'; color: '.$ds['body4'].';">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
       <p style="font-size: '.$ds['typo5'].'; color: '.$ds['body4'].';">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</p>
-    
+
     </div>
-  
+
     <div class="col-md-4">
        <h3 style="color: '.$ds['typo2'].';">Example addresses</h3>
       <address  style="font-size: '.$ds['body2'].'; color: '.$ds['body4'].';">
@@ -290,7 +290,7 @@ if (isset($_POST[ 'submit' ])) {
       </address>
     </div>
 
-  
+
 
    </div>
 
@@ -299,18 +299,18 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-5 control-label">Well bg-color:</label>
     <div id="cp3" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'typo1' ] . '" class="form-control" name="typo1" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'typo1' ] . '" class="form-control" name="typo1" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
 
   </div>
-  
+
     <div class="col-md-3">
     <div class="form-group">
     <label class="col-sm-5 control-label">H color:</label>
     <div id="cp4" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'typo2' ] . '" class="form-control" name="typo2" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'typo2' ] . '" class="form-control" name="typo2" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -320,7 +320,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-5 control-label">H6 color:</label>
     <div id="cp5" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'typo3' ] . '" class="form-control" name="typo3" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'typo3' ] . '" class="form-control" name="typo3" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -343,7 +343,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-5 control-label">a color:</label>
     <div id="cp6" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'typo4' ] . '" class="form-control" name="typo4" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'typo4' ] . '" class="form-control" name="typo4" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -353,18 +353,18 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-5 control-label">a hover:</label>
     <div id="cp8" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'typo8' ] . '" class="form-control" name="typo8" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'typo8' ] . '" class="form-control" name="typo8" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
 
   </div>
-  
+
     <div class="col-md-3">
     <div class="form-group">
     <label class="col-sm-5 control-label">Page-header divider:</label>
     <div id="cp7" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'typo6' ] . '" class="form-control" name="typo6" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'typo6' ] . '" class="form-control" name="typo6" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -379,7 +379,7 @@ if (isset($_POST[ 'submit' ])) {
   </div>
 
   </div>
-  
+
 
 </div>
 
@@ -394,18 +394,18 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-2 control-label">bg-color:</label>
     <div id="cp16" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'foot1' ] . '" class="form-control" name="foot1" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'foot1' ] . '" class="form-control" name="foot1" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
 
   </div>
-  
+
     <div class="col-md-6">
     <div class="form-group">
     <label class="col-sm-2 control-label">color:</label>
     <div id="cp17" class="input-group colorpicker-component col-sm-8"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'foot2' ] . '" class="form-control" name="foot2" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'foot2' ] . '" class="form-control" name="foot2" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 

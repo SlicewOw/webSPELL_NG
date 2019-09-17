@@ -109,14 +109,14 @@ if ($part == "groups") {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
-    
+
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
    <a href="admincenter.php?site=gallery&amp;part=groups" class="white">'.$_language->module['groups'].'</a> &raquo; '.$_language->module['add_group'].'<br><br>';
-    
+
     echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=groups">
   <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['group_name'].':</label>
@@ -141,11 +141,11 @@ if ($part == "groups") {
 
 		echo'<div class="panel panel-default">
         <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
 		<a href="admincenter.php?site=gallery&amp;part=groups" class="white">'.$_language->module['groups'].'</a> &raquo; '.$_language->module['edit_group'].'<br><br>';
-    
+
     echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=groups">
 	  <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['group_name'].':</label>
@@ -161,11 +161,11 @@ if ($part == "groups") {
   </div>
     </form></div></div>';
 	}
-  
+
 	else {
 		echo'<div class="panel panel-default">
         <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
 		<h4>'.$_language->module['groups'].'</h4>';
@@ -173,7 +173,7 @@ if ($part == "groups") {
     echo'<a href="admincenter.php?site=gallery&amp;part=groups&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_group' ] . '</a><br /><br />';
 
 		$ergebnis = safe_query("SELECT * FROM " . PREFIX . "gallery_groups ORDER BY sort");
-		
+
     echo'<form method="post" name="ws_gallery" action="admincenter.php?site=gallery&amp;part=groups">
     <table class="table table-striped">
       <thead>
@@ -181,13 +181,13 @@ if ($part == "groups") {
         <th><b>'.$_language->module['actions'].'</b></th>
         <th><b>'.$_language->module['sort'].'</b></th>
       </thead>';
-      
+
 		$n = 1;
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            
+
             $list = '<select name="sortlist[]">';
             $counter = mysqli_num_rows($ergebnis);
             for ($i = 1; $i <= $counter; $i++) {
@@ -205,8 +205,8 @@ if ($part == "groups") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_group'] . '\', \'admincenter.php?site=gallery&amp;part=groups&amp;delete=true&amp;groupID='.$ds['groupID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-      <a href="admincenter.php?site=gallery&amp;part=groups&amp;action=edit&amp;groupID='.$ds['groupID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_group'] . '\', \'admincenter.php?site=gallery&amp;part=groups&amp;delete=true&amp;groupID='.$ds['groupID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+      <a href="admincenter.php?site=gallery&amp;part=groups&amp;action=edit&amp;groupID='.$ds['groupID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_group'] . '\', \'admincenter.php?site=gallery&amp;part=groups&amp;delete=true&amp;groupID='.$ds['groupID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 
 
         </td>
@@ -425,14 +425,14 @@ if ($part == "groups") {
             $CAPCLASS = new \webspell\Captcha;
             $CAPCLASS->createTransaction();
             $hash = $CAPCLASS->getHash();
-	    
+
 			echo'<div class="panel panel-default">
             <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
             <a href="admincenter.php?site=gallery&amp;part=gallerys" class="white">'.$_language->module['galleries'].'</a> &raquo; '.$_language->module['add_gallery'].'<br><br>';
-	    
+
 	    echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=gallerys&amp;action=upload">
 
         <div class="form-group">
@@ -488,11 +488,11 @@ if ($part == "groups") {
 
 		echo'<div class="panel panel-default">
          <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=gallery&amp;part=gallerys" class="white">'.$_language->module['galleries'].'</a> &raquo; '.$_language->module['edit_gallery'].'<br><br>';
-    
+
     echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=gallerys">
 
     <div class="form-group">
@@ -527,7 +527,7 @@ if ($part == "groups") {
 	   } elseif ($action == "upload") {
         echo '<div class="panel panel-default">
          <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
 
                 <div class="panel-body">
@@ -570,12 +570,12 @@ if ($part == "groups") {
             closedir($picdir);
             natcasesort($pics);
             reset($pics);
-			
+
       		echo'<form method="post" action="admincenter.php?site=gallery&amp;part=gallerys">
 		      <table width="100%" border="0" cellspacing="1" cellpadding="3">
 		        <tr>
 		          <td>';
-		
+
 			$pics = Array();
 			$picdir = opendir($dir);
 			while (false !== ($file = readdir($picdir))) {
@@ -590,7 +590,7 @@ if ($part == "groups") {
 			closedir($picdir);
 			natcasesort ($pics);
 			reset ($pics);
-					
+
 		    echo '<table class="table">
 		        <tr>
 		          <td></td>
@@ -598,17 +598,17 @@ if ($part == "groups") {
 		          <td><b>'.$_language->module['name'].'</b></td>
 		          <td><b>'.$_language->module['comment'].'</b></td>
 		        </tr>';
-		
+
 			foreach ($pics as $val) {
                 if (is_file($dir . $val)) {
-							
+
 					echo '<tr>
 		            <td><input type="checkbox" value="'.$val.'" name="pictures[]" checked="checked" /></td>
 		            <td><a href="'.$dir.$val.'" target="_blank">'.$val.'</a></td>
 		            <td><input type="text" name="name[]" size="40" /></td>
 		            <td><input type="text" name="comment[]" size="40" /></td>
 		          </tr>';
-		
+
 				}
 			}
 
@@ -628,7 +628,7 @@ if ($part == "groups") {
 		          </tr>
 		        </table>
 		        </form></div></div>';
-        
+
 		} elseif ($upload_type == "form") {
             $CAPCLASS = new \webspell\Captcha;
             $CAPCLASS->createTransaction();
@@ -664,16 +664,16 @@ if ($part == "groups") {
       </form></div></div>';
 		}
 	}
-  
+
 	else {
 		echo'<div class="panel panel-default">
         <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
-		
+
         '.$_language->module['galleries'].'<br><br>';
-    
+
     echo'<a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_gallery' ] . '</a><br /><br />';
 
 		echo'<form method="post" name="ws_gallery" action="admincenter.php?site=gallery&amp;part=gallerys">
@@ -698,44 +698,44 @@ if ($part == "groups") {
             $hash = $CAPCLASS->getHash();
             $i = 1;
             while ($db = mysqli_fetch_array($galleries)) {
-                
+
                 echo '<tr>
           <td><a href="../index.php?site=gallery&amp;galleryID='.$db['galleryID'].'" target="_blank">'.getinput($db['name']).'</a></td>
           <td align="center">
 
-          
+
           <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=upload&amp;upload=form&amp;galleryID='.$db['galleryID'].'" class="btn btn-primary btn-xs" type="button">'.$_language->module['add_img'].' ('.$_language->module['per_form'].')</a>
 
 
-         <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=upload&amp;upload=ftp&amp;galleryID='.$db['galleryID'].'" class="btn btn-primary btn-xs" type="button">'.$_language->module['add_img'].' ('.$_language->module['per_ftp'].')</a>   
+         <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=upload&amp;upload=ftp&amp;galleryID='.$db['galleryID'].'" class="btn btn-primary btn-xs" type="button">'.$_language->module['add_img'].' ('.$_language->module['per_ftp'].')</a>
 
   </td>
           <td><a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$db['galleryID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$db['galleryID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-      <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$db['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$db['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+      <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$db['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$db['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 
 
 
           </td>
         </tr>';
-      
+
       $i++;
 		  }
     }
 		echo'</table></form></div></div><br />';
-    
+
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> '.$_language->module['gallery'].'
+                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
     '.$_language->module['usergalleries'].'</br><br>';
 
 		$ergebnis=safe_query("SELECT * FROM ".PREFIX."gallery WHERE userID!='0'");
-		
+
     echo'<form method="post" name="ws_gallery" action="admincenter.php?site=gallery&amp;part=gallerys">
     <table class="table table-striped">
       <thead>
@@ -743,7 +743,7 @@ if ($part == "groups") {
         <th><b>'.$_language->module['usergallery_of'].'</b></th>
         <th><b>'.$_language->module['actions'].'</b></th>
       </thead>';
-      
+
     $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
@@ -761,11 +761,11 @@ if ($part == "groups") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$ds['galleryID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$ds['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$ds['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+	  <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$ds['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$ds['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
         </td>
       </tr>';
-      
+
       $i++;
 		}
 		echo'</table></form>';

@@ -33,12 +33,12 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 1
 
 echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-thumbs-up"></i> '.$_language->module['styles'].'
+                            <span class="fa fa-thumbs-up"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
                         <div class="panel panel-default">
-                        
-            <ul class="nav nav-tabs-primary">    
+
+            <ul class="nav nav-tabs-primary">
     <li role="presentation"><a href="admincenter.php?site=styles">Style</a></li>
     <li role="presentation" class="active"><a href="admincenter.php?site=buttons">Buttons</a></li>
     <li role="presentation"><a href="admincenter.php?site=moduls">Module</a></li>
@@ -52,7 +52,7 @@ if (isset($_POST[ 'submit' ])) {
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $error = array();
         $sem = '/^#[a-fA-F0-9]{6}/';
-        
+
         if (count($error)) {
             echo '<b>' . $_language->module[ 'errors' ] . ':</b><br /><ul>';
 
@@ -89,7 +89,7 @@ if (isset($_POST[ 'submit' ])) {
                 button23='" . $_POST[ 'button23' ] . "',
                 button24='" . $_POST[ 'button24' ] . "' "
             );
-           
+
             redirect("admincenter.php?site=buttons", "", 0);
         }
     } else {
@@ -99,7 +99,7 @@ if (isset($_POST[ 'submit' ])) {
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "buttons");
     $ds = mysqli_fetch_array($ergebnis);
 
-    
+
 
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -110,16 +110,16 @@ if (isset($_POST[ 'submit' ])) {
 
 <div class="page-header">
   <h1>Button</h1>
-</div> 
+</div>
 <table class="table table-striped">
     <thead>
     <th>Button:</th>
       <th>background-color:</th>
       <th>hover bg-color:</th>
-      
+
       <th>font color:</th>
       <th>border color:</th>
-      
+
     </thead> </table>
 <div class="row">
 
@@ -133,7 +133,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-4 control-label">#ffffff</label>
     <div id="cp1" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button1' ] . '" class="form-control" name="button1" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button1' ] . '" class="form-control" name="button1" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
   </div>
@@ -142,7 +142,7 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
   <label class="col-sm-4 control-label">#e6e6e6</label>
     <div id="cp2" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button2' ] . '" class="form-control" name="button2" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button2' ] . '" class="form-control" name="button2" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -151,7 +151,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#333333</label>
      <div id="cp3" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button3' ] . '" class="form-control" name="button3" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button3' ] . '" class="form-control" name="button3" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -160,7 +160,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#adadad</label>
      <div id="cp19" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button19' ] . '" class="form-control" name="button19" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button19' ] . '" class="form-control" name="button19" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -179,7 +179,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-4 control-label">#0088cc</label>
     <div id="cp4" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button4' ] . '" class="form-control" name="button4" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button4' ] . '" class="form-control" name="button4" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
   </div>
@@ -188,7 +188,7 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
   <label class="col-sm-4 control-label">#0044cc</label>
     <div id="cp5" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button5' ] . '" class="form-control" name="button5" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button5' ] . '" class="form-control" name="button5" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -197,7 +197,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#ffffff</label>
      <div id="cp6" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button6' ] . '" class="form-control" name="button6" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button6' ] . '" class="form-control" name="button6" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -206,7 +206,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#2E6DA4</label>
      <div id="cp20" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button20' ] . '" class="form-control" name="button20" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button20' ] . '" class="form-control" name="button20" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -226,7 +226,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-4 control-label">#5cb85c</label>
     <div id="cp7" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button7' ] . '" class="form-control" name="button7" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button7' ] . '" class="form-control" name="button7" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
   </div>
@@ -235,7 +235,7 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
   <label class="col-sm-4 control-label">#449d44</label>
     <div id="cp8" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button8' ] . '" class="form-control" name="button8" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button8' ] . '" class="form-control" name="button8" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -244,7 +244,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#ffffff</label>
      <div id="cp9" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button9' ] . '" class="form-control" name="button9" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button9' ] . '" class="form-control" name="button9" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -253,7 +253,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#398439</label>
      <div id="cp21" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button21' ] . '" class="form-control" name="button21" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button21' ] . '" class="form-control" name="button21" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -272,7 +272,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-4 control-label">#5bc0de</label>
     <div id="cp10" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button10' ] . '" class="form-control" name="button10" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button10' ] . '" class="form-control" name="button10" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
   </div>
@@ -281,7 +281,7 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
   <label class="col-sm-4 control-label">#2f96b4</label>
     <div id="cp11" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button11' ] . '" class="form-control" name="button11" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button11' ] . '" class="form-control" name="button11" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -290,7 +290,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#ffffff</label>
      <div id="cp12" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button12' ] . '" class="form-control" name="button12" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button12' ] . '" class="form-control" name="button12" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -299,7 +299,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#269abc</label>
      <div id="cp22" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button22' ] . '" class="form-control" name="button22" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button22' ] . '" class="form-control" name="button22" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -318,7 +318,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-4 control-label">#fbb450</label>
     <div id="cp13" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button13' ] . '" class="form-control" name="button13" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button13' ] . '" class="form-control" name="button13" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
   </div>
@@ -327,7 +327,7 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
   <label class="col-sm-4 control-label">#f89406</label>
     <div id="cp14" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button14' ] . '" class="form-control" name="button14" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button14' ] . '" class="form-control" name="button14" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -336,7 +336,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#ffffff</label>
      <div id="cp15" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button15' ] . '" class="form-control" name="button15" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button15' ] . '" class="form-control" name="button15" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -345,7 +345,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#d58512</label>
      <div id="cp23" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button23' ] . '" class="form-control" name="button23" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button23' ] . '" class="form-control" name="button23" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -364,7 +364,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="form-group">
     <label class="col-sm-4 control-label">#ee5f5b</label>
     <div id="cp16" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button16' ] . '" class="form-control" name="button16" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button16' ] . '" class="form-control" name="button16" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
   </div>
@@ -373,7 +373,7 @@ if (isset($_POST[ 'submit' ])) {
   <div class="form-group">
   <label class="col-sm-4 control-label">#bd362f</label>
     <div id="cp17" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button17' ] . '" class="form-control" name="button17" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button17' ] . '" class="form-control" name="button17" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 
@@ -382,7 +382,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#ffffff</label>
      <div id="cp18" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button18' ] . '" class="form-control" name="button18" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button18' ] . '" class="form-control" name="button18" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>
@@ -391,7 +391,7 @@ if (isset($_POST[ 'submit' ])) {
  <div class="form-group">
  <label class="col-sm-4 control-label">#ac2925</label>
      <div id="cp24" class="input-group colorpicker-component col-sm-7"><span class="text-muted small"><em>
-    <input type="text" value="' . $ds[ 'button24' ] . '" class="form-control" name="button24" /></em></span> <span class="input-group-addon"><i></i></span> 
+    <input type="text" value="' . $ds[ 'button24' ] . '" class="form-control" name="button24" /></em></span> <span class="input-group-addon"><span></span></span>
     </div>
   </div>
 </div>

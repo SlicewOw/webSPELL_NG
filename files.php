@@ -621,7 +621,7 @@ if ($action == "save") {
                 $link = '(R)';
             } else {
                 $link = '<a href="download.php?fileID=' . $fileid . '">
-                <i class="fa fa-download"></i>
+                <span class="fa fa-download"></span>
                 </a>';
             }
 
@@ -786,7 +786,7 @@ if ($action == "save") {
             }
         }
         if ($found) {
-            $rateform = "<i>" . $_language->module[ 'you_have_already_rated' ] . "</i>";
+            $rateform = "<span>" . $_language->module[ 'you_have_already_rated' ] . "</span>";
         } else {
             $rateform = '<form method="post" name="rating_file' . $file[ 'fileID' ] .
                 '" action="rating.php" role="form">
@@ -817,7 +817,7 @@ if ($action == "save") {
         </form>';
         }
     } else {
-        $rateform = '<i>' . $_language->module[ 'rate_have_to_reg_login' ] . '</i>';
+        $rateform = '<span>' . $_language->module[ 'rate_have_to_reg_login' ] . '</span>';
     }
 
     $admintools = '';
@@ -843,7 +843,7 @@ if ($action == "save") {
 
     if ($file[ 'accesslevel' ] <= $accesslevel) {
         $link = '<a href="download.php?fileID=' . $fileID .
-            '" class="btn btn-lg btn-success"><i class="fa fa-download"></i> ' .
+            '" class="btn btn-lg btn-success"><span class="fa fa-download"></span> ' .
             str_replace('%filename%', $filename, $_language->module[ 'download_now' ]) . '</a>';
     } else {
         $link = $_language->module[ 'download_registered_only' ] . '<br><a href="index.php?site=login">' .

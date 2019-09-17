@@ -45,11 +45,11 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-gamepad"></i> ' . $_language->module['games'] . '
+                            <span class="fa fa-gamepad"></span> ' . $_language->module['games'] . '
                         </div>
       <div class="panel-body">
   <a href="admincenter.php?site=games" class="white">' . $_language->module['games'] . '</a> &raquo; ' . $_language->module['add_game'] . '<br><br>';
-	
+
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=games" enctype="multipart/form-data">
 	<div class="form-group">
     <label class="col-sm-2 control-label">' . $_language->module['game_icon'] . ':</label>
@@ -86,10 +86,10 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-	
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-gamepad"></i> ' . $_language->module['games'] . '
+                            <span class="fa fa-gamepad"></span> ' . $_language->module['games'] . '
                         </div>
       <div class="panel-body">
   <a href="admincenter.php?site=games" class="white">' . $_language->module['games'] . '</a> &raquo; ' . $_language->module['edit_game'] . '<br><br>';
@@ -129,7 +129,7 @@ if ($action == "add") {
   </form>
   </div>
   </div>';
-  
+
 } elseif (isset($_POST[ 'save' ])) {
     $icon = $_FILES[ "icon" ];
     $name = $_POST[ "name" ];
@@ -265,15 +265,15 @@ if ($action == "add") {
 
   if(isset($_GET['page'])) $page=(int)$_GET['page'];
   else $page = 1;
-	
+
   echo'<div class="panel panel-default">
    <div class="panel-heading">
-                            <i class="fa fa-gamepad"></i> ' . $_language->module['games'] . '
+                            <span class="fa fa-gamepad"></span> ' . $_language->module['games'] . '
                         </div>
   <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=games&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_game' ] . '</a><br /><br />';
-  
+
   $alle=safe_query("SELECT gameID FROM ".PREFIX."games");
   $gesamt = mysqli_num_rows($alle);
   $pages=1;
@@ -296,7 +296,7 @@ if ($action == "add") {
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."games ORDER BY name ASC LIMIT $start,$max");
     $n = ($gesamt+1)-$page*$max+$max;
   }
-  
+
 
   echo'<table class="table table-striped">
     <thead>
@@ -305,7 +305,7 @@ if ($action == "add") {
       <th><b>' . $_language->module['game_tag'] . '</b></th>
       <th><b>' . $_language->module['actions'] . '</b></th>
     </thead>';
-  
+
 	 $n=1;
 
   $CAPCLASS = new \webspell\Captcha;
@@ -314,12 +314,12 @@ if ($action == "add") {
 
   while($ds=mysqli_fetch_array($ergebnis)) {
 	  if(is_gamefilexist($filepath,$ds[ 'tag' ])) {
-		 $pic = '<img src="../images/games/' . is_gamefilexist($filepath,$ds[ 'tag' ]).'" alt="">';  
+		 $pic = '<img src="../images/games/' . is_gamefilexist($filepath,$ds[ 'tag' ]).'" alt="">';
 	  }
 	  else {
 		  $pic = $ds[ 'tag' ];
 	  }
-      			
+
       echo'<tr>
         <td>' . $pic . '</td>
         <td>' . getinput($ds['name']) . '</td>
@@ -327,15 +327,15 @@ if ($action == "add") {
         <td><a href="admincenter.php?site=games&amp;action=edit&amp;gameID=' . $ds['gameID'] . '" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=games&amp;delete=true&amp;gameID=' . $ds['gameID'] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
-		
-    <a href="admincenter.php?site=games&amp;action=edit&amp;gameID=' . $ds['gameID'] . '"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-        <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=games&amp;delete=true&amp;gameID=' . $ds['gameID'] . '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></a></td>
+
+    <a href="admincenter.php?site=games&amp;action=edit&amp;gameID=' . $ds['gameID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+        <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=games&amp;delete=true&amp;gameID=' . $ds['gameID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a></td>
       </tr>';
-      
+
       $n++;
   }
     echo'</table>';
-  
+
 if($pages>1) echo $page_link;
 }
 echo '</div></div>';

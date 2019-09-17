@@ -76,14 +76,14 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-link"></i> '.$_language->module['link_categories'].'
+                            <span class="fa fa-link"></span> '.$_language->module['link_categories'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=linkcategories" class="white">'.$_language->module['link_categories'].'</a> &raquo; '.$_language->module['add_category'].'<br><br>';
-  
+
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=linkcategories">
   <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['category_name'].':</label>
@@ -102,10 +102,10 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-link"></i> '.$_language->module['link_categories'].'
+                            <span class="fa fa-link"></span> '.$_language->module['link_categories'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=linkcategories" class="white">'.$_language->module['link_categories'].'</a> &raquo; '.$_language->module['edit_category'].'<br><br>';
@@ -131,17 +131,17 @@ if ($action == "add") {
 }
 
 else {
-	
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-link"></i> '.$_language->module['link_categories'].'
+                            <span class="fa fa-link"></span> '.$_language->module['link_categories'].'
                         </div>
                         <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=linkcategories&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_category' ] . '</a><br /><br />';
 
 	$ergebnis = safe_query("SELECT * FROM " . PREFIX . "links_categorys ORDER BY name");
-	
+
   echo'<table class="table table-striped">
     <thead>
       <th><b>'.$_language->module['category_name'].'</b></th>
@@ -159,17 +159,17 @@ else {
         } else {
             $td = 'td2';
         }
-      
+
 		echo'<tr>
       <td>'.getinput($ds['name']).'</td>
       <td class="text-right"><a href="admincenter.php?site=linkcategories&amp;action=edit&amp;linkcatID='.$ds['linkcatID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=linkcategories&amp;delete=true&amp;linkcatID='.$ds['linkcatID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
-        
-        <a href="admincenter.php?site=linkcategories&amp;action=edit&amp;linkcatID='.$ds['linkcatID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=linkcategories&amp;delete=true&amp;linkcatID='.$ds['linkcatID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a></td>
+
+        <a href="admincenter.php?site=linkcategories&amp;action=edit&amp;linkcatID='.$ds['linkcatID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=linkcategories&amp;delete=true&amp;linkcatID='.$ds['linkcatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
     </tr>';
-      
+
       $i++;
 	}
 	echo'</table>';

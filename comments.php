@@ -67,12 +67,12 @@ function checkCommentsAllow($type, $parentID)
         return false;
     }
 }
- 
+
 if (isset($_POST[ 'savevisitorcomment' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
- 
+
     $name = $_POST[ 'name' ];
     $mail = $_POST[ 'mail' ];
     $url = $_POST[ 'url' ];
@@ -81,9 +81,9 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     $message = $_POST[ 'message' ];
     $ip = $GLOBALS[ 'ip' ];
     $CAPCLASS = new \webspell\Captcha();
- 
+
     $nicks = array();
- 
+
     setcookie("visitor_info", $name . "--||--" . $mail . "--||--" . $url, time() + (3600 * 24 * 365));
     $query = safe_query("SELECT `nickname`, `username` FROM `" . PREFIX . "user` ORDER BY `nickname`");
     while ($ds = mysqli_fetch_array($query)) {
@@ -91,10 +91,10 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
         $nicks[] = $ds[ 'username' ];
     }
     $_SESSION[ 'comments_message' ] = $message;
- 
+
     $spamApi = webspell\SpamApi::getInstance();
     $validation = $spamApi->validate($message);
- 
+
     if (in_array(trim($name), $nicks)) {
         header("Location: " . $_POST[ 'referer' ] . "&error=nickname#post");
     } elseif (!($CAPCLASS->checkCaptcha($_POST[ 'captcha' ], $_POST[ 'captcha_hash' ]))) {
@@ -164,14 +164,14 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     if (!$userID) {
         die($_language->module[ 'access_denied' ]);
     }
- 
+
     $parentID = $_POST[ 'parentID' ];
     $type = $_POST[ 'type' ];
     $message = $_POST[ 'message' ];
- 
+
     $spamApi = webspell\SpamApi::getInstance();
     $validation = $spamApi->validate($message);
- 
+
     if (checkCommentsAllow($type, $parentID)) {
         $date = time();
         if ($validation == webspell\SpamApi::SPAM) {
@@ -242,9 +242,9 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 $message = getinput($ds[ 'comment' ]);
                 $message = preg_replace("#\n\[br\]\[br\]\[hr]\*\*(.+)#si", '', $message);
                 $message = preg_replace("#\n\[br\]\[br\]\*\*(.+)#si", '', $message);
- 
+
                 $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
- 
+
                 $data_array = array();
                 $data_array['$addbbcode'] = $addbbcode;
                 $data_array['$message'] = $message;
@@ -267,15 +267,15 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
- 
+
     if (!isfeedbackadmin($userID) && !iscommentposter($userID, $_POST[ 'commentID' ])) {
         die('No access');
     }
- 
+
     $message = $_POST[ 'message' ];
     $author = $_POST[ 'authorID' ];
     $referer = urldecode($_POST[ 'referer' ]);
- 
+
     // check if any admin edited the post
     if (safe_query(
         "UPDATE
@@ -291,7 +291,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
 } else {
     $_language->readModule('comments');
     $_language->readModule('bbcode', true);
- 
+
     if (isset($_GET[ 'commentspage' ])) {
         $commentspage = (int)$_GET[ 'commentspage' ];
     } else {
@@ -302,14 +302,14 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     } else {
         $sorttype = 'DESC';
     }
- 
+
     if (!isset($parentID) && isset($_GET[ 'parentID' ])) {
         $parentID = (int)$_GET[ 'parentID' ];
     }
     if (!isset($type) && isset($_GET[ 'type' ])) {
         $type = mb_substr($_GET[ 'type' ], 0, 2);
     }
- 
+
     $alle = safe_query(
         "SELECT
             `commentID`
@@ -321,13 +321,13 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     );
     $gesamt = mysqli_num_rows($alle);
     $commentspages = ceil($gesamt / $maxfeedback);
- 
+
     if ($commentspages > 1) {
         $page_link = makepagelink("$referer&amp;sorttype=$sorttype", $commentspage, $commentspages, 'comments');
     } else {
         $page_link = '';
     }
- 
+
     if ($commentspage == "1") {
         $ergebnis = safe_query(
             "SELECT
@@ -369,27 +369,27 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     if ($gesamt) {
         $title_comments = $GLOBALS["_template"]->replaceTemplate("title_comments", array());
         echo $title_comments;
- 
+
         if ($sorttype == "ASC") {
             $sorter = '<a href="' . $referer . '&amp;commentspage=' . $commentspage . '&amp;sorttype=DESC">' .
-                $_language->module[ 'sort' ] . '</a> <i class="fa fa-chevron-down" title="' .
+                $_language->module[ 'sort' ] . '</a> <span class="fa fa-chevron-down" title="' .
                 $_language->module[ 'sort_desc' ] . '"></span>&nbsp;&nbsp;&nbsp;';
         } else {
             $sorter = '<a href="' . $referer . '&amp;commentspage=' . $commentspage . '&amp;sorttype=ASC">' .
-                $_language->module[ 'sort' ] . '</a> <i class="fa fa-chevron-up" title="' .
+                $_language->module[ 'sort' ] . '</a> <span class="fa fa-chevron-up" title="' .
                 $_language->module[ 'sort_asc' ] . '"></span>&nbsp;&nbsp;&nbsp;';
         }
- 
+
         $data_array = array();
         $data_array['$sorter'] = $sorter;
         $comments_head = $GLOBALS["_template"]->replaceTemplate("comments_head", $data_array);
         echo $comments_head;
- 
+
         while ($ds = mysqli_fetch_array($ergebnis)) {
             #$n % 2 ? $bg1 = BG_1 : $bg1 = BG_3;
- 
+
             $date = getformatdatetime($ds[ 'date' ]);
- 
+
             if ($ds[ 'userID' ]) {
                 $ip = '';
                 $poster = '<a class="titlelink" href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><b>' .
@@ -399,7 +399,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 } else {
                     $member = '';
                 }
- 
+
                 $quotemessage = addslashes(getinput($ds[ 'comment' ]));
                 $quotemessage = str_replace(array("\r\n", "\r", "\n"), array('\r\n', '\r', '\n'), $quotemessage);
                 $quotenickname = addslashes(getinput(getnickname($ds[ 'userID' ])));
@@ -408,10 +408,10 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                     array($quotenickname, $quotemessage),
                     $_language->module[ 'quote_link' ]
                 );
- 
+
                 $country = '[flag]' . getcountry($ds[ 'userID' ]) . '[/flag]';
                 $country = flags($country);
- 
+
                 if (($email = getemail($ds[ 'userID' ])) && !getemailhide($ds[ 'userID' ])) {
                     $email = str_replace('%email%', mail_protect($email), $_language->module[ 'email_link' ]);
                 } else {
@@ -422,42 +422,42 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                     && $gethomepage != "n/a"
                 ) {
                     $hp = '<a href="http://' . $gethomepage .
-                        '" target="_blank"><i class="fa fa-home" title="' .
-                        $_language->module[ 'homepage' ] . '"></i></a>';
+                        '" target="_blank"><span class="fa fa-home" title="' .
+                        $_language->module[ 'homepage' ] . '"></span></a>';
                 } else {
                     $hp = '';
                 }
- 
+
                 if (isonline($ds[ 'userID' ]) == "offline") {
                     $statuspic = '<span class="label label-danger">offline</span>';
                 } else {
                     $statuspic = '<span class="label label-success">online</span>';
                 }
- 
+
                 $avatar = '<img src="images/avatars/' . getavatar($ds[ 'userID' ]) .
                     '" class="text-left" alt="Avatar">';
- 
+
                 if ($loggedin && $ds[ 'userID' ] != $userID) {
                     $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $ds[ 'userID' ] .
-                        '"><i class="fa fa-envelope" title="' .
-                        $_language->module[ 'send_message' ] . '"></i></a>';
+                        '"><span class="fa fa-envelope" title="' .
+                        $_language->module[ 'send_message' ] . '"></span></a>';
                     if (isignored($userID, $ds[ 'userID' ])) {
                         $buddy =
                             '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><i class="fa fa-user-plus" title="' .
-                            $_language->module[ 'readd_buddy' ] . '"></i></a>';
+                            '"><span class="fa fa-user-plus" title="' .
+                            $_language->module[ 'readd_buddy' ] . '"></span></a>';
                     } elseif (isbuddy($userID, $ds[ 'userID' ])) {
                         $buddy =
                             '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><i class="fa fa-user-times" title="' .
-                            $_language->module[ 'ignore_user' ] . '"></i></a>';
+                            '"><span class="fa fa-user-times" title="' .
+                            $_language->module[ 'ignore_user' ] . '"></span></a>';
                     } elseif ($userID == $ds[ 'userID' ]) {
                         $buddy = '';
                     } else {
                         $buddy =
                             '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><i class="fa fa-user-plus" title="' .
-                            $_language->module[ 'add_buddy' ] . '"></i></a>';
+                            '"><span class="fa fa-user-plus" title="' .
+                            $_language->module[ 'add_buddy' ] . '"></span></a>';
                     }
                 } else {
                     $pm = '';
@@ -473,7 +473,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 $ds[ 'nickname' ] = strip_tags($ds[ 'nickname' ]);
                 $ds[ 'nickname' ] = htmlspecialchars($ds[ 'nickname' ]);
                 $poster = strip_tags($ds[ 'nickname' ]);
- 
+
                 $ds[ 'email' ] = strip_tags($ds[ 'email' ]);
                 $ds[ 'email' ] = htmlspecialchars($ds[ 'email' ]);
                 if ($ds[ 'email' ]) {
@@ -481,7 +481,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 } else {
                     $email = '';
                 }
- 
+
                 $ds[ 'url' ] = strip_tags($ds[ 'url' ]);
                 $ds[ 'url' ] = htmlspecialchars($ds[ 'url' ]);
                 if (!stristr($ds[ 'url' ], 'http://')) {
@@ -489,8 +489,8 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 }
                 if ($ds[ 'url' ] != "http://" && $ds[ 'url' ] != "") {
                     $hp = '<a href="' . $ds[ 'url' ] .
-                        '" target="_blank"><i class="fa fa-home" title="' .
-                        $_language->module[ 'homepage' ] . '"></i></a>';
+                        '" target="_blank"><span class="fa fa-home" title="' .
+                        $_language->module[ 'homepage' ] . '"></span></a>';
                 } else {
                     $hp = '';
                 }
@@ -500,7 +500,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 } else {
                     $ip .= 'saved';
                 }
- 
+
                 $quotemessage = addslashes(getinput($ds[ 'comment' ]));
                 $quotenickname = addslashes(getinput($ds[ 'nickname' ]));
                 $quote = str_replace(
@@ -509,26 +509,26 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                     $_language->module[ 'quote_link' ]
                 );
             }
- 
+
             $content = cleartext($ds[ 'comment' ]);
             $content = toggle($content, $ds[ 'commentID' ]);
- 
+
             if (isfeedbackadmin($userID) || iscommentposter($userID, $ds[ 'commentID' ])) {
                 $edit =
                     '<a href="index.php?site=comments&amp;editcomment=true&amp;id=' . $ds[ 'commentID' ] . '&amp;ref=' .
                     urlencode($referer) . '" title="' . $_language->module[ 'edit_comment' ] .
-                    '"><i class="fa fa-pencil"></i></a>';
+                    '"><span class="fa fa-pencil"></span></a>';
             } else {
                 $edit = '';
             }
- 
+
             if (isfeedbackadmin($userID)) {
                 $actions =
                     '<input class="input" type="checkbox" name="commentID[]" value="' . $ds[ 'commentID' ] . '">';
             } else {
                 $actions = '';
             }
- 
+
             $spam_buttons = "";
             if (!empty($spamapikey)) {
                 if (ispageadmin($userID)) {
@@ -539,7 +539,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                         $ds[ 'commentID' ] . '&type=ham\',\'\',\'return\')">';
                 }
             }
- 
+
             $data_array = array();
             $data_array['$avatar'] = $avatar;
             $data_array['$content'] = $content;
@@ -549,7 +549,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
             $data_array['$date'] = $date;
             $comments = $GLOBALS["_template"]->replaceTemplate("comments", $data_array);
             echo $comments;
- 
+
             unset(
                 $member,
                 $quote,
@@ -562,14 +562,14 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 $ip,
                 $edit
             );
- 
+
             if ($sorttype == "DESC") {
                 $n--;
             } else {
                 $n++;
             }
         }
- 
+
         if (isfeedbackadmin($userID)) {
             $submit = '<input type="hidden" name="referer" value="' . $referer . '">
                     <input class="input" type="checkbox" name="ALL" value="ALL" onclick="SelectAll(this.form);"> ' .
@@ -578,14 +578,14 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
         } else {
             $submit = '';
         }
- 
+
         $data_array = array();
         $data_array['$page_link'] = $page_link;
         $data_array['$submit'] = $submit;
         $comments_foot = $GLOBALS["_template"]->replaceTemplate("comments_foot", $data_array);
         echo $comments_foot;
     }
- 
+
     if ($comments_allowed) {
         if ($loggedin) {
             $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
@@ -607,7 +607,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 $name = "";
                 $mail = "";
             }
- 
+
             if (isset($_GET[ 'error' ])) {
                 $err = $_GET[ 'error' ];
             } else {
@@ -621,19 +621,19 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
             } else {
                 $error = '';
             }
- 
+
             if (isset($_SESSION[ 'comments_message' ])) {
                 $message = getforminput($_SESSION[ 'comments_message' ]);
                 unset($_SESSION[ 'comments_message' ]);
             } else {
                 $message = "";
             }
- 
+
             $CAPCLASS = new \webspell\Captcha();
             $captcha = $CAPCLASS->createCaptcha();
             $hash = $CAPCLASS->getHash();
             $CAPCLASS->clearOldCaptcha();
- 
+
             $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
             $data_array = array();
             $data_array['$name'] = $name;

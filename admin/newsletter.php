@@ -185,7 +185,7 @@ hr { margin: 0px; }
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-newspaper-o"></i> <?php echo $_language->module['newsletter']; ?>
+                            <span class="fa fa-newspaper-o"></span> <?php echo $_language->module['newsletter']; ?>
                         </div>
 
 
@@ -225,10 +225,10 @@ hr { margin: 0px; }
   <button class="btn btn-primary btn-xs" type="submit" name="send"><?php echo $_language->module['send']; ?></button>
  </div>
 </div>
-</form> 
+</form>
 </div></div>
 
-<?php 
+<?php
 }
 echo '</div>';
 ?>

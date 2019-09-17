@@ -155,9 +155,9 @@ if (mysqli_num_rows($thread)) {
         }
 
         echo '<tr>
-        <td valign="top"><i>' . $date . ', ' . $time . ' </i> - <strong>' . $username . '</strong> - ' .
+        <td valign="top"><span>' . $date . ', ' . $time . ' </span> - <strong>' . $username . '</strong> - ' .
             $usertype . $rang . $specialrang . $specialtype . ' - ' . $posts . ' ' . $_language->module[ 'posts' ] .
-            '<br>' . $message . ' ><i>' . $signatur . '</i>><br>&nbsp;</td>
+            '<br>' . $message . ' ><span>' . $signatur . '</span>><br>&nbsp;</td>
         </tr>';
     }
     echo '</table><br></div></body></html>';

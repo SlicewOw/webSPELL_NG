@@ -45,11 +45,11 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-globe"></i> ' . $_language->module['countries'] . '
+                            <span class="fa fa-globe"></span> ' . $_language->module['countries'] . '
                         </div>
     <div class="panel-body">
   <a href="admincenter.php?site=countries" class="white">'.$_language->module['countries'].':</a> &raquo; '.$_language->module['add_country'].'<br><br>';
-	
+
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=countries" enctype="multipart/form-data">
   <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['icon_upload'].':</label>
@@ -96,10 +96,10 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-	
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-globe"></i> ' . $_language->module['countries'] . '
+                            <span class="fa fa-globe"></span> ' . $_language->module['countries'] . '
                         </div>
     <div class="panel-body">
   <a href="admincenter.php?site=countries" class="white">'.$_language->module['countries'].'</a> &raquo; '.$_language->module['edit_country'].'<br><br>';
@@ -293,10 +293,10 @@ if(isset($_GET['page'])) $page=(int)$_GET['page'];
 
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-globe"></i> ' . $_language->module['countries'] . '
+                            <span class="fa fa-globe"></span> ' . $_language->module['countries'] . '
                         </div>
     <div class="panel-body">';
-	
+
     echo'<a href="admincenter.php?site=countries&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_country' ] . '</a><br><br>';
 
 
@@ -321,7 +321,7 @@ if(isset($_GET['page'])) $page=(int)$_GET['page'];
     $start=$page*$max-$max;
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."countries ORDER BY country ASC LIMIT $start,$max");
     $n = ($gesamt+1)-$page*$max+$max;
-  }  
+  }
 
     #echo '<form method="post" action="admincenter.php?site=countries">';
 
@@ -333,24 +333,24 @@ if(isset($_GET['page'])) $page=(int)$_GET['page'];
       <th><b>' . $_language->module['actions'] . '</b></th>
     </thead>';
 
-      
-
-    
 
 
-  
-          
+
+
+
+
+
           $ds = safe_query("SELECT * FROM `" . PREFIX . "countries` ORDER BY `country`");
-    
+
    $n=1;
 while($ds=mysqli_fetch_array($ergebnis)) {
   $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-        
-        
+
+
          while ($flags = mysqli_fetch_array($ergebnis)) {
-            
+
             $pic = '<img src="../images/flags/' . $flags[ 'short' ] . '.gif" alt="' . $flags[ 'country' ] . '">';
             if ($flags[ 'fav' ] == 1) {
                 $fav = ' <small style="color:green"><b>(' . $_language->module[ 'favorite' ] . ')</b></small>';
@@ -365,24 +365,24 @@ while($ds=mysqli_fetch_array($ergebnis)) {
         <td><a href="admincenter.php?site=countries&amp;action=edit&amp;countryID='.$flags['countryID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\''.$_language->module['really_delete'].'\', \'admincenter.php?site=countries&amp;delete=true&amp;countryID='.$flags['countryID'].'&amp;captcha_hash='.$hash.'\')" value="'.$_language->module['delete'].'" />
-		
-        <a href="admincenter.php?site=countries&amp;action=edit&amp;countryID='.$flags['countryID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-        <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\''.$_language->module['really_delete'].'\', \'admincenter.php?site=countries&amp;delete=true&amp;countryID='.$flags['countryID'].'&amp;captcha_hash='.$hash.'\')" value="'.$_language->module['delete'].'" /><i class="fa fa-times"></i></a></td>
+
+        <a href="admincenter.php?site=countries&amp;action=edit&amp;countryID='.$flags['countryID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+        <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\''.$_language->module['really_delete'].'\', \'admincenter.php?site=countries&amp;delete=true&amp;countryID='.$flags['countryID'].'&amp;captcha_hash='.$hash.'\')" value="'.$_language->module['delete'].'" /><span class="fa fa-times"></span></a></td>
       </tr>';
-      
-      
+
+
       $n++;
-		} 
-        
+		}
+
 
     }
-	
+
   #else echo'<tr><td class="td1" colspan="5">'.$_language->module['no_entries'].'</td></tr>';
-	
+
   echo '</table>';
   if($pages>1) echo $page_link;
   #echo '</form>';
-  
+
 }
 echo '</div></div>';
 ?>

@@ -49,18 +49,18 @@ function generate_overview($filecats = '', $offset = '', $subcatID = 0)
         } else {
             $td = 'td2';
         }
-				
+
 		$filecats .= '<tr>
         <td>'.$offset.getinput($ds['name']).'</td>
         <td class="text-right"><a href="admincenter.php?site=filecategories&amp;action=edit&amp;filecatID='.$ds['filecatID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=filecategories&amp;delete=true&amp;filecatID='.$ds['filecatID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-		<a href="admincenter.php?site=filecategories&amp;action=edit&amp;filecatID='.$ds['filecatID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      	<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=filecategories&amp;delete=true&amp;filecatID='.$ds['filecatID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+		<a href="admincenter.php?site=filecategories&amp;action=edit&amp;filecatID='.$ds['filecatID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      	<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=filecategories&amp;delete=true&amp;filecatID='.$ds['filecatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
         </td>
     	</tr>';
-	      
+
         $i++;
 
         if (mysqli_num_rows(safe_query(
@@ -148,14 +148,14 @@ if ($_GET[ 'action' ] == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-download"></i> '.$_language->module['file_categories'].'
+                            <span class="fa fa-download"></span> '.$_language->module['file_categories'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=filecategories" class="white">'.$_language->module['file_categories'].'</a> &raquo; '.$_language->module['add_category'].'<br><br>';
-  
+
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=filecategories">
 	<div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['category_name'].':</label>
@@ -191,14 +191,14 @@ if ($_GET[ 'action' ] == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-	
+
 	echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-download"></i> '.$_language->module['file_categories'].'
+                            <span class="fa fa-download"></span> '.$_language->module['file_categories'].'
                         </div>
         <div class="panel-body">
 	<a href="admincenter.php?site=filecategories" class="white">'.$_language->module['file_categories'].'</a> &raquo; '.$_language->module['edit_category'].'<br><br>';
-  
+
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=filecategories" enctype="multipart/form-data">
   <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['category_name'].':</label>
@@ -222,13 +222,13 @@ if ($_GET[ 'action' ] == "add") {
 }
 
 else {
-	
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-download"></i> '.$_language->module['file_categories'].'
+                            <span class="fa fa-download"></span> '.$_language->module['file_categories'].'
                         </div>
                         <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=filecategories&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_category' ] . '</a><br /><br />';
 
 	echo'<table class="table">

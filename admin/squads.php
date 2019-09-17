@@ -328,7 +328,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-users"></i> '.$_language->module['squads'].'
+                            <span class="fa fa-users"></span> '.$_language->module['squads'].'
                         </div><div class="panel-body">
   <a href="admincenter.php?site=squads" class="white">'.$_language->module['squads'].'</a> &raquo; '.$_language->module['add_squad'].'<br><br>';
 
@@ -358,7 +358,7 @@ if ($action == "add") {
 			}
 		-->
 	</script>';
-  
+
 	echo '<form method="post" id="post" name="post" action="admincenter.php?site=squads" enctype="multipart/form-data"
 onsubmit="return chkFormular();">
   <div class="col-md-6">
@@ -407,13 +407,13 @@ onsubmit="return chkFormular();">
     </div>
   </div>
   </div>
-  
+
   </div>
 
   <div class="col-md-12">
 <div class="row bt"><div class="col-md-12">'.$_language->module['squad_info'].':</div>
   <div class="form-group">
-    
+
     <div class="col-sm-12">
 		'.$addflags.'
 		'.$addbbcode.'<br>
@@ -432,7 +432,7 @@ onsubmit="return chkFormular();">
 } elseif ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-users"></i> '.$_language->module['squads'].'
+                            <span class="fa fa-users"></span> '.$_language->module['squads'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=squads" class="white">' . $_language->module['squads'] .
@@ -500,7 +500,7 @@ type="radio" name="gamesquad" value="1" checked="checked" /> ' . $_language->mod
 			}
 		-->
 	</script>';
-  
+
 	echo '<form method="post" id="post" name="post" action="admincenter.php?site=squads" enctype="multipart/form-data"
     onsubmit="return chkFormular();">
 	<div class="col-md-6">
@@ -565,14 +565,14 @@ type="radio" name="gamesquad" value="1" checked="checked" /> ' . $_language->mod
     </div>
   </div>
   </div>
- 
+
 
   </div>
 
   <div class="col-md-12">
 <div class="row bt"><div class="col-md-12">'.$_language->module['squad_info'].':</div>
   <div class="form-group">
-    
+
     <div class="col-sm-12">
 		'.$addflags.'
 		'.$addbbcode.'<br>
@@ -594,7 +594,7 @@ else {
   echo'<div class="panel panel-default">
 
 <div class="panel-heading">
-                            <i class="fa fa-users"></i> '.$_language->module['squads'].'
+                            <span class="fa fa-users"></span> '.$_language->module['squads'].'
                         </div>
 
 <div class="panel-body">';
@@ -646,8 +646,8 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=squads&amp;delete=true&amp;squadID='.$db['squadID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=squads&amp;action=edit&amp;squadID='.$db['squadID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=squads&amp;delete=true&amp;squadID='.$db['squadID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a></a></td>
+	  <a href="admincenter.php?site=squads&amp;action=edit&amp;squadID='.$db['squadID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=squads&amp;delete=true&amp;squadID='.$db['squadID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></a></td>
         <td><select name="sort[]">';
 
             for ($j = 1; $j <= $anzsquads; $j++) {
@@ -660,11 +660,11 @@ else {
             echo '</select>
         </td>
       </tr>';
-      
+
       $i++;
 		}
 	}
-	
+
   echo'<tr>
       <td colspan="5" align="right"><input type="hidden" name="captcha_hash" value="'.$hash.'" />
       <input class="btn btn-primary btn-xs" type="submit" name="sortieren" value="'.$_language->module['to_sort'].'" /></td>

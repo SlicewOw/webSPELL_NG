@@ -191,10 +191,10 @@ if (isset($_GET[ 'action' ])) {
             $pages
         );
     }
-		
+
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-user-times"></i> ' . $_language->module[ 'group_users' ] . '
+                            <span class="fa fa-user-times"></span> ' . $_language->module[ 'group_users' ] . '
                         </div>
                         <div class="panel-body">
    <a href="admincenter.php?site=group-users" class="white">'.$_language->module['group_users'].'</a> &raquo; '.$_language->module['edit_group_users'].'<br><br>';
@@ -291,7 +291,7 @@ if (isset($_GET[ 'action' ])) {
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-user-times"></i> ' . $_language->module[ 'group_users' ] . '
+                            <span class="fa fa-user-times"></span> ' . $_language->module[ 'group_users' ] . '
                         </div>
             <div class="panel-body">';
 

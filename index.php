@@ -90,12 +90,12 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <meta name="author" content="webspell-nor.de">
 
     <!-- Head & Title include -->
-    <title><?php 
+    <title><?php
      $pm = new plugin_manager();
      if(isset($_GET['site']) AND $pm->plugin_updatetitle($_GET['site'])) {
       echo $pm->plugin_updatetitle($_GET['site']);
-     } else {  
-      echo PAGETITLE; 
+     } else {
+      echo PAGETITLE;
      }
      ?></title>
     <base href="<?php echo $rewriteBase; ?>">
@@ -104,11 +104,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         echo '<link href="' . $component . '" rel="stylesheet">';
 	}
     ?>
-    
+
     <link href="css/scrolling-nav.css" rel="stylesheet">
     <link href="css/styles.css.php" rel="styleSheet" type="text/css">
     <link href="css/button.css.php" rel="styleSheet" type="text/css">
-    
+
 
     <link href="_stylesheet.css" rel="stylesheet">
 
@@ -120,18 +120,18 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 	?>
 
 	<!-- Plugin-Manager 1.2 load css/js -->
-	<?php 
+	<?php
 		$load = new plugin_manager();
 		echo ($load->plugin_loadheadfile());
 	?>
 	<script src="js/bbcode.js" type="text/javascript"></script>
     <!-- end Head & Title include -->
-    
+
 </head>
 <body>
 <div class="wrapper">
 <!-- Fixed navbar -->
-    
+
 
          <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -161,9 +161,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         </div>
     </div> <!-- /container -->
     </nav> <!-- nav end -->
-      <?php include ('sc_carousel.php'); ?>   <br><br> 
+      <?php include ('sc_carousel.php'); ?>   <br><br>
     <div class="container">
-    
+
     	<div class="row">
         <?php // show left column
             if (!in_array($site, $hide3)) {
@@ -179,7 +179,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <?php include("poll.php"); ?>
                     <!-- end poll include -->
                     <hr class="grey">
-                    
+
                     <h3><?php echo $index_language[ 'lasttopics' ]; ?></h3>
                     <?php include("latesttopics.php"); ?>
                     <!-- end poll include -->
@@ -197,7 +197,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <?php include("sc_randompic.php"); ?>
                     <!-- end randompic include -->
                     <hr class="grey">
-                    
+
                     <!-- articles include -->
                     <h3><?php echo $index_language[ 'articles' ]; ?></h3>
                     <?php include("sc_articles.php"); ?>
@@ -222,7 +222,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <?php include("sc_sponsors.php"); ?>
                     <!-- end sponsors include -->
                     <hr class="grey">
-					
+
                     <!-- partners include -->
                     <h3><?php echo $index_language[ 'partners' ]; ?></h3>
 
@@ -258,12 +258,12 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 }
                 $invalide = array('\\', '/', '/\/', ':', '.');
                 $site = str_replace($invalide, ' ', $site);
-					
+
 				$_language->readModule('plugin');
 				$plugin = new plugin_manager();
 				$plugin->set_debug(DEBUG);
 				if(!empty($site) AND $plugin->is_plugin($site)>0) {
-					$data = $plugin->plugin_data($site); 
+					$data = $plugin->plugin_data($site);
 					$plugin_path = $data['path'];
 					$check = $plugin->plugin_check($data, $site);
 					if($check['status']==1) {
@@ -288,11 +288,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <!-- right column -->
             <div id="rightcol" class="col-md-3 col-sm-3 hidden-xs"><br>
                 <!-- login include -->
-                <div class="hidden-xs">                    
+                <div class="hidden-xs">
                     <?php include("login.php"); ?>
                     <hr class="grey">
                 </div>
- 
+
                 <div class="visible-sm">
                     <h3><?php echo $index_language[ 'topics' ]; ?></h3>
                     <?php include("latesttopics.php"); ?>
@@ -369,7 +369,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             } ?>
         </div> <!-- row-end -->
     </div> <!-- container-content-end -->
-    
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -393,22 +393,22 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 Copyright&copy; by <?php echo $myclanname ?> <?php date("Y"); ?> - <small>Template by <a href="http://www.2one-designs.de" target="_blank">Argu</a> and <a href="http://www.designperformance.de" target="_blank">T-Seven</a></small>
                 <!-- if you want, you can use this network-items by your own -->
                     <div class="pull-right">
-                        <a href="https://www.facebook.com/webspellnor"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                        <a href="https://twitter.com"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                        <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                        <a href="mailto:admin@yoursite.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>      
+                        <a href="https://www.facebook.com/webspellnor"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></span></a>
+                        <a href="https://twitter.com"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></span></a>
+                        <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></span></a>
+                        <a href="mailto:admin@yoursite.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></span></a>
                     </div>
-                
+
             </div>
         </div>
-    </footer>    
-</div>  <!-- wrapper-end --> 
+    </footer>
+</div>  <!-- wrapper-end -->
 <div class="scroll-top-wrapper">  <!-- scroll to top feature -->
 	<span class="scroll-top-inner">
-		<i class="fa fa-2x fa-arrow-circle-up"></i>
+		<span class="fa fa-2x fa-arrow-circle-up"></span>
 	</span>
 </div>
-    
+
 <script>
     webshim.setOptions('basePath', 'components/webshim/js-webshim/minified/shims/');
     //request the features you need:
@@ -420,7 +420,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     webshim.polyfill('forms forms-ext');
 </script>
 <script>
-	  $("body").tooltip({   
+	  $("body").tooltip({
 		selector: "[data-toggle='tooltip']",
 		container: "body"
 	})
@@ -428,7 +428,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
-    
+
 
 </body>
 </html>

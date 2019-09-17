@@ -40,7 +40,7 @@ if (isset($_GET[ 'action' ])) {
 }
 
 if ($action == "add") {
-    
+
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -62,11 +62,11 @@ if ($action == "add") {
 
 echo'<div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['sponsors'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['sponsors'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=sponsors" class="white">' . $_language->module['sponsors'] . '</a> &raquo; ' . $_language->module['add_sponsor'] . '<br><br>';
-  
+
   echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=sponsors" enctype="multipart/form-data" onsubmit="return chkFormular();">
    <div class="row">
 
@@ -103,17 +103,17 @@ echo'<div class="panel panel-default">
     </div>
   </div>
 
-  
+
 </div>
 
 <div class="col-md-12">
-  
- 
+
+
   <div class="col-md-12">
   '.$addflags.'<br>'.$addbbcode.'<br>
   </div>
   <div class="form-group">
-   
+
     <div class="col-md-12"><span class="text-muted small"><em>
       <textarea class="form-control" id="message" name="message" rows="10" cols="" ></textarea></em></span>
     </div>
@@ -141,7 +141,7 @@ echo'<div class="panel panel-default">
   </form></div>
   </div>';
 } elseif ($action == "edit") {
-    
+
     $ds = mysqli_fetch_array(
         safe_query(
             "SELECT * FROM " . PREFIX . "sponsors WHERE sponsorID='" . $_GET[ "sponsorID" ] ."'"
@@ -188,17 +188,17 @@ echo'<div class="panel panel-default">
    }
 -->
 </script>';
-  
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['sponsors'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['sponsors'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=sponsors" class="white">' . $_language->module['sponsors'] . '</a> &raquo; ' . $_language->module['edit_sponsor'] . '<br><br>';
 
-  echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=sponsors" enctype="multipart/form-data" onsubmit="return chkFormular();"> 
+  echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=sponsors" enctype="multipart/form-data" onsubmit="return chkFormular();">
   <input type="hidden" name="sponsorID" value="'.$ds['sponsorID'].'" />
-     
+
       <div class="row">
 
 <div class="col-md-6">
@@ -258,16 +258,16 @@ echo'<div class="panel panel-default">
   </div>
 
  </div>
- 
-   
 
-  
-  
+
+
+
+
   <div class="col-md-12">
   '.$addflags.'<br>'.$addbbcode.'<br>
   </div>
 
-    
+
     <div class="col-md-12"><span class="text-muted small"><em>
       <textarea class="form-control" id="message" name="message" rows="10" cols="" >'.getinput($ds['info']).'</textarea></em></span>
     </div>
@@ -571,12 +571,12 @@ echo'<div class="panel panel-default">
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['sponsors'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['sponsors'].'
                         </div>
                         <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=sponsors&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_sponsor' ] . '</a><br /><br />';
-  
+
   echo'<form method="post" action="admincenter.php?site=sponsors">
   <table class="table table-striped">
     <thead>
@@ -587,7 +587,7 @@ echo'<div class="panel panel-default">
       <th><b>'.$_language->module['actions'].'</b></th>
       <th><b>'.$_language->module['sort'].'</b></th>
     </thead>';
-	 
+
 	 $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -623,7 +623,7 @@ echo'<div class="panel panel-default">
             } else {
                 $perday = $ds[ 'hits' ];
             }
-      
+
 			echo'<tr>
         <td>'.$name.'</td>
         <td>'.$ds['hits'].' ('.$perday.')</td>
@@ -633,8 +633,8 @@ echo'<div class="panel panel-default">
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=sponsors&amp;delete=true&amp;sponsorID='.$ds['sponsorID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=sponsors&amp;action=edit&amp;sponsorID='.$ds['sponsorID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=sponsors&amp;delete=true&amp;sponsorID='.$ds['sponsorID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a></td>
+	  <a href="admincenter.php?site=sponsors&amp;action=edit&amp;sponsorID='.$ds['sponsorID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=sponsors&amp;delete=true&amp;sponsorID='.$ds['sponsorID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
         <td><select name="sort[]">';
             for ($j = 1; $j <= $anz; $j++) {
                 if ($ds[ 'sort' ] == $j) {
@@ -647,12 +647,12 @@ echo'<div class="panel panel-default">
             echo '</select>
         </td>
       </tr>';
-      
+
       $i++;
 		}
 	}
   else echo'<tr><td class="td1" colspan="6">'.$_language->module['no_entries'].'</td></tr>';
-	
+
   echo'<tr>
       <td class="td_head" colspan="6" align="right"><input type="hidden" name="captcha_hash" value="'.$hash.'" /><input class="btn btn-primary btn-xs" type="submit" name="sortieren" value="'.$_language->module['to_sort'].'" /></td>
     </tr>

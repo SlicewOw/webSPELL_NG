@@ -113,14 +113,14 @@ if (!isset($_GET['step'])) {
     <footer class="footer">
 		<div class="container">
         	<hr />
-			<p class="text-muted"><small><i class="fa fa-copyright"></i> <?php echo date("Y"); ?> by <a href="https://webspell-nor.de/" target="_blank">WebSpell NOR</a> & <a href="http://www.webspell.org" target="_blank">Webspell.org</a></small></p>
+			<p class="text-muted"><small><span class="fa fa-copyright"></span> <?php echo date("Y"); ?> by <a href="https://webspell-nor.de/" target="_blank">WebSpell NOR</a> & <a href="http://www.webspell.org" target="_blank">Webspell.org</a></small></p>
 		</div>
     </footer>
 	</div>
     </div> <!-- /container -->
 <script src="../components/bootstrap/bootstrap.min.js"></script>
 	<script>
-	  $("body").tooltip({   
+	  $("body").tooltip({
 		selector: "[data-toggle='tooltip']",
 		container: "body"
 	})

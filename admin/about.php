@@ -58,7 +58,7 @@ if (isset($_POST[ 'submit' ]) != "") {
 
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-arrows"></i> ' . $_language->module[ 'about' ] . '
+                            <span class="fa fa-arrows"></span> ' . $_language->module[ 'about' ] . '
                         </div>
 <div class="panel-body">
 
@@ -80,11 +80,11 @@ if (isset($_POST[ 'submit' ]) != "") {
 
     $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
     $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-  
+
   echo '<div class="col-md-12 hidden-xs hidden-sm">
 			  ' . $addflags . '<br>
 		        ' . $addbbcode . '<br></div>';
-  
+
   echo '<textarea class="form-control" id="message" name="message" rows="25" cols="" style="width: 100%;">' . getinput($ds['about']) . '</textarea>
   <br /><br /><input type="hidden" name="captcha_hash" value="' . $hash . '" /><button class="btn btn-success btn-xs" type="submit" name="submit"  />' . $_language->module['update'] . '</button>
   </form>

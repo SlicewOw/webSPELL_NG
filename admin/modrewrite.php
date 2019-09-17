@@ -48,7 +48,7 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-location-arrow"></i> ' . $_language->module['modrewrite_settings'] . '
+                            <span class="fa fa-location-arrow"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
         <div class="panel-body">
     <a href="admincenter.php?site=modrewrite" class="white">' . $_language->module['modrewrite'] .
@@ -106,7 +106,7 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-location-arrow"></i> ' . $_language->module['modrewrite_settings'] . '
+                            <span class="fa fa-location-arrow"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
             <div class="panel-body">
     <a href="admincenter.php?site=modrewrite" class="white">' . $_language->module['modrewrite'] .
@@ -272,7 +272,7 @@ if ($action == "add") {
 } elseif (isset($_POST['test'])) {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-location-arrow"></i> ' . $_language->module['modrewrite_settings'] . '
+                            <span class="fa fa-location-arrow"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
             <div class="panel-body">';
     $do_test = false;
@@ -420,7 +420,7 @@ if ($action == "add") {
     redirect("admincenter.php?site=modrewrite", $_language->module['successful'], 2);
 } else {
     echo '<div class="panel panel-default"><div class="panel-heading">
-                            <i class="fa fa-location-arrow"></i> ' . $_language->module['modrewrite_settings'] . '
+                            <span class="fa fa-location-arrow"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
             <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -437,7 +437,7 @@ if ($action == "add") {
             '" style="width:70%;"></em></span>
     </div>
   </div>
-  
+
   <div class="form-group">
     <div class="col-md-12">
       <input type="hidden" name="captcha_hash" value="'.$hash.'" />
@@ -452,7 +452,7 @@ if ($action == "add") {
 
 
 
-        
+
         </form></div></div>';
     } else {
         echo '<form method="post" action="admincenter.php?site=modrewrite" enctype="multipart/form-data">
@@ -463,7 +463,7 @@ if ($action == "add") {
       ' . $_language->module['enabled'] . '</em></span>
     </div>
   </div>
- 
+
   <div class="form-group">
     <div class="col-md-12">
       <input type="hidden" name="captcha_hash" value="'.$hash.'" />
@@ -477,7 +477,7 @@ if ($action == "add") {
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-location-arrow"></i> ' . $_language->module['modrewrite_rules'] . '
+                            <span class="fa fa-location-arrow"></span> ' . $_language->module['modrewrite_rules'] . '
                         </div>
             <div class="panel-body">';
 
@@ -517,8 +517,8 @@ if ($action == "add") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=modrewrite&amp;delete=true&amp;ruleID=' . $flags['ruleID'] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=modrewrite&amp;action=edit&amp;ruleID=' . $flags['ruleID'] . '"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <button class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=modrewrite&amp;delete=true&amp;ruleID=' . $flags['ruleID'] . '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></button>
+	  <a href="admincenter.php?site=modrewrite&amp;action=edit&amp;ruleID=' . $flags['ruleID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <button class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=modrewrite&amp;delete=true&amp;ruleID=' . $flags['ruleID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></button>
 
 
                 </td>

@@ -67,7 +67,7 @@ if (isset($_POST[ 'submit' ])) {
 
     $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
     $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-	
+
   echo '<script language="JavaScript" type="text/javascript">
 					<!--
 						function chkFormular() {
@@ -77,10 +77,10 @@ if (isset($_POST[ 'submit' ])) {
 						}
 					-->
 				</script>';
-  
+
 	echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-product-hunt"></i> ' . $_language->module['imprint'] . '
+                            <span class="fa fa-product-hunt"></span> ' . $_language->module['imprint'] . '
                         </div>
 <div class="panel-body">
 
@@ -89,11 +89,11 @@ if (isset($_POST[ 'submit' ])) {
 <form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=imprint" onsubmit="return chkFormular();">
   <input type="radio" name="type" value="0" ' . $type0 . ' /> ' . $_language->module['automatic'] . '<br />
   <input type="radio" name="type" value="1" ' . $type1 . ' /> ' . $_language->module['manual'] . '<br /><br /><b>' . $_language->module['imprint'] . '</b><br /><small>' . $_language->module['you_can_use_html'] . '</small><br /><br />';
-	
+
 	echo '<div class="col-md-12">
 			  ' . $addflags . '<br>
 		        ' . $addbbcode . '<br></div>';
-	
+
   echo '<br /><textarea class="form-control" id="message" name="message" rows="25" cols="" style="width: 100%;">' . getinput($ds['imprint']) . '</textarea><br /><br /><input type="hidden" name="captcha_hash" value="' . $hash . '" />
   <button class="btn btn-success btn-xs" type="submit" name="submit"  />' . $_language->module['update'] . '</button>
   </form></div></div></div></div>';

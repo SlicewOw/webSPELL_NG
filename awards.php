@@ -284,11 +284,11 @@ if ($action == "new") {
         if ($type == "ASC") {
             echo '<a href="index.php?site=awards&amp;action=showsquad&amp;squadID=' . $squadID . '&amp;page=' . $page .
                 '&amp;sort=' . $sort . '&amp;type=DESC">' . $_language->module[ 'sort' ] .
-                ':</a> <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;&nbsp;';
+                ':</a> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;&nbsp;';
         } else {
             echo '<a href="index.php?site=awards&amp;action=showsquad&amp;squadID=' . $squadID . '&amp;page=' . $page .
                 '&amp;sort=' . $sort . '&amp;type=ASC">' . $_language->module[ 'sort' ] .
-                ':</a> <i class="fa fa-chevron-up"></i>&nbsp;&nbsp;&nbsp;';
+                ':</a> <span class="fa fa-chevron-up"></span>&nbsp;&nbsp;&nbsp;';
         }
 
         echo $page_link;
@@ -451,10 +451,10 @@ if ($action == "new") {
     if ($gesamt) {
         if ($type == "ASC") {
             echo '<a href="index.php?site=awards&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=DESC">' .
-                $_language->module[ 'sort' ] . ':</a> <i class="fa fa-chevron-down"></i>';
+                $_language->module[ 'sort' ] . ':</a> <span class="fa fa-chevron-down"></span>';
         } else {
             echo '<a href="index.php?site=awards&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=ASC">' .
-                $_language->module[ 'sort' ] . ':</a> <i class="fa fa-chevron-up"></i>';
+                $_language->module[ 'sort' ] . ':</a> <span class="fa fa-chevron-up"></span>';
         }
 
         echo $page_link;

@@ -33,7 +33,7 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 1
 
 echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['settings'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['settings'].'
                         </div>
                         <div class="panel-body">
                         <a href="admincenter.php?site=settings" class="white">' . $_language->module[ 'settings' ] .

@@ -206,10 +206,10 @@ if ($action == "optimize") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-database"></i> '.$_language->module['database'].'
+                            <span class="fa fa-database"></span> '.$_language->module['database'].'
                         </div>
                         <div class="panel-body">
 
@@ -222,7 +222,7 @@ if ($action == "optimize") {
 <div class="col-md-4">
 
     <div class="row bt"><div class="col-md-5">'.$_language->module['select_option'].':</div><div class="col-md-7"><span class="pull-right text-muted small"><em><a class="btn btn-primary btn-xs" href="database.php?action=write&amp;captcha_hash='.$hash.'">'.$_language->module['export'].'</a><br><br><a class="btn btn-primary btn-xs" href="admincenter.php?site=database&amp;action=optimize">'.$_language->module['optimize'].'</a></em></span></div></div>
-    
+
 </div>
 
 
@@ -235,17 +235,17 @@ if ($action == "optimize") {
       '.$_language->module['backup_file'].':
     <br>
        <p class="form-control-static"><input name="sql" type="file" size="40" /></p>
-    
+
         <input type="hidden" name="captcha_hash" value="'.$hash.'" />
         <button class="btn btn-primary btn-xs" type="submit" name="upload"  />'.$_language->module['upload'].'</button>
     </div>
   </div>
-     
+
 
   </form>
 
   </em></span></div></div>
-    
+
 </div>
 
 
@@ -256,17 +256,17 @@ if ($action == "optimize") {
 
 </div></div>';
 
-  
+
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-database"></i> '.$_language->module['sql_query'].'
+                            <span class="fa fa-database"></span> '.$_language->module['sql_query'].'
                         </div>
             <div class="panel-body">';
-	
+
   echo '<form method="post" action="admincenter.php?site=database">
   <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#DDDDDD">
-    
+
     <tr>
       <td class="td1">'.$_language->module['allowed_commands'].'
       <br /><br />'.$_language->module['sql_query'].':<br /><br />

@@ -137,32 +137,32 @@ if ($action == "show") {
                 $email = '';
             } else {
                 $email =
-                    '<a href="mailto:' . mail_protect($dm[ 'email' ]) . '"><i class="fa fa-envelope"
-                    title="' . $_language->module[ 'email' ] . '"></i></a>';
+                    '<a href="mailto:' . mail_protect($dm[ 'email' ]) . '"><span class="fa fa-envelope"
+                    title="' . $_language->module[ 'email' ] . '"></span></a>';
             }
 
             $pm = '';
             $buddy = '';
             if ($loggedin && $dm[ 'userID' ] != $userID) {
                 $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $dm[ 'userID' ] .
-                    '"><i class="fa fa-envelope"></i></a>';
+                    '"><span class="fa fa-envelope"></span></a>';
 
                 if (isignored($userID, $dm[ 'userID' ])) {
                     $buddy = '<a href="buddies.php?action=readd&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                        '"><i class="fa fa-user-plus"></i></a>';
+                        '"><span class="fa fa-user-plus"></span></a>';
                 } elseif (isbuddy($userID, $dm[ 'userID' ])) {
                     $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                        '"><i class="fa fa-user-times"></i></a>';
+                        '"><span class="fa fa-user-times"></span></a>';
                 } else {
                     $buddy = '<a href="buddies.php?action=add&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                        '"><i class="fa fa-user-plus"></i></a>';
+                        '"><span class="fa fa-user-plus"></span></a>';
                 }
             }
 
             if (isonline($dm[ 'userID' ]) == "offline") {
-                $statuspic = '<i class="fa fa-circle text-danger" aria-hidden="true"></i>';
+                $statuspic = '<span class="fa fa-circle text-danger" aria-hidden="true"></span>';
             } else {
-                $statuspic = '<i class="fa fa-circle text-success" aria-hidden="true"></i>';
+                $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
             }
 
             $position = $dm[ 'position' ];

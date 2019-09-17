@@ -27,10 +27,10 @@
 
 /*
  * Plugin-Manager v1.3
- * 
+ *
  * This is the first simple management for addons or modifications.
- * For a detailed documentation visit the authors website or ask 
- * in the notified board. 
+ * For a detailed documentation visit the authors website or ask
+ * in the notified board.
  *
  * @author: Matti <Getschonnik> W. | info@Getschonnik.de
  * @version: 1.3
@@ -48,63 +48,63 @@ $_language->readModule('plugin-manager', false, true);
 if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
     die($_language->module[ 'access_denied' ]);
 }
-    	
+
 if(isset($_GET['do'])) { $do=$_GET['do']; } else { $do=""; }
 if(isset($_GET['id'])) { $id=intval($_GET['id']); } else { $id=""; }
 if($id!="" && $do=="dea") {
 	try {
-		safe_query("UPDATE `".PREFIX."plugins` SET `activate` = '0' WHERE `pluginID` = '".$id."';");	
+		safe_query("UPDATE `".PREFIX."plugins` SET `activate` = '0' WHERE `pluginID` = '".$id."';");
 		echo $_language->module[ 'success_deactivated' ];
 		redirect("admincenter.php?site=plugin-manager", 2); return false;
 	} CATCH (Exception $e) {
-		 echo $_language->module[ 'success_deactivated' ]."<br /><br />".$e->getMessage();	
+		 echo $_language->module[ 'success_deactivated' ]."<br /><br />".$e->getMessage();
 		 redirect("admincenter.php?site=plugin-manager", 5); return false;
 	}
 }
 if($id!="" && $do=="act") {
 	try {
-		safe_query("UPDATE `".PREFIX."plugins` SET `activate` = '1' WHERE `pluginID` = '".$id."';");	
+		safe_query("UPDATE `".PREFIX."plugins` SET `activate` = '1' WHERE `pluginID` = '".$id."';");
 		echo $_language->module[ 'success_activated' ];
 		redirect("admincenter.php?site=plugin-manager", 2); return false;
 	} CATCH (Exception $e) {
-		 echo $_language->module[ 'failed_activated' ]."<br /><br />".$e->getMessage();	
+		 echo $_language->module[ 'failed_activated' ]."<br /><br />".$e->getMessage();
 		 redirect("admincenter.php?site=plugin-manager", 5); return false;
 	}
-}	
+}
 if($id!="" && $do=="del") {
 	try {
-		safe_query("DELETE FROM `".PREFIX."plugins` WHERE `pluginID` = '".$id."' LIMIT 1");	
+		safe_query("DELETE FROM `".PREFIX."plugins` WHERE `pluginID` = '".$id."' LIMIT 1");
 		echo $_language->module[ 'success_delete' ];
 		redirect("admincenter.php?site=plugin-manager", 2); return false;
 	} CATCH (Exception $e) {
-		 echo $_language->module[ 'failed_delete' ]."<br /><br />".$e->getMessage();	
+		 echo $_language->module[ 'failed_delete' ]."<br /><br />".$e->getMessage();
 		 redirect("admincenter.php?site=plugin-manager", 5); return false;
 	}
-}	
+}
 
 if(isset($_REQUEST['svn'])) {
 	if(isset($_REQUEST['activate'])) { $acti = 1; } else { $acti = 0; }
 	try {
 		safe_query("INSERT INTO `".PREFIX."plugins` (`pluginID`, `name`, `description`, `activate`, `admin_file`, `author`, `website`, `index_link`, `sc_link`, `hiddenfiles`, `version`, `path`) VALUES (NULL, '".$_REQUEST['name']."', '".$_REQUEST['description']."', '".$acti."', '".$_REQUEST['admin_file']."', '".$_REQUEST['author']."', '".$_REQUEST['website']."', '".$_REQUEST['index']."', '".$_REQUEST['sclink']."', '".$_REQUEST['hiddenfiles']."', '".$_REQUEST['version']."', '".$_REQUEST['path']."');");
-		echo $_language->module[ 'success_save' ]."<br /><br />";	
+		echo $_language->module[ 'success_save' ]."<br /><br />";
 		redirect("admincenter.php?site=plugin-manager", 3); return false;
 	} CATCH (Exception $e) {
-		echo $_language->module[ 'failed_save' ]."<br /><br />".$e->getMessage();	
+		echo $_language->module[ 'failed_save' ]."<br /><br />".$e->getMessage();
 		redirect("admincenter.php?site=plugin-manager", 5); return false;
 	}
-return false;	
+return false;
 }
 if(isset($_REQUEST['sve'])) {
 	if(isset($_REQUEST['activate'])) { $acti = 1; } else { $acti = 0; }
 	try {
 		safe_query("UPDATE `".PREFIX."plugins` SET `name` = '".$_REQUEST['name']."', `description` = '".$_REQUEST['description']."', `activate` = '".$acti."', `admin_file` = '".$_REQUEST['admin_file']."', `author` = '".$_REQUEST['author']."', `website` = '".$_REQUEST['website']."', `index_link` = '".$_REQUEST['index']."', `sc_link` = '".$_REQUEST['sclink']."', `hiddenfiles` = '".$_REQUEST['hiddenfiles']."', `version` = '".$_REQUEST['version']."', `path` = '".$_REQUEST['path']."' WHERE `pluginID` = '".intval($_REQUEST['pid'])."';");
-		echo $_language->module[ 'success_edit' ]."<br /><br />";	
+		echo $_language->module[ 'success_edit' ]."<br /><br />";
 		redirect("admincenter.php?site=plugin-manager", 3); return false;
 	} CATCH (Exception $e) {
-		echo $_language->module[ 'failed_edit' ]."<br /><br />".$e->getMessage();	
+		echo $_language->module[ 'failed_edit' ]."<br /><br />".$e->getMessage();
 		redirect("admincenter.php?site=plugin-manager", 5); return false;
 	}
-return false;	
+return false;
 }
 if($do=="edit") {
 	try {
@@ -113,21 +113,21 @@ if($do=="edit") {
 		if($row['activate'] == 1) { $acti = 'checked="checked"'; } else { $acti = ""; }
 	} CATCH (Exception $e) {
 			echo $e->getMessage();
-		return false;	
+		return false;
 	}
 	echo '
 	<div class="panel panel-default">
   <div class="panel-heading">
 
-                              <i class="fa fa-cogs"></i> '.$_language->module['plugin_manager'].'
+                              <span class="fa fa-cogs"></span> '.$_language->module['plugin_manager'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=plugin-manager" class="white">' . $_language->module['plugin_manager'] . '</a> &raquo; Plugin edit<br><br>';
 
   echo'
-	
-	 	 <form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=plugin-manager" enctype="multipart/form-data" onsubmit="return chkFormular();"> 
-  
+
+	 	 <form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=plugin-manager" enctype="multipart/form-data" onsubmit="return chkFormular();">
+
   <div class="form-group">
   	<input type="hidden" name="pid" value="'.$row['pluginID'].'" />
     <label class="col-sm-4 control-label" for="name">Name:</label>
@@ -199,35 +199,35 @@ if($do=="edit") {
 
 <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
-		
+
 		<button class="btn btn-success btn-xs" type="submit" name="sve"  />Save</button>
     </div>
   </div>
 
 
 
-  
+
 </form>
 </div>
   </div>';
 return false;
-	
-}	
+
+}
 if($do=="new") {
 	echo '
 	<div class="panel panel-default">
   <div class="panel-heading">
 
-                              <i class="fa fa-cogs"></i> '.$_language->module['plugin_manager'].'
+                              <span class="fa fa-cogs"></span> '.$_language->module['plugin_manager'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=plugin-manager" class="white">' . $_language->module['plugin_manager'] . '</a> &raquo; Plugin hinzufügen<br><br>';
 
   echo'
 
-	 
-	 <form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=plugin-manager" enctype="multipart/form-data" onsubmit="return chkFormular();"> 
-  
+
+	 <form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=plugin-manager" enctype="multipart/form-data" onsubmit="return chkFormular();">
+
   <div class="form-group">
      <label class="col-sm-4 control-label" for="name">Name:</label>
     <div class="col-sm-8"><span class="text-muted small"><em>
@@ -298,27 +298,27 @@ if($do=="new") {
 
 <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
-		
+
 		<button class="btn btn-success btn-xs" type="submit" name="svn"  />Save</button>
     </div>
   </div>
- 
 
 
 
-  
+
+
 </form></div></div>';
 return false;
-	
-}	
+
+}
 echo'<div class="panel panel-default">
   <div class="panel-heading">
 
-                              <i class="fa fa-cogs"></i> '.$_language->module['plugin_manager'].'
+                              <span class="fa fa-cogs"></span> '.$_language->module['plugin_manager'].'
                         </div>
                         <div class="panel-body">';
 
-?>	
+?>
 
 <a href="admincenter.php?site=plugin-manager&do=new" class="btn btn-primary btn-xs" type="button"><?php echo $_language->module[ 'new_plugin' ]; ?></a>
 <br /><br />
@@ -326,7 +326,7 @@ echo'<div class="panel panel-default">
 
 <div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> <?php echo $_language->module[ 'activated' ]; ?>
+                            <span class="fa fa-credit-card"></span> <?php echo $_language->module[ 'activated' ]; ?>
                         </div>
                         <div class="panel-body">
 <div class="row">
@@ -336,12 +336,12 @@ echo'<div class="panel panel-default">
   <div class="col-sm-3"><strong>Plugin Manager <?php echo $_language->module[ 'option' ]; ?></strong></div>
 </div>
 <hr>
-<?php 
+<?php
 $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 	# query activated first
-	
+
 	$res=safe_query("SELECT * FROM `".PREFIX."plugins` WHERE `activate`=1 ORDER BY `pluginID` ");
 	if(mysqli_num_rows($res)) {
 		while($row=mysqli_fetch_array($res)) {
@@ -359,24 +359,24 @@ $CAPCLASS = new \webspell\Captcha;
 &nbsp;
 
 <a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
-<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
+<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
 
 &nbsp;
 
 <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
-<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 </div>
 				</div><hr>';
 		}
 	}
 	# query deactivated
-		
+
 echo'</div>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-credit-card"></i> '.$_language->module['deactivated'].'
+                            <span class="fa fa-credit-card"></span> '.$_language->module['deactivated'].'
                         </div>
                         <div class="panel-body">';
 ?>
@@ -388,7 +388,7 @@ echo'</div>
   <div class="col-sm-3"><strong>Plugin Manager <?php echo $_language->module[ 'option' ]; ?></strong></div>
 </div>
 <hr>
-<?php 
+<?php
 $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -409,12 +409,12 @@ $CAPCLASS = new \webspell\Captcha;
 &nbsp;
 
 <a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
-<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
+<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
 
 &nbsp;
 
 <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
-<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 </div>
 </div><hr>
 				';

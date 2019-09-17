@@ -33,12 +33,12 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 1
 
 echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-thumbs-up"></i> '.$_language->module['styles'].'
+                            <span class="fa fa-thumbs-up"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
                         <div class="panel panel-default">
-                        
-            <ul class="nav nav-tabs-primary">    
+
+            <ul class="nav nav-tabs-primary">
     <li role="presentation"><a href="admincenter.php?site=styles">Style</a></li>
     <li role="presentation"><a href="admincenter.php?site=buttons">Buttons</a></li>
     <li role="presentation"><a href="admincenter.php?site=moduls">Module</a></li>
@@ -94,7 +94,7 @@ if (isset($_POST[ 'submit' ])) {
             echo '</ul><br /><input type="button" onclick="javascript:history.back()" value="' .
                 $_language->module[ 'back' ] . '" />';
         } else {
-            
+
             $file = ("../_stylesheet.css");
             $fp = fopen($file, "w");
             fwrite($fp, stripslashes(str_replace('\r\n', "\n", $_POST[ 'stylesheet' ])));

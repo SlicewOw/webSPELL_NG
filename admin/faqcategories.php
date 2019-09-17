@@ -107,14 +107,14 @@ if (isset($_GET[ 'action' ])) {
 
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-    
+
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-info"></i> '.$_language->module['faq_categories'].'
+                            <span class="fa fa-info"></span> '.$_language->module['faq_categories'].'
                         </div>
             <div class="panel-body">
     <a href="admincenter.php?site=faqcategories" class="white">'.$_language->module['faq_categories'].'</a> &raquo; '.$_language->module['add_category'].'<br><br>';
-    
+
     echo '<script language="JavaScript" type="text/javascript">
 					<!--
 						function chkFormular() {
@@ -124,7 +124,7 @@ if (isset($_GET[ 'action' ])) {
 						}
 					-->
 				</script>';
-    
+
     echo '<form class="form-horizontal" method="post" action="admincenter.php?site=faqcategories" id="post" name="post" enctype="multipart/form-data" onsubmit="return chkFormular();">
 	<div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['category_name'].':</label>
@@ -160,9 +160,9 @@ if (isset($_GET[ 'action' ])) {
 
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-    
+
     echo'<div class="panel panel-default"><div class="panel-heading">
-                            <i class="fa fa-info"></i> '.$_language->module['faq_categories'].'
+                            <span class="fa fa-info"></span> '.$_language->module['faq_categories'].'
                         </div>
             <div class="panel-body">
     <a href="admincenter.php?site=faqcategories" class="white">'.$_language->module['faq_categories'].'</a> &raquo; '.$_language->module['edit_category'].'<br><br>';
@@ -176,7 +176,7 @@ if (isset($_GET[ 'action' ])) {
 						}
 					-->
 				</script>';
-    
+
     echo '<form class="form-horizontal" method="post" action="admincenter.php?site=faqcategories" id="post" name="post" onsubmit="return chkFormular();">
 	<div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['category_name'].':</label>
@@ -202,13 +202,13 @@ if (isset($_GET[ 'action' ])) {
 }
 
 else {
-	
+
   echo '<div class="panel panel-default"><div class="panel-heading">
-                            <i class="fa fa-info"></i> '.$_language->module['faq_categories'].'
+                            <span class="fa fa-info"></span> '.$_language->module['faq_categories'].'
                         </div>
         <div class="panel-body">';
-  
-  echo'<a href="admincenter.php?site=faqcategories&amp;action=addcat" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_category' ] . '</a><br /><br />';	
+
+  echo'<a href="admincenter.php?site=faqcategories&amp;action=addcat" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_category' ] . '</a><br /><br />';
 
 	echo'<form method="post" action="admincenter.php?site=faqcategories">
   <table class="table table-striped">
@@ -233,18 +233,18 @@ else {
         } else {
             $td = 'td2';
         }
-  
+
 		echo '<tr>
             <td class="' . $td . '"><b>' . getinput($ds[ 'faqcatname' ]) . '</b>
             <br />' . cleartext($ds[ 'description' ], true, 'admin') . '</td>
       <td><a href="admincenter.php?site=faqcategories&amp;action=editcat&amp;faqcatID='.$ds['faqcatID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faqcategories&amp;delcat=true&amp;faqcatID='.$ds['faqcatID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
-      
-      <a href="admincenter.php?site=faqcategories&amp;action=editcat&amp;faqcatID='.$ds['faqcatID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-     <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faqcategories&amp;delcat=true&amp;faqcatID='.$ds['faqcatID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a></td>
+
+      <a href="admincenter.php?site=faqcategories&amp;action=editcat&amp;faqcatID='.$ds['faqcatID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+     <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faqcategories&amp;delcat=true&amp;faqcatID='.$ds['faqcatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
       <td><select name="sortfaqcat[]">';
-		
+
     for ($n = 1; $n <= $anz; $n++) {
             if ($ds[ 'sort' ] == $n) {
                 echo '<option value="' . $ds[ 'faqcatID' ] . '-' . $n . '" selected="selected">' . $n . '</option>';
@@ -252,10 +252,10 @@ else {
                 echo '<option value="' . $ds[ 'faqcatID' ] . '-' . $n . '">' . $n . '</option>';
             }
         }
-    
+
 		echo'</select></td>
     </tr>';
-    
+
     $i++;
 	}
 	echo'<tr>

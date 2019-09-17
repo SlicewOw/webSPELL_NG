@@ -86,14 +86,14 @@ if (isset($_GET[ 'action' ])) {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
-    
+
     echo'<div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-envelope"></i> ' . $_language->module['contact'] . '
+                            <span class="fa fa-envelope"></span> ' . $_language->module['contact'] . '
                         </div>
      <div class="panel-body">
     <a href="admincenter.php?site=contact" class="white">' . $_language->module['contact'] . '</a> &raquo; ' . $_language->module['add_contact'] . '<br><br>';
-    
+
     echo '<form class="form-horizontal" method="post" action="admincenter.php?site=contact" name="post">
 	<div class="form-group">
     <label class="col-sm-2 control-label">' . $_language->module['contact_name'] . ':</label>
@@ -115,7 +115,7 @@ if (isset($_GET[ 'action' ])) {
     </form>
     </div>
   </div>';
-    
+
 	 } elseif ($_GET[ 'action' ] == "edit") {
         $contactID = (int)$_GET[ 'contactID' ];
 
@@ -125,10 +125,10 @@ if (isset($_GET[ 'action' ])) {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
-    
+
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-envelope"></i> ' . $_language->module['contact'] . '
+                            <span class="fa fa-envelope"></span> ' . $_language->module['contact'] . '
                         </div>
      <div class="panel-body">
     <a href="admincenter.php?site=contact" class="white">' . $_language->module['contact'] . '</a> &raquo; ' . $_language->module['edit_contact'] . '<br></br>';
@@ -158,19 +158,19 @@ if (isset($_GET[ 'action' ])) {
 }
 
 else {
-	
+
   echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-envelope"></i> ' . $_language->module['contact'] . '
+                            <span class="fa fa-envelope"></span> ' . $_language->module['contact'] . '
                         </div>
   <div class="panel-body">
 
 
-  <a href="admincenter.php?site=contact&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_contact' ] . '</a><br /><br />';	
+  <a href="admincenter.php?site=contact&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_contact' ] . '</a><br /><br />';
 
 	echo'<form method="post" action="admincenter.php?site=contact">
   <table class="table table-striped">
-    
+
 <thead>
 
       <tr>
@@ -204,25 +204,25 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=contact&amp;delete=true&amp;contactID=' . $ds['contactID'] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
-    
 
 
-    <a href="admincenter.php?site=contact&amp;action=edit&amp;contactID=' . $ds['contactID'] . '"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-    <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=contact&amp;delete=true&amp;contactID=' . $ds['contactID'] . '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></a>
-    
+
+    <a href="admincenter.php?site=contact&amp;action=edit&amp;contactID=' . $ds['contactID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+    <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=contact&amp;delete=true&amp;contactID=' . $ds['contactID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
+
 
 
       </td>
 	  <td class="hidden-xs hidden-sm"><select name="sortcontact[]">';
-		
+
     for($n=1; $n<=$anz; $n++) {
 			if($ds['sort'] == $n) echo'<option value="' . $ds['contactID'] . '-' . $n . '" selected="selected">' . $n . '</option>';
 			else echo'<option value="' . $ds['contactID'] . '-' . $n . '">' . $n . '</option>';
 		}
-    
+
 		echo'</select></td>
     </tr>';
-    
+
     $i++;
 	}
 	echo'<tr>

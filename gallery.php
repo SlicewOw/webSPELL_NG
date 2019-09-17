@@ -398,7 +398,7 @@ if (isset($_POST[ 'saveedit' ])) {
             }
 
             if ($found) {
-                $rateform = "<i>" . $_language->module[ 'you_have_already_rated' ] . "</i>";
+                $rateform = "<span>" . $_language->module[ 'you_have_already_rated' ] . "</span>";
             } else {
                 $rateform = '<form method="post" name="rating_picture' . $_GET[ 'picID' ] .
                     '" action="rating.php" class="form-inline">' . $_language->module[ 'rate_now' ] . '
@@ -422,7 +422,7 @@ if (isset($_POST[ 'saveedit' ])) {
                     '" class="btn btn-primary"></form>';
             }
         } else {
-            $rateform = '<i>' . $_language->module[ 'rate_have_to_reg_login' ] . '</i>';
+            $rateform = '<span>' . $_language->module[ 'rate_have_to_reg_login' ] . '</span>';
         }
 
         $votes = $ds[ 'votes' ];
@@ -561,7 +561,7 @@ if (isset($_POST[ 'saveedit' ])) {
     } else {
         $diashow = "";
     }
-	
+
 	# ZNT.Dev
 	$dx = safe_query("SELECT `galleryID` FROM `".PREFIX."gallery` WHERE 1");
 	$pagelink = '<ul class="pagination">';
@@ -576,7 +576,7 @@ if (isset($_POST[ 'saveedit' ])) {
 		$p++;
 	}
 	$pagelink .= '</ul>';
-	
+
     $data_array = array();
     $data_array['$group'] = $group;
     $data_array['$title'] = $title;

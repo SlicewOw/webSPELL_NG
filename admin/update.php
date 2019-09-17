@@ -33,7 +33,7 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 1
 
 echo '<div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-upload"></i> ' . $_language->module[ 'webspell_update' ] . '
+                            <span class="fa fa-upload"></span> ' . $_language->module[ 'webspell_update' ] . '
                         </div>
          <div class="panel-body">';
 
@@ -45,7 +45,7 @@ include('../version.php');
 
 if (!isset($_GET[ 'action' ])) {
     if (!$getnew = file_get_contents($updateserver . "update.php?show=version")) {
-        echo '<i><b>' . $_language->module[ 'error' ] . '&nbsp;' . $updateserver . '.</b></i>';
+        echo '<span><b>' . $_language->module[ 'error' ] . '&nbsp;' . $updateserver . '.</b></span>';
     } else {
         $latest = explode(".", $getnew);
         $ownversion = explode(".", $version);

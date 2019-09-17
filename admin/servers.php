@@ -108,10 +108,10 @@ if ($action == "add") {
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-gamepad"></i> '.$_language->module['servers'].'
+                            <span class="fa fa-gamepad"></span> '.$_language->module['servers'].'
                         </div>
                         <div class="panel-body">
-  
+
   <a href="admincenter.php?site=servers" class="white">' . $_language->module[ 'servers' ] .
         '</a> &raquo; ' . $_language->module[ 'add_server' ] . '<br><br>';
 
@@ -122,7 +122,7 @@ if ($action == "add") {
             }
         }
     </script>';
-  
+
 	echo '<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=servers" onsubmit="return chkFormular();">
 	 <div class="row">
 
@@ -142,7 +142,7 @@ if ($action == "add") {
   </div>
 
   </div>
-  
+
 
 <div class="col-md-6">
   <div class="form-group">
@@ -156,7 +156,7 @@ if ($action == "add") {
 
   <div class="row">
   <div class="col-md-12">
-  
+
   '.$addflags.'<br>'.$addbbcode.'<br>
   </div></div>
 
@@ -180,12 +180,12 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-gamepad"></i> '.$_language->module['servers'].'
+                            <span class="fa fa-gamepad"></span> '.$_language->module['servers'].'
                         </div>
                         <div class="panel-body">
-  
+
   <a href="admincenter.php?site=servers" class="white">'.$_language->module['servers'].'</a> &raquo; '.$_language->module['edit_server'].'<br><br>';
-	
+
       $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -210,7 +210,7 @@ if ($action == "add") {
         }
     </script>';
 
-    
+
   echo '<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=servers" onsubmit="return chkFormular();">
 <div class="row">
 
@@ -222,7 +222,7 @@ if ($action == "add") {
       <input class="form-control" type="text" name="name" value="'.getinput($ds['name']).'" /></em></span>
     </div>
   </div>
-  
+
   <div class="form-group">
     <label class="col-sm-3 control-label">'.$_language->module['ip_port'].':</label>
     <div class="col-sm-9"><span class="text-muted small"><em>
@@ -231,7 +231,7 @@ if ($action == "add") {
   </div>
 
   </div>
-  
+
 
 <div class="col-md-6">
 
@@ -246,7 +246,7 @@ if ($action == "add") {
 
   <div class="row">
   <div class="col-md-12">
-  
+
 <div class="form-group">
   <div class="col-md-12">
   '.$addflags.'<br>'.$addbbcode.'<br>
@@ -272,13 +272,13 @@ if ($action == "add") {
 }
 
 else {
-	
+
   echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-gamepad"></i> '.$_language->module['servers'].'
+                            <span class="fa fa-gamepad"></span> '.$_language->module['servers'].'
                         </div>
                         <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=servers&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_server' ] . '</a><br /><br />';
 
 	$ergebnis = safe_query("SELECT * FROM " . PREFIX . "servers ORDER BY sort");
@@ -287,7 +287,7 @@ else {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
-  
+
   echo'<form method="post" name="ws_servers" action="admincenter.php?site=servers">
     <table class="table table-striped">
       <thead>
@@ -325,11 +325,11 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=servers&amp;delete=true&amp;serverID='.$ds['serverID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-    <a href="admincenter.php?site=servers&amp;action=edit&amp;serverID='.$ds['serverID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=servers&amp;delete=true&amp;serverID='.$ds['serverID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a></td>
+    <a href="admincenter.php?site=servers&amp;action=edit&amp;serverID='.$ds['serverID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=servers&amp;delete=true&amp;serverID='.$ds['serverID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
         <td>'.$list.'</td>
       </tr>';
-        
+
         $i++;
 		}
 		echo'<tr>

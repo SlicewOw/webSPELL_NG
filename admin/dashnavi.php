@@ -130,7 +130,7 @@ if (isset($_GET[ 'action' ])) {
 if ($action == "add") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-bars"></i> ' . $_language->module[ 'dashnavi' ] . '
+                            <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
     <div class="panel-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
@@ -196,12 +196,12 @@ if ($action == "add") {
       <input type="hidden" name="captcha_hash" value="' . $hash . '"><input class="btn btn-success btn-xs" type="submit" name="save" value="' . $_language->module[ 'add_link' ] . '">
     </div>
   </div>
-   
+
           </form></div></div>';
 } elseif ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-bars"></i> ' . $_language->module[ 'dashnavi' ] . '
+                            <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
                 <div class="panel-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
@@ -290,7 +290,7 @@ if ($action == "add") {
 } elseif ($action == "addcat") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-bars"></i> ' . $_language->module[ 'dashnavi' ] . '
+                            <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
             <div class="panel-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
@@ -320,7 +320,7 @@ if ($action == "add") {
 } elseif ($action == "editcat") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-bars"></i> ' . $_language->module[ 'dashnavi' ] . '
+                            <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
             <div class="panel-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
@@ -352,7 +352,7 @@ if ($action == "add") {
 } else {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-bars"></i> ' . $_language->module[ 'dashnavi' ] . '
+                            <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
         <div class="panel-body">';
 
@@ -457,8 +457,8 @@ if ($action == "add") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_link'] . '\', \'admincenter.php?site=dashnavi&amp;delete=true&amp;linkID=' . $db[ 'linkID' ] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
-      <a href="admincenter.php?site=dashnavi&amp;action=edit&amp;linkID=' . $db[ 'linkID' ] .'"  class="mobile visible-xs visible-sm"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete_link'] . '\', \'admincenter.php?site=dashnavi&amp;delete=true&amp;linkID=' . $db[ 'linkID' ] . '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></a>
+      <a href="admincenter.php?site=dashnavi&amp;action=edit&amp;linkID=' . $db[ 'linkID' ] .'"  class="mobile visible-xs visible-sm"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete_link'] . '\', \'admincenter.php?site=dashnavi&amp;delete=true&amp;linkID=' . $db[ 'linkID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
                     </td>
                     <td class="' . $td . '" align="center">' . $linklist . '</td>
                 </tr>';
@@ -499,8 +499,8 @@ if ($action == "add") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=dashnavi&amp;delete=true&amp;linkID=' . $db[ 'linkID' ] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
-      <a href="admincenter.php?site=dashnavi&amp;action=edit&amp;linkID=' . $db[ 'linkID' ] . '"  class="mobile visible-xs visible-sm"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=dashnavi&amp;delete=true&amp;linkID=' . $db[ 'linkID' ] . '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></a>
+      <a href="admincenter.php?site=dashnavi&amp;action=edit&amp;linkID=' . $db[ 'linkID' ] . '"  class="mobile visible-xs visible-sm"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=dashnavi&amp;delete=true&amp;linkID=' . $db[ 'linkID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
 
                      </td>
             <td bgcolor="#FFFFFF">' . $noncatlist . '</td>

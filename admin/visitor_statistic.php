@@ -114,7 +114,7 @@ echo '
 
 <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-users"></i> '.$_language->module['visitor'].'
+                            <span class="fa fa-users"></span> '.$_language->module['visitor'].'
                         </div>
 
 
@@ -135,7 +135,7 @@ echo '
 
 <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart"></i> '.$_language->module['stats'].'
+                            <span class="fa fa-bar-chart"></span> '.$_language->module['stats'].'
                         </div>
 
 
@@ -164,7 +164,7 @@ echo '
 
 echo '<div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-refresh"></i> '.$_language->module['visitor_stats_graphics'].'
+                            <span class="fa fa-refresh"></span> '.$_language->module['visitor_stats_graphics'].'
                         </div>
 
 <div class="panel-body">';
@@ -322,7 +322,7 @@ if (isset($_SESSION[ 'count_months' ])) {
 <div class="panel panel-default">
 
                         <div class="panel-heading" id="last_days_h2">
-                            <i class="fa fa-line-chart"></i> <?php echo $_language->module[ 'last' ]; ?> <?php echo $count_days; ?> <?php echo $_language->module[ 'days' ]; ?>
+                            <span class="fa fa-line-chart"></span> <?php echo $_language->module[ 'last' ]; ?> <?php echo $count_days; ?> <?php echo $_language->module[ 'days' ]; ?>
                         </div>
 
 <div class="panel-body">
@@ -338,7 +338,7 @@ if (isset($_SESSION[ 'count_months' ])) {
 <div class="panel panel-default">
 
                         <div class="panel-heading" id="last_months_h2">
-                            <i class="fa fa-line-chart"></i> <?php echo $_language->module['last']; ?> <?php echo $count_months; ?> <?php echo $_language->module['months']; ?>
+                            <span class="fa fa-line-chart"></span> <?php echo $_language->module['last']; ?> <?php echo $count_months; ?> <?php echo $_language->module['months']; ?>
                         </div>
 
 <div class="panel-body">

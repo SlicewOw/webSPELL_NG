@@ -136,7 +136,7 @@ $db = $ret[ 0 ];
 echo '
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-smile-o"></i> '.$_language->module['welcome'].'
+                            <span class="fa fa-smile-o"></span> '.$_language->module['welcome'].'
 </div>
 <div class="panel-body">';
 
@@ -165,7 +165,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-database"></i> <?php echo $_language->module['serverinfo']; ?>
+                            <span class="fa fa-database"></span> <?php echo $_language->module['serverinfo']; ?>
 </div>
 
 <div class="panel-body">
@@ -192,7 +192,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-file-image-o"></i> GD Graphics Library
+                            <span class="fa fa-file-image-o"></span> GD Graphics Library
 </div>
 
 <div class="panel-body">
@@ -226,7 +226,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-database"></i> <?php echo $_language->module['interface']; ?>
+                            <span class="fa fa-database"></span> <?php echo $_language->module['interface']; ?>
 </div>
 
 <div class="panel-body">
@@ -236,7 +236,7 @@ echo $_language->module['welcome_message'];
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_api']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo php_sapi_name(); ?></em></span></div></div>
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['apache']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php if(function_exists("apache_get_version")) echo apache_get_version(); else echo $_language->module['na']; ?></em></span></div></div>
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['apache_modules']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php if(function_exists("apache_get_modules")){if(count(apache_get_modules()) > 1) $get_apache_modules = implode(", ",apache_get_modules()); echo $get_apache_modules;} else{ echo $_language->module['na'];} ?></em></span></div></div>
-</div>	
+</div>
 </div>
 </div>
 </div>
@@ -254,7 +254,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-th-list"></i> <?php echo $_language->module['php_settings']; ?>
+                            <span class="fa fa-th-list"></span> <?php echo $_language->module['php_settings']; ?>
 </div>
 <div class="panel-body">
 <div class="row bt">

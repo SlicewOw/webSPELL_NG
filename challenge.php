@@ -59,7 +59,7 @@ if ($action == "save" && isset($_POST['post'])) {
     $error = array();
     if (!(mb_strlen(trim($datetime)))) {
         $error[] = $_language->module['date'];
-    }    
+    }
 	if (!(mb_strlen(trim($opponent)))) {
         $error[] = $_language->module['enter_clanname'];
     }
@@ -178,10 +178,10 @@ if ($show === true) {
     $squads = getgamesquads();
     $countries = getcountries();
 	$showform = 1;
-	
+
     if (!isset($showerror)) {
         $showerror = '';
-    }     
+    }
 	if (!$squads) {
         $showform = 0;
     }
@@ -277,7 +277,7 @@ if ($show === true) {
 			return false;
 		} else {
 			if (!$loggedin) {
-				if(!empty($squads)) { 
+				if(!empty($squads)) {
 					echo $template;
 				}
 			}
@@ -295,10 +295,10 @@ if (isclanwaradmin($userID)) {
         echo '<p>';
         if ($type == "ASC") {
             echo '<a class="btn btn-default btn-xs" href="index.php?site=challenge&amp;type=DESC">' .
-                $_language->module['sort'] . ' <i class="fa fa-chevron-down"></i></a>';
+                $_language->module['sort'] . ' <span class="fa fa-chevron-down"></span></a>';
         } else {
             echo '<a class="btn btn-default btn-xs" href="index.php?site=challenge&amp;type=ASC">' .
-                $_language->module['sort'] . ' <i class="fa fa-chevron-up"></i></a>';
+                $_language->module['sort'] . ' <span class="fa fa-chevron-up"></span></a>';
         }
         echo '</p>';
 

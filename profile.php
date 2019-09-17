@@ -39,14 +39,14 @@ if (isset($_GET[ 'action' ])) {
 }
 
 if (isset($id) && getnickname($id) != '') {
-	
+
     if (isbanned($id)) {
         $banned =
             '<br><p class="text-center" style="color:red;font-weight:bold;font-size:11px;letter-spacing:1px;">' .
             $_language->module[ 'is_banned' ] . '</p>';
     } else {
         $banned = '';
-    }	
+    }
 
     if ($user_guestbook == 1) {
         if (getuserguestbookstatus($id) == 1) {
@@ -95,18 +95,18 @@ if (isset($id) && getnickname($id) != '') {
                 $flag = '[flag]' . getcountry($db[ 'buddy' ]) . '[/flag]';
                 $country = flags($flag);
                 $nicknamebuddy = getnickname($db[ 'buddy' ]);
-                $email = '<a class="btn btn-success btn-xs" href="mailto:' . mail_protect(getemail($db[ 'buddy' ])) . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'email' ] . '"><i class="fa fa-envelope"></i></a>';
+                $email = '<a class="btn btn-success btn-xs" href="mailto:' . mail_protect(getemail($db[ 'buddy' ])) . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'email' ] . '"><span class="fa fa-envelope"></span></a>';
 
                 if (isignored($userID, $db[ 'buddy' ])) {
                     $buddy =
-                        '<a class="btn btn-danger btn-xs" href="buddies.php?action=readd&amp;id=' . $db[ 'buddy' ] . '&amp;userID=' . $userID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                        '<a class="btn btn-danger btn-xs" href="buddies.php?action=readd&amp;id=' . $db[ 'buddy' ] . '&amp;userID=' . $userID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
                 } elseif (isbuddy($userID, $db[ 'buddy' ])) {
                     $buddy = '<a class="btn btn-danger btn-xs"
-                        href="buddies.php?action=ignore&amp;id=' . $db[ 'buddy' ] . '&amp;userID=' . $userID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore_user' ] . '"><i class="fa fa-user-times"></i></a>';
+                        href="buddies.php?action=ignore&amp;id=' . $db[ 'buddy' ] . '&amp;userID=' . $userID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore_user' ] . '"><span class="fa fa-user-times"></span></a>';
                 } elseif ($userID == $db[ 'buddy' ]) {
                     $buddy = '';
                 } else {
-                    $buddy = '<a href="buddies.php?action=add&amp;id=' . $db[ 'buddy' ] . '&amp;userID=' . $userID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'add_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                    $buddy = '<a href="buddies.php?action=add&amp;id=' . $db[ 'buddy' ] . '&amp;userID=' . $userID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'add_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
                 }
 
                 if (isonline($db[ 'buddy' ]) == "offline") {
@@ -228,11 +228,11 @@ if (isset($id) && getnickname($id) != '') {
         echo '</table></div></div><div class="col-xs-4">
 		<ul class="list-group">
         	<li class="list-group-item text-muted">Quick Links</li>
-        	<li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '"><i class="fa fa-user fa-mgn"></i> ' . $_language->module[ 'profile' ] . '</a></li>
-            <li class="list-group-item active"><i class="fa fa-camera fa-mgn"></i> ' . $_language->module[ 'galleries' ] . '</li>
-            <li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '&amp;action=buddies"><i class="fa fa-users fa-mgn"></i> ' . $_language->module[ 'buddys' ] . '</a></li>
-            <li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '&amp;action=lastposts"><i class="fa fa-comments fa-mgn"></i> ' . $_language->module[ 'last' ] . ' ' . $profilelast . ' ' . $_language->module[ 'posts' ] . '</a></li>
-            <li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '&amp;action=guestbook"><i class="fa fa-book fa-mgn"></i> ' . $_language->module[ 'guestbook' ] . '</a></li>
+        	<li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '"><span class="fa fa-user fa-mgn"></span> ' . $_language->module[ 'profile' ] . '</a></li>
+            <li class="list-group-item active"><span class="fa fa-camera fa-mgn"></span> ' . $_language->module[ 'galleries' ] . '</li>
+            <li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '&amp;action=buddies"><span class="fa fa-users fa-mgn"></span> ' . $_language->module[ 'buddys' ] . '</a></li>
+            <li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '&amp;action=lastposts"><span class="fa fa-comments fa-mgn"></span> ' . $_language->module[ 'last' ] . ' ' . $profilelast . ' ' . $_language->module[ 'posts' ] . '</a></li>
+            <li class="list-group-item"><a href="index.php?site=profile&amp;id=' . $id . '&amp;action=guestbook"><span class="fa fa-book fa-mgn"></span> ' . $_language->module[ 'guestbook' ] . '</a></li>
         </ul>
 	</div></div>';
     } elseif ($action == "lastposts") {
@@ -282,8 +282,8 @@ if (isset($id) && getnickname($id) != '') {
 							<a href="index.php?site=forum_topic&amp;topic=' . $db[ 'topicID' ] . '">
                                 <strong>' . clearfromtags($db[ 'topic' ]) . '</strong>
                             </a><br>
-                            <i>' . $db[ 'views' ] . ' ' . $_language->module[ 'views' ] . ' - ' .
-                            $db[ 'replys' ] . ' ' . $_language->module[ 'replys' ] . '</i>
+                            <span>' . $db[ 'views' ] . ' ' . $_language->module[ 'views' ] . ' - ' .
+                            $db[ 'replys' ] . ' ' . $_language->module[ 'replys' ] . '</span>
                         </div>
                     </td>
                 </tr>';
@@ -358,7 +358,7 @@ if (isset($id) && getnickname($id) != '') {
                             <a href="index.php?site=forum_topic&amp;topic=' . $db[ 'topicID' ] . '">
                                 <strong>' . clearfromtags($db[ 'topic' ]) . '</strong>
                             </a><br>
-                            <i>' . clearfromtags($message) . '</i>
+                            <span>' . clearfromtags($message) . '</span>
                         </div>
                     </td>
                 </tr>';
@@ -545,11 +545,11 @@ if (isset($id) && getnickname($id) != '') {
                     if ($type == "ASC") {
                         $sorter = '<a href="index.php?site=profile&amp;id=' . $id . '&amp;action=guestbook&amp;page=' .
                             $page . '&amp;type=DESC">' . $_language->module[ 'sort' ] .
-                            ' <i class="fa fa-chevron-down"></i></a>';
+                            ' <span class="fa fa-chevron-down"></span></a>';
                     } else {
                         $sorter = '<a href="index.php?site=profile&amp;id=' . $id . '&amp;action=guestbook&amp;page=' .
                             $page . '&amp;type=ASC">' . $_language->module[ 'sort' ] .
-                            ' <i class="fa fa-chevron-up"></i></a>';
+                            ' <span class="fa fa-chevron-up"></span></a>';
                     }
 
                     echo '<div class="row form-group"><div class="col-xs-6">' . $sorter . ' ' . $page_link . '</div>
@@ -559,7 +559,7 @@ if (isset($id) && getnickname($id) != '') {
                             </a>
                         </div>
                     </div>';
-                    
+
                     $data_array = array();
                     $data_array['$id'] = $id;
                     $data_array['$profilelast'] = $profilelast;
@@ -574,14 +574,14 @@ if (isset($id) && getnickname($id) != '') {
 
                         if (validate_email($ds[ 'email' ])) {
                             $email = '<a href="mailto:' . mail_protect($ds[ 'email' ]) . '">
-                                <i class="fa fa-envelope" title="' . $_language->module[ 'email' ] .
-                                '"></i></a>';
+                                <span class="fa fa-envelope" title="' . $_language->module[ 'email' ] .
+                                '"></span></a>';
                         } else {
                             $email = '';
                         }
 
                         if (validate_url($ds[ 'hp' ])) {
-                            $hp = '<a href="' . $ds[ 'hp' ] . '" target="_blank"><i class="fa fa-home"></i></a>';
+                            $hp = '<a href="' . $ds[ 'hp' ] . '" target="_blank"><span class="fa fa-home"></span></a>';
                         } else {
                             $hp = '';
                         }
@@ -607,7 +607,7 @@ if (isset($id) && getnickname($id) != '') {
                         $actions = '';
                         $ip = $_language->module[ 'logged' ];
                         $quote = '<a href="javascript:AddCode(\'[quote=' . $name . ']' . $quotemessage .
-                            '[/quote]\')"> <i class="fa fa-quote-left"></i></a>';
+                            '[/quote]\')"> <span class="fa fa-quote-left"></span></a>';
                         if (isfeedbackadmin($userID) || $id == $userID) {
                             $actions =
                                 '<input class="input" type="checkbox" name="gbID[]" value="' . $ds[ 'gbID' ] . '">';
@@ -767,7 +767,7 @@ if (isset($id) && getnickname($id) != '') {
         }
         $nickname = $ds[ 'nickname' ];
         if (isclanmember($id)) {
-            $member = '<i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+            $member = '<span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
         } else {
             $member = '';
         }
@@ -788,8 +788,8 @@ if (isset($id) && getnickname($id) != '') {
             $email = $_language->module[ 'n_a' ];
         } else {
             $email = '<a href="mailto:' . mail_protect(cleartext($ds[ 'email' ])) .
-                '"><i class="fa fa-envelope" title="' . $_language->module[ 'email' ] . '">
-                </i></a>';
+                '"><span class="fa fa-envelope" title="' . $_language->module[ 'email' ] . '">
+                </span></a>';
         }
         $sem = '/[0-9]{4,11}/si';
         if (preg_match($sem, $ds[ 'icq' ])) {
@@ -801,21 +801,21 @@ if (isset($id) && getnickname($id) != '') {
         }
         if ($loggedin && $ds[ 'userID' ] != $userID) {
             $pm = '<a class="btn btn-success" href="index.php?site=messenger&amp;action=touser&amp;touser=' . $ds[ 'userID' ] . '" title="' . $_language->module[ 'email' ] . '">
-                <i class="fa fa-envelope"></i></a>';
+                <span class="fa fa-envelope"></span></a>';
             if (isignored($userID, $ds[ 'userID' ])) {
-                $buddy = '<a class="btn btn-warning" href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '" title="' . $_language->module[ 'back_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                $buddy = '<a class="btn btn-warning" href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '" title="' . $_language->module[ 'back_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
             } elseif (isbuddy($userID, $ds[ 'userID' ])) {
-                $buddy = '<a class="btn btn-danger" href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '" title="' . $_language->module[ 'ignore_user' ] . '"><i class="fa fa-user-times"></i>
+                $buddy = '<a class="btn btn-danger" href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '" title="' . $_language->module[ 'ignore_user' ] . '"><span class="fa fa-user-times"></span>
                 </a>';
             } elseif ($userID == $ds[ 'userID' ]) {
                 $buddy = '';
             } else {
-                $buddy = '<a class="btn btn-primary" href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '" title="' . $_language->module[ 'add_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                $buddy = '<a class="btn btn-primary" href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '" title="' . $_language->module[ 'add_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
             }
         } else {
             $pm = '' & $buddy = '';
         }
-		
+
         if ($ds[ 'homepage' ] != '') {
 			if (preg_match('%^https?://[^\s]+$%', $ds[ 'homepage' ])) {
 				$homepage = '<a href="' . htmlspecialchars($ds[ 'homepage' ]) . '" target="_blank" rel="nofollow">' .

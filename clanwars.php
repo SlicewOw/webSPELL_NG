@@ -1263,12 +1263,12 @@ if ($action == "new") {
         $seiten =
             '<a href="index.php?site=clanwars&amp;action=showonly&amp;id=' . $id . '&amp;page=' . $page . '&amp;sort=' .
             $sort . '&amp;type=DESC&amp;only=' . $only . '">' . $_language->module[ 'sort' ] .
-            ' <i class="fa fa-chevron-down"></i></a> ' . $page_link . '';
+            ' <span class="fa fa-chevron-down"></span></a> ' . $page_link . '';
     } else {
         $seiten =
             '<a href="index.php?site=clanwars&amp;action=showonly&amp;id=' . $id . '&amp;page=' . $page . '&amp;sort=' .
             $sort . '&amp;type=ASC&amp;only=' . $only . '">' . $_language->module[ 'sort' ] .
-            ' <i class="fa fa-chevron-up"></i></a>  ' . $page_link . '';
+            ' <span class="fa fa-chevron-up"></span></a>  ' . $page_link . '';
     }
 
     if (isclanwaradmin($userID)) {
@@ -1535,11 +1535,11 @@ if ($action == "new") {
 
     if ($type == "ASC") {
         $seiten = '<a href="index.php?site=clanwars&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=DESC">' .
-            $_language->module[ 'sort' ] . ':</a> <i class="fa fa-chevron-down"></i> ' .
+            $_language->module[ 'sort' ] . ':</a> <span class="fa fa-chevron-down"></span> ' .
             $page_link . '<br><br>';
     } else {
         $seiten = '<a href="index.php?site=clanwars&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=ASC">' .
-            $_language->module[ 'sort' ] . ':</a> <i class="fa fa-chevron-up"></i> ' .
+            $_language->module[ 'sort' ] . ':</a> <span class="fa fa-chevron-up"></span> ' .
             $page_link . '<br><br>';
     }
 

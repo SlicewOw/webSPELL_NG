@@ -80,12 +80,12 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
 
   echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-pencil-square"></i> ' . $_language->module[ 'static_pages' ] . '
+                            <span class="fa fa-pencil-square"></span> ' . $_language->module[ 'static_pages' ] . '
                         </div>
-                    <div class="panel-body">';  
-	
+                    <div class="panel-body">';
+
   echo'<a href="admincenter.php?site=static" class="white">' . $_language->module['static_pages'] . '</a> &raquo; ' . $_language->module['add_static_page'] . '<br><br>';
-  
+
   echo '<script>
   <!--
   function chkFormular() {
@@ -95,7 +95,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
   }
 -->
 </script>';
-  
+
   echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=static" enctype="post" onsubmit="return chkFormular();">
   <div class="row">
 
@@ -136,18 +136,18 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
   <div class="row">
   <div class="col-md-12">
 <div class="form-group">
-  
+
   <div class="col-md-12"><span class="text-muted small"><em>
   ' . $_language->module[ 'you_can_use_html' ] .'</em></span>';
 
     $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
     $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-  
+
   echo '' . $addflags . '<br>' . $addbbcode . '<br>';
   echo '</div></div>';
 
   echo'<div class="form-group">
-    
+
     <div class="col-md-12"><span class="text-muted small"><em>
       <textarea class="form-control" id="message" name="message" rows="20" cols="" style="width: 100%;"></textarea>
     </div>
@@ -162,7 +162,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
   </div>
   </div>
   </form></div></div>';
-  
+
 } elseif (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
     $_language->readModule('bbcode', true, true);
 
@@ -192,12 +192,12 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
 
      echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-pencil-square"></i> ' . $_language->module[ 'static_pages' ] . '
+                            <span class="fa fa-pencil-square"></span> ' . $_language->module[ 'static_pages' ] . '
                         </div>
-                    <div class="panel-body">';  
-	
+                    <div class="panel-body">';
+
 	echo'<a href="admincenter.php?site=static" class="white">' . $_language->module['static_pages'] . '</a> &raquo; ' . $_language->module['edit_static_page'] . '<br><br>';
-	
+
 	echo '<script language="JavaScript" type="text/javascript">
 					<!--
 						function chkFormular() {
@@ -250,18 +250,18 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
   <div class="row">
   <div class="col-md-12">
 <div class="form-group">
-  
+
   <div class="col-md-12"><span class="text-muted small"><em>
   ' . $_language->module[ 'you_can_use_html' ] .'</em></span>';
 
     $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
     $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
-  
+
   echo '' . $addflags . '<br>' . $addbbcode . '<br>';
   echo '</div></div>
 
   <div class="form-group">
-    
+
     <div class="col-md-12"><span class="text-muted small"><em>
       <textarea class="form-control" id="message" name="message" rows="20" cols="" style="width: 100%;">' . $content . '</textarea></em></span>
     </div>
@@ -281,7 +281,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
 
     echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-pencil-square"></i> ' . $_language->module[ 'static_pages' ] . '
+                            <span class="fa fa-pencil-square"></span> ' . $_language->module[ 'static_pages' ] . '
                         </div>
                     <div class="panel-body">';
 
@@ -289,7 +289,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
 <br><br>';
 
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "static ORDER BY staticID");
-	
+
   echo'<table class="table table-striped">
     <thead>
       <th><b>' . $_language->module['id'] . '</b></th>
@@ -324,10 +324,10 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=static&amp;delete=true&amp;staticID=' . $ds['staticID'] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=static&amp;action=edit&amp;staticID=' . $ds['staticID'] . '"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=static&amp;delete=true&amp;staticID=' . $ds['staticID'] . '&amp;captcha_hash=' . $hash . '\')" /><i class="fa fa-times"></i></a></td>
+	  <a href="admincenter.php?site=static&amp;action=edit&amp;staticID=' . $ds['staticID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=static&amp;delete=true&amp;staticID=' . $ds['staticID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a></td>
     </tr>';
-    
+
     $i++;
 	}
 	echo'</table>';

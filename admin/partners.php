@@ -94,7 +94,7 @@ if (isset($_GET[ 'delete' ])) {
 
         //TODO: should be loaded from root language folder
         $_language->readModule('formvalidation',true, true);
-		
+
         $upload = new \webspell\HttpUpload('banner');
 
         if ($upload->hasFile()) {
@@ -251,10 +251,10 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-	
+
 	echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <i class="fa fa-thumbs-up"></i> '.$_language->module['partners'].'
+                            <span class="fa fa-thumbs-up"></span> '.$_language->module['partners'].'
                         </div>
                         <div class="panel-body">
 	<a href="admincenter.php?site=partners" class="white">'.$_language->module['partners'].'</a> &raquo; '.$_language->module['add_partner'].'<br><br>';
@@ -315,14 +315,14 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-thumbs-up"></i> '.$_language->module['partners'].'
+                            <span class="fa fa-thumbs-up"></span> '.$_language->module['partners'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=partners" class="white">'.$_language->module['partners'].'</a> &raquo; '.$_language->module['edit_partner'].'<br><br>';
-  
+
   $partnerID = $_GET[ 'partnerID' ];
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "partners WHERE partnerID='$partnerID'");
     $ds = mysqli_fetch_array($ergebnis);
@@ -332,7 +332,7 @@ if ($action == "add") {
     } else {
         $displayed = '<input type="checkbox" name="displayed" value="1" />';
     }
-  
+
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=partners" enctype="multipart/form-data">
 
      <div class="row">
@@ -394,13 +394,13 @@ if ($action == "add") {
 }
 
 else {
-	
+
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <i class="fa fa-thumbs-up"></i> '.$_language->module['partners'].'
+                            <span class="fa fa-thumbs-up"></span> '.$_language->module['partners'].'
                         </div>
                         <div class="panel-body">';
-  
+
   echo'<a href="admincenter.php?site=partners&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_partner' ] . '</a><br /><br />';
 
 	echo'<form method="post" action="admincenter.php?site=partners">
@@ -449,8 +449,8 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=partners&amp;delete=true&amp;partnerID='.$db['partnerID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=partners&amp;action=edit&amp;partnerID='.$db['partnerID'].'"  class="mobile visible-xs visible-sm" type="button"><i class="fa fa-pencil"></i></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=partners&amp;delete=true&amp;partnerID='.$db['partnerID'].'&amp;captcha_hash='.$hash.'\')" /><i class="fa fa-times"></i></a>
+	  <a href="admincenter.php?site=partners&amp;action=edit&amp;partnerID='.$db['partnerID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=partners&amp;delete=true&amp;partnerID='.$db['partnerID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
 
 
       </td>
@@ -469,7 +469,7 @@ else {
       </td>
     </tr>';
     $i++;
-         
+
 	}
 	echo'<tr class="td_head">
       <td colspan="5" align="right"><input type="hidden" name="captcha_hash" value="'.$hash_2.'" /><button class="btn btn-primary btn-xs" type="submit" name="sortieren" />'.$_language->module['to_sort'].'</button></td>

@@ -59,7 +59,7 @@ $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
 echo'<div class="panel panel-default">
 <div class="panel-heading">
-                            <i class="fa fa-history"></i> ' . $_language->module[ 'history' ] . '
+                            <span class="fa fa-history"></span> ' . $_language->module[ 'history' ] . '
                         </div>
                   <div class="panel-body">
 
@@ -75,20 +75,20 @@ echo '<script>
 						}
 					-->
 				</script>';
-  
+
 	echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=history" onsubmit="return chkFormular();">
   <br /><small>'.$_language->module['you_can_use_html'].'</small><br /><br />';
-  
+
 	echo '
 		      <div class="col-md-12 hidden-xs hidden-sm">
 			  '.$addflags.'<br>
 		        '.$addbbcode.'<br></div>';
-			
+
 	echo '<br /><textarea class="form-control" id="message" rows="25" cols="" name="message" style="width: 100%;">'.getinput($ds['history']).'</textarea>
   <br /><br /><input type="hidden" name="captcha_hash" value="'.$hash.'" /><button class="btn btn-success btn-xs" type="submit" name="submit" />'.$_language->module['update'].'</button>
   </form>
   </div>
   </div><div>
   </div>';
-  
+
 ?>

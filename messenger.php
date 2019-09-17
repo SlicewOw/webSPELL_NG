@@ -244,11 +244,11 @@ if (isset($_POST['delete'])) {
         if ($type == "ASC") {
             $sorter = '<a href="index.php?site=messenger&amp;action=incoming&amp;page=' . $page . '&amp;sort=' . $sort .
                 '&amp;type=DESC&amp;entries=' . $max . '">' . $_language->module['sort'] .
-                '</a> <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;&nbsp;';
         } else {
             $sorter = '<a href="index.php?site=messenger&amp;action=incoming&amp;page=' . $page . '&amp;sort=' . $sort .
                 '&amp;type=ASC&amp;entries=' . $max . '">' . $_language->module['sort'] .
-                '</a> <i class="fa fa-chevron-up"></i>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="fa fa-chevron-up"></span>&nbsp;&nbsp;&nbsp;';
         }
 
         $data_array = array();
@@ -276,26 +276,26 @@ if (isset($_POST['delete'])) {
                 } elseif (isignored($userID, $ds['fromuser'])) {
                     $buddy =
                         '<a href="buddies.php?action=readd&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
-                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
                 } elseif (isbuddy($userID, $ds['fromuser'])) {
                     $buddy =
                         '<a href="buddies.php?action=ignore&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
-                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore' ] . '"><i class="fa fa-user-times"></i></a>';
+                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore' ] . '"><span class="fa fa-user-times"></span></a>';
                 } else {
                     $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
-                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'add_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'add_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
                 }
 
                 if (isonline($ds['fromuser']) == "offline") {
-                    $statuspic = '<i class="fa fa-circle text-danger" aria-hidden="true"></i>';
+                    $statuspic = '<span class="fa fa-circle text-danger" aria-hidden="true"></span>';
                 } else {
-                    $statuspic = '<i class="fa fa-circle text-success" aria-hidden="true"></i>';
+                    $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
                 }
 
                 $sender = '<a href="index.php?site=profile&amp;id=' . $ds['fromuser'] . '"><b>' .
                     getnickname($ds['fromuser']) . '</b></a>';
                 if (isclanmember($ds['fromuser'])) {
-                    $member = '<i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                    $member = '<span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                 } else {
                     $member = '';
                 }
@@ -309,7 +309,7 @@ if (isset($_POST['delete'])) {
                 $new = '';
                 $icon = '';
                 if (!$ds['viewed']) {
-                    $icon = '<i class="fa fa-envelope"></i>';
+                    $icon = '<span class="fa fa-envelope"></span>';
                     $title = '<strong>' . $title . '</strong>';
                     $new = 'class="warning"';
                 }
@@ -414,11 +414,11 @@ if (isset($_POST['delete'])) {
         if ($type == "ASC") {
             $sorter = '<a href="index.php?site=messenger&amp;action=outgoing&amp;page=' . $page . '&amp;sort=' . $sort .
                 '&amp;type=DESC&amp;entries=' . $max . '">' . $_language->module['sort'] .
-                '</a> <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;&nbsp;';
         } else {
             $sorter = '<a href="index.php?site=messenger&amp;action=outgoing&amp;page=' . $page . '&amp;sort=' . $sort .
                 '&amp;type=ASC&amp;entries=' . $max . '">' . $_language->module['sort'] .
-                '</a> <i class="fa fa-chevron-up"></i>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="fa fa-chevron-up"></span>&nbsp;&nbsp;&nbsp;';
         }
 
         $data_array = array();
@@ -445,29 +445,29 @@ if (isset($_POST['delete'])) {
                     $buddy = '';
                 } elseif (isignored($userID, $ds['touser'])) {
                     $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
-                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
                 } elseif (isbuddy($userID, $ds['touser'])) {
                     $buddy =
                         '<a href="buddies.php?action=ignore&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
-                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore' ] . '"><i class="fa fa-user-times"></i></a>';
+                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore' ] . '"><span class="fa fa-user-times"></span></a>';
                 } else {
                      $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
-                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'add_buddylist' ] . '"><i class="fa fa-user-plus"></i></a>';
+                        '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'add_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
                 }
 
                 $receptionist = '<a href="index.php?site=profile&amp;id=' . $ds['touser'] . '"><b>' .
                     getnickname($ds['touser']) . '</b></a>';
 
                 if (isclanmember($ds['touser'])) {
-                    $member = ' <i class="fa fa-user" aria-hidden="true" title="Clanmember"></i>';
+                    $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                 } else {
                     $member = '';
                 }
 
                 if(isonline($ds['touser']) == "offline") {
-                    $statuspic = '<i class="fa fa-circle text-danger" aria-hidden="true"></i>';
+                    $statuspic = '<span class="fa fa-circle text-danger" aria-hidden="true"></span>';
                 } else {
-                    $statuspic = '<i class="fa fa-circle text-success" aria-hidden="true"></i>';
+                    $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
                 }
 
                 if (trim($ds['title']) != "") {
@@ -479,7 +479,7 @@ if (isset($_POST['delete'])) {
                     ' <a href="index.php?site=messenger&amp;action=show&amp;id=' . $ds['messageID'] . '">' . $title .
                     '</a>';
 
-                $icon = '<i class="fa fa-envelope-open-o" aria-hidden="true"></i>';
+                $icon = '<span class="fa fa-envelope-open-o" aria-hidden="true"></span>';
                 $data_array = array();
                 $data_array['$messageID'] = $ds['messageID'];
                 $data_array['$title'] = $title;
