@@ -29,7 +29,7 @@ if (isset($_GET[ 'ajax' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
-    chdir('admin');
+    chdir(getConstNameAdmin());
     if (isforumadmin($userID)) {
         if (isset($_GET[ 'action' ])) {
             $action = $_GET[ 'action' ];

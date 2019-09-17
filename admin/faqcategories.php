@@ -236,7 +236,7 @@ else {
 
 		echo '<tr>
             <td class="' . $td . '"><b>' . getinput($ds[ 'faqcatname' ]) . '</b>
-            <br />' . cleartext($ds[ 'description' ], true, 'admin') . '</td>
+            <br />' . cleartext($ds[ 'description' ], true, getConstNameAdmin()) . '</td>
       <td><a href="admincenter.php?site=faqcategories&amp;action=editcat&amp;faqcatID='.$ds['faqcatID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faqcategories&amp;delcat=true&amp;faqcatID='.$ds['faqcatID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />

@@ -37,7 +37,7 @@ function unhtmlspecialchars($input)
 
 function replace_smileys($text, $calledfrom = 'root')
 {
-    if ($calledfrom == 'admin') {
+    if ($calledfrom == getConstNameAdmin()) {
         $prefix = '.';
         $prefix2 = '../';
     } else {
@@ -158,7 +158,7 @@ function flags($text, $calledfrom = 'root')
     global $_language;
 
     $prefix = '';
-    if ($calledfrom == 'admin') {
+    if ($calledfrom == getConstNameAdmin()) {
         $prefix = '../';
         $_language->readModule('bbcode', true, true);
     } else {
@@ -573,7 +573,7 @@ function linkreplace($link)
 function insertlinks($content, $calledfrom = 'root')
 {
     global $insertlinks;
-    if ($calledfrom == 'admin') {
+    if ($calledfrom == getConstNameAdmin()) {
         $prefix = '../';
     } else {
         $prefix = '';

@@ -657,7 +657,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                 $_sticky = ($dt['sticky'] == '1' || $post_sticky == '1') ? 'checked="checked"' : '';
 
                 if (isforumadmin($userID)) {
-                    $usertype = $_language->module['admin'];
+                    $usertype = $_language->module[getConstNameAdmin()];
                     $rang = '<img src="images/icons/ranks/admin.gif" alt="">';
                 } elseif (isanymoderator($userID)) {
                     $usertype = $_language->module['moderator'];
@@ -902,7 +902,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         $posts = getuserforumposts($dr['poster']);
 
         if (isforumadmin($dr['poster'])) {
-            $usertype = $_language->module['admin'];
+            $usertype = $_language->module[getConstNameAdmin()];
             $rang = '<img src="images/icons/ranks/admin.gif" alt="">';
         } elseif (isanymoderator($dr['poster'])) {
             $usertype = $_language->module['moderator'];

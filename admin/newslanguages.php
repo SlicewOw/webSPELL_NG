@@ -100,7 +100,7 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
     $flag = '[flag][/flag]';
-    $country = flags($flag, 'admin');
+    $country = flags($flag, getConstNameAdmin());
     $country = str_replace("<img", "<img id='getcountry'", $country);
 
   echo'<div class="panel panel-default"><div class="panel-heading">
@@ -151,7 +151,7 @@ if ($action == "add") {
 	 $ergebnis = safe_query("SELECT * FROM " . PREFIX . "news_languages WHERE langID='" . $_GET[ 'langID' ] . "'");
     $ds = mysqli_fetch_array($ergebnis);
     $flag = '[flag]' . $ds[ 'lang' ] . '[/flag]';
-    $country = flags($flag, 'admin');
+    $country = flags($flag, getConstNameAdmin());
     $country = str_replace("<img", "<img id='getcountry'", $country);
     $langs = str_replace(' selected="selected"', '', $langs);
     $langs = str_replace('value="' . $ds[ 'lang' ] . '"', 'value="' . $ds[ 'lang' ] . '" selected="selected"', $langs);

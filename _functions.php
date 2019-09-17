@@ -347,6 +347,10 @@ systeminc('func/upload');
 systeminc('func/httpupload');
 systeminc('func/urlupload');
 
+// -- Constants -- //
+
+systeminc('func/constants');
+
 // -- Mod Rewrite -- //
 
 systeminc('modrewrite');

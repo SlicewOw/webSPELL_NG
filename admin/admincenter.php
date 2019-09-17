@@ -30,7 +30,7 @@ include("_mysql.php");
 include("_settings.php");
 include("_functions.php");
 Include("_plugin.php");
-chdir('admin');
+chdir(getConstNameAdmin());
 
 $load = new plugin_manager();
 $_language->readModule('admincenter', false, true);
@@ -69,7 +69,7 @@ function admincenternav($catID)
     $links = '';
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."dashnavi_links WHERE catID='$catID' ORDER BY sort");
     while ($ds=mysqli_fetch_array($ergebnis)) {
-        $accesslevel = 'is'.$ds['accesslevel'].'admin';
+        $accesslevel = 'is'.$ds['accesslevel'].getConstNameAdmin();
         if ($accesslevel($userID)) {
             $links .= '<li><a href="'.$ds['url'].'">'.$ds['name'].'</a></li>';
         }
@@ -88,7 +88,7 @@ function addonnav()
         <a href="#"><span class="fa fa-plus"></span> '.$ds['name'].'<span class="fa arrow"></span></a>';
         $catlinks = safe_query("SELECT * FROM ".PREFIX."dashnavi_links WHERE catID='".$ds['catID']."' ORDER BY sort");
         while ($db=mysqli_fetch_array($catlinks)) {
-            $accesslevel = 'is'.$db['accesslevel'].'admin';
+            $accesslevel = 'is'.$db['accesslevel'].getConstNameAdmin();
             if ($accesslevel($userID)) {
                 $links .= '<ul class="nav nav-second-level">
                                     <li><a href="'.$db['url'].'">'.$ds['name'].'</a></li>

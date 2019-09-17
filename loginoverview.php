@@ -207,7 +207,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
         $admincenterpic =
             '<a class="thumbnail text-center" href="admin/admincenter.php" target="_blank">
                 <span class="fa fa-cogs fa-4x" alt="Admincenter"></span><br>
-                '.$login_lang[ 'admin' ].'
+                '.$login_lang[ getConstNameAdmin() ].'
             </a>';
     } else {
         $admincenterpic = '';

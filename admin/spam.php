@@ -30,7 +30,7 @@ if (isset($_GET[ 'getnickname' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
-    chdir('admin');
+    chdir(getConstNameAdmin());
     if (!ispageadmin($userID)) {
         die();
     }

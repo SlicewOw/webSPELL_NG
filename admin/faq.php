@@ -338,7 +338,7 @@ else {
         echo '<tr>
             <td class="td_head" colspan="3">
                 <b>' . $ds[ 'faqcatname' ] . '</b><br>
-                <small>' . cleartext($ds[ 'description' ], true, 'admin') . '</small>
+                <small>' . cleartext($ds[ 'description' ], true, getConstNameAdmin()) . '</small>
             </td>
         </tr>';
 

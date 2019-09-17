@@ -1046,9 +1046,9 @@ if ($action == "activate") {
             } elseif (issuperadmin($ds[ 'userID' ])) {
                 $status = $_language->module[ 'superadmin' ];
             } elseif (isanyadmin($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
-                $status = $_language->module[ 'admin' ] . '<br />&amp; ' . $_language->module[ 'clanmember' ];
+                $status = $_language->module[ getConstNameAdmin() ] . '<br />&amp; ' . $_language->module[ 'clanmember' ];
             } elseif (isanyadmin($ds[ 'userID' ])) {
-                $status = $_language->module[ 'admin' ];
+                $status = $_language->module[ getConstNameAdmin() ];
             } elseif (isanymoderator($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
                 $status = $_language->module[ 'moderator' ] . '<br />&amp; ' . $_language->module[ 'clanmember' ];
             } elseif (isanymoderator($ds[ 'userID' ])) {

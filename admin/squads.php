@@ -641,7 +641,7 @@ else {
             echo '<tr>
         <td><a href="../index.php?site=squads&amp;squadID='.$db['squadID'].'" target="_blank">'.getinput($db['name']).'</a></td>
         <td class="hidden-xs">'.$type.'</td>
-        <td class="hidden-xs">'.cleartext($db['info'],1,'admin').'</td>
+        <td class="hidden-xs">'.cleartext($db['info'],1,getConstNameAdmin()).'</td>
         <td><a href="admincenter.php?site=squads&amp;action=edit&amp;squadID='.$db['squadID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=squads&amp;delete=true&amp;squadID='.$db['squadID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
