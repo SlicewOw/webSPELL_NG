@@ -434,9 +434,9 @@ if ($action == "add") {
             }
 
             if ($ds['displayed'] == 1) {
-                $displayed = '<font color="green"><b>' . $_language->module['yes'] . '</b></font>';
+                $displayed = '<span style="color: #00FF00;"><b>' . $_language->module['yes'] . '</b></span>';
             } else {
-                $displayed = '<font color="red"><b>' . $_language->module['no'] . '</b></font>';
+                $displayed = '<span style="color: #FF0000;"><b>' . $_language->module['no'] . '</b></span>';
             }
 
             if (!isWebURLorProtocolRelative($ds['bannerurl'])) {

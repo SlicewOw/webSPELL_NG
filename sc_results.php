@@ -35,11 +35,11 @@ if (mysqli_num_rows($ergebnis)) {
         $oppscr = array_sum(unserialize($ds[ 'oppscore' ]));
 
         if ($homescr > $oppscr) {
-            $result = '<font color="' . $wincolor . '">' . $homescr . ':' . $oppscr . '</font>';
+            $result = '<span style="color: ' . $wincolor . '">' . $homescr . ':' . $oppscr . '</span>';
         } elseif ($homescr < $oppscr) {
-            $result = '<font color="' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</font>';
+            $result = '<span style="color: ' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</span>';
         } else {
-            $result = '<font color="' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</font>';
+            $result = '<span style="color: ' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</span>';
         }
 
         $resultID = $ds[ 'cwID' ];

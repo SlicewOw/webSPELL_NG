@@ -701,9 +701,9 @@ onmouseout="hideWMTT()" />';
             $nickname = '<a href="../index.php?site=profile&amp;id=' . $dm[ 'userID' ] . '" target="_blank">' .
                 strip_tags(stripslashes(getnickname($dm[ 'userID' ]))) . '</a>';
             if ($dm[ 'activity' ]) {
-                $activity = '<font color="green">' . $_language->module[ 'active' ] . '</font>';
+                $activity = '<span style="color: #00FF00;">' . $_language->module[ 'active' ] . '</span>';
             } else {
-                $activity = '<font color="red">' . $_language->module[ 'inactive' ] . '</font>';
+                $activity = '<span style="color: #FF0000;">' . $_language->module[ 'inactive' ] . '</span>';
             }
 
             echo '<tr>

@@ -604,11 +604,11 @@ echo'<div class="panel panel-default">
             }
 
             $ds[ 'displayed' ] == 1 ?
-            $displayed = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
-            $displayed = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
+            $displayed = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
+            $displayed = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
             $ds[ 'mainsponsor' ] == 1 ?
-            $mainsponsor = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
-            $mainsponsor = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
+            $mainsponsor = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
+            $mainsponsor = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
 
             if (stristr($ds[ 'url' ], 'http://')) {
                 $name = '<a href="' . getinput($ds[ 'url' ]) . '" target="_blank">' . getinput($ds[ 'name' ]) . '</a>';

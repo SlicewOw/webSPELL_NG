@@ -77,14 +77,14 @@ if (is_array($theMaps)) {
 }
 
 if ($homescr > $oppscr) {
-	$results_1 = '<font color="' . $wincolor . '">' . $homescr . '</font>';
-	$results_2 = '<font color="' . $wincolor . '">' . $oppscr . '</font>';
+	$results_1 = '<span style="color: ' . $wincolor . '">' . $homescr . '</span>';
+	$results_2 = '<span style="color: ' . $wincolor . '">' . $oppscr . '</span>';
 } elseif ($homescr < $oppscr) {
-	$results_1 = '<font color="' . $loosecolor . '">' . $homescr . '</font>';
-	$results_2 = '<font color="' . $loosecolor . '">' . $oppscr . '</font>';
+	$results_1 = '<span style="color: ' . $loosecolor . '">' . $homescr . '</span>';
+	$results_2 = '<span style="color: ' . $loosecolor . '">' . $oppscr . '</span>';
 } else {
-	$results_1 = '<font color="' . $drawcolor . '">' . $homescr . '</font>';
-	$results_2 = '<font color="' . $drawcolor . '">' . $oppscr . '</font>';
+	$results_1 = '<span style="color: ' . $drawcolor . '">' . $homescr . '</span>';
+	$results_2 = '<span style="color: ' . $drawcolor . '">' . $oppscr . '</span>';
 }
 
 if (isclanwaradmin($userID)) {
@@ -201,14 +201,14 @@ if (is_array($theMaps)) {
 		#    $bgtwo = BG_4;
 		#}
 		if ($scoreHome[ $d ] > $scoreOpp[ $d ]) {
-			$score_1 = '<font color="' . $wincolor . '"><strong>' . $scoreHome[ $d ] . '</strong></font>';
-			$score_2 = '<font color="' . $wincolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></font>';
+			$score_1 = '<span style="color: ' . $wincolor . '"><strong>' . $scoreHome[ $d ] . '</strong></span>';
+			$score_2 = '<span style="color: ' . $wincolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></span>';
 		} elseif ($scoreHome[ $d ] < $scoreOpp[ $d ]) {
-			$score_1 = '<font color="' . $loosecolor . '"><strong>' . $scoreHome[ $d ] . '</strong></font>';
-			$score_2 = '<font color="' . $loosecolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></font>';
+			$score_1 = '<span style="color: ' . $loosecolor . '"><strong>' . $scoreHome[ $d ] . '</strong></span>';
+			$score_2 = '<span style="color: ' . $loosecolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></span>';
 		} else {
-			$score_1 = '<font color="' . $drawcolor . '"><strong>' . $scoreHome[ $d ] . '</strong></font>';
-			$score_2 = '<font color="' . $drawcolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></font>';
+			$score_1 = '<span style="color: ' . $drawcolor . '"><strong>' . $scoreHome[ $d ] . '</strong></span>';
+			$score_2 = '<span style="color: ' . $drawcolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></span>';
 		}
 
 		$data_array = array();

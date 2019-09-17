@@ -313,12 +313,12 @@ function print_termine($tag, $month, $year)
 
                                 if ($i > 1) {
                                     $players .= ', <a href="index.php?site=profile&amp;id=' . $da['userID'] .
-                                        '"><font color="' . $fontcolor . '">' . getnickname($da['userID']) .
-                                        '</font></a>';
+                                        '"><span style="color: ' . $fontcolor . '">' . getnickname($da['userID']) .
+                                        '</span></a>';
                                 } else {
                                     $players .= '<a href="index.php?site=profile&amp;id=' . $da['userID'] .
-                                        '"><font color="' . $fontcolor . '">' . getnickname($da['userID']) .
-                                        '</font></a>';
+                                        '"><span style="color: ' . $fontcolor . '">' . getnickname($da['userID']) .
+                                        '</span></a>';
                                 }
                                 $i++;
                             }

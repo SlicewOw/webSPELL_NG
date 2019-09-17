@@ -1361,11 +1361,11 @@ if ($action == "new") {
             $oppscr = array_sum(unserialize($ds[ 'oppscore' ]));
 
             if ($homescr > $oppscr) {
-                $results = '<font color="' . $wincolor . '">' . $homescr . ':' . $oppscr . '</font>';
+                $results = '<span style="color: ' . $wincolor . '">' . $homescr . ':' . $oppscr . '</span>';
             } elseif ($homescr < $oppscr) {
-                $results = '<font color="' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</font>';
+                $results = '<span style="color: ' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</span>';
             } else {
-                $results = '<font color="' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</font>';
+                $results = '<span style="color: ' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</span>';
             }
 
             if (getanzcwcomments($ds[ 'cwID' ])) {
@@ -1617,11 +1617,11 @@ if ($action == "new") {
             $oppscr = array_sum(unserialize($ds[ 'oppscore' ]));
 
             if ($homescr > $oppscr) {
-                $results = '<font color="' . $wincolor . '">' . $homescr . ':' . $oppscr . '</font>';
+                $results = '<span style="color: ' . $wincolor . '">' . $homescr . ':' . $oppscr . '</span>';
             } elseif ($homescr < $oppscr) {
-                $results = '<font color="' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</font>';
+                $results = '<span style="color: ' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</span>';
             } else {
-                $results = '<font color="' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</font>';
+                $results = '<span style="color: ' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</span>';
             }
 
             if ($anzcomments = getanzcwcomments($ds[ 'cwID' ])) {

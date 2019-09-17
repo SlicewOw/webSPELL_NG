@@ -431,8 +431,8 @@ else {
             $td = 'td2';
         }
 
-        $db[ 'displayed' ] == 1 ? $displayed = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
-            $displayed = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
+        $db[ 'displayed' ] == 1 ? $displayed = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
+            $displayed = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
 
         $days = round((time() - $db[ 'date' ]) / (60 * 60 * 24));
         if ($days) {

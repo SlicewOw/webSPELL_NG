@@ -397,12 +397,12 @@ else {
             $td = 'td2';
         }
 
-        $db[ 'le_activated' ] == 1 ? $le_activated = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
-            $le_activated = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
-         $db[ 're_activated' ] == 1 ? $re_activated = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
-            $re_activated = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
-         $db[ 'activated' ] == 1 ? $activated = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
-            $activated = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
+        $db[ 'le_activated' ] == 1 ? $le_activated = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
+            $le_activated = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
+         $db[ 're_activated' ] == 1 ? $re_activated = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
+            $re_activated = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
+         $db[ 'activated' ] == 1 ? $activated = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
+            $activated = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
 
 
 

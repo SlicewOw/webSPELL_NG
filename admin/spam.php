@@ -290,13 +290,13 @@ if ($action == "user") {
                 $get_u = safe_query("SELECT * FROM " . PREFIX . "user WHERE userID='" . $id . "'");
                 $data = mysqli_fetch_assoc($get_u);
 
-                $active = ($data[ 'activated' ] == '1') ? "<font color='green'>&#10004;</font>" :
-                    "<font color='red'>&#10006;</font>";
-                $banned = ($data[ 'banned' ] !== null) ? "<font color='red'>&#10004;</font>" :
-                    "<font color='green'>&#10006;</font>";
+                $active = ($data[ 'activated' ] == '1') ? "<span style="color: #00FF00;">&#10004;</span>" :
+                    "<span style="color: #FF0000;">&#10006;</span>";
+                $banned = ($data[ 'banned' ] !== null) ? "<span style="color: #FF0000;">&#10004;</span>" :
+                    "<span style="color: #00FF00;">&#10006;</span>";
 
                 if ($data[ 'lastlogin' ] > time() - (60 * 60 * 24 * 10)) {
-                    $last_login = '<font color="green">' . getformatdate($data[ 'lastlogin' ]) . '</font>';
+                    $last_login = '<span style="color: #00FF00;">' . getformatdate($data[ 'lastlogin' ]) . '</span>';
                 } else {
                     $last_login = getformatdate($data[ 'lastlogin' ]);
                 }
@@ -420,7 +420,7 @@ if ($action == "user") {
             }
 
             echo '<tr>
-			<td class="' . $td . '"><font color="red">' . getinput($ds[ 'message' ]) . '</font><br />' . $ds[ 'data' ] .
+			<td class="' . $td . '"><span style="color: #FF0000;">' . getinput($ds[ 'message' ]) . '</span><br />' . $ds[ 'data' ] .
                 '</td>
 			<td class="' . $td . '">' . getformatdatetime($ds[ 'date' ]) . '</td>
 			</tr>';

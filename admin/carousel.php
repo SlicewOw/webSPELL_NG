@@ -373,8 +373,8 @@ if ($action == "add") {
             }
 
             $ds[ 'displayed' ] == 1 ?
-            $displayed = '<font color="green"><b>' . $_language->module[ 'yes' ] . '</b></font>' :
-            $displayed = '<font color="red"><b>' . $_language->module[ 'no' ] . '</b></font>';
+            $displayed = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
+            $displayed = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
 
             if (stristr($ds[ 'link' ], 'http://')) {
                 $title = '<a href="' . getinput($ds[ 'link' ]) . '" target="_blank">' . getinput($ds[ 'title' ]) . '</a>';

@@ -36,56 +36,56 @@ include '../version.php';
 $username = '' . getnickname($userID) . ':';
 $lastlogin = getformatdatetime($_SESSION[ 'ws_lastlogin' ]);
 
-$phpversion = phpversion() < '4.3' ? '<font color="#FF0000">' . phpversion() . '</font>' :
-    '<font color="#008000">' . phpversion() . '</font>';
-$zendversion = zend_version() < '1.3' ? '<font color="#FF0000">' . zend_version() . '</font>' :
-    '<font color="#008000">' . zend_version() . '</font>';
+$phpversion = phpversion() < '4.3' ? '<span style="color: #FF0000">' . phpversion() . '</span>' :
+    '<span style="color: #008000">' . phpversion() . '</span>';
+$zendversion = zend_version() < '1.3' ? '<span style="color: #FF0000">' . zend_version() . '</span>' :
+    '<span style="color: #008000">' . zend_version() . '</span>';
 $mysqlversion = mysqli_get_server_version($_database) < '40000' ?
-    '<font color="#FF0000">' . mysqli_get_server_info($_database) . '</font>' :
-    '<font color="#008000">' . mysqli_get_server_info($_database) . '</font>';
+    '<span style="color: #FF0000">' . mysqli_get_server_info($_database) . '</span>' :
+    '<span style="color: #008000">' . mysqli_get_server_info($_database) . '</span>';
 $get_phpini_path = get_cfg_var('cfg_file_path');
 $get_allow_url_fopen =
-    get_cfg_var('allow_url_fopen') ? '<font color="#008000">' . $_language->module[ 'on' ] . '</font>' :
-        '<font color="#FF0000">' . $_language->module[ 'off' ] . '</font>';
+    get_cfg_var('allow_url_fopen') ? '<span style="color: #008000">' . $_language->module[ 'on' ] . '</span>' :
+        '<span style="color: #FF0000">' . $_language->module[ 'off' ] . '</span>';
 $get_allow_url_include =
-    get_cfg_var('allow_url_include') ? '<font color="#FF0000">' . $_language->module[ 'on' ] . '</font>' :
-        '<font color="#008000">' . $_language->module[ 'off' ] . '</font>';
+    get_cfg_var('allow_url_include') ? '<span style="color: #FF0000">' . $_language->module[ 'on' ] . '</span>' :
+        '<span style="color: #008000">' . $_language->module[ 'off' ] . '</span>';
 $get_display_errors =
-    get_cfg_var('display_errors') ? '<font color="#FFA500">' . $_language->module[ 'on' ] . '</font>' :
-        '<font color="#008000">' . $_language->module[ 'off' ] . '</font>';
-$get_file_uploads = get_cfg_var('file_uploads') ? '<font color="#008000">' . $_language->module[ 'on' ] . '</font>' :
-    '<font color="#FF0000">' . $_language->module[ 'off' ] . '</font>';
-$get_log_errors = get_cfg_var('log_errors') ? '<font color="#008000">' . $_language->module[ 'on' ] . '</font>' :
-    '<font color="#FF0000">' . $_language->module[ 'off' ] . '</font>';
+    get_cfg_var('display_errors') ? '<span style="color: #FFA500">' . $_language->module[ 'on' ] . '</span>' :
+        '<span style="color: #008000">' . $_language->module[ 'off' ] . '</span>';
+$get_file_uploads = get_cfg_var('file_uploads') ? '<span style="color: #008000">' . $_language->module[ 'on' ] . '</span>' :
+    '<span style="color: #FF0000">' . $_language->module[ 'off' ] . '</span>';
+$get_log_errors = get_cfg_var('log_errors') ? '<span style="color: #008000">' . $_language->module[ 'on' ] . '</span>' :
+    '<span style="color: #FF0000">' . $_language->module[ 'off' ] . '</span>';
 $get_magic_quotes =
-    get_cfg_var('magic_quotes_gpc') ? '<font color="#008000">' . $_language->module[ 'on' ] . '</font>' :
-        '<font color="#FFA500">' . $_language->module[ 'off' ] . '</font>';
+    get_cfg_var('magic_quotes_gpc') ? '<span style="color: #008000">' . $_language->module[ 'on' ] . '</span>' :
+        '<span style="color: #FFA500">' . $_language->module[ 'off' ] . '</span>';
 $get_max_execution_time = get_cfg_var('max_execution_time') < 30 ?
-    '<font color="#FF0000">' . get_cfg_var('max_execution_time') . '</font> <small>(min. > 30)</small>' :
-    '<font color="#008000">' . get_cfg_var('max_execution_time') . '</font>';
+    '<span style="color: #FF0000">' . get_cfg_var('max_execution_time') . '</span> <small>(min. > 30)</small>' :
+    '<span style="color: #008000">' . get_cfg_var('max_execution_time') . '</span>';
 $get_memory_limit =
-    get_cfg_var('memory_limit') > 128 ? '<font color="#FFA500">' . get_cfg_var('memory_limit') . '</font>' :
-        '<font color="#008000">' . get_cfg_var('memory_limit') . '</font>';
-$get_open_basedir = get_cfg_var('open_basedir') ? '<font color="#008000">' . $_language->module[ 'on' ] . '</font>' :
-    '<font color="#FFA500">' . $_language->module[ 'off' ] . '</font>';
+    get_cfg_var('memory_limit') > 128 ? '<span style="color: #FFA500">' . get_cfg_var('memory_limit') . '</span>' :
+        '<span style="color: #008000">' . get_cfg_var('memory_limit') . '</span>';
+$get_open_basedir = get_cfg_var('open_basedir') ? '<span style="color: #008000">' . $_language->module[ 'on' ] . '</span>' :
+    '<span style="color: #FFA500">' . $_language->module[ 'off' ] . '</span>';
 $get_post_max_size =
-    get_cfg_var('post_max_size') > 8 ? '<font color="#FFA500">' . get_cfg_var('post_max_size') . '</font>' :
-        '<font color="#008000">' . get_cfg_var('post_max_size') . '</font>';
+    get_cfg_var('post_max_size') > 8 ? '<span style="color: #FFA500">' . get_cfg_var('post_max_size') . '</span>' :
+        '<span style="color: #008000">' . get_cfg_var('post_max_size') . '</span>';
 $get_register_globals =
-    get_cfg_var('register_globals') ? '<font color="#FF0000">' . $_language->module[ 'on' ] . '</font>' :
-        '<font color="#008000">' . $_language->module[ 'off' ] . '</font>';
-$get_safe_mode = get_cfg_var('safe_mode') ? '<font color="#008000">' . $_language->module[ 'on' ] . '</font>' :
-    '<font color="#FF0000">' . $_language->module[ 'off' ] . '</font>';
+    get_cfg_var('register_globals') ? '<span style="color: #FF0000">' . $_language->module[ 'on' ] . '</span>' :
+        '<span style="color: #008000">' . $_language->module[ 'off' ] . '</span>';
+$get_safe_mode = get_cfg_var('safe_mode') ? '<span style="color: #008000">' . $_language->module[ 'on' ] . '</span>' :
+    '<span style="color: #FF0000">' . $_language->module[ 'off' ] . '</span>';
 $get_short_open_tag =
-    get_cfg_var('short_open_tag') ? '<font color="#008000">' . $_language->module[ 'on' ] . '</font>' :
-        '<font color="#FFA500">' . $_language->module[ 'off' ] . '</font>';
+    get_cfg_var('short_open_tag') ? '<span style="color: #008000">' . $_language->module[ 'on' ] . '</span>' :
+        '<span style="color: #FFA500">' . $_language->module[ 'off' ] . '</span>';
 $get_upload_max_filesize = get_cfg_var('upload_max_filesize') > 16 ?
-    '<font color="#FFA500">' . get_cfg_var('upload_max_filesize') . '</font>' :
-    '<font color="#008000">' . get_cfg_var('upload_max_filesize') . '</font>';
-$info_na = '<font color="#8F8F8F">' . $_language->module[ 'na' ] . '</font>';
+    '<span style="color: #FFA500">' . get_cfg_var('upload_max_filesize') . '</span>' :
+    '<span style="color: #008000">' . get_cfg_var('upload_max_filesize') . '</span>';
+$info_na = '<span style="color: #8F8F8F">' . $_language->module[ 'na' ] . '</span>';
 if (function_exists("gd_info")) {
     $gdinfo = gd_info();
-    $get_gd_info = '<font color="#008000">' . $_language->module[ 'enable' ] . '</font>';
+    $get_gd_info = '<span style="color: #008000">' . $_language->module[ 'enable' ] . '</span>';
     $get_gdtypes = array();
     if (isset($gdinfo[ 'FreeType Support' ]) && $gdinfo[ 'FreeType Support' ] === true) {
         $get_gdtypes[ ] = "FreeType";
@@ -118,7 +118,7 @@ if (function_exists("gd_info")) {
     }
     $get_gdtypes = implode(", ", $get_gdtypes);
 } else {
-    $get_gd_info = '<font color="#FF0000">' . $_language->module[ 'disable' ] . '</font>';
+    $get_gd_info = '<span style="color: #FF0000">' . $_language->module[ 'disable' ] . '</span>';
     $gdinfo[ 'GD Version' ] = '---';
     $get_gdtypes = '---';
 }
@@ -171,7 +171,7 @@ echo $_language->module['welcome_message'];
 <div class="panel-body">
 
 
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['webspell_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><font color="#008000"><?php echo $version; ?></font></em></span></div></div>
+	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['webspell_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><span style="color: #008000"><?php echo $version; ?></span></em></span></div></div>
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['php_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $phpversion; ?></em></span></div></div>
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['zend_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $zendversion; ?></em></span></div></div>
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['mysql_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $mysqlversion; ?></em></span></div></div>
@@ -258,7 +258,7 @@ echo $_language->module['welcome_message'];
 </div>
 <div class="panel-body">
 <div class="row bt">
-<div class="col-md-12"><?php echo $_language->module['legend']; ?>::&nbsp; &nbsp;<font color="#008000"><?php echo $_language->module['green']; ?>:</font> <?php echo $_language->module['setting_ok']; ?>&nbsp; - &nbsp;<font color="#FFA500"><?php echo $_language->module['orange']; ?>:</font> <?php echo $_language->module['setting_notice']; ?>&nbsp; - &nbsp;<font color="#FF0000"><?php echo $_language->module['red']; ?>:</font> <?php echo $_language->module['setting_error']; ?></div>
+<div class="col-md-12"><?php echo $_language->module['legend']; ?>::&nbsp; &nbsp;<span style="color: #008000"><?php echo $_language->module['green']; ?>:</span> <?php echo $_language->module['setting_ok']; ?>&nbsp; - &nbsp;<span style="color: #FFA500"><?php echo $_language->module['orange']; ?>:</span> <?php echo $_language->module['setting_notice']; ?>&nbsp; - &nbsp;<span style="color: #FF0000"><?php echo $_language->module['red']; ?>:</span> <?php echo $_language->module['setting_error']; ?></div>
 </div><div class="row bt"></div>
 <div class="row">
 <div class="col-md-6">
