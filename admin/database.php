@@ -28,7 +28,7 @@
 if (isset($_POST[ 'upload' ])) {
     $_language->readModule('database', false, true);
 
-    if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
+    if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
         die($_language->module[ 'access_denied' ]);
     }
     $upload = $_FILES[ 'sql' ];
@@ -74,7 +74,7 @@ if ($action == "optimize") {
 
     echo '<h1>&curren; ' . $_language->module[ 'database' ] . '</h1>';
 
-    if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
+    if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
         die($_language->module[ 'access_denied' ]);
     }
 
@@ -199,7 +199,7 @@ if ($action == "optimize") {
 } else {
     $_language->readModule('database', false, true);
 
-    if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
+    if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
         die($_language->module[ 'access_denied' ]);
     }
 

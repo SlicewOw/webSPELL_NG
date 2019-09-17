@@ -27,7 +27,7 @@
 
 $_language->readModule('settings', false, true);
 
-if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
+if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
     die($_language->module[ 'access_denied' ]);
 }
 
@@ -119,7 +119,7 @@ if (isset($_POST[ 'submit' ])) {
     } else {
         $gb_info = '<input type="checkbox" name="gb_info" value="1" />';
     }
-    
+
     if ($ds[ 'register_per_ip' ]) {
         $register_per_ip = '<input type="checkbox" name="register_per_ip" value="1" checked="checked"
 		/>';
@@ -1027,12 +1027,12 @@ if (isset($_POST[ 'submit' ])) {
                                         <div class="col-md-4">
                                             <?php echo $_language->module['content_size']; ?>: B x H
                                         </div>
-										<div class="col-md-8 pull-right">	
+										<div class="col-md-8 pull-right">
 	                                        <div class="row">
 	                                            <div class="col-md-9">
 	                                                <span class="pull-right text-muted small"><em data-toggle="tooltip" title="<?php echo $_language->module[ 'tooltip_34' ]; ?>"><input class="form-control" type="text" name="picsize_l" value="<?php echo $ds['picsize_l']; ?>" size="3"></em></span>
 	                                            </div>
-	
+
 	                                            <div class="col-md-3">
 	                                                <span class="pull-right text-muted small"><em data-toggle="tooltip" title="<?php echo $_language->module[ 'tooltip_35' ]; ?>"><input class="form-control" type="text" name="picsize_h" value="<?php echo $ds['picsize_h']; ?>" size="3"></em></span>
 	                                            </div>
@@ -1063,7 +1063,7 @@ if (isset($_POST[ 'submit' ])) {
                                         <div class="col-md-6">
                                             <span class="pull-right text-muted small">
                                             	<em data-toggle="tooltip" title="<?php echo $_language->module[ 'tooltip_63' ]; ?>">
-                                            		<?php echo $register_per_ip; ?>                                            	
+                                            		<?php echo $register_per_ip; ?>
                                             	</em>
                                             </span>
                                         </div>
@@ -1076,7 +1076,7 @@ if (isset($_POST[ 'submit' ])) {
                                         <div class="col-md-6">
                                             <span class="pull-right text-muted small">
                                             	<em data-toggle="tooltip" title="<?php echo $_language->module[ 'tooltip_52' ]; ?>">
-                                            		<?php echo $visitor_language; ?>                                            	
+                                            		<?php echo $visitor_language; ?>
                                             	</em>
                                             </span>
                                         </div>

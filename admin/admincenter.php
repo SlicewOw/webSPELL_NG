@@ -35,15 +35,9 @@ chdir(getConstNameAdmin());
 $load = new plugin_manager();
 $_language->readModule('admincenter', false, true);
 
-if(isset($_GET['site'])) $site = $_GET['site'];
-else
-if(isset($site)) unset($site);
-$username='<b>'.getnickname($userID).'</b>';
-
-
 if (isset($_GET['site'])) {
     $site = $_GET['site'];
-} elseif (isset($site)) {
+} else if (isset($site)) {
     unset($site);
 }
 
@@ -55,11 +49,11 @@ if (!$admin) {
     die($_language->module['access_denied']);
 }
 
-if (!isset($_SERVER['REQUEST_URI'])) {
+if (!isset($_SERVER[getConstNameRequestUri()])) {
     $arr = explode("/", $_SERVER['PHP_SELF']);
-    $_SERVER['REQUEST_URI'] = "/" . $arr[count($arr)-1];
+    $_SERVER[getConstNameRequestUri()] = "/" . $arr[count($arr)-1];
     if ($_SERVER['argv'][0]!="") {
-        $_SERVER['REQUEST_URI'] .= "?" . $_SERVER['argv'][0];
+        $_SERVER[getConstNameRequestUri()] .= "?" . $_SERVER['argv'][0];
     }
 }
 
@@ -99,9 +93,18 @@ function addonnav()
     }
     return $links;
 }
+
 if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
-$ds =
-        mysqli_fetch_array(safe_query("SELECT registerdate FROM `" . PREFIX . "user` WHERE userID='" . $userID . "'"));
+
+    $ds = mysqli_fetch_array(
+        safe_query(
+            "SELECT
+                    `registerdate`
+                FROM `" . PREFIX . "user`
+                WHERE `userID` = " . $userID
+        )
+    );
+
     $username = '<a href="../index.php?site=profile&amp;id=' . $userID . '">' . getnickname($userID) . '</a>';
     $lastlogin = getformatdatetime($_SESSION[ 'ws_lastlogin' ]);
     $registerdate = getformatdatetime($ds[ 'registerdate' ]);
@@ -110,14 +113,14 @@ $ds =
     $data_array['$username'] = $username;
     $data_array['$lastlogin'] = $lastlogin;
     $data_array['$registerdate'] = $registerdate;
+
 }
 
-
-    if ($getavatar = getavatar($userID)) {
-        $l_avatar = '<img src="../images/avatars/' . $getavatar . '" alt="Avatar" class="img-circle profile_img">';
-    } else {
-        $l_avatar = $_language->module[ 'n_a' ];
-    }
+if ($getavatar = getavatar($userID)) {
+    $l_avatar = '<img src="../images/avatars/' . $getavatar . '" alt="Avatar" class="img-circle profile_img">';
+} else {
+    $l_avatar = $_language->module[ 'n_a' ];
+}
 
 ?>
 <!DOCTYPE html>

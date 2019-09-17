@@ -1,5 +1,5 @@
 <?php
-if (!ispageadmin($userID) || mb_substr(basename($_SERVER['REQUEST_URI']), 0, 15) != "admincenter.php") {
+if (!ispageadmin($userID) || mb_substr(basename($_SERVER[getConstNameRequestUri()]), 0, 15) != "admincenter.php") {
 	die("Access Denied | Zugriff verweigert");
 }
 

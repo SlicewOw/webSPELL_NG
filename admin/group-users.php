@@ -70,7 +70,7 @@ if (isset($_GET[ 'ajax' ])) {
 }
 $_language->readModule('group-users', false, true);
 
-if (!isforumadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
+if (!isforumadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
     die($_language->module[ 'access_denied' ]);
 }
 

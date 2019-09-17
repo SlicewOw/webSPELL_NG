@@ -38,7 +38,7 @@ if (isset($_GET[ 'getnickname' ])) {
         getnickname($_GET[ 'getnickname' ]) . '</a> since ' . getregistered($_GET[ 'getnickname' ]) . '';
     exit();
 }
-if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ 'REQUEST_URI' ]), 0, 15) != "admincenter.php") {
+if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
     die();
 }
 $_language->readModule('spam', false, true);
