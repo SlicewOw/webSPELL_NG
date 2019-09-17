@@ -181,9 +181,7 @@ if (isset($_GET[ 'action' ])) {
 
 if ($action == "user") {
     echo '<div class="panel panel-default">
-    <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Spam
-</div>
+    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Spam</div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -214,9 +212,7 @@ if ($action == "user") {
   echo '</div></div>';
 } elseif ($action == "user_ban") {
     echo '<div class="panel panel-default">
-    <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Spam
-</div>
+    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Spam</div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -235,9 +231,7 @@ if ($action == "user") {
     echo '</div></div>';
 } elseif ($action == "multi") {
     echo '<div class="panel panel-default">
-    <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Multiple Accounts
-</div>
+    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Multiple Accounts</div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -282,6 +276,7 @@ if ($action == "user") {
                 <td colspan="7" class="' . $td . '"><b>' . $ds[ 'ip' ] . '</b>' . $buttons . '</td>
             </tr>';
             foreach ($ids as $key => $id) {
+
                 if ($i % 2) {
                     $td = 'td1';
                 } else {
@@ -290,10 +285,8 @@ if ($action == "user") {
                 $get_u = safe_query("SELECT * FROM " . PREFIX . "user WHERE userID='" . $id . "'");
                 $data = mysqli_fetch_assoc($get_u);
 
-                $active = ($data[ 'activated' ] == '1') ? "<span style="color: #00FF00;">&#10004;</span>" :
-                    "<span style="color: #FF0000;">&#10006;</span>";
-                $banned = ($data[ 'banned' ] !== null) ? "<span style="color: #FF0000;">&#10004;</span>" :
-                    "<span style="color: #00FF00;">&#10006;</span>";
+                $active = ($data[ 'activated' ] == '1') ? '<span style="color: #00FF00;">&#10004;</span>' : '<span style="color: #FF0000;">&#10006;</span>';
+                $banned = ($data[ 'banned' ] !== null) ? '<span style="color: #FF0000;">&#10004;</span>' : '<span style="color: #00FF00;">&#10006;</span>';
 
                 if ($data[ 'lastlogin' ] > time() - (60 * 60 * 24 * 10)) {
                     $last_login = '<span style="color: #00FF00;">' . getformatdate($data[ 'lastlogin' ]) . '</span>';
@@ -521,9 +514,7 @@ echo '</div></div>';
     echo '</div></div>';
 
     echo '<div class="panel panel-default">
-    <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Posts
-</div>
+    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Posts</div>
 <div class="panel-body">';
 
     $get = safe_query("SELECT * FROM " . PREFIX . "forum_posts_spam ORDER BY date DESC");
@@ -567,9 +558,7 @@ echo '</div></div>';
     echo '</div></div>';
 
     echo '<div class="panel panel-default">
-    <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Comments
-</div>
+    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Comments</div>
 <div class="panel-body">';
 
     $get = safe_query("SELECT * FROM " . PREFIX . "comments_spam ORDER BY date DESC");
