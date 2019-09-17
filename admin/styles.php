@@ -286,7 +286,7 @@ if (isset($_POST[ 'submit' ])) {
       </address>
       <address style="font-size: '.$ds['body2'].'; color: '.$ds['body4'].';">
         <strong>Full Name</strong><br>
-        <a style="color: '.$ds['typo4'].'; visited: color:'.$ds['typo8'].';" href="mailto:#">first.last@gmail.com</a>
+        <a style="color: '.$ds['typo4'].'; color:'.$ds['typo8'].';" href="mailto:#">first.last@gmail.com</a>
       </address>
     </div>
 

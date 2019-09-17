@@ -38,7 +38,6 @@ $_language->readModule('forum');
     <meta name="robots" content="noindex, nofollow">
     <title><?php echo PAGETITLE; ?></title>
     <style type="text/css">
-        <!--
         body {
             font-family: Verdana, Arial, Helvetica, sans-serif;
             font-size: 12px;
@@ -50,8 +49,6 @@ $_language->readModule('forum');
             font-size: 12px;
             color: #000000;
         }
-
-        -->
     </style>
 </head>
 

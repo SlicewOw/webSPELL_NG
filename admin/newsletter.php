@@ -62,7 +62,6 @@ if (isset($_POST[ 'send' ]) || isset($_POST[ 'testen' ])) {
 		<title>webSPELL Newsletter</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style type="text/css">
-<!--
 body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #666666; background-color: #FFFFFF;
 border: 0px; margin: 5px; }
 h3 {font-size: 16px; color: #515151; margin: 10px; padding: 0px; margin-top: 25px; text-align: center; }
@@ -73,7 +72,6 @@ img { border: none; }
 hr { height: 1px; background-color: #cdcdcd; color: #cdcdcd; border: none; margin: 6px 0px; }
 a { color: #0066FF; text-decoration: none; }
 a:hover { text-decoration: underline; }
--->
 </style>
 <!--[if lte IE 7]>
 <style type="text/css">
