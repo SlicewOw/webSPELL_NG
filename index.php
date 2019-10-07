@@ -98,7 +98,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
       echo PAGETITLE;
      }
      ?></title>
-    <base href="<?php echo $rewriteBase; ?>">
+    <!--<base href="<?php echo $rewriteBase; ?>">-->
     <link href="css/page.css" rel="stylesheet">
     <?php foreach ($components['css'] as $component) {
         echo '<link href="' . $component . '" rel="stylesheet">';

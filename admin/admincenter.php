@@ -29,7 +29,7 @@ chdir('../');
 include("_mysql.php");
 include("_settings.php");
 include("_functions.php");
-Include("_plugin.php");
+include("_plugin.php");
 chdir(getConstNameAdmin());
 
 $load = new plugin_manager();
@@ -41,10 +41,11 @@ if (isset($_GET['site'])) {
     unset($site);
 }
 
-$admin=isanyadmin($userID);
 if (!$loggedin) {
     die($_language->module['not_logged_in']);
 }
+
+$admin = isanyadmin($userID);
 if (!$admin) {
     die($_language->module['access_denied']);
 }

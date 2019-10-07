@@ -143,9 +143,6 @@ echo '
 echo $_language->module['hello'].'&nbsp;'.$username.',&nbsp;'.$_language->module['last_login'].'&nbsp;'.$lastlogin.'.<br /><br />';
 echo $_language->module['welcome_message'];
  ?>
-<?php
-    echo file_get_contents('https://update.webspell-nor.de/update.php?v='.$version.'&h='.$_SERVER[ 'SERVER_NAME' ].'');
-?>
 </div>
 <!-- <div class="row bt">
 <div class="col-md-5">
