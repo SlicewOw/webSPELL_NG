@@ -32,7 +32,7 @@ include("../src/func/language.php");
 include("../src/func/user.php");
 include("../version.php");
 if (version_compare(PHP_VERSION, '5.3.7', '>') && version_compare(PHP_VERSION, '5.5.0', '<')) {
-	include('../src/func/password.php');
+    include('../src/func/password.php');
 }
 
 $_language = new \webspell\Language();
@@ -52,15 +52,12 @@ if (isset($_GET['lang'])) {
 $_language->setLanguage($_SESSION['language']);
 $_language->readModule('index');
 
-if (isset($_GET['step'])) {
-    $_language->readModule('step'.(int)$_GET['step'], true);
-} else {
-    $_language->readModule('step0', true);
+$step = isset($_GET['step']) ? (int)$_GET['step'] : 0;
+if ($step < 1) {
+    $step = 0;
 }
 
-if (!isset($_GET['step'])) {
-    $_GET['step'] = "";
-}
+$_language->readModule('step' . $step, true);
 
 ?>
 
@@ -106,8 +103,8 @@ if (!isset($_GET['step'])) {
       <div class="row marketing">
         <div class="col-xs-12">
             <?php
-                echo '<form action="index.php?step=' . ($_GET['step'] + 1) . '" method="post" name="ws_install">';
-                include('step0' . $_GET['step'] . '.php');
+                echo '<form action="index.php?step=' . ($step + 1) . '" method="post" name="ws_install">';
+                include('step0' . $step . '.php');
             ?>
 		</div>
     <footer class="footer">
