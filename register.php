@@ -54,14 +54,14 @@ if (isset($_POST['save'])) {
         $nickname = htmlspecialchars(mb_substr(trim($_POST['nickname']), 0, 30));
         if (strpos($nickname, "'") !== false) {
             $nickname = "";     // contains a ' char the nickname will reset (handle as not entered)
-        } 
+        }
         $password = $_POST['password'];
 
         $mail = $_POST['mail'];
         $CAPCLASS = new \webspell\Captcha;
 
         $error = array();
-		
+
         // check nickname
         if (!(mb_strlen(trim($nickname)))) {
             $error[] = $_language->module['enter_nickname'];
@@ -109,7 +109,7 @@ if (isset($_POST['save'])) {
         if (!$CAPCLASS->checkCaptcha($_POST['captcha'], $_POST['captcha_hash'])) {
             $error[] = $_language->module['wrong_securitycode'];
         }
-        
+
         // check exisitings accounts from ip with same password
 		if(!$register_per_ip) {
 	        $get_users =
@@ -133,7 +133,7 @@ if (isset($_POST['save'])) {
             // insert in db
             $registerdate = time();
             $activationkey = md5(RandPass(20));
-            $activationlink = 'http://' . $hp_url . '/index.php?site=register&key=' . $activationkey;
+            $activationlink = $hp_url . '/index.php?site=register&key=' . $activationkey;
 
             safe_query(
                 "INSERT INTO
@@ -164,7 +164,7 @@ if (isset($_POST['save'])) {
             );
 
             $insertid = mysqli_insert_id($_database);
-			
+
 			// insert Password
 			$pass = Gen_PasswordHash(stripslashes($password), $insertid);
 			safe_query("UPDATE `".PREFIX."user` SET `password_hash` = '".$pass."' WHERE `userID` = '".intval($insertid)."'");

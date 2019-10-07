@@ -328,11 +328,11 @@ if (!$userID) {
         $ds = mysqli_fetch_array($ergebnis);
 
 		$valid = password_verify($oldpwd.$ds['password_pepper'], $ds['password_hash']);
-		
+
         if (!$valid) {
             $error = $_language->module['forgot_old_pw'];
         }
-		
+
 		$old_pwd = Gen_PasswordHash($oldpwd, $userID);
 		$new_pwd = Gen_PasswordHash($pwd1, $userID);
 		$new_verify = Gen_PasswordHash($pwd2, $userID);
@@ -341,13 +341,13 @@ if (!$userID) {
 		if (!$valid) {
             $error = $_language->module['old_pw_not_valid'];
         }
-		
+
         if ($pwd1!=$pwd2) {
             $error = $_language->module['repeated_pw_not_valid'];
         }
 
         if (empty($error)) {
-			
+
 			// delete old pepper hash
 			destroy_PasswordPepper($userID);
 			// generate a new pepper
@@ -356,7 +356,7 @@ if (!$userID) {
 			Set_PasswordPepper($new_pepper, $userID);
 			// Generate the new password with the new pepper
 			$pass = Gen_PasswordHash($pwd1, $userID);
-			
+
 			// set new password into the database
             safe_query("UPDATE " . PREFIX . "user SET password_hash='" . $pass . "' WHERE userID='" . intval($userID) . "'");
             //logout
@@ -382,7 +382,7 @@ if (!$userID) {
         echo $myprofile_editmail;
     } elseif (isset($_POST['savemail'])) {
         $activationkey = md5(RandPass(20));
-        $activationlink = 'http://' . $hp_url . '/index.php?site=register&mailkey=' . $activationkey;
+        $activationlink = $hp_url . '/index.php?site=register&mailkey=' . $activationkey;
         $pwd = $_POST['oldpwd'];
         $mail1 = $_POST['mail1'];
         $mail2 = $_POST['mail2'];
@@ -467,17 +467,17 @@ if (!$userID) {
 			<a href="index.php?site=myprofile&action=editmail" class="alert-link">' . $_language->module['back'] . '</a>', 'alert-danger');
         }
     } elseif(isset($_GET['action']) && $_GET['action'] == "deleteaccount") {
-	    
+
 	    $data_array = array();
         $data_array['$userID'] = $userID;
         $myprofile_deleteaccount = $GLOBALS["_template"]->replaceTemplate("myprofile_deleteaccount", $data_array);
         echo $myprofile_deleteaccount;
-    	
+
     } elseif(isset($_POST['deleteAccount'])) {
 	    $pwd = $_POST['pwd'];
 	    $ergebnis = safe_query("SELECT password_hash, password_pepper, password, userID FROM " . PREFIX . "user WHERE userID='" . $userID . "'");
         $ds = mysqli_fetch_array($ergebnis);
-        
+
         $valid = password_verify($pwd.$ds['password_pepper'], $ds['password_hash']);
         if (!(mb_strlen(trim($pwd)))) {
             $error = $_language->module['forgot_old_pw'];
@@ -485,7 +485,7 @@ if (!$userID) {
         if (!$valid) {
             $error = $_language->module['wrong_password'];
         }
-        
+
         if(empty($error)) {
 	        safe_query("DELETE FROM ".PREFIX."forum_moderators WHERE userID='" .$ds['userID']. "'");
 			safe_query("DELETE FROM ".PREFIX."messenger WHERE touser='" .$ds['userID']. "'");
@@ -493,7 +493,7 @@ if (!$userID) {
 			safe_query("DELETE FROM ".PREFIX."upcoming_announce WHERE userID='" .$ds['userID']. "'");
 			safe_query("DELETE FROM ".PREFIX."user WHERE userID='" .$ds['userID']. "'");
 			safe_query("DELETE FROM ".PREFIX."user_groups WHERE userID='" .$ds['userID']. "'");
-			
+
 			$userfiles = array('images/avatars/' . $ds['userID'] . '.jpg', 'images/avatars/' . $ds['userID'] . '.png', 'images/avatars/' . $ds['userID'] . '.gif', 'images/userpics/' . $ds['userID'] . '.jpg', 'images/userpics/' . $ds['userID'] . '.gif', 'images/userpics/' . $ds['userID'] . '.png');
 			foreach($userfiles as $file) {
 				if(file_exists($file)) {
@@ -501,16 +501,16 @@ if (!$userID) {
 				}
 			}
 			redirect('logout.php', $_language->module['account_deleted'], 3);
-       
+
 			unset($_SESSION['ws_auth']);
 			unset($_SESSION['ws_lastlogin']);
-			session_destroy();	        
+			session_destroy();
         } else {
 			echo generateAlert('<strong>ERROR: ' . $error . '</strong><br>
 			<a href="index.php?site=myprofile&action=deleteaccount" class="alert-link">' . $_language->module['back'] . '</a>', 'alert-danger');
         }
-	    
-		    
+
+
 	} else {
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "user WHERE userID='" . $userID . "'");
         $anz = mysqli_num_rows($ergebnis);

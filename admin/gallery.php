@@ -464,7 +464,7 @@ if ($part == "groups") {
     </div>
   </div>
    </form>
-	    <br /><span class="text-muted small"><em>'.$_language->module['ftp_info'].' "http://'.$hp_url.'/images/gallery"</em></span></div></div>';
+	    <br /><span class="text-muted small"><em>'.$_language->module['ftp_info'].' "' . $hp_url . '/images/gallery"</em></span></div></div>';
 	} else {
             echo '<br />' . $_language->module[ 'need_group' ];
         }

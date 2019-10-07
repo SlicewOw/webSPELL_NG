@@ -32,7 +32,7 @@ $language_array = Array(
     'php_info' => 'Due to major bug in the MySQL fetch functions in PHP 5.2.6 an install of webSPELL is not possible.<br>
 	webSPELL will work with all lower (down to PHP 4.3) and all higher PHP versions. Get in touch with your hoster to change your PHP version.',
     'php_version' => 'PHP Version Incompatibility',
-    'tooltip' => 'This is the URL of your page e.g. (yourdomain.com/path/webspell). Do not enter http:// before the path and don\'t end with a slash.',
+    'tooltip' => 'This is the URL of your page e.g. (https://yourdomain.com/path/webspell).',
     'you_have_to_agree' => 'You have to agree with the GNU GPL to install Webspell on your Server!',
     'your_site_url' => 'Your site URL'
 );

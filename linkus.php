@@ -230,7 +230,7 @@ if ($action == "new") {
             $name = htmloutput($ds['name']);
             $banner = '<img src="' . $filepath . $ds['file'] . '" class="img-responsive">';
             $code =
-                '&lt;a href=&quot;http://' . $hp_url . '&quot;&gt;&lt;img src=&quot;http://' . $hp_url . $filepath2 .
+                '&lt;a href=&quot;' . $hp_url . '&quot;&gt;&lt;img src=&quot;' . $hp_url . $filepath2 .
                 $ds['file'] . '&quot; alt=&quot;' . $myclanname . '&quot;&gt;&lt;/a&gt;';
 
             $adminaction = '';

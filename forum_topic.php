@@ -159,7 +159,7 @@ if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
             $de = mysqli_fetch_array(safe_query("SELECT topic FROM " . PREFIX . "forum_topics WHERE topicID='$topic'"));
             $topicname = getinput($de['topic']);
 
-            $link = "http://" . $hp_url . "/index.php?site=forum_topic&topic=" . $topic;
+            $link = $hp_url . "/index.php?site=forum_topic&topic=" . $topic;
             $maillanguage = new \webspell\Language();
             $maillanguage->setLanguage($default_language);
             $_language->readModule('formvalidation', true);
@@ -169,7 +169,7 @@ if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
                 $maillanguage->readModule('forum');
                 $forum_topic_notify = str_replace(
                     array('%poster%', '%topic_link%', '%pagetitle%', '%hpurl%'),
-                    array(html_entity_decode($poster), $link, $hp_title, 'http://' . $hp_url),
+                    array(html_entity_decode($poster), $link, $hp_title, $hp_url),
                     $maillanguage->module['notify_mail']
                 );
                 $subject = $maillanguage->module['new_reply'] . ' (' . $hp_title . ')';

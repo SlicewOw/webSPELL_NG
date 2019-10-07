@@ -45,9 +45,9 @@ function generate_rss2()
                 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
                     <channel>
                         <title>' . $hp_title . ' ' . $_language->module['news_feed'] . '</title>
-                        <link>http://' . $hp_url . '</link>
-                        <atom:link href="http://' . $hp_url . '/tmp/rss.xml" rel="self" type="application/rss+xml" />
-                        <description>' . $_language->module['latest_news_from'] . ' http://' . $hp_url . '</description>
+                        <link>' . $hp_url . '</link>
+                        <atom:link href="' . $hp_url . '/tmp/rss.xml" rel="self" type="application/rss+xml" />
+                        <description>' . $_language->module['latest_news_from'] . ' ' . $hp_url . '</description>
                         <language>' . $rss_default_language . '-' . $rss_default_language . '</language>
                         <pubDate>' . date('D, d M Y h:i:s O', $updated) . '</pubDate>';
     $db_news = safe_query(
@@ -77,12 +77,10 @@ function generate_rss2()
                     getlastname($news['poster']) . ')' .
                 '</author>
                 <guid>
-                    <![CDATA[http://' . $hp_url . '/index.php?site=news_comments&newsID=' .
-                    $news['newsID'] . ']]>
+                    <![CDATA[' . $hp_url . '/index.php?site=news_comments&newsID=' . $news['newsID'] . ']]>
                 </guid>
                 <link>
-                    <![CDATA[http://' . $hp_url . '/index.php?site=news_comments&newsID=' .
-                    $news['newsID'] . ']]>
+                    <![CDATA[' . $hp_url . '/index.php?site=news_comments&newsID=' . $news['newsID'] . ']]>
                 </link>
                 </item>';
             } else {

@@ -26,9 +26,10 @@
 */
 
 if($_POST['agree'] == "1") {
+
 	function getwspath() {
-		$path=$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];
-		return str_replace('/install/index.php','',$path);
+		$path = $_SERVER['HTTP_ORIGIN'] . $_SERVER['PHP_SELF'];
+		return str_replace('/install/index.php','/',$path);
 	}
 
 	function getwebserver($path) {
@@ -61,11 +62,8 @@ if($_POST['agree'] == "1") {
             } else {
                 echo '
 				<div class="form-group">
-					<label for="wheretoinstall">' . $_language->module['enter_url'] . '</label>
-					<div class="input-group">
-						<div class="input-group-addon">http://</div>
-						<input type="text" class="form-control" name="hp_url" value="' . getwspath() . '">
-					</div>
+					<label>' . $_language->module['enter_url'] . '</label>
+					<input type="text" class="form-control" name="hp_url" value="' . getwspath() . '">
 				</div>
 				<span id="helpBlock" class="help-block"><small>' . $_language->module['tooltip'] . '</small></span>';
             }
