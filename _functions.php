@@ -347,6 +347,10 @@ systeminc('func/upload');
 systeminc('func/httpupload');
 systeminc('func/urlupload');
 
+// -- Images -- //
+
+systeminc('func/images');
+
 // -- Constants -- //
 
 systeminc('func/constants');

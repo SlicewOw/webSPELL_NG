@@ -36,13 +36,13 @@ function getuserid($nickname)
 }
 
 function getnickname($userID)
-{	
+{
     $ds = mysqli_fetch_array(
         safe_query(
             "SELECT nickname FROM " . PREFIX . "user WHERE `userID` = " . (int)$userID
         )
     );
-    
+
     return !empty($ds['nickname']) ? $ds['nickname'] : 'n/a';
 }
 
@@ -154,25 +154,12 @@ function getuserlanguage($userID)
     return getinput($ds['language']);
 }
 
-function getuserpic($userID)
-{
-    $ds = mysqli_fetch_array(safe_query("SELECT userpic FROM " . PREFIX . "user WHERE `userID` = " . (int)$userID));
-    if (!$ds['userpic']) {
-        $userpic = "nouserpic.gif";
-    } else {
-        $userpic = $ds['userpic'];
-    }
-    return $userpic;
+function getuserpic($userID) {
+    return getUserImage($userID, 'userpic');
 }
 
-function getavatar($userID)
-{
-    $ds = mysqli_fetch_array(safe_query("SELECT avatar FROM " . PREFIX . "user WHERE `userID` = " . (int)$userID . ""));
-    if (empty($ds['avatar'])) {
-        return "noavatar.gif";
-    }
-
-    return $ds['avatar'];
+function getavatar($userID) {
+    return getUserImage($userID, 'avatar');
 }
 
 function getsignatur($userID)
@@ -357,7 +344,7 @@ function generatePasswordHash($password)
 
 //@info		refreshed by Team NOR
 //@autor	Getschonnik
-function gen_token() { 
+function gen_token() {
 	$tk = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 20);
 	return $tk;
 }
@@ -374,7 +361,7 @@ function is_PasswordPepper($userID) {
 	if(mysqli_num_rows($q) && !empty($r['password_pepper'])) {
 		return true;
 	} else {
-		return false; 
+		return false;
 	}
 }
 function Gen_PasswordPepper() {
@@ -396,7 +383,7 @@ function Get_PasswordPepper($userID) {
 	if(mysqli_num_rows($q) && !empty($r['password_pepper'])) {
 		return $r['password_pepper'];
 	} else {
-		return false; 
+		return false;
 	}
 }
 function destroy_PasswordPepper($userID) {
@@ -406,7 +393,7 @@ function Gen_Hash($string, $pepper) {
 	return password_hash($string.$pepper,PASSWORD_DEFAULT,array('cost'=>12));
 }
 function Gen_PasswordHash($password, $userID) {
-	if(is_PasswordPepper($userID)) {	
+	if(is_PasswordPepper($userID)) {
 		$pepper = Get_PasswordPepper($userID);
 		$hash = password_hash($password.$pepper,PASSWORD_BCRYPT,array('cost'=>12));
 	} else {
