@@ -1,5 +1,3 @@
-[ ![Codeship Status for webSPELL/webSPELL](https://codeship.com/projects/655247c0-f3d1-0131-ce29-02087275ebc8/status?branch=dev)](https://codeship.com/projects/27970) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webSPELL/webSPELL/badges/quality-score.png?b=dev)](https://scrutinizer-ci.com/g/webSPELL/webSPELL/?branch=dev) [![Build Status](https://scrutinizer-ci.com/g/webSPELL/webSPELL/badges/build.png?b=dev)](https://scrutinizer-ci.com/g/webSPELL/webSPELL/build-status/dev) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ecedfa24-b238-45fb-9e5e-47850bfb499d/mini.png)](https://insight.sensiolabs.com/projects/ecedfa24-b238-45fb-9e5e-47850bfb499d) [![Build Status](https://snap-ci.com/webSPELL/webSPELL/branch/dev/build_image)](https://snap-ci.com/webSPELL/webSPELL/branch/dev) [![Dependency Status](https://david-dm.org/webspell/webspell.svg)](https://david-dm.org/webspell/webspell) [![devDependency Status](https://david-dm.org/webspell/webspell/dev-status.svg)](https://david-dm.org/webspell/webspell#info=devDependencies) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/webspell-cms/localized.png)](http://translate.webspell.org/project/webspell-cms)
-
 ```
                        /                        /   /
       -----------__---/__---__------__----__---/---/-
@@ -18,6 +16,8 @@ Far Development by Development Team - webSPELL.org
 
 
 webSPELL is a free Content Management System (CMS), which is available for free at www.webSPELL.org. The following information should should help you getting started and will give you a first impression of the functionality.
+
+webSPELL NextGeneration is a fork of webSPELL NOR.
 
 
 ### 1. License
@@ -99,9 +99,5 @@ webSPELL is a free Content Management System (CMS), which is available for free 
 
 ### 3. Related links
 
-	http://www.webSPELL.org/?site=forum
-		Bulletin boards for support and communication between user (problems, modifications, templates, addons, etc.)
-	http://www.webSPELL.org/?site=faq
-		Frequently Asked Questions (FAQ) for webSPELL. Answers and solutions for frequently asked questions and problems
-	http://github.com/webSPELL/webSPELL
-		Official webSPELL Github Repo (code, issues, wiki)
+	http://github.com/SlicewOw/webSPELL_NG
+		Official webSPELL NG GitHub Repo (code, issues, wiki)
