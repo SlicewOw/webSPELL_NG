@@ -554,7 +554,7 @@ function validbbcode(txt) {
 			}
 		}
 	}
-	if (!result) {
+	if (result.length < 1) {
 		return true;
 	}
 	arraylength = result.length;
