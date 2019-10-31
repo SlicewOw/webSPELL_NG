@@ -76,20 +76,10 @@ if (isset($_GET[ 'exact' ])) {
 } else {
     $exact = false;
 }
-if ($searchtype == 'ac_usersearch') {
-    if ($exact) {
-        $db_results = safe_query("SELECT * FROM " . PREFIX . $table . " WHERE " . $column . "='" . $search . "'");
-    } else {
-        $db_results =
-            safe_query("SELECT * FROM " . PREFIX . $table . " WHERE " . $column . " LIKE '%" . $search . "%'");
-    }
+if ($exact) {
+    $db_results = safe_query("SELECT * FROM " . PREFIX . $table . " WHERE " . $column . "='" . $search . "'");
 } else {
-    if ($exact) {
-        $db_results = safe_query("SELECT * FROM " . PREFIX . $table . " WHERE " . $column . "='" . $search . "'");
-    } else {
-        $db_results =
-            safe_query("SELECT * FROM " . PREFIX . $table . " WHERE " . $column . " LIKE '%" . $search . "%'");
-    }
+    $db_results = safe_query("SELECT * FROM " . PREFIX . $table . " WHERE " . $column . " LIKE '%" . $search . "%'");
 }
 $any = mysqli_num_rows($db_results);
 

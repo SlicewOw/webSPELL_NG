@@ -653,7 +653,7 @@ function font_color_callback($match)
 
 function font_face_callback($match)
 {
-    return '<span style="font-family: ' . $match[1] . '">' . $match[2] . '</span>';
+    return '<span style="font-family: ' . $match[1] . ', sans-serif;">' . $match[2] . '</span>';
 }
 
 function align_callback($match)

@@ -40,7 +40,7 @@ div#tcal th {
 	border-collapse: collapse;
 	text-align: center;
 	padding: 3px 0;
-	font-family: tahoma, verdana, arial;
+	font-family: Tahoma, Verdana, Arial, sans-serif;
 	font-size: 10px;
 	background-color: gray;
 	color: white;
@@ -51,7 +51,7 @@ div#tcal td {
 	border-collapse: collapse;
 	text-align: center;
 	padding: 2px 0;
-	font-family: tahoma, verdana, arial;
+	font-family: Tahoma, Verdana, Arial, sans-serif;
 	font-size: 11px;
 	width: 22px;
 	cursor: pointer;
