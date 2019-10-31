@@ -31,8 +31,6 @@ if (!isanyadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri(
     die($_language->module[ 'access_denied' ]);
 }
 
-#echo '<h1>&curren; ' . $_language->module[ 'visitor_stats_overall' ] . '</h1>';
-
 $time = time();
 $date = getformatdate($time);
 $dateyesterday = getformatdate($time - (24 * 3600));

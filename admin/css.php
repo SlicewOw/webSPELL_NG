@@ -52,39 +52,7 @@ if (isset($_POST[ 'submit' ])) {
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $error = array();
         $sem = '/^#[a-fA-F0-9]{6}/';
-        #if (!(preg_match($sem, $_POST[ 'body1' ]))) {
-        #    $error[ ] = $_language->module[ 'error_page_bg' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'body2' ]))) {
-        #    $error[ ] = $_language->module[ 'error_bordercolor' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'body3' ]))) {
-        #    $error[ ] = $_language->module[ 'error_head_bg' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'body4' ]))) {
-        #    $error[ ] = $_language->module[ 'error_category_bg' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'bg1' ]))) {
-        #    $error[ ] = $_language->module[ 'error_cell_bg1' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'bg2' ]))) {
-        #    $error[ ] = $_language->module[ 'error_cell_bg2' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'bg3' ]))) {
-        #    $error[ ] = $_language->module[ 'error_cell_bg3' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'bg4' ]))) {
-        #    $error[ ] = $_language->module[ 'error_cell_bg4' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'win' ]))) {
-        #    $error[ ] = $_language->module[ 'error_win_color' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'loose' ]))) {
-        #    $error[ ] = $_language->module[ 'error_loose_color' ];
-        #}
-        #if (!(preg_match($sem, $_POST[ 'draw' ]))) {
-        #    $error[ ] = $_language->module[ 'error_draw_color' ];
-        #}
+
         if (count($error)) {
             echo '<strong>' . $_language->module[ 'errors' ] . ':</strong><br /><ul>';
 
@@ -101,6 +69,7 @@ if (isset($_POST[ 'submit' ])) {
             fclose($fp);
             redirect("admincenter.php?site=css", "", 0);
         }
+
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }

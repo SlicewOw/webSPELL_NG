@@ -36,8 +36,6 @@ $_language->readModule('index');
 $index_language = $_language->module;
 // end important data include
 
-#$hide1 = array("forum", "forum_topic", "profile", "blog");
-
 $sql = safe_query("select * from ".PREFIX."styles");
 
 $ds = mysqli_fetch_array($sql);
@@ -84,10 +82,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     echo '<script src="' . $component . '"></script>';
 	}
 	?>
-
-
-
-
 
 	<!-- Plugin-Manager 1.2 load css/js -->
 	<?php

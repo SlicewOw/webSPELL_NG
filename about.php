@@ -42,9 +42,9 @@ if (mysqli_num_rows($ergebnis)) {
 	    $about = generateAlert($_language->module[ 'no_about' ], 'alert-info');
     }
 
-    #$bg1 = BG_1;
     $data_array = array();
     $data_array['$about'] = $about;
     $about = $GLOBALS["_template"]->replaceTemplate("about", $data_array);
     echo $about;
+
 }

@@ -31,8 +31,6 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
     die($_language->module[ 'access_denied' ]);
 }
 
-#echo '<h1>&curren; ' . $_language->module[ 'about' ] . '</h1>';
-
 if (isset($_POST[ 'submit' ]) != "") {
     $about = $_POST[ 'message' ];
     $CAPCLASS = new \webspell\Captcha;

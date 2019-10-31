@@ -321,8 +321,6 @@ if ($action == "add") {
     $n = ($gesamt+1)-$page*$max+$max;
   }
 
-    #echo '<form method="post" action="admincenter.php?site=countries">';
-
      echo'   <table class="table table-striped">
     <thead>
       <th><strong>' . $_language->module['icons'] . '</strong></th>
@@ -364,7 +362,6 @@ while($ds=mysqli_fetch_array($ergebnis)) {
 
       $n++;
 		}
-
 
     }
 

@@ -153,8 +153,6 @@ if ($action == "new") {
         }
         $squads = getgamesquads();
 
-        #$bg1 = BG_1;
-
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags", array());
         $data_array = array();
@@ -205,7 +203,7 @@ if ($action == "new") {
         $homepage = htmlspecialchars($ds[ 'homepage' ]);
         $rang = $ds[ 'rang' ];
         $info = htmlspecialchars($ds[ 'info' ]);
-        #$bg1 = BG_1;
+
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags", array());
         $data_array = array();
@@ -285,15 +283,9 @@ if ($action == "new") {
         $data_array['$headdate'] = $headdate;
         $awards_head = $GLOBALS["_template"]->replaceTemplate("awards_head", $data_array);
         echo $awards_head;
-        $n = 1;
+
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            #if ($n % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
+
             $date = getformatdate($ds[ 'date' ]);
             $squad = getsquadname($ds[ 'squadID' ]);
             $award = cleartext($ds[ 'award' ]);
@@ -323,7 +315,7 @@ if ($action == "new") {
             echo $awards_content;
 
             unset($result);
-            $n++;
+
         }
         $awards_foot = $GLOBALS["_template"]->replaceTemplate("awards_foot", array());
         echo $awards_foot;
@@ -366,11 +358,6 @@ if ($action == "new") {
         )
     )
     . '" target="_blank">' . $ds[ 'homepage' ] . '</a>';
-
-    #$bg1 = BG_1;
-    #$bg2 = BG_2;
-    #$bg3 = BG_3;
-    #$bg4 = BG_4;
 
     if (isclanwaradmin($userID) || isnewsadmin($userID)) {
         $adminaction =
@@ -439,15 +426,7 @@ if ($action == "new") {
         $awards_head = $GLOBALS["_template"]->replaceTemplate("awards_head", $data_array);
         echo $awards_head;
 
-        $n = 1;
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            #if ($n % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
 
             $date = getformatdate($ds[ 'date' ]);
             $squad =
@@ -478,7 +457,7 @@ if ($action == "new") {
             $data_array['$adminaction'] = $adminaction;
             $awards_content = $GLOBALS["_template"]->replaceTemplate("awards_content", $data_array);
             echo $awards_content;
-            $n++;
+
         }
         $awards_foot = $GLOBALS["_template"]->replaceTemplate("awards_foot", array());
         echo $awards_foot;

@@ -195,11 +195,6 @@ if ($action == "new") {
     $_language->readModule('articles');
     $_language->readModule('bbcode', true);
 
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
-
     if (isnewsadmin($userID)) {
         safe_query(
             "INSERT INTO
@@ -256,11 +251,6 @@ if ($action == "new") {
     $_language->readModule('bbcode', true);
 
     $articlesID = $_GET[ 'articlesID' ];
-
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
 
     if (isnewsadmin($userID)) {
         $ds = mysqli_fetch_array(
@@ -554,7 +544,6 @@ if ($action == "new") {
 
         $tags = \webspell\Tags::getTagsLinked('articles', $articlesID);
 
-        #$bg1 = BG_1;
         $data_array = array();
         $data_array['$title'] = $title;
         $data_array['$date'] = $date_time;
@@ -733,15 +722,8 @@ if ($action == "new") {
         $articles_head = $GLOBALS["_template"]->replaceTemplate("articles_head", $data_array);
         echo $articles_head;
 
-        $n = 1;
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            #if ($n % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
+
             $date = getformatdate($ds[ 'date' ]);
 
             $title = '<a href="index.php?site=articles&amp;action=show&amp;articlesID=' . $ds[ 'articlesID' ] . '">' .
@@ -769,7 +751,7 @@ if ($action == "new") {
             $articles_content = $GLOBALS["_template"]->replaceTemplate("articles_content", $data_array);
             echo $articles_content;
             unset($ratingpic);
-            $n++;
+
         }
         $articles_foot = $GLOBALS["_template"]->replaceTemplate("articles_foot", array());
         echo $articles_foot;
