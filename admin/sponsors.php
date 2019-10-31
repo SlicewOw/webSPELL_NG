@@ -444,11 +444,8 @@ echo'<div class="panel panel-default">
     }
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        if (stristr($url, 'http://')) {
-            $url = $url;
-        } else {
-            $url = 'http://' . $url;
-        }
+
+        $url = getDefaultUrlStr($url);
 
         safe_query(
             "UPDATE " . PREFIX . "sponsors SET name='" . $name . "', url='" . $url . "', info='" . $info .
@@ -610,12 +607,8 @@ echo'<div class="panel panel-default">
             $mainsponsor = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
             $mainsponsor = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
 
-            if (stristr($ds[ 'url' ], 'http://')) {
-                $name = '<a href="' . getinput($ds[ 'url' ]) . '" target="_blank">' . getinput($ds[ 'name' ]) . '</a>';
-            } else {
-                $name = '<a href="http://' . getinput($ds[ 'url' ]) . '" target="_blank">' . getinput($ds[ 'name' ]) .
-                '</a>';
-            }
+            $url = getDefaultUrlStr($ds[ 'url' ]);
+            $name = '<a href="' . getinput($url) . '" target="_blank">' . getinput($ds[ 'name' ]) . '</a>';
 
             $days = round((time() - $ds[ 'date' ]) / (60 * 60 * 24));
             if ($days) {

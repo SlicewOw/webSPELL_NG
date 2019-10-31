@@ -346,7 +346,7 @@ if ($action == "add") {
                 }
             } else {
                 $status = $_language->module['unexpected_result'];
-                $info .= var_dump($headers, true);
+                $info .= implode(', ', $headers);
             }
         }
         if ($unlink) {

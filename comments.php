@@ -484,13 +484,9 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
 
                 $ds[ 'url' ] = strip_tags($ds[ 'url' ]);
                 $ds[ 'url' ] = htmlspecialchars($ds[ 'url' ]);
-                if (!stristr($ds[ 'url' ], 'http://')) {
-                    $ds[ 'url' ] = "http://" . $ds[ 'url' ];
-                }
-                if ($ds[ 'url' ] != "http://" && $ds[ 'url' ] != "") {
-                    $hp = '<a href="' . $ds[ 'url' ] .
-                        '" target="_blank"><span class="fa fa-home" title="' .
-                        $_language->module[ 'homepage' ] . '"></span></a>';
+                $url = getDefaultUrlStr($ds[ 'url' ]);
+                if ($url != "http://" && $url != "") {
+                    $hp = '<a href="' . $url . '" target="_blank"><span class="fa fa-home" title="' . $_language->module[ 'homepage' ] . '"></span></a>';
                 } else {
                     $hp = '';
                 }

@@ -261,9 +261,7 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
 
-        if (!stristr($link, 'https://')) {
-            $link = 'https://' . $link;
-        }
+        $link = getDefaultUrlStr($link);
 
         safe_query(
             "UPDATE " . PREFIX . "carousel SET title='" . $title . "', link='" . $link . "', description='" . $description .
@@ -375,12 +373,8 @@ if ($action == "add") {
             $displayed = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
             $displayed = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
 
-            if (stristr($ds[ 'link' ], 'http://')) {
-                $title = '<a href="' . getinput($ds[ 'link' ]) . '" target="_blank">' . getinput($ds[ 'title' ]) . '</a>';
-            } else {
-                $title = '<a href="http://' . getinput($ds[ 'link' ]) . '" target="_blank">' . getinput($ds[ 'title' ]) .
-                '</a>';
-            }
+            $url = getDefaultUrlStr($ds[ 'link' ]);
+            $title = '<a href="' . getinput($url) . '" target="_blank">' . getinput($ds[ 'title' ]) . '</a>';
 
             echo '<tr>
            <td class="' . $td . '">' . $title . '</td>

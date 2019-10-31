@@ -55,12 +55,7 @@ if (mysqli_num_rows($carousel)) {
         }
         $carouselID = $db[ 'carouselID' ];
 		$title = $db[ 'title' ];
-        if (stristr($db[ 'link' ], "http://")) {
-			$link = $db[ 'link' ];
-
-		} else {
-			$link = 'http://' . $db[ 'link' ] . '';
-		}
+        $link = getDefaultUrlStr($db[ 'link' ]);
         $description = $db[ 'description' ];
 
         $data_array = array();

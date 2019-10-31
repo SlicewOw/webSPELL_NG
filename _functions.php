@@ -263,6 +263,10 @@ function checkforempty($valuearray)
     return true;
 }
 
+// -- Convenience functions -- //
+
+systeminc('func/convenience');
+
 // -- FILESYSTEM -- //
 
 systeminc('func/filesystem');
