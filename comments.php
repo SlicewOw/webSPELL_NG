@@ -324,44 +324,21 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
 
     $page_link = makepagelink("$referer&amp;sorttype=$sorttype", $commentspage, $commentspages, 'comments');
 
-    if ($commentspage == "1") {
-        $ergebnis = safe_query(
-            "SELECT
-                *
-            FROM
-                `" . PREFIX . "comments`
-            WHERE
-                `parentID` = '$parentID' AND
-                `type` = '$type'
-            ORDER BY
-                `date` $sorttype
-            LIMIT 0, ".(int)$maxfeedback
-        );
-        if ($sorttype == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = ($commentspage - 1) * $maxfeedback;
-        $ergebnis = safe_query(
-            "SELECT
-                *
-            FROM
-                `" . PREFIX . "comments`
-            WHERE
-                `parentID` = '$parentID' AND
-                `type` = '$type'
-            ORDER BY
-                `date` $sorttype
-            LIMIT $start, " . (int)$maxfeedback
-        );
-        if ($sorttype == "DESC") {
-            $n = $gesamt - ($commentspage - 1) * $maxfeedback;
-        } else {
-            $n = ($commentspage - 1) * $maxfeedback + 1;
-        }
-    }
+    $start = getStartValue($commentspage, $maxfeedback);
+
+    $ergebnis = safe_query(
+        "SELECT
+            *
+        FROM
+            `" . PREFIX . "comments`
+        WHERE
+            `parentID` = '$parentID' AND
+            `type` = '$type'
+        ORDER BY
+            `date` $sorttype
+        LIMIT $start, " . (int)$maxfeedback
+    );
+
     if ($gesamt) {
         $title_comments = $GLOBALS["_template"]->replaceTemplate("title_comments", array());
         echo $title_comments;
@@ -382,7 +359,6 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
         echo $comments_head;
 
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            #$n % 2 ? $bg1 = BG_1 : $bg1 = BG_3;
 
             $date = getformatdatetime($ds[ 'date' ]);
 

@@ -114,22 +114,9 @@ if ($action == "save") {
 
     $page_link = makepagelink("index.php?site=shoutbox_content&amp;action=showall&amp;type=$type", $page, $pages);
 
-    if ($page == "1") {
-        $ergebnis = safe_query("SELECT * FROM " . PREFIX . "shoutbox ORDER BY date $type LIMIT 0,$max");
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis = safe_query("SELECT * FROM " . PREFIX . "shoutbox ORDER BY date $type LIMIT $start,$max");
-        if ($type == "DESC") {
-            $n = $gesamt - ($page - 1) * $max;
-        } else {
-            $n = ($page - 1) * $max + 1;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query("SELECT * FROM " . PREFIX . "shoutbox ORDER BY date $type LIMIT $start,$max");
 
     if ($type == "ASC") {
         $sorter = '<a href="index.php?site=shoutbox_content&amp;action=showall&amp;page=' . $page . '&amp;type=DESC">' .

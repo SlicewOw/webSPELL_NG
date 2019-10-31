@@ -507,40 +507,18 @@ if (isset($id) && getnickname($id) != '') {
                         $page_link = '';
                     }
 
-                    if ($page == "1") {
-                        $ergebnis = safe_query(
-                            "SELECT
-                                *
-                            FROM
-                                " . PREFIX . "user_gbook
-                            WHERE
-                                userID='" . $id . "'
-                            ORDER BY
-                                date " . $type . " LIMIT 0, " . (int)$max
-                        );
-                        if ($type == "DESC") {
-                            $n = $gesamt;
-                        } else {
-                            $n = 1;
-                        }
-                    } else {
-                        $start = $page * $max - $max;
-                        $ergebnis = safe_query(
-                            "SELECT
-                                *
-                            FROM
-                                " . PREFIX . "user_gbook
-                            WHERE
-                                userID='" . $id . "'
-                            ORDER BY
-                                date " . $type . " LIMIT " . (int)$start . ", " . (int)$max
-                        );
-                        if ($type == "DESC") {
-                            $n = $gesamt - ($page - 1) * $max;
-                        } else {
-                            $n = ($page - 1) * $max + 1;
-                        }
-                    }
+                    $start = getStartValue($page, $max);
+
+                    $ergebnis = safe_query(
+                        "SELECT
+                            *
+                        FROM
+                            " . PREFIX . "user_gbook
+                        WHERE
+                            userID='" . $id . "'
+                        ORDER BY
+                            date " . $type . " LIMIT " . (int)$start . ", " . (int)$max
+                    );
 
                     if ($type == "ASC") {
                         $sorter = '<a href="index.php?site=profile&amp;id=' . $id . '&amp;action=guestbook&amp;page=' .

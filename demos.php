@@ -475,37 +475,20 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
         $page_link = "";
     }
 
-    if ($page == "1") {
-        $ergebnis = safe_query(
-            "SELECT * FROM `" . PREFIX . "demos`
-            WHERE `game` = '$game'
-            ORDER BY $sort $type LIMIT 0, " .(int)$max
-        );
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis = safe_query(
-            "SELECT
-                    *
-                FROM
-                    `" . PREFIX . "demos`
-                WHERE
-                    `game` = '$game'
-                ORDER BY
-                    $sort $type
-                LIMIT
-                    $start, " . (int)$max
-        );
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query(
+        "SELECT
+                *
+            FROM
+                `" . PREFIX . "demos`
+            WHERE
+                `game` = '$game'
+            ORDER BY
+                $sort $type
+            LIMIT
+                $start, " . (int)$max
+    );
 
     if ($gesamt) {
         echo '<div class="row">';
@@ -681,22 +664,10 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
 
     $page_link = makepagelink("index.php?site=demos&amp;sort=$sort&amp;type=$type", $page, $pages);
 
-    if ($page == "1") {
-        $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "demos` ORDER BY $sort $type LIMIT 0, " . (int)$max);
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "demos` ORDER BY $sort $type LIMIT $start, " . (int)$max);
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "demos` ORDER BY $sort $type LIMIT $start, " . (int)$max);
+
     if ($gesamt) {
         echo '<div class="row">';
 

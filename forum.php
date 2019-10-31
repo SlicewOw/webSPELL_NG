@@ -624,11 +624,7 @@ function showboard($board)
 
     $page_link = makepagelink("index.php?site=forum&amp;board=$board", $page, $pages);
 
-    if ($page <= 1) {
-        $start = 0;
-    } else {
-        $start = $page * $max - $max;
-    }
+    $start = getStartValue($page, $max);
 
     $db = mysqli_fetch_array(safe_query("SELECT * FROM " . PREFIX . "forum_boards WHERE boardID='" . $board . "' "));
     $boardname = $db[ 'name' ];

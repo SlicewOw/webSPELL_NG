@@ -251,35 +251,18 @@ if ($action == "new") {
     } else {
         $page_link = "";
     }
-    if ($page == "1") {
-        $ergebnis =
-            safe_query(
-                "SELECT * FROM `" . PREFIX . "awards` WHERE `squadID` = '$squadID' ORDER BY $sort $type LIMIT 0,$max"
-            );
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis = safe_query(
-            "SELECT
-                *
-            FROM
-                `" . PREFIX . "awards`
-            WHERE
-                `squadID` = '$squadID'
-            ORDER BY
-                $sort $type
-            LIMIT $start,$max"
-        );
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query(
+        "SELECT * FROM `" . PREFIX . "awards`
+        WHERE
+            `squadID` = '$squadID'
+        ORDER BY
+            $sort $type
+        LIMIT $start,$max"
+    );
+
     if ($gesamt) {
         if ($type == "ASC") {
             echo '<a href="index.php?site=awards&amp;action=showsquad&amp;squadID=' . $squadID . '&amp;page=' . $page .
@@ -428,22 +411,10 @@ if ($action == "new") {
 
     $page_link = makepagelink("index.php?site=awards&sort=$sort&type=$type", $page, $pages);
 
-    if ($page == "1") {
-        $ergebnis = safe_query("SELECT * FROM " . PREFIX . "awards ORDER BY $sort $type LIMIT 0,$max");
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis = safe_query("SELECT * FROM " . PREFIX . "awards ORDER BY $sort $type LIMIT $start,$max");
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query("SELECT * FROM " . PREFIX . "awards ORDER BY $sort $type LIMIT $start,$max");
+
     if ($gesamt) {
         if ($type == "ASC") {
             echo '<a href="index.php?site=awards&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=DESC">' .

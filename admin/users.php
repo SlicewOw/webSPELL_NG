@@ -927,45 +927,25 @@ if ($action == "activate") {
     $max = $maxusers;
     $pages = ceil($gesamt / $max);
 
-    if ($page == "1") {
-        if ($search) {
-            $ergebnis = safe_query(
-                "SELECT u.* FROM " . PREFIX .
-                "user u WHERE userID='$search' ORDER BY $sort $type LIMIT 0,$max"
-            );
-        } else {
-            $ergebnis = safe_query("SELECT u.* FROM " . PREFIX . "user u ORDER BY $sort $type LIMIT 0,$max");
-        }
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
+    $start = getStartValue($page, $max);
+
+    if ($search) {
+        $ergebnis = safe_query(
+            "SELECT u.* FROM " . PREFIX . "user u WHERE userID='$search' ORDER BY $sort $type LIMIT $start,$max"
+        );
     } else {
-        $start = $page * $max - $max;
-        if ($search) {
-            $ergebnis = safe_query(
-                "SELECT u.* FROM " . PREFIX .
-                "user u WHERE userID='$search' ORDER BY $sort $type LIMIT $start,$max"
-            );
-        } else {
-            $ergebnis = safe_query("SELECT u.* FROM " . PREFIX . "user u ORDER BY $sort $type LIMIT $start,$max");
-        }
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
+        $ergebnis = safe_query("SELECT u.* FROM " . PREFIX . "user u ORDER BY $sort $type LIMIT $start,$max");
     }
+
     $page_link = '';
     if ($pages > 1) {
         if ($status === true) {
             $sort = "status";
         }
-        $page_link =
-            makepagelink("admincenter.php?site=users&amp;sort=$sort&amp;type=$type&amp;search=$search", $page, $pages);
+        $page_link = makepagelink("admincenter.php?site=users&amp;sort=$sort&amp;type=$type&amp;search=$search", $page, $pages);
         $page_link = str_replace('images/', '../images/', $page_link);
     }
+
     $anz = mysqli_num_rows($ergebnis);
     if ($anz) {
         $CAPCLASS = new \webspell\Captcha;

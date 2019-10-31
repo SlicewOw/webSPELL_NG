@@ -202,44 +202,20 @@ if (isset($_POST['delete'])) {
             $page_link = '';
         }
 
-        if ($page == "1") {
-            $ergebnis = safe_query(
-                "SELECT
-                    *
-                FROM
-                    " . PREFIX . "messenger
-                WHERE
-                    touser='$userID'
-                AND
-                    userID='$userID'
-                ORDER BY
-                    $sort $type LIMIT 0,$max"
-            );
-            if ($type == "DESC") {
-                $n = $gesamt;
-            } else {
-                $n = 1;
-            }
-        } else {
-            $start = $page * $max - $max;
-            $ergebnis = safe_query(
-                "SELECT
-                    *
-                FROM
-                    " . PREFIX . "messenger
-                WHERE
-                    touser='$userID'
-                AND
-                    userID='$userID'
-                ORDER BY
-                    $sort $type LIMIT $start,$max"
-            );
-            if ($type == "DESC") {
-                $n = ($gesamt) - $page * $max + $max;
-            } else {
-                $n = ($gesamt + 1) - $page * $max + $max;
-            }
-        }
+        $start = getStartValue($page, $max);
+
+        $ergebnis = safe_query(
+            "SELECT
+                *
+            FROM
+                " . PREFIX . "messenger
+            WHERE
+                touser='$userID'
+            AND
+                userID='$userID'
+            ORDER BY
+                $sort $type LIMIT $start,$max"
+        );
 
         if ($type == "ASC") {
             $sorter = '<a href="index.php?site=messenger&amp;action=incoming&amp;page=' . $page . '&amp;sort=' . $sort .
@@ -368,44 +344,20 @@ if (isset($_POST['delete'])) {
 
         $page_link = makepagelink("index.php?site=messenger&amp;action=outgoing&amp;entries=$max", $page, $pages);
 
-        if ($page == "1") {
-            $ergebnis = safe_query(
-                "SELECT
-                    *
-                FROM
-                    " . PREFIX . "messenger
-                WHERE
-                    fromuser='$userID'
-                AND
-                    userID='$userID'
-                ORDER BY
-                    $sort $type LIMIT 0,$max"
-            );
-            if ($type == "DESC") {
-                $n = $gesamt;
-            } else {
-                $n = 1;
-            }
-        } else {
-            $start = $page * $max - $max;
-            $ergebnis = safe_query(
-                "SELECT
-                    *
-                FROM
-                    " . PREFIX . "messenger
-                WHERE
-                    fromuser='$userID'
-                AND
-                    userID='$userID'
-                ORDER BY
-                    $sort $type LIMIT $start,$max"
-            );
-            if ($type == "DESC") {
-                $n = ($gesamt) - $page * $max + $max;
-            } else {
-                $n = ($gesamt + 1) - $page * $max + $max;
-            }
-        }
+        $start = getStartValue($page, $max);
+
+        $ergebnis = safe_query(
+            "SELECT
+                *
+            FROM
+                " . PREFIX . "messenger
+            WHERE
+                fromuser='$userID'
+            AND
+                userID='$userID'
+            ORDER BY
+                $sort $type LIMIT $start,$max"
+        );
 
         if ($type == "ASC") {
             $sorter = '<a href="index.php?site=messenger&amp;action=outgoing&amp;page=' . $page . '&amp;sort=' . $sort .

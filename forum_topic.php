@@ -404,10 +404,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             $_language->module['sort'] . ' <span class="fa fa-chevron-up"></span></a>';
     }
 
-    $start = 0;
-    if ($page > 1) {
-        $start = $page * $max - $max;
-    }
+    $start = getStartValue($page, $max);
 
     safe_query("UPDATE " . PREFIX . "forum_topics SET views=views+1 WHERE topicID='$topic' ");
 

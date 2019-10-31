@@ -954,44 +954,21 @@ if ($action == "new") {
         $page_link = '';
     }
 
-    if ($page == "1") {
-        $ergebnis = safe_query(
-            "SELECT
-                *
-            FROM
-                " . PREFIX . "news
-            WHERE
-                published='1' AND
-                intern<=" . (int)isclanmember($userID) . "
-            ORDER BY
-                " . $sort . " " . $type . "
-            LIMIT 0," . (int)$max
-        );
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis = safe_query(
-            "SELECT
-                *
-            FROM
-                " . PREFIX . "news
-            WHERE
-                published='1' AND
-                intern<=" . (int)isclanmember($userID) . "
-            ORDER BY
-                " . $sort . " " . $type . "
-            LIMIT " . (int)$start . "," . (int)$max
-        );
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query(
+        "SELECT
+            *
+        FROM
+            " . PREFIX . "news
+        WHERE
+            published='1' AND
+            intern<=" . (int)isclanmember($userID) . "
+        ORDER BY
+            " . $sort . " " . $type . "
+        LIMIT " . (int)$start . "," . (int)$max
+    );
+
     if ($all) {
         if ($type == "ASC") {
             echo '<a href="index.php?site=news&amp;action=archive&amp;page=' . $page . '&amp;sort=' . $sort .

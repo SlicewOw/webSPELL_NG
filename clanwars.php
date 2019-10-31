@@ -1240,24 +1240,9 @@ if ($action == "new") {
         $page_link = "";
     }
 
-    if ($page == "1") {
-        $ergebnis =
-            safe_query("SELECT * FROM " . PREFIX . "clanwars WHERE $only='$id' ORDER BY $sort $type LIMIT 0,$max");
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis =
-            safe_query("SELECT * FROM " . PREFIX . "clanwars WHERE $only='$id' ORDER BY $sort $type LIMIT $start,$max");
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query("SELECT * FROM " . PREFIX . "clanwars WHERE $only='$id' ORDER BY $sort $type LIMIT $start,$max");
 
     if ($type == "ASC") {
         $seiten =
@@ -1322,16 +1307,9 @@ if ($action == "new") {
         $data_array['$headleague'] = $headleague;
         $clanwars_head = $GLOBALS["_template"]->replaceTemplate("clanwars_head", $data_array);
         echo $clanwars_head;
-        $n = 1;
 
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            #if ($n % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
+
             $date = getformatdate($ds[ 'date' ]);
             $league = '<a href="' . $ds[ 'leaguehp' ] . '" target="_blank">' . $ds[ 'league' ] . '</a>';
             $oppcountry = "[flag]" . $ds[ 'oppcountry' ] . "[/flag]";
@@ -1397,7 +1375,7 @@ if ($action == "new") {
             $clanwars_content = $GLOBALS["_template"]->replaceTemplate("clanwars_content", $data_array);
             echo $clanwars_content;
             unset($result);
-            $n++;
+
         }
 
         if (isclanwaradmin($userID)) {
@@ -1489,45 +1467,20 @@ if ($action == "new") {
 
     $page_link = makepagelink("index.php?site=clanwars&amp;sort=$sort&amp;type=$type", $page, $pages);
 
-    if ($page == "1") {
-        $ergebnis = safe_query(
-            "SELECT
-                c.*,
-                s.name AS `squadname`
-            FROM
-                " . PREFIX . "clanwars c
-            LEFT JOIN
-                " . PREFIX . "squads s ON
-                s.squadID=c.squad
-            ORDER BY
-                c.$sort $type
-            LIMIT 0,$max"
-        );
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis = safe_query(
-            "SELECT
-                c.*,
-                s.name AS squadname
-            FROM
-                " . PREFIX . "clanwars c
-            LEFT JOIN
-                " . PREFIX . "squads s ON
-                s.squadID=c.squad
-            ORDER BY
-                $sort $type LIMIT $start,$max"
-        );
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis = safe_query(
+        "SELECT
+            c.*,
+            s.name AS squadname
+        FROM
+            " . PREFIX . "clanwars c
+        LEFT JOIN
+            " . PREFIX . "squads s ON
+            s.squadID=c.squad
+        ORDER BY
+            $sort $type LIMIT $start,$max"
+    );
 
     if ($type == "ASC") {
         $seiten = '<a href="index.php?site=clanwars&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=DESC">' .

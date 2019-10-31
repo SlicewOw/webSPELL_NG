@@ -226,22 +226,9 @@ if (isset($_POST[ 'save' ])) {
 
     $page_link = makepagelink("index.php?site=guestbook&amp;type=$type", $page, $pages);
 
-    if ($page == "1") {
-        $ergebnis = safe_query("SELECT * FROM " . PREFIX . "guestbook ORDER BY date $type LIMIT 0,$maxguestbook");
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $maxguestbook - $maxguestbook;
-        $ergebnis = safe_query("SELECT * FROM " . PREFIX . "guestbook ORDER BY date $type LIMIT $start,$maxguestbook");
-        if ($type == "DESC") {
-            $n = $gesamt - ($page - 1) * $maxguestbook;
-        } else {
-            $n = ($page - 1) * $maxguestbook + 1;
-        }
-    }
+    $start = getStartValue($page, $maxguestbook);
+
+    $ergebnis = safe_query("SELECT * FROM " . PREFIX . "guestbook ORDER BY date $type LIMIT $start,$maxguestbook");
 
     if ($type == "ASC") {
         $sorter =

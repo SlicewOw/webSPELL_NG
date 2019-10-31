@@ -68,40 +68,17 @@ if (isset($_GET[ 'type' ])) {
 
 $page_link = makepagelink("index.php?site=registered_users&amp;sort=$sort&amp;type=$type", $page, $pages);
 
-if ($page == "1") {
-    $ergebnis =
-        safe_query(
-            "SELECT
-                *
-            FROM
-                " . PREFIX . "user
-            ORDER BY
-                " . $sort . " " . $type . "
-            LIMIT 0," . (int)$maxusers
-        );
-    if ($type == "DESC") {
-        $n = $gesamt;
-    } else {
-        $n = 1;
-    }
-} else {
-    $start = $page * $maxusers - $maxusers;
-    $ergebnis =
-        safe_query(
-            "SELECT
-                *
-            FROM
-                " . PREFIX . "user
-            ORDER BY
-                " . $sort . " " . $type . "
-            LIMIT " . $start . "," . (int)$maxusers
-        );
-    if ($type == "DESC") {
-        $n = ($gesamt) - $page * $maxusers + $maxusers;
-    } else {
-        $n = ($gesamt + 1) - $page * $maxusers + $maxusers;
-    }
-}
+$start = getStartValue($page, $maxusers);
+
+$ergebnis = safe_query(
+    "SELECT
+        *
+    FROM
+        " . PREFIX . "user
+    ORDER BY
+        " . $sort . " " . $type . "
+    LIMIT " . $start . "," . (int)$maxusers
+);
 
 $anz = mysqli_num_rows($ergebnis);
 if ($anz) {

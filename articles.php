@@ -633,44 +633,18 @@ if ($action == "new") {
 
     $page_link = makepagelink("index.php?site=articles&amp;sort=" . $sort . "&amp;type=" . $type, $page, $pages);
 
-    if ($page == "1") {
-        $ergebnis =
-            safe_query(
-                "SELECT
-                    *
-                FROM
-                    `" . PREFIX . "articles`
-                WHERE
-                    `saved`='1'
-                ORDER BY
-                    $sort $type
-                LIMIT 0,".(int)$max
-            );
-        if ($type == "DESC") {
-            $n = $gesamt;
-        } else {
-            $n = 1;
-        }
-    } else {
-        $start = $page * $max - $max;
-        $ergebnis =
-            safe_query(
-                "SELECT
-                    *
-                FROM
-                    `" . PREFIX . "articles`
-                WHERE
-                    `saved` = '1'
-                ORDER BY
-                    $sort $type
-                LIMIT $start,".(int)$max
-            );
-        if ($type == "DESC") {
-            $n = ($gesamt) - $page * $max + $max;
-        } else {
-            $n = ($gesamt + 1) - $page * $max + $max;
-        }
-    }
+    $start = getStartValue($page, $max);
+
+    $ergebnis =
+        safe_query(
+            "SELECT * FROM `" . PREFIX . "articles`
+            WHERE
+                `saved` = '1'
+            ORDER BY
+                $sort $type
+            LIMIT $start,".(int)$max
+        );
+
     if ($gesamt) {
         // RATING
         $ergebnis_top_5_rating = safe_query(
