@@ -13,7 +13,7 @@
 	.bs-callout-danger {border-left-color: #d9534f;}
 	.bs-callout-danger h4 {color: #d9534f;}
 </style>
-<center><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#changelog">Open Changelog</button></center>
+<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#changelog">Open Changelog</button>
 <div id="changelog" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">

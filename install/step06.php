@@ -349,7 +349,7 @@
                 <h2><?php echo $in_progress; ?></h2>
                 <?php echo $text; ?>
                 <div id="result" style="display:none;"><h3><?php echo $type; ?></h3>
-                    <center><a href="../index.php"><strong><?php echo $_language->module['view_site']; ?></strong></a></center>
+                    <a href="../index.php" class="btn btn-success"><strong><?php echo $_language->module['view_site']; ?></strong></a>
                 </div>
 				<?php
 					$lok = fopen("locked.txt", "w");
