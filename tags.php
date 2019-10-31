@@ -90,8 +90,7 @@ if (isset($_GET[ 'tag' ])) {
     for ($i = 0; $i < $counter; $i++) {
         $tag = $tags[ 'tags' ][ $i ];
         $size = \webspell\Tags::GetTagSizeLogarithmic($tag[ 'count' ], $tags[ 'min' ], $tags[ 'max' ], 10, 25, 0);
-        $str .= " <a href='index.php?site=tags&amp;tag=" . $tag[ 'name' ] . "' style='font-size:" . $size .
-            "px;text-decoration:none;'>" . $tag[ 'name' ] . "</a> ";
+        $str .= " <a href='index.php?site=tags&amp;tag=" . $tag[ 'name' ] . "' style='font-size:" . $size . "px;text-decoration:none;'>" . $tag[ 'name' ] . "</a> ";
     }
 
     echo '<div class="post">

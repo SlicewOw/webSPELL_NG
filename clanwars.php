@@ -1141,9 +1141,7 @@ if ($action == "new") {
                     }
                     $perc = percent($wars, $total, 2);
                     $percpic = '<div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' .
-                            round($perc, 0) . '" aria-valuemin="0" aria-valuemax="100" style="width: ' .
-                            round($perc, 0) . '%;">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . round($perc, 0) . '" aria-valuemin="0" aria-valuemax="100" style="width: ' . round($perc, 0) . '%;">
                             <span class="sr-only">' . round($perc, 0) . '% Complete</span>
                         </div>
                     </div>';
