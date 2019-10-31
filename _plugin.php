@@ -116,7 +116,7 @@ class plugin_manager {
 			}
 		} else {
 			if (DEBUG==="ON") {
-				echo ('<br /><span class="label label-warning">'.$_language->module[ 'plugin_deactivated' ].'</span>');
+				echo '<br /><span class="label label-warning">'.$_language->module[ 'plugin_deactivated' ].'</span>';
 			}
 			if (!file_exists($site . ".php")) {
 				$site = "news";

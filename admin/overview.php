@@ -174,11 +174,11 @@ echo $_language->module['welcome_message'];
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['mysql_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $mysqlversion; ?></em></span></div></div>
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['databasename']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $db; ?></em></span></div></div>
 
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_os']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo (($php_s = @php_uname('s')) ? $php_s : $info_na); ?></em></span></div></div>
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_host']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo (($php_n = @php_uname('n')) ? $php_n : $info_na); ?></em></span></div></div>
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_release']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo (($php_r = @php_uname('r')) ? $php_r : $info_na); ?></em></span></div></div>
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo (($php_v = @php_uname('v')) ? $php_v : $info_na); ?></em></span></div></div>
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_machine']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo (($php_m = @php_uname('m')) ? $php_m : $info_na); ?></em></span></div></div>
+	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_os']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo ($php_s = @php_uname('s')) ? $php_s : $info_na; ?></em></span></div></div>
+	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_host']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo ($php_n = @php_uname('n')) ? $php_n : $info_na; ?></em></span></div></div>
+	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_release']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo ($php_r = @php_uname('r')) ? $php_r : $info_na; ?></em></span></div></div>
+	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo ($php_v = @php_uname('v')) ? $php_v : $info_na; ?></em></span></div></div>
+	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['server_machine']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo ($php_m = @php_uname('m')) ? $php_m : $info_na; ?></em></span></div></div>
 
 </div>
 </div>

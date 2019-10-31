@@ -92,7 +92,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 	<!-- Plugin-Manager 1.2 load css/js -->
 	<?php
 		$load = new plugin_manager();
-		echo ($load->plugin_loadheadfile());
+		echo $load->plugin_loadheadfile();
 	?>
 	<script src="js/bbcode.js" type="text/javascript"></script>
     <!-- end Head & Title include -->

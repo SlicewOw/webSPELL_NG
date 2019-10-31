@@ -468,7 +468,7 @@ if (isset($_POST[ 'submit' ])) {
                             </div>
 
                             <div class="col-md-6">
-                                <span class="pull-right text-muted small"><em data-toggle="tooltip" title="<?php echo $_language->module[ 'tooltip_15' ]; ?>"><input class="form-control" type="text" name="maxusergalleries" value="<?php echo ($ds['maxusergalleries']/(1024*1024)); ?>" size="3"></em></span>
+                                <span class="pull-right text-muted small"><em data-toggle="tooltip" title="<?php echo $_language->module[ 'tooltip_15' ]; ?>"><input class="form-control" type="text" name="maxusergalleries" value="<?php echo $ds['maxusergalleries']/(1024*1024); ?>" size="3"></em></span>
                             </div>
                         </div>
 
