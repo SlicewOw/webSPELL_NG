@@ -284,7 +284,9 @@ function isignored($userID, $buddy)
 
 // -- GLOBAL SETTINGS -- //
 
-$ds = mysqli_fetch_array(safe_query("SELECT * FROM " . PREFIX . "settings"));
+$ds = mysqli_fetch_array(
+    safe_query("SELECT * FROM `" . PREFIX . "settings`")
+);
 if (is_dir("development")) {
     $components = array(
         'css' => array(
