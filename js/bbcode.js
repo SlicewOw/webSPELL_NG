@@ -5,24 +5,30 @@ var form = "post",
 	wmtt = null; /* validateForm by ZENITH-Developments.de */
 
 function validateForm() { /* for the linkus form check */
+	var x, y;
 	if (typeof document.forms["linkus"] !== 'undefined') {
-		var x = document.forms["linkus"]["name"].value;
+
+		x = document.forms["linkus"]["name"].value;
 		if (x == null || x == "") {
 			alert("Name must be filled out");
 			return false;
 		}
+
 	} /* for the links form check */
 	if (typeof document.forms["links"] !== 'undefined') {
-		var x = document.forms["links"]["name"].value;
+
+		x = document.forms["links"]["name"].value;
 		if (x == null || x == "") {
 			alert("Name must be filled out");
 			return false;
 		}
-		var y = document.forms["links"]["url"].value;
+
+		y = document.forms["links"]["url"].value;
 		if (y == null || y == "") {
 			alert("URL must be filled out");
 			return false;
 		}
+
 	}
 }
 
@@ -313,7 +319,7 @@ function addRow(action) {
 		ele4.className = "form_off";
 		cell4.appendChild(ele4);
 	} else {
-		cell4 = row.insertCell(4);
+		row.insertCell(4);
 	}
 }
 // Function removeRow() ** removes the last row of a table
@@ -440,19 +446,19 @@ function postRequest(strURL, id, action) {
 }
 // Fetch data for onclick/onchange events
 
-function eventfetch(url, id, action) {
+function eventfetch(tmp_url, id, action) {
 	"use strict";
-	postRequest(url, id, action);
+	postRequest(tmp_url, id, action);
 }
 // Fetch data for timebased events
 
-function timefetch(url, id, action, milliseconds) {
+function timefetch(tmp_url, id, action, milliseconds) {
 	"use strict";
-	eventfetch(url, id, action);
+	eventfetch(tmp_url, id, action);
 	setTimeout(
 
 	function() {
-		timefetch(url, id, action, milliseconds);
+		timefetch(tmp_url, id, action, milliseconds);
 	}, milliseconds);
 }
 // Generic fetch function, accepts 5 parameters (first 4 mandatory).
@@ -467,12 +473,12 @@ function timefetch(url, id, action, milliseconds) {
 // milliseconds = time in milliseconds till the script should autoexecute itself again
 // (only needed when base==time)
 
-function fetch(url, id, action, base, milliseconds) {
+function fetch(tmp_url, id, action, base, milliseconds) {
 	"use strict";
 	if (base === "event") {
-		eventfetch(url, id, action);
+		eventfetch(tmp_url, id, action);
 	} else if (base === "time") {
-		timefetch(url, id, action, milliseconds);
+		timefetch(tmp_url, id, action, milliseconds);
 	}
 }
 // Search & overlay functions
@@ -486,10 +492,10 @@ function search(table, column, identifier, searchqry, searchtemp, id, action, ex
 	eventfetch(searchrequest, id, action);
 }
 
-function getposOffset(overlay, offsettype) {
+function getposOffset(tmp_overlay, offsettype) {
 	"use strict";
-	var totaloffset = (offsettype === "left") ? overlay.offsetLeft : overlay.offsetTop,
-		parentEl = overlay.offsetParent;
+	var totaloffset = (offsettype === "left") ? tmp_overlay.offsetLeft : tmp_overlay.offsetTop,
+		parentEl = tmp_overlay.offsetParent;
 	while (parentEl !== null) {
 		totaloffset = (offsettype === "left") ? totaloffset + parentEl.offsetLeft : totaloffset + parentEl.offsetTop;
 		parentEl = parentEl.offsetParent;
@@ -610,8 +616,8 @@ function validbbcode(txt) {
 } /* jshint ignore:start */
 // jscs:disable
 
-function MM_confirm(msg, url) { // v1.0
-	if (confirm(msg)) location.replace(url);
+function MM_confirm(msg, tmp_url) { // v1.0
+	if (confirm(msg)) location.replace(tmp_url);
 }
 
 function MM_jumpMenu(targ, selObj, restore) { //v3.0

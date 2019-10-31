@@ -202,7 +202,7 @@ function f_tcalUpdate (d_date) {
 	s_html += '</tr>' ;
 
 	// print calendar table
-	var n_date, n_month, d_current = new Date(d_firstday);
+	var n_date, d_current = new Date(d_firstday);
 	while (d_current.getMonth() == d_date.getMonth() ||
 		d_current.getMonth() == d_firstday.getMonth()) {
 
@@ -212,7 +212,6 @@ function f_tcalUpdate (d_date) {
 
 			a_class = [];
 			n_date = d_current.getDate();
-			n_month = d_current.getMonth();
 
 			// other month
 			if (d_current.getMonth() != d_date.getMonth())
@@ -288,12 +287,13 @@ function f_getPosition (e_elemRef, s_coord) {
 	return n_pos;
 }
 
-function f_tcalRelDate (d_date, d_diff, s_units) {
-	var s_units = (s_units == 'y' ? 'FullYear' : 'Month');
-	var d_result = new Date(d_date);
+function f_tcalRelDate (d_date, d_diff, tmp_s_units) {
+	var s_units = (tmp_s_units == 'y' ? 'FullYear' : 'Month'),
+		d_result = new Date(d_date);
 	d_result['set' + s_units](d_date['get' + s_units]() + d_diff);
-	if (d_result.getDate() != d_date.getDate())
+	if (d_result.getDate() != d_date.getDate()) {
 		d_result.setDate(0);
+	}
 	return ' onclick="A_TCALS[\'' + this.s_id + '\'].f_update(' + d_result.valueOf() + ')"';
 }
 
