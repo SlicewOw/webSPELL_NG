@@ -16,23 +16,6 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="fa fa-question-circle"></span> Support <span class="fa fa-caret-down"></span>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-            <li><a href="https://webspell-nor.de/index.php?site=forum"><span class="fa fa-commenting-o"></span> Forum</a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="https://discord.gg/KVSfXQa"><span class="fa fa fa-comments"></span> open Discord</a>
-                </li>
-            </ul>
-            <!-- /.dropdown-user -->
-        </li>
-
-        <!-- /.dropdown -->
-
-        <!-- /.dropdown -->
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <span class="fa fa-times"></span> Logout <span class="fa fa-caret-down"></span>
             </a>
             <ul class="dropdown-menu dropdown-user">
@@ -89,7 +72,9 @@
                 </li>
 
 
-                <?php if (isuseradmin($userID)) { ?>
+                <?php
+                if (isuseradmin($userID)) {
+                ?>
                 <li>
                     <a href="#"><span class="fa fa-user"></span> <?php echo $_language->module['user_administration']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -104,7 +89,10 @@
                 </li>
 
 
-                <?php } if (ispageadmin($userID)) { ?>
+                <?php
+                }
+                if (ispageadmin($userID)) {
+                ?>
                 <li>
                     <a href="#"><span class="fa fa-warning"></span> <?php echo $_language->module['spam']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -117,7 +105,10 @@
                     <!-- /.nav-second-level -->
                 </li>
 
-                <?php }if (isnewsadmin($userID) || isfileadmin($userID) || ispageadmin($userID)) { ?>
+                <?php
+                }
+                if (isnewsadmin($userID) || isfileadmin($userID) || ispageadmin($userID)) {
+                ?>
                 <li>
                     <a href="#"><span class="fa fa-indent"></span> <?php echo $_language->module['rubrics']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -135,7 +126,10 @@
                 </li>
 
 
-                <?php } if (ispageadmin($userID)) { ?>
+                <?php
+                }
+                if (ispageadmin($userID)) {
+                ?>
                 <li>
                     <a href="#"><span class="fa fa-pencil-square"></span> <?php echo $_language->module['settings']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -173,7 +167,8 @@
                 </li>
 
                 <?php
-                } if (isforumadmin($userID)) {
+                }
+                if (isforumadmin($userID)) {
                 ?>
 
                 <li>
@@ -189,7 +184,8 @@
                 </li>
 
                 <?php
-                } if (isgalleryadmin($userID)) {
+                }
+                if (isgalleryadmin($userID)) {
                 ?>
                 <li>
                     <a href="#"><span class="fa fa-file-image-o"></span> <?php echo $_language->module['gallery']; ?><span class="fa arrow"></span></a>
@@ -202,7 +198,8 @@
                 </li>
 
                 <?php
-                } if (ispageadmin($userID)) {
+                }
+                if (ispageadmin($userID)) {
                 ?>
                 <li>
                     <a href="#"><span class="fa fa-arrow-right"></span> <?php echo $_language->module['plugin_base']; ?><span class="fa arrow"></span></a>
@@ -223,10 +220,12 @@
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
-<!-- Copy -->
-<div class="copy">
-<em>&nbsp;&copy; 2016 webspell-nor.de&nbsp;Admin Template by <a href="http://designperformance.de/" target="_blank">T-Seven</a></em>
-</div>
+
+        <!-- Copy -->
+        <div class="copy">
+            <em>&nbsp;&copy; 2016 webspell-nor.de&nbsp;Admin Template by <a href="http://designperformance.de/" target="_blank">T-Seven</a></em>
+        </div>
+
     </div>
     <!-- /.navbar-static-side -->
 </nav>
