@@ -144,16 +144,6 @@ echo $_language->module['hello'].'&nbsp;'.$username.',&nbsp;'.$_language->module
 echo $_language->module['welcome_message'];
  ?>
 </div>
-<!-- <div class="row bt">
-<div class="col-md-5">
-    <div class="row bt">
-
-    <div class="col-md-6">webSPELL NOR | Changelog:</div>
-    <div class="col-md-6"><?php include("changelog.php"); ?></div>
-
-    </div>
-
-</div></div> -->
 
 </div>
 

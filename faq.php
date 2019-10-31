@@ -161,10 +161,7 @@ if ($action == "faqcat" && is_numeric($_GET[ 'faqcatID' ])) {
     $faqcats = safe_query("SELECT * FROM `" . PREFIX . "faq_categories` ORDER BY `sort`");
     $anzcats = mysqli_num_rows($faqcats);
     if ($anzcats) {
-        $data_array = array();
-        $data_array['$anzcats'] = $anzcats;
-        $faq_category_head = $GLOBALS["_template"]->replaceTemplate("faq_category_head", $data_array);
-        echo $faq_category_head;
+
         $i = 1;
         while ($ds = mysqli_fetch_array($faqcats)) {
             $anzfaqs =

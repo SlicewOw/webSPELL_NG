@@ -803,6 +803,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
 
     $forum_topic_head = $GLOBALS["_template"]->replaceTemplate("forum_topic_head", array());
     echo $forum_topic_head;
+
     $i = 1;
     while ($dr = mysqli_fetch_array($replys)) {
         #if ($i % 2) {
