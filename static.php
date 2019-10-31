@@ -48,6 +48,9 @@ switch ($ds[ 'accesslevel' ]) {
             $allowed = true;
         }
         break;
+    default:
+        $allowed = false;
+        break;
 }
 $_language->readModule('navigation');
 if ($allowed) {

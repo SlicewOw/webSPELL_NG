@@ -48,6 +48,9 @@ switch ($info[ 2 ]) {
     case 3:
         Header("Content-type: image/png");
         break;
+    default:
+        Header("Content-type: image/jpeg");
+        break;
 }
 
 echo file_get_contents($file);

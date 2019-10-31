@@ -105,22 +105,26 @@ if (isset($table) && isset($key)) {
         }
     }
 
+    $default_table = "index.php?site=";
     switch ($table) {
         case "gallery_pictures":
-            $table = "gallery&picID=" . $id;
+            $table = $default_table . "gallery&picID=" . $id;
             break;
         case "articles":
-            $table = "articles&action=show&articlesID=" . $id;
+            $table = $default_table . "articles&action=show&articlesID=" . $id;
             break;
         case "demos":
-            $table = "demos&action=showdemo&demoID=" . $id;
+            $table = $default_table . "demos&action=showdemo&demoID=" . $id;
             break;
         case "files":
-            $table = "files&file=" . $id;
+            $table = $default_table . "files&file=" . $id;
+            break;
+        default:
+            $table = "index.php";
             break;
     }
 
-    header("Location: index.php?site=" . $table);
+    header("Location: " . $table);
 } else {
     header("Location: index.php");
 }

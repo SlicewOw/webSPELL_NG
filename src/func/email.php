@@ -97,6 +97,9 @@ class Email
                         case 2:
                             $mail->SMTPSecure = 'ssl';
                             break;
+                        default:
+                            $mail->SMTPSecure = '';
+                            break;
                     }
                 } else {
                     $mail->SMTPSecure = '';

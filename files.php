@@ -397,6 +397,8 @@ if ($action == "save") {
                 case 'gb':
                     $unit = str_replace('value="gb"', 'value="gb" selected="selected"', $unit);
                     break;
+                default:
+                    break;
             }
             $extern = '';
             if (isFileURL($file[ 'file' ])) {

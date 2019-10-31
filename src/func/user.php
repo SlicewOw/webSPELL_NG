@@ -289,6 +289,9 @@ function RandPass($length, $type = 0)
             case 3:
                 $pass .= chr(rand(97, 122));
                 break;
+            default:
+                $pass .= chr(rand(1, 122));
+                break;
         }
     }
     return $pass;

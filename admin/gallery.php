@@ -285,6 +285,9 @@ if ($part == "groups") {
                     case 3:
                         $typ = '.png';
                         break;
+                    default:
+                        $typ = '.jpg';
+                        break;
                 }
                 if (isset($name[ $i ])) {
                     $insertname = $name[ $i ];

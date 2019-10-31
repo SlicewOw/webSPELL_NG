@@ -337,6 +337,9 @@ function imgreplace($content)
                     case 3:
                         $format = "png";
                         break;
+                    default:
+                        $format = "jpeg";
+                        break;
                 }
                 if (!$picsize_l) {
                     $size_l = "9999";

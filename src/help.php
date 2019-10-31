@@ -36,6 +36,8 @@ if (DEBUG == "ON") {
                 include('version.php');
                 die($version);
                 break;
+            default:
+                break;
 
         }
     }

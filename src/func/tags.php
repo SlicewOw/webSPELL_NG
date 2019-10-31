@@ -227,6 +227,9 @@ class Tags
                         $allowed = true;
                     }
                     break;
+                default:
+                    $allowed = false;
+                    break;
             }
             if ($allowed) {
                 if (strlen($ds['content']) > 255) {
