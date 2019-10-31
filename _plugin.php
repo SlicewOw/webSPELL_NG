@@ -170,20 +170,18 @@ class plugin_manager {
 		$pid = intval($id);
 		$_language = new \webspell\Language;
 		$_language->readModule('plugin');
-		if (!empty($pid) and !empty($name)) {
+		if (!empty($pid) && !empty($name)) {
 			$manager = new plugin_manager();
 			$row=$manager->plugin_data("", $pid);
 			$hfiles = $row['hiddenfiles'];
 			$tfiles = explode(",",$hfiles);
 			if (in_array($name, $tfiles)) {
-				if (file_exists($row['path'].$name.".php")) {
-					$plugin_path = $row['path'];
-					require_once($row['path'].$name.".php");
+				$plugin_path = $row['path'].$name.".php";
+				if (file_exists($plugin_path)) {
+					require_once($plugin_path);
 					return false;
-				} else {
-					if ($this->_debug === "ON") {
-						return ('<span class="label label-danger">'.$_language->module['plugin_not_found'].'</span>');
-					}
+				} else if ($this->_debug === "ON") {
+					return ('<span class="label label-danger">'.$_language->module['plugin_not_found'].'</span>');
 				}
 			}
 		}

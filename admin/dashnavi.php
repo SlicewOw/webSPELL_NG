@@ -54,7 +54,7 @@ if (isset($_GET[ 'delete' ])) {
     if (isset($_POST[ 'sortcat' ])) { $sortcat = $_POST[ 'sortcat' ]; } else { $sortcat="";}
     $sortlinks = $_POST[ 'sortlinks' ];
 
-    if (is_array($sortcat) AND !empty($sortcat)) {
+    if (is_array($sortcat) && !empty($sortcat)) {
         foreach ($sortcat as $sortstring) {
             $sorter = explode("-", $sortstring);
             safe_query("UPDATE " . PREFIX . "dashnavi_categories SET sort='$sorter[1]' WHERE catID='$sorter[0]' ");

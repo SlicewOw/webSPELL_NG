@@ -38,7 +38,7 @@ class Language
         if ($pluginpath) {
             $this->language_path = $pluginpath.$this->language_path;
         }
-		if ($admin AND $pluginpath) {
+		if ($admin && $pluginpath) {
 			$this->language_path = "../".$pluginpath."languages/";
 		}
         $langs = array();
@@ -62,10 +62,10 @@ class Language
     public function readModule($module, $add = false, $admin = false, $pluginpath=false)
     {
         global $default_language;
-        if ($admin AND !$pluginpath) {
+        if ($admin && !$pluginpath) {
             $langFolder = '../'.$this->language_path;
             $folderPath = '%s%s/admin/%s.php';
-        } else if ($admin AND $pluginpath) {
+        } else if ($admin && $pluginpath) {
             $langFolder = '../'.$pluginpath.$this->language_path;
             $folderPath = '%s%s/admin/%s.php';
         } else if ($pluginpath) {

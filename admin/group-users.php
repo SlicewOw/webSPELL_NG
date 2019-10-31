@@ -112,16 +112,16 @@ if (isset($_GET[ 'action' ])) {
             "SELECT userID
             FROM `" . PREFIX . "user_groups`
             WHERE (
-                page='1' OR
-                forum='1' OR
-                user='1' OR
-                news='1' OR
-                clanwars='1' OR
-                feedback='1'
-                OR super='1'
-                OR gallery='1'
-                OR cash='1'
-                OR files='1'
+                `page`= 1 OR
+                `forum` = 1 OR
+                `user` = 1 OR
+                `news` = 1 OR
+                `clanwars` = 1 OR
+                `feedback` = 1 OR
+                `super` = 1 OR
+                `gallery` = 1 OR
+                `cash` = 1 OR
+                `files` = 1
             )"
         );
         while ($ds = mysqli_fetch_array($query)) {
@@ -131,7 +131,7 @@ if (isset($_GET[ 'action' ])) {
         }
     }
     if (in_array(2, $_POST[ 'users' ])) {
-        $query = safe_query("SELECT userID FROM `" . PREFIX . "user_groups` WHERE super='1'");
+        $query = safe_query("SELECT userID FROM `" . PREFIX . "user_groups` WHERE `super` = 1");
         while ($ds = mysqli_fetch_array($query)) {
             if (!in_array($ds[ 'userID' ], $users)) {
                 $users[ ] = $ds[ 'userID' ];

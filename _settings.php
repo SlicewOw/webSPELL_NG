@@ -220,7 +220,7 @@ function safe_query($query = "")
     global $_database;
     global $_mysql_querys;
 
-    if (stristr(str_replace(' ', '', $query), "unionselect") === false and
+    if (stristr(str_replace(' ', '', $query), "unionselect") === false &&
         stristr(str_replace(' ', '', $query), "union(select") === false
     ) {
         $_mysql_querys[ ] = $query;

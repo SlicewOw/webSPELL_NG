@@ -71,7 +71,7 @@ if (mysqli_num_rows($get) == 0) {
 
             // /!\ check (old) password
             $ws_pwd = generatePasswordHash(stripslashes($_POST[ 'password' ]));
-            if (!empty($ds['password']) AND !empty($_POST[ 'password' ])) {
+            if (!empty($ds['password']) && !empty($_POST[ 'password' ])) {
                 if (hash_equals($ws_pwd, $ds[ 'password' ])) {
                     $new_pepper = Gen_PasswordPepper();
                     Set_PasswordPepper($new_pepper, $ds['userID']);
