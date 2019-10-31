@@ -253,8 +253,7 @@ class plugin_manager {
 	function plugin_language($name, $plugin_path) {
 		$res = safe_query("SELECT `default_language` FROM `".PREFIX."settings` WHERE 1");
 		$row = mysqli_fetch_array($res);
-		if (isset($_SESSION[ 'language' ])) { $lng=$_SESSION[ 'language' ]; } elseif (isset($_SESSION[ 'language' ])) { $lng=$_SESSION[ 'language' ];}
-		else { if (isset($row['default_language'])) { $lng=$row['default_language']; } else { $lng="en"; } }
+		$lng = $this->get_plugin_language($row['default_language']);
 		$_lang = new webspell\Language();
 		$_lang->setLanguage($lng, false);
 		$_lang->readModule($name, true, false, $plugin_path);
@@ -264,17 +263,7 @@ class plugin_manager {
 		try {
 			$res = safe_query("SELECT `default_language` FROM `".PREFIX."settings` WHERE 1");
 			$row = mysqli_fetch_array($res);
-			if (isset($_SESSION[ 'language' ])) {
-				$lng=$_SESSION[ 'language' ];
-			} elseif (isset($_SESSION[ 'language' ])) {
-				$lng=$_SESSION[ 'language' ];
-			} else {
-				if (isset($row['default_language'])) {
-					$lng=$row['default_language'];
-				} else {
-					$lng="en";
-				}
-			}
+			$lng = $this->get_plugin_language($row['default_language']);
 			$p = "_plugins/".$plugin."";
 			if (isset($admin)) {
 				$admin = "admin";
@@ -290,6 +279,19 @@ class plugin_manager {
 		} catch (EXCEPTION $ex) {
 			return $ex->message();
 		}
+	}
+
+	private function get_plugin_language($language) {
+		if (isset($_SESSION[ 'language' ])) {
+			$lng=$_SESSION[ 'language' ];
+		} else {
+			if (isset($language) && !empty($language)) {
+				$lng=$language;
+			} else {
+				$lng="en";
+			}
+		}
+		return $lng;
 	}
 
 	//@info  update website title for SEO

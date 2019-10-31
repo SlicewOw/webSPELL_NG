@@ -31,8 +31,14 @@
 @Version:	1.1
 
 */
+
 $_language->readModule('navigation');
+
 function navigation_nodropdown($default_link) {
+
+	global $_language;
+	$_language->readModule('navigation', true);
+
 	# run if mod_Rewrite is activated
 	$set = 0;
 	$mr_res = mysqli_fetch_array(safe_query("SELECT * FROM `".PREFIX."settings` WHERE 1"));
@@ -53,8 +59,12 @@ function navigation_nodropdown($default_link) {
 	try {
 		if ($set==0) {
 			$link = explode("/",$_SERVER["REQUEST_URI"]);
-			if (isset($link[1]))
-				if ($link[1]=="index.php") { $newlink = $default_link; } else { $newlink = $link[1];
+			if (isset($link[1])) {
+				if ($link[1]=="index.php") {
+					$newlink = $default_link;
+				} else {
+					$newlink = $link[1];
+				}
 			}
 		}
 		$rex = safe_query("SELECT * FROM `".PREFIX."navigation_sub` WHERE `link`='".$newlink."'");
@@ -63,7 +73,11 @@ function navigation_nodropdown($default_link) {
 			$rox = mysqli_fetch_array($rex);
 			$res = safe_query("SELECT * FROM `".PREFIX."navigation_sub` WHERE `mnav_ID`='".intval($rox['mnav_ID'])."' AND `indropdown`='0' ORDER BY `sort`");
 			while($row=mysqli_fetch_array($res)) {
-				if (isset($_language->module[strtolower($row['name'])])) { $name = $_language->module[strtolower($row['name'])]; } else { $name = $row['name']; }
+				if (isset($_language->module[strtolower($row['name'])])) {
+					$name = $_language->module[strtolower($row['name'])];
+				} else {
+					$name = $row['name'];
+				}
 				$output .= '<li><a href="'.$row['link'].'">'.$name.'</a></li>';
 			}
 			return $output;
