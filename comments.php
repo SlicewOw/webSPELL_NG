@@ -237,8 +237,8 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
             $dt = safe_query("SELECT * FROM " . PREFIX . "comments WHERE commentID='" . (int)$id."'");
             if (mysqli_num_rows($dt)) {
                 $ds = mysqli_fetch_array($dt);
-                $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><b>' .
-                    getnickname($ds[ 'userID' ]) . '</b></a>';
+                $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' .
+                    getnickname($ds[ 'userID' ]) . '</strong></a>';
                 $message = getinput($ds[ 'comment' ]);
                 $message = preg_replace("#\n\[br\]\[br\]\[hr]\*\*(.+)#si", '', $message);
                 $message = preg_replace("#\n\[br\]\[br\]\*\*(.+)#si", '', $message);
@@ -392,8 +392,8 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
 
             if ($ds[ 'userID' ]) {
                 $ip = '';
-                $poster = '<a class="titlelink" href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><b>' .
-                    strip_tags(getnickname($ds[ 'userID' ])) . '</b></a>';
+                $poster = '<a class="titlelink" href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' .
+                    strip_tags(getnickname($ds[ 'userID' ])) . '</strong></a>';
                 if (isclanmember($ds[ 'userID' ])) {
                     $member = $_language->module[ 'clanmember_icon' ];
                 } else {

@@ -143,18 +143,18 @@ hr { margin: 0px; }
             }
         }
         if ($success) {
-            echo '<b>' . $receptionists . '</b><br /><br />' . implode(", ", $bcc);
+            echo '<strong>' . $receptionists . '</strong><br /><br />' . implode(", ", $bcc);
             if (isset($sendmail['debug'])) {
-                echo '<b> Debug </b>';
+                echo '<strong> Debug </strong>';
                 echo '<br>' . $sendmail['debug'];
             }
         } else {
             if (isset($sendmail['debug'])) {
-                echo '<b>' . $error_send . '</b>';
+                echo '<strong>' . $error_send . '</strong>';
                 echo '<br>' . $sendmail['error'];
                 echo '<br>' . $sendmail['debug'];
             } else {
-                echo '<b>' . $error_send . '</b>';
+                echo '<strong>' . $error_send . '</strong>';
                 echo '<br>' . $sendmail['error'];
             }
         }

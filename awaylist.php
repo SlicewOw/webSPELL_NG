@@ -22,15 +22,15 @@ if ($action == "send") {
 
 //�berpr�fung der Eingabefelder
 	  if (!$reason) {
-	  echo ''.$_language->module['no_reason'].'<br /><br /><b><a href="javascript:history.back()">'.$_language->module['back'].'</a></b>';
+	  echo ''.$_language->module['no_reason'].'<br /><br /><strong><a href="javascript:history.back()">'.$_language->module['back'].'</a></strong>';
 	  }
 
 	  elseif (!preg_match("/[0-9]{2}-[0-9]{2}-[0-9]{4}/",$awayfrom1)) {
-	  echo ''.$_language->module['no_date'].'<br /><br /><b><a href="javascript:history.back()">'.$_language->module['back'].'</a></b>';
+	  echo ''.$_language->module['no_date'].'<br /><br /><strong><a href="javascript:history.back()">'.$_language->module['back'].'</a></strong>';
 	  }
 
 	  elseif (!preg_match("/[0-9]{2}-[0-9]{2}-[0-9]{4}/",$awayto1)) {
-	  echo ''.$_language->module['no_date'].'<br /><br /><b><a href="javascript:history.back()">'.$_language->module['back'].'</a></b>';
+	  echo ''.$_language->module['no_date'].'<br /><br /><strong><a href="javascript:history.back()">'.$_language->module['back'].'</a></strong>';
 	  }
 
 	  else {

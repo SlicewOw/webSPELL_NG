@@ -292,10 +292,10 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
 
   echo'<table class="table table-striped">
     <thead>
-      <th><b>' . $_language->module['id'] . '</b></th>
-      <th><b>' . $_language->module['title'] . '</b></th>
-      <th><b>' . $_language->module['accesslevel'] . '</b></th>
-      <th><b>' . $_language->module['actions'] . '</b></th>
+      <th><strong>' . $_language->module['id'] . '</strong></th>
+      <th><strong>' . $_language->module['title'] . '</strong></th>
+      <th><strong>' . $_language->module['accesslevel'] . '</strong></th>
+      <th><strong>' . $_language->module['actions'] . '</strong></th>
     </thead>';
 
 	  $i = 1;

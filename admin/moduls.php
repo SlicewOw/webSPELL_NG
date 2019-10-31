@@ -370,13 +370,13 @@ else {
 	echo'<form method="post" action="admincenter.php?site=moduls">
   <table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['module'].'</b></th>
+      <th><strong>'.$_language->module['module'].'</strong></th>
 
-      <th class="hidden-sm hidden-xs"><b>'.$_language->module['left_is_activated'].'</b></th>
-      <th class="hidden-sm hidden-xs"><b>'.$_language->module['right_is_activated'].'</b></th>
-      <th class="hidden-sm hidden-xs"><b>'.$_language->module['activated'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
-      <th><b>'.$_language->module['sort'].'</b></th>
+      <th class="hidden-sm hidden-xs"><strong>'.$_language->module['left_is_activated'].'</strong></th>
+      <th class="hidden-sm hidden-xs"><strong>'.$_language->module['right_is_activated'].'</strong></th>
+      <th class="hidden-sm hidden-xs"><strong>'.$_language->module['activated'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
+      <th><strong>'.$_language->module['sort'].'</strong></th>
     </thead>';
 
 	$moduls = safe_query("SELECT * FROM " . PREFIX . "moduls ORDER BY sort");
@@ -397,12 +397,12 @@ else {
             $td = 'td2';
         }
 
-        $db[ 'le_activated' ] == 1 ? $le_activated = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
-            $le_activated = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
-         $db[ 're_activated' ] == 1 ? $re_activated = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
-            $re_activated = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
-         $db[ 'activated' ] == 1 ? $activated = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
-            $activated = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
+        $db[ 'le_activated' ] == 1 ? $le_activated = '<span style="color: #00FF00;"><strong>' . $_language->module[ 'yes' ] . '</strong></span>' :
+            $le_activated = '<span style="color: #FF0000;"><strong>' . $_language->module[ 'no' ] . '</strong></span>';
+         $db[ 're_activated' ] == 1 ? $re_activated = '<span style="color: #00FF00;"><strong>' . $_language->module[ 'yes' ] . '</strong></span>' :
+            $re_activated = '<span style="color: #FF0000;"><strong>' . $_language->module[ 'no' ] . '</strong></span>';
+         $db[ 'activated' ] == 1 ? $activated = '<span style="color: #00FF00;"><strong>' . $_language->module[ 'yes' ] . '</strong></span>' :
+            $activated = '<span style="color: #FF0000;"><strong>' . $_language->module[ 'no' ] . '</strong></span>';
 
 
 

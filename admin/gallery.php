@@ -177,9 +177,9 @@ if ($part == "groups") {
     echo'<form method="post" name="ws_gallery" action="admincenter.php?site=gallery&amp;part=groups">
     <table class="table table-striped">
       <thead>
-        <th><b>'.$_language->module['group_name'].'</b></th>
-        <th><b>'.$_language->module['actions'].'</b></th>
-        <th><b>'.$_language->module['sort'].'</b></th>
+        <th><strong>'.$_language->module['group_name'].'</strong></th>
+        <th><strong>'.$_language->module['actions'].'</strong></th>
+        <th><strong>'.$_language->module['sort'].'</strong></th>
       </thead>';
 
 		$n = 1;
@@ -594,9 +594,9 @@ if ($part == "groups") {
 		    echo '<table class="table">
 		        <tr>
 		          <td></td>
-		          <td><b>'.$_language->module['filename'].'</b></td>
-		          <td><b>'.$_language->module['name'].'</b></td>
-		          <td><b>'.$_language->module['comment'].'</b></td>
+		          <td><strong>'.$_language->module['filename'].'</strong></td>
+		          <td><strong>'.$_language->module['name'].'</strong></td>
+		          <td><strong>'.$_language->module['comment'].'</strong></td>
 		        </tr>';
 
 			foreach ($pics as $val) {
@@ -615,7 +615,7 @@ if ($part == "groups") {
 			echo '</table></td>
 		          </tr>
 		          <tr>
-		            <td><br /><b>'.$_language->module['visitor_comments'].'</b> &nbsp;
+		            <td><br /><strong>'.$_language->module['visitor_comments'].'</strong> &nbsp;
 		            <select name="comments">
 		              <option value="0">'.$_language->module['disable_comments'].'</option>
 		              <option value="1">'.$_language->module['enable_user_comments'].'</option>
@@ -637,15 +637,15 @@ if ($part == "groups") {
 			echo'<form method="post" action="admincenter.php?site=gallery&amp;part=gallerys" enctype="multipart/form-data">
 			<table class="table">
         <tr>
-          <td><b>'.$_language->module['name'].'</b></td>
+          <td><strong>'.$_language->module['name'].'</strong></td>
           <td><input type="text" name="name" size="60" /></td>
         </tr>
         <tr>
-          <td><b>'.$_language->module['comment'].'</b></td>
+          <td><strong>'.$_language->module['comment'].'</strong></td>
           <td><input type="text" name="comment" size="60" maxlength="255" /></td>
         </tr>
         <tr>
-          <td><b>'.$_language->module['visitor_comments'].'</b></td>
+          <td><strong>'.$_language->module['visitor_comments'].'</strong></td>
           <td><select name="comments">
             <option value="0">'.$_language->module['disable_comments'].'</option>
             <option value="1">'.$_language->module['enable_user_comments'].'</option>
@@ -653,7 +653,7 @@ if ($part == "groups") {
           </select></td>
         </tr>
         <tr>
-          <td><b>'.$_language->module['picture'].'</b></td>
+          <td><strong>'.$_language->module['picture'].'</strong></td>
           <td><input name="picture" type="file" size="40" /></td>
         </tr>
         <tr>
@@ -679,15 +679,15 @@ if ($part == "groups") {
 		echo'<form method="post" name="ws_gallery" action="admincenter.php?site=gallery&amp;part=gallerys">
 		<table class="table table-striped">
       <thead>
-        <th><b>'.$_language->module['gallery_name'].'</b></th>
+        <th><strong>'.$_language->module['gallery_name'].'</strong></th>
          <th></th>
-        <th align="center"><b>'.$_language->module['actions'].'</b></th>
+        <th align="center"><strong>'.$_language->module['actions'].'</strong></th>
       </thead>';
 
 		$ergebnis = safe_query("SELECT * FROM " . PREFIX . "gallery_groups ORDER BY sort");
         while ($ds = mysqli_fetch_array($ergebnis)) {
             echo '<tr>
-      <td class="td_head" colspan="3"><b>' . getinput($ds[ 'name' ]) . '</b></td>
+      <td class="td_head" colspan="3"><strong>' . getinput($ds[ 'name' ]) . '</strong></td>
     </tr>';
             $galleries = safe_query(
                 "SELECT * FROM " . PREFIX .
@@ -739,9 +739,9 @@ if ($part == "groups") {
     echo'<form method="post" name="ws_gallery" action="admincenter.php?site=gallery&amp;part=gallerys">
     <table class="table table-striped">
       <thead>
-        <th><b>'.$_language->module['gallery_name'].'</b></th>
-        <th><b>'.$_language->module['usergallery_of'].'</b></th>
-        <th><b>'.$_language->module['actions'].'</b></th>
+        <th><strong>'.$_language->module['gallery_name'].'</strong></th>
+        <th><strong>'.$_language->module['usergallery_of'].'</strong></th>
+        <th><strong>'.$_language->module['actions'].'</strong></th>
       </thead>';
 
     $CAPCLASS = new \webspell\Captcha;

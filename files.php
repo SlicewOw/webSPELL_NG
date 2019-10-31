@@ -518,8 +518,8 @@ if ($action == "save") {
         echo $files_category_list;
 
         while ($subcat = mysqli_fetch_array($subcats)) {
-            $catname = '<a href="index.php?site=files&amp;cat=' . $subcat[ 'filecatID' ] . '"><b>' . $subcat[ 'name' ] .
-                '</b></a>';
+            $catname = '<a href="index.php?site=files&amp;cat=' . $subcat[ 'filecatID' ] . '"><strong>' . $subcat[ 'name' ] .
+                '</strong></a>';
             $downloads = 0;
             $sub_cat_qry = get_all_sub_cats($subcat[ 'filecatID' ], 1);
             $query =
@@ -593,8 +593,8 @@ if ($action == "save") {
 
             $fileid = $file[ 'fileID' ];
             $filename =
-                '<a href="index.php?site=files&amp;file=' . $fileid . '"><b>' . clearfromtags($file[ 'filename' ]) .
-                '</b></a>';
+                '<a href="index.php?site=files&amp;file=' . $fileid . '"><strong>' . clearfromtags($file[ 'filename' ]) .
+                '</strong></a>';
             $fileinfo = cleartext($file[ 'info' ]);
             $fileinfo = toggle($fileinfo, $file[ 'fileID' ]);
             $filesize = $file[ 'filesize' ];
@@ -690,8 +690,8 @@ if ($action == "save") {
     $filevotes ? $filevotes = ', ' . $filevotes . ' votes' : $filevotes = ', unrated';
     $traffic = detectfilesize($filesize * $downloads);
     $filesize = detectfilesize($file[ 'filesize' ]);
-    $reportlink = '<a href="index.php?site=files&amp;action=report&amp;link=' . $file[ 'fileID' ] . '"><b>' .
-        $_language->module[ 'report_dead_link' ] . '</b></a>';
+    $reportlink = '<a href="index.php?site=files&amp;action=report&amp;link=' . $file[ 'fileID' ] . '"><strong>' .
+        $_language->module[ 'report_dead_link' ] . '</strong></a>';
     $date = getformatdate($file[ 'date' ]);
 
     // FILE-AUTHOR
@@ -732,8 +732,8 @@ if ($action == "save") {
         $category = '<a href="index.php?site=files&amp;cat=' . $subcat[ 'filecatID' ] . '" class="titlelink">' .
             $subcat[ 'name' ] . '</a> >> ' . $category;
         $categories =
-            '<a href="index.php?site=files&amp;cat=' . $subcat[ 'filecatID' ] . '"><b>' . $subcat[ 'name' ] .
-            '</b></a> >> ' . $categories;
+            '<a href="index.php?site=files&amp;cat=' . $subcat[ 'filecatID' ] . '"><strong>' . $subcat[ 'name' ] .
+            '</strong></a> >> ' . $categories;
         $cat_id = $subcat[ 'subcatID' ];
     }
 

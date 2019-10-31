@@ -174,10 +174,10 @@ else {
 <thead>
 
       <tr>
-      <th><b>' . $_language->module['contact_name'] . ':</b></th>
-      <th><b>' . $_language->module['email'] . ':</b></th>
-      <th><b>' . $_language->module['actions'] . ':</b></th>
-      <th class="hidden-xs hidden-sm"><b>' . $_language->module['sort'] . ':</b></th>
+      <th><strong>' . $_language->module['contact_name'] . ':</strong></th>
+      <th><strong>' . $_language->module['email'] . ':</strong></th>
+      <th><strong>' . $_language->module['actions'] . ':</strong></th>
+      <th class="hidden-xs hidden-sm"><strong>' . $_language->module['sort'] . ':</strong></th>
     </tr></thead>
           <tbody>';
 

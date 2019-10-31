@@ -992,8 +992,8 @@ if ($action == "activate") {
         echo '<table width="100%" border="0" cellspacing="1" cellpadding="3">
       <tr>
         <td>' . $sorter . ' ' . $page_link . '</td>
-        <td align="right"><b>' . $_language->module[ 'usersearch' ] .
-            ':</b> &nbsp; <input id="exact" type="checkbox" /> ' . $_language->module[ 'exactsearch' ] .
+        <td align="right"><strong>' . $_language->module[ 'usersearch' ] .
+            ':</strong> &nbsp; <input id="exact" type="checkbox" /> ' . $_language->module[ 'exactsearch' ] .
             ' &nbsp; <input type="text"
             onkeyup=\'overlay(this, "searchresult");
             search("user","nickname","userID",encodeURIComponent(this.value),"search_user","searchresult","replace",
@@ -1003,7 +1003,7 @@ if ($action == "activate") {
         </div></td>
       </tr>
       <tr>
-        <td colspan="2"><b>' . $gesamt . '</b> ' . $_language->module[ 'users_available' ] . '</td>
+        <td colspan="2"><strong>' . $gesamt . '</strong> ' . $_language->module[ 'users_available' ] . '</td>
       </tr>
     </table>';
 
@@ -1016,16 +1016,16 @@ if ($action == "activate") {
       <tr>
 
         <th><a href="admincenter.php?site=users&amp;type=' . $type .
-            '&amp;sort=registerdate&amp;page=' . $page . '&amp;type=' . $type . '&amp;search=' . $search . '"><b>' .
-            $_language->module[ 'registered_since' ] . '</b></a></th>
+            '&amp;sort=registerdate&amp;page=' . $page . '&amp;type=' . $type . '&amp;search=' . $search . '"><strong>' .
+            $_language->module[ 'registered_since' ] . '</strong></a></th>
         <th><a href="admincenter.php?site=users&amp;type=' . $type .
-            '&amp;sort=nickname&amp;page=' . $page . '&amp;type=' . $type . '&amp;search=' . $search . '"><b>' .
-            $_language->module[ 'nickname' ] . '</b></a></th>
+            '&amp;sort=nickname&amp;page=' . $page . '&amp;type=' . $type . '&amp;search=' . $search . '"><strong>' .
+            $_language->module[ 'nickname' ] . '</strong></a></th>
         <th><a href="admincenter.php?site=users&amp;type=' . $type .
-            '&amp;sort=status&amp;page=' . $page . '&amp;type=' . $type . '&amp;search=' . $search . '"><b>' .
-            $_language->module[ 'status' ] . '</b></a></th>
-        <th><b>' . $_language->module[ 'ban_status' ] . '</b></th>
-        <th><b>' . $_language->module[ 'actions' ] . '</b></th>
+            '&amp;sort=status&amp;page=' . $page . '&amp;type=' . $type . '&amp;search=' . $search . '"><strong>' .
+            $_language->module[ 'status' ] . '</strong></a></th>
+        <th><strong>' . $_language->module[ 'ban_status' ] . '</strong></th>
+        <th><strong>' . $_language->module[ 'actions' ] . '</strong></th>
         <th></th>
       </tr></thead>
           <tbody>';
@@ -1039,7 +1039,7 @@ if ($action == "activate") {
             $registered = getformatdatetime($ds[ 'registerdate' ]);
             $nickname_c = getnickname($ds[ 'userID' ]);
             $replaced_search = str_replace("%", "", $search);
-            $nickname = str_replace($replaced_search, '<b>' . $replaced_search . '</b>', $nickname_c);
+            $nickname = str_replace($replaced_search, '<strong>' . $replaced_search . '</strong>', $nickname_c);
 
             if (issuperadmin($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
                 $status = $_language->module[ 'superadmin' ] . '<br />&amp; ' . $_language->module[ 'clanmember' ];
@@ -1119,8 +1119,8 @@ if ($action == "activate") {
             $i++;
         }
         echo '</tbody></table>
-    <br /><br /><a class="btn btn-primary btn-xs" type="button" href="admincenter.php?site=users&amp;action=adduser"><b>' .
-            $_language->module[ 'add_new_user' ] . '</b></a>';
+    <br /><br /><a class="btn btn-primary btn-xs" type="button" href="admincenter.php?site=users&amp;action=adduser"><strong>' .
+            $_language->module[ 'add_new_user' ] . '</strong></a>';
     } else {
         echo $_language->module[ 'no_users' ];
     }

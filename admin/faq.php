@@ -322,9 +322,9 @@ else {
 	echo'<form method="post" action="admincenter.php?site=faq">
   <table class="table table-striped">
     <thead>
-      <th><b>' . $_language->module['faq'] . '</b></th>
-      <th><b>' . $_language->module['actions'] . '</b></th>
-      <th><b>' . $_language->module['sort'] . '</b></th>
+      <th><strong>' . $_language->module['faq'] . '</strong></th>
+      <th><strong>' . $_language->module['actions'] . '</strong></th>
+      <th><strong>' . $_language->module['sort'] . '</strong></th>
     </thead>';
 
 	$ergebnis = safe_query("SELECT * FROM `" . PREFIX . "faq_categories` ORDER BY `sort`");
@@ -337,7 +337,7 @@ else {
     while ($ds = mysqli_fetch_array($ergebnis)) {
         echo '<tr>
             <td class="td_head" colspan="3">
-                <b>' . $ds[ 'faqcatname' ] . '</b><br>
+                <strong>' . $ds[ 'faqcatname' ] . '</strong><br>
                 <small>' . cleartext($ds[ 'description' ], true, getConstNameAdmin()) . '</small>
             </td>
         </tr>';
@@ -359,7 +359,7 @@ else {
             }
 
             echo '<tr>
-        <td><b>- '.getinput($db['question']).'</b></td>
+        <td><strong>- '.getinput($db['question']).'</strong></td>
         <td><a href="admincenter.php?site=faq&amp;action=edit&amp;faqID='.$db['faqID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faq&amp;delete=true&amp;faqID='.$db['faqID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />

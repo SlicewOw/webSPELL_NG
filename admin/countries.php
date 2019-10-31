@@ -327,10 +327,10 @@ if (isset($_GET['page'])) $page=(int)$_GET['page'];
 
      echo'   <table class="table table-striped">
     <thead>
-      <th><b>' . $_language->module['icons'] . '</b></th>
-      <th><b>' . $_language->module['country'] . '</b></th>
-      <th><b>' . $_language->module['shorthandle'] . '</b></th>
-      <th><b>' . $_language->module['actions'] . '</b></th>
+      <th><strong>' . $_language->module['icons'] . '</strong></th>
+      <th><strong>' . $_language->module['country'] . '</strong></th>
+      <th><strong>' . $_language->module['shorthandle'] . '</strong></th>
+      <th><strong>' . $_language->module['actions'] . '</strong></th>
     </thead>';
 
 
@@ -353,7 +353,7 @@ while($ds=mysqli_fetch_array($ergebnis)) {
 
             $pic = '<img src="../images/flags/' . $flags[ 'short' ] . '.gif" alt="' . $flags[ 'country' ] . '">';
             if ($flags[ 'fav' ] == 1) {
-                $fav = ' <small style="color:green"><b>(' . $_language->module[ 'favorite' ] . ')</b></small>';
+                $fav = ' <small style="color:green"><strong>(' . $_language->module[ 'favorite' ] . ')</strong></small>';
             } else {
                 $fav = '';
             }

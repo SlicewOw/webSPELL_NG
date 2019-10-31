@@ -144,8 +144,8 @@ if (isset($_GET[ 'action' ])) {
             $_POST[ 'addfield' ] . "'"
         ));
         if (!$fgrID[ 'fgrID' ]) {
-            echo '<b>' . $_language->module[ 'error_group' ] .
-                '</b><br><br><a href="admincenter.php?site=group-users">&laquo; ' .
+            echo '<strong>' . $_language->module[ 'error_group' ] .
+                '</strong><br><br><a href="admincenter.php?site=group-users">&laquo; ' .
                 $_language->module[ 'back' ] . '</a>'; return false;
         }
         $query = safe_query(
@@ -224,9 +224,9 @@ if (isset($_GET[ 'action' ])) {
             $_POST[ 'addfield' ] . '">
 		<table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#DDDDDD">
       <tr>
-        <td width="35%" class="title"><b>' . $_language->module[ 'group_users' ] . '</b></td>';
+        <td width="35%" class="title"><strong>' . $_language->module[ 'group_users' ] . '</strong></td>';
     for ($i = 0; $i < $groups_anz; $i++) {
-        echo '<td class="title"><b>' . $groups[ $i ][ 'name' ] . '</b></td>';
+        echo '<td class="title"><strong>' . $groups[ $i ][ 'name' ] . '</strong></td>';
     }
     echo '</tr>';
     $n = 1;
@@ -310,8 +310,8 @@ if (isset($_GET[ 'action' ])) {
   <form method="post" name="post" action="admincenter.php?site=group-users&amp;action=show">
   <table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['groups'].'</b></th>
-      <th><b>'.$_language->module['user_filter'].'</b></th>
+      <th><strong>'.$_language->module['groups'].'</strong></th>
+      <th><strong>'.$_language->module['user_filter'].'</strong></th>
     </thead>
     <tr>
       <td class="td1" valign="top">

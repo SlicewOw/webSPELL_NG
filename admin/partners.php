@@ -406,11 +406,11 @@ else {
 	echo'<form method="post" action="admincenter.php?site=partners">
   <table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['partners'].'</b></th>
-      <th><b>'.$_language->module['clicks'].'</b></th>
-      <th class="hidden-sm hidden-xs"><b>'.$_language->module['is_displayed'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
-      <th><b>'.$_language->module['sort'].'</b></th>
+      <th><strong>'.$_language->module['partners'].'</strong></th>
+      <th><strong>'.$_language->module['clicks'].'</strong></th>
+      <th class="hidden-sm hidden-xs"><strong>'.$_language->module['is_displayed'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
+      <th><strong>'.$_language->module['sort'].'</strong></th>
     </thead>';
 
 	$partners = safe_query("SELECT * FROM " . PREFIX . "partners ORDER BY sort");
@@ -431,8 +431,8 @@ else {
             $td = 'td2';
         }
 
-        $db[ 'displayed' ] == 1 ? $displayed = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
-            $displayed = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
+        $db[ 'displayed' ] == 1 ? $displayed = '<span style="color: #00FF00;"><strong>' . $_language->module[ 'yes' ] . '</strong></span>' :
+            $displayed = '<span style="color: #FF0000;"><strong>' . $_language->module[ 'no' ] . '</strong></span>';
 
         $days = round((time() - $db[ 'date' ]) / (60 * 60 * 24));
         if ($days) {

@@ -27,15 +27,15 @@
 
 $language_array = Array(
     'back'=>'back',
-    'delete_folder'=>'Please delete the <b>/install</b> dir for your own security.',
+    'delete_folder'=>'Please delete the <strong>/install</strong> dir for your own security.',
     'error'=>'Error',
     'error_database'=>'Cannot connect to Database',
     'error_mysql'=>'No connection to MySQL',
     'install_complete'=>'Installation complete!',
     'install_running'=>'Installation running!',
     'finish_install'=>'Finish Installation',
-    'folder_removed'=>'The <b>/install</b> folder has been removed successful',
-    'reset_chmod'=>'Please reset CHMOD of <b>_mysql.php</b> to 644.',
+    'folder_removed'=>'The <strong>/install</strong> folder has been removed successful',
+    'reset_chmod'=>'Please reset CHMOD of <strong>_mysql.php</strong> to 644.',
     'update_complete'=>'Update complete!',
     'update_running'=>'Update running!',
     'verify_data'=>'Please verify your data!',

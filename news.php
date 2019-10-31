@@ -393,8 +393,8 @@ if ($action == "new") {
 
     $content = htmloutput($content);
     $content = toggle($content, $ds[ 'newsID' ]);
-    $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><b>' . getnickname($ds[ 'poster' ]) .
-        '</b></a>';
+    $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><strong>' . getnickname($ds[ 'poster' ]) .
+        '</strong></a>';
     $related = '';
     $comments = "";
     if ($ds[ 'link1' ] && $ds[ 'url1' ] != "http://" && $ds[ 'window1' ]) {
@@ -1221,8 +1221,8 @@ if ($action == "new") {
         $content = htmloutput($content);
         $content = toggle($content, $ds[ 'newsID' ]);
         $headline = clearfromtags($headline);
-        $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><b>' . getnickname($ds[ 'poster' ]) .
-            '</b></a>';
+        $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><strong>' . getnickname($ds[ 'poster' ]) .
+            '</strong></a>';
         $related = "";
         if ($ds[ 'link1' ] && $ds[ 'url1' ] != "http://" && $ds[ 'window1' ]) {
             $related .= '&#8226; <a href="' . $ds[ 'url1' ] . '" target="_blank">' . $ds[ 'link1' ] . '</a> ';

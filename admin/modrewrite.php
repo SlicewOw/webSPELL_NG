@@ -65,7 +65,7 @@ if ($action == "add") {
     echo '<form method="post" action="admincenter.php?site=modrewrite" enctype="multipart/form-data">
     <table width="100%" border="0" cellspacing="1" cellpadding="3">
     <tr>
-    <td><b>' . $_language->module['variables'] . ':</b></td>
+    <td><strong>' . $_language->module['variables'] . ':</strong></td>
     <td><table id="fields" width="100%">
     <tr>
     <td>' . $_language->module['variable'] . ':</td>
@@ -82,11 +82,11 @@ if ($action == "add") {
     </table></td>
     </tr>
     <tr>
-    <td><b>' . $_language->module['url'] . ':</b></td>
+    <td><strong>' . $_language->module['url'] . ':</strong></td>
     <td><input type="text" name="url" style="width:100%;"></td>
     </tr>
     <tr>
-    <td><b>' . $_language->module['replace'] . ':</b></td>
+    <td><strong>' . $_language->module['replace'] . ':</strong></td>
     <td><input type="text" name="regex" style="width:100%;"></td>
     </tr>
     <tr>
@@ -141,7 +141,7 @@ if ($action == "add") {
     echo '<form class="form-horizontal" method="post" action="admincenter.php?site=modrewrite" enctype="multipart/form-data">
     	<table width="100%" border="0" cellspacing="1" cellpadding="3">
     <tr>
-    <td><b>' . $_language->module['variables'] . ':</b></td>
+    <td><strong>' . $_language->module['variables'] . ':</strong></td>
     <td><table id="fields" width="100%">
     <tr>
     <td>' . $_language->module['variable'] . ':</td>
@@ -155,11 +155,11 @@ if ($action == "add") {
     </table></td>
     </tr>
     <tr>
-    <td><b>' . $_language->module['url'] . ':</b></td>
+    <td><strong>' . $_language->module['url'] . ':</strong></td>
     <td><input type="text" name="url" value="' . $ds['link'] . '" style="width:100%;"></td>
     </tr>
     <tr>
-    <td><b>' . $_language->module['replace'] . ':</b></td>
+    <td><strong>' . $_language->module['replace'] . ':</strong></td>
     <td><input type="text" name="regex" value="' . $ds['regex'] . '" style="width:100%;"></td>
     </tr>
     <tr>
@@ -491,9 +491,9 @@ if ($action == "add") {
     echo '<table class="table table-striped">
 <thead>
     <tr>
-      <th><b>'.$_language->module['rule'].'</b></th>
-      <th><b>'.$_language->module['variables'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
+      <th><strong>'.$_language->module['rule'].'</strong></th>
+      <th><strong>'.$_language->module['variables'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
     </tr></thead>';
 
     $ds = safe_query("SELECT * FROM " . PREFIX . "modrewrite ORDER BY regex");

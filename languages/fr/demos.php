@@ -30,7 +30,7 @@ $language_array = array(
 /* do not edit above this line */
 
     'all_demos' => 'Toutes les démos',
-    'allready_rated' => '<b>Vous avez déjà évalué cette démo !</b>',
+    'allready_rated' => '<strong>Vous avez déjà évalué cette démo !</strong>',
     'clan1' => 'Team 1',
     'clan1_country' => 'Pays team 1',
     'clan1_homepage' => 'Site web team 1',

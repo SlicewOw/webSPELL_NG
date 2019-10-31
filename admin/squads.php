@@ -605,11 +605,11 @@ else {
   <table class="table table-striped">
 <thead>
     <tr>
-      <th><b>'.$_language->module['squad_name'].'</b></th>
-      <th class="hidden-xs"><b>'.$_language->module['squad_type'].'</b></th>
-      <th class="hidden-xs"><b>'.$_language->module['squad_info'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
-      <th><b>'.$_language->module['sort'].'</b></th>
+      <th><strong>'.$_language->module['squad_name'].'</strong></th>
+      <th class="hidden-xs"><strong>'.$_language->module['squad_type'].'</strong></th>
+      <th class="hidden-xs"><strong>'.$_language->module['squad_info'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
+      <th><strong>'.$_language->module['sort'].'</strong></th>
     </tr></thead>';
 
 	$squads = safe_query("SELECT * FROM " . PREFIX . "squads ORDER BY sort");

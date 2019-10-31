@@ -67,8 +67,8 @@ if (!$closed) {
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
 
-        echo '<form method="post" action="admincenter.php?site=lock"><b>' . $_language->module[ 'pagelock' ] .
-            '</b><br /><small>' . $_language->module[ 'you_can_use_html' ] . '</small><br /><br />
+        echo '<form method="post" action="admincenter.php?site=lock"><strong>' . $_language->module[ 'pagelock' ] .
+            '</strong><br /><small>' . $_language->module[ 'you_can_use_html' ] . '</small><br /><br />
             <textarea class="form-control" name="reason" rows="30" cols="" style="width: 100%;">' . getinput($ds[ 'reason' ]) .
             '</textarea><br /><br /><input type="hidden" name="captcha_hash" value="' . $hash . '" />
             <input class="btn btn-danger btn-xs" type="submit" name="submit" value="' . $_language->module[ 'lock' ] . '" /></form>';

@@ -113,8 +113,8 @@ if ($action == "show") {
 
             $country = '[flag]' . $dm[ 'country' ] . '[/flag]';
             $country = flags($country);
-            $nickname = '<a href="index.php?site=profile&amp;id=' . $dm[ 'userID' ] . '"><b>' .
-                strip_tags(stripslashes($dm[ 'nickname' ])) . '</b></a>';
+            $nickname = '<a href="index.php?site=profile&amp;id=' . $dm[ 'userID' ] . '"><strong>' .
+                strip_tags(stripslashes($dm[ 'nickname' ])) . '</strong></a>';
             $nicknamee = strip_tags(stripslashes($dm[ 'nickname' ]));
             $profilid = $dm[ 'userID' ];
 
@@ -225,8 +225,8 @@ if ($action == "show") {
                 $anzmembers = $anzmembers . ' ' . $_language->module[ 'members' ];
             }
             $name =
-                '<a href="index.php?site=squads&amp;action=show&amp;squadID=' . $ds[ 'squadID' ] . '"><b>' .
-                $ds[ 'name' ] . '</b></a>';
+                '<a href="index.php?site=squads&amp;action=show&amp;squadID=' . $ds[ 'squadID' ] . '"><strong>' .
+                $ds[ 'name' ] . '</strong></a>';
             if ($ds[ 'icon' ]) {
                 $icon = '<a href="index.php?site=squads&amp;action=show&amp;squadID=' . $ds[ 'squadID' ] .
                     '"><img class="img-responsive" src="images/squadicons/' . $ds[ 'icon' ] . '" alt="' . htmlspecialchars($ds[ 'name' ]) .
@@ -235,8 +235,8 @@ if ($action == "show") {
                 $icon = '';
             }
             $info = htmloutput($ds[ 'info' ]);
-            $details = '<a href="index.php?site=squads&amp;action=show&amp;squadID=' . $ds[ 'squadID' ] . '"><b>' .
-                $_language->module[ 'show_details' ] . '</b></a>';
+            $details = '<a href="index.php?site=squads&amp;action=show&amp;squadID=' . $ds[ 'squadID' ] . '"><strong>' .
+                $_language->module[ 'show_details' ] . '</strong></a>';
             $squadID = $ds[ 'squadID' ];
             $results = '';
             $awards = '';

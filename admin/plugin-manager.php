@@ -349,7 +349,7 @@ $CAPCLASS = new \webspell\Captcha;
   <div class="row">
 
   				<div class="col-sm-1">'.$row['pluginID'].'</div>
- 				 <div class="col-sm-3"><b>'.$row['name'].'</b></div>
+ 				 <div class="col-sm-3"><strong>'.$row['name'].'</strong></div>
  				 <div class="col-sm-5">'.$row['description'].'</strong></div>
  				 <div class="col-sm-3">
 
@@ -400,7 +400,7 @@ $CAPCLASS = new \webspell\Captcha;
 		while($row=mysqli_fetch_array($res)) {
 			echo '<div class="row">
   				<div class="col-sm-1">'.$row['pluginID'].'</div>
- 				 <div class="col-sm-3"><b>'.$row['name'].'</b></div>
+ 				 <div class="col-sm-3"><strong>'.$row['name'].'</strong></div>
  				 <div class="col-sm-5">'.$row['description'].'</strong></div>
  				 <div class="col-sm-3">
  				 <a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=act" class="hidden-xs hidden-sm btn btn-success btn-xs" type="button">' . $_language->module[ 'activate' ] . '</a>

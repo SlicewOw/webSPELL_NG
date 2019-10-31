@@ -44,7 +44,7 @@
                         $errors[] = $_language->module['error_mysql'];
                     }
 
-                    $type = '<b>' . $_language->module['update_complete'] . '</b>';
+                    $type = '<strong>' . $_language->module['update_complete'] . '</strong>';
                     $in_progress = $_language->module['update_running'];
                 }
 
@@ -72,7 +72,7 @@
                     $update_functions[] = "obsoleteLanguages";
                     $update_functions[] = "clearfolder";
                 } else if ($_POST['installtype'] == 'full') {
-                    $type = '<b>' . $_language->module['install_complete'] . '</b>';
+                    $type = '<strong>' . $_language->module['install_complete'] . '</strong>';
                     $in_progress = $_language->module['install_running'];
 
                     $host = $_POST['host'];
@@ -349,7 +349,7 @@
                 <h2><?php echo $in_progress; ?></h2>
                 <?php echo $text; ?>
                 <div id="result" style="display:none;"><h3><?php echo $type; ?></h3>
-                    <center><a href="../index.php"><b><?php echo $_language->module['view_site']; ?></b></a></center>
+                    <center><a href="../index.php"><strong><?php echo $_language->module['view_site']; ?></strong></a></center>
                 </div>
 				<?php
 					$lok = fopen("locked.txt", "w");

@@ -831,8 +831,8 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         $message = toggle($message, $dr['postID']);
         $postID = $dr['postID'];
 
-        $username = '<a href="index.php?site=profile&amp;id=' . $dr['poster'] . '"><b>' .
-            stripslashes(getnickname($dr['poster'])) . '</b></a>';
+        $username = '<a href="index.php?site=profile&amp;id=' . $dr['poster'] . '"><strong>' .
+            stripslashes(getnickname($dr['poster'])) . '</strong></a>';
 
         if (isclanmember($dr['poster'])) {
             $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';

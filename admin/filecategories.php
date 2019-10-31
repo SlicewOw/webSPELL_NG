@@ -233,8 +233,8 @@ else {
 
 	echo'<table class="table">
     <thead>
-      <th><b>'.$_language->module['category_name'].'</b></th>
-      <th class="text-right"><b>'.$_language->module['actions'].'</b></th>
+      <th><strong>'.$_language->module['category_name'].'</strong></th>
+      <th class="text-right"><strong>'.$_language->module['actions'].'</strong></th>
     </thead>';
 
 	 $overview = generate_overview();

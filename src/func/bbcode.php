@@ -708,7 +708,7 @@ function replacement($content, $bbcode = true)
         while (preg_match("#\[align=([a-z0-9]*)\](.*?)\[/align\]#si", $content)) {
             $content = preg_replace_callback("#\[align=([a-z0-9]*)\](.*?)\[/align\]#si", "align_callback", $content);
         }
-        $content = preg_replace("#\[b\](.*?)\[/b\]#si", "<b>\\1</b>", $content);
+        $content = preg_replace("#\[b\](.*?)\[/b\]#si", "<strong>\\1</strong>", $content);
         $content = preg_replace("#\[i\](.*?)\[/i\]#si", "<span>\\1</span>", $content);
         $content = preg_replace("#\[u\](.*?)\[/u\]#si", "<u>\\1</u>", $content);
         $content = preg_replace("#\[s\](.*?)\[/s\]#si", "<s>\\1</s>", $content);

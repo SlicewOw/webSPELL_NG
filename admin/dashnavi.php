@@ -366,10 +366,10 @@ if ($action == "add") {
     <table class="table">
 <thead>
     <tr>
-      <th width="55%" ><b>' . $_language->module[ 'name' ] . '</b></th>
-            <th width="17%" align="center"><b>' . $_language->module[ 'accesslevel' ] . '</b></th>
-            <th width="20%" ><b>' . $_language->module[ 'actions' ] . '</b></th>
-            <th width="8%" ><b>' . $_language->module[ 'sort' ] . '</b></th>
+      <th width="55%" ><strong>' . $_language->module[ 'name' ] . '</strong></th>
+            <th width="17%" align="center"><strong>' . $_language->module[ 'accesslevel' ] . '</strong></th>
+            <th width="20%" ><strong>' . $_language->module[ 'actions' ] . '</strong></th>
+            <th width="8%" ><strong>' . $_language->module[ 'sort' ] . '</strong></th>
     </tr></thead>';
 
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "dashnavi_categories ORDER BY sort");
@@ -395,7 +395,7 @@ if ($action == "add") {
             $list
         );
         if ($ds[ 'default' ] == 1) {
-            $sort = '<b>' . $ds[ 'sort' ] . '</b>';
+            $sort = '<strong>' . $ds[ 'sort' ] . '</strong>';
             $catactions = '';
             $name = $_language->module[ 'cat_' . getinput($ds[ 'name' ]) ];
         } else {
@@ -410,7 +410,7 @@ if ($action == "add") {
         }
 
         echo '<tr bgcolor="#CCCCCC">
-            <td class="td_head" colspan="2"><b>' . $name . '</b></td>
+            <td class="td_head" colspan="2"><strong>' . $name . '</strong></td>
             <td class="td_head" align="center">' . $catactions . '</td>
             <td class="td_head" align="center">' . $sort . '</td>
         </tr>';
@@ -449,9 +449,9 @@ if ($action == "add") {
                 );
 
                 echo '<tr>
-                    <td class="' . $td . '"><b>' . $db[ 'name' ] . '</b><br><small>' . $db[ 'url' ] . '</small></td>
-                    <td class="' . $td . '" align="center"><small><b>' .
-                    $_language->module[ 'admin_' . getinput($db[ 'accesslevel' ]) ] . '</b></small></td>
+                    <td class="' . $td . '"><strong>' . $db[ 'name' ] . '</strong><br><small>' . $db[ 'url' ] . '</small></td>
+                    <td class="' . $td . '" align="center"><small><strong>' .
+                    $_language->module[ 'admin_' . getinput($db[ 'accesslevel' ]) ] . '</strong></small></td>
                     <td class="' . $td . '" align="center">
 <a href="admincenter.php?site=dashnavi&amp;action=edit&amp;linkID=' . $db[ 'linkID' ] .'" class="hidden-xs hidden-sm btn btn-warning btn-xs">' . $_language->module[ 'edit' ] . '</a>
 
@@ -490,9 +490,9 @@ if ($action == "add") {
             $noncatlist
         );
         echo '<tr bgcolor="#dcdcdc">
-            <td bgcolor="#FFFFFF"><b>' . getinput($db[ 'name' ]) . '</b><br><small>' . $db[ 'url' ] . '</small></td>
+            <td bgcolor="#FFFFFF"><strong>' . getinput($db[ 'name' ]) . '</strong><br><small>' . $db[ 'url' ] . '</small></td>
             <td bgcolor="#FFFFFF">
-                <small><b>' . $_language->module[ 'admin_' . getinput($db[ 'accesslevel' ]) ] . '</b></small>
+                <small><strong>' . $_language->module[ 'admin_' . getinput($db[ 'accesslevel' ]) ] . '</strong></small>
             </td>
             <td bgcolor="#FFFFFF">
 <a href="admincenter.php?site=dashnavi&amp;action=edit&amp;linkID=' . $db[ 'linkID' ] . '" class="hidden-xs hidden-sm btn btn-warning btn-xs">' . $_language->module[ 'edit' ] . '</a>

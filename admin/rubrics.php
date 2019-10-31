@@ -283,9 +283,9 @@ else {
   echo'<table class="table table-striped">
     <thead>
       <tr>
-      <th><b>'.$_language->module['rubric_name'].':</b></th>
-      <th><b>'.$_language->module['picture'].':</b></th>
-      <th><b>'.$_language->module['actions'].':</b></th>
+      <th><strong>'.$_language->module['rubric_name'].':</strong></th>
+      <th><strong>'.$_language->module['picture'].':</strong></th>
+      <th><strong>'.$_language->module['actions'].':</strong></th>
    		</tr></thead>
           <tbody>';
 	 $CAPCLASS = new \webspell\Captcha;

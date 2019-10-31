@@ -138,8 +138,8 @@ if ($anz) {
         $country = '[flag]' . htmlspecialchars($ds[ 'country' ]) . '[/flag]';
         $country = flags($country);
         $nickname =
-            '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><b>' . strip_tags($ds[ 'nickname' ]) .
-            '</b></a>';
+            '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' . strip_tags($ds[ 'nickname' ]) .
+            '</strong></a>';
         if (isclanmember($ds[ 'userID' ])) {
             $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
         } else {

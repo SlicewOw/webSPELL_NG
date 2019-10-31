@@ -54,7 +54,7 @@ if (isset($_POST[ 'submit' ])) {
         $sem = '/^#[a-fA-F0-9]{6}/';
 
         if (count($error)) {
-            echo '<b>' . $_language->module[ 'errors' ] . ':</b><br /><ul>';
+            echo '<strong>' . $_language->module[ 'errors' ] . ':</strong><br /><ul>';
 
             foreach ($error as $err) {
                 echo '<li>' . $err . '</li>';

@@ -32,9 +32,9 @@ $language_array = Array(
     'welcome_text' => 'This installation routine will help you to install webspell on your server correctly.
    Six easy steps will guide you through the installation.<br><br>
    Please prepare the following Data:<br>
-	<ul><li><b>Your E-Mail Address</b></li></ul>
-	<ul><li><b>The URL to your webSPELL Site</b></li></ul>
-   <ul><li><b>The MySQL-Data for your webspace</b></li></ul>
+	<ul><li><strong>Your E-Mail Address</strong></li></ul>
+	<ul><li><strong>The URL to your webSPELL Site</strong></li></ul>
+   <ul><li><strong>The MySQL-Data for your webspace</strong></li></ul>
    Thank you for choosing webspell.',
     'welcome_to' => 'Welcome to your webSPELL installation!',
 	'installerlocked'=>'The installation could not be started, please remove the "locked.txt" from the install folder to start the installation.'

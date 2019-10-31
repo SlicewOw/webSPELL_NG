@@ -190,7 +190,7 @@ if ($getavatar = getavatar($userID)) {
 				include($plugin_path."admin/".$plugin['admin_file'].".php");
 			} else {
 				chdir("admin");
-			echo "<b>Modul [or] Plugin Not found</b><br /><br />";
+			echo "<strong>Modul [or] Plugin Not found</strong><br /><br />";
 				include('overview.php');
 			}
         }

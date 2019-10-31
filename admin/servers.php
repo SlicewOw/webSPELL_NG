@@ -291,9 +291,9 @@ else {
   echo'<form method="post" name="ws_servers" action="admincenter.php?site=servers">
     <table class="table table-striped">
       <thead>
-        <th><b>'.$_language->module['servers'].'</b></th>
-        <th><b>'.$_language->module['actions'].'</b></th>
-        <th><b>'.$_language->module['sort'].'</b></th>
+        <th><strong>'.$_language->module['servers'].'</strong></th>
+        <th><strong>'.$_language->module['actions'].'</strong></th>
+        <th><strong>'.$_language->module['sort'].'</strong></th>
       </thead>';
 
 		$i = 1;
@@ -317,7 +317,7 @@ else {
             );
 
             echo '<tr>
-        <td><img src="../images/games/'.is_gamefilexist('../images/games/', $ds[ 'game' ]).'" width="13" height="13" border="0" alt="" /> <a href="hlsw://'.$ds['ip'].'"><b>'.$ds['ip'].'</b></a><br /><b>'.getinput($ds['name']).'</b><br />
+        <td><img src="../images/games/'.is_gamefilexist('../images/games/', $ds[ 'game' ]).'" width="13" height="13" border="0" alt="" /> <a href="hlsw://'.$ds['ip'].'"><strong>'.$ds['ip'].'</strong></a><br /><strong>'.getinput($ds['name']).'</strong><br />
 
         <span class="text-muted small"><em>'.cleartext($ds['info'],1,getConstNameAdmin()).'</em></span>
         </td>

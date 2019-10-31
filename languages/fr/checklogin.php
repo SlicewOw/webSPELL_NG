@@ -32,7 +32,7 @@ $language_array = array(
     'invalid_password' => 'Votre mot de passe est invalide.',
     'ip_banned' => 'Votre adresse IP est bannie de ce site.<br>%reason%',
     'login_successful' => 'Connexion réussie !',
-    'no_user' => 'Le membre <b>%username%</b> n\'a pas été trouvé dans la base de données.',
+    'no_user' => 'Le membre <strong>%username%</strong> n\'a pas été trouvé dans la base de données.',
     'not_activated' => 'Votre compte n\'est pas activé.',
     'return' => '<a href="javascript:history.back()">Retour</a>',
     'return_reenter' => '<a href="javascript:history.back()">Retour et répétez entrée</a>',

@@ -116,8 +116,8 @@ if (isset($id) && getnickname($id) != '') {
                 }
 
                 $buddylist .= '<tr>
-            <td>' . $country . ' <a href="index.php?site=profile&amp;id=' . $db[ 'buddy' ] . '"><b>' .
-                        $nicknamebuddy . '</b></a>
+            <td>' . $country . ' <a href="index.php?site=profile&amp;id=' . $db[ 'buddy' ] . '"><strong>' .
+                        $nicknamebuddy . '</strong></a>
                     <div class="pull-right">' . $email . '&nbsp;&nbsp;' . $buddy . '&nbsp;&nbsp;' . $statuspic . '</div>
 			</td>
             </tr>';
@@ -1057,8 +1057,8 @@ if (isset($id) && getnickname($id) != '') {
                 }
 
                 $lastvisits .= '<tr>
-                <td>' . $country . ' <a href="index.php?site=profile&amp;id=' . $dv[ 'visitor' ] . '"><b>' .
-                    $nicknamevisitor . '</b></a></td>
+                <td>' . $country . ' <a href="index.php?site=profile&amp;id=' . $dv[ 'visitor' ] . '"><strong>' .
+                    $nicknamevisitor . '</strong></a></td>
                 <td class="text-right"><small>' . $now . $days . $hours . $minutes . '</small> ' . $statuspic . '</td>
             </tr>';
 

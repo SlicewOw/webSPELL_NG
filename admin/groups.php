@@ -81,8 +81,8 @@ if ($action == "delete") {
   </div>';
 } else if ($action == "save") {
     if (!$_POST[ 'name' ]) {
-        die('<b>' . $_language->module[ 'error_group' ] .
-            '</b><br /><br /><a href="admincenter.php?site=groups&amp;action=add">&laquo; ' .
+        die('<strong>' . $_language->module[ 'error_group' ] .
+            '</strong><br /><br /><a href="admincenter.php?site=groups&amp;action=add">&laquo; ' .
             $_language->module[ 'back' ] . '</a>');
     }
     $CAPCLASS = new \webspell\Captcha;
@@ -120,8 +120,8 @@ if ($action == "delete") {
         '</a> &raquo; ' . $_language->module[ 'edit_group' ] . '<br><br>';
 
     if (!$_GET[ 'fgrID' ]) {
-        die('<b>' . $_language->module[ 'error_groupid' ] .
-            '</b><br /><br /><a href="admincenter.php?site=groups">&laquo; ' . $_language->module[ 'back' ] . '</a>');
+        die('<strong>' . $_language->module[ 'error_groupid' ] .
+            '</strong><br /><br /><a href="admincenter.php?site=groups">&laquo; ' . $_language->module[ 'back' ] . '</a>');
     }
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "forum_groups WHERE fgrID='" . $_GET[ 'fgrID' ] . "'");
     $ds = mysqli_fetch_array($ergebnis);
@@ -162,8 +162,8 @@ else {
 
   echo'<table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['group_name'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
+      <th><strong>'.$_language->module['group_name'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
     </thead>';
 
   $i = 1;
@@ -179,7 +179,7 @@ else {
         }
 
         echo '<tr>
-      <td><b>'.getinput($ds['name']).'</b></td>
+      <td><strong>'.getinput($ds['name']).'</strong></td>
       <td><a href="admincenter.php?site=groups&amp;action=edit&amp;fgrID='.$ds["fgrID"].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=groups&amp;action=delete&amp;fgrID='.$ds["fgrID"].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />

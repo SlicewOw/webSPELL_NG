@@ -451,8 +451,8 @@ if ($action == "new") {
             $page_link = '';
         }
 
-        $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><b>' . getnickname($ds[ 'poster' ]) .
-            '</b></a>';
+        $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><strong>' . getnickname($ds[ 'poster' ]) .
+            '</strong></a>';
         $related = "";
         if ($ds[ 'link1' ] && $ds[ 'url1' ] != "http://" && $ds[ 'window1' ]) {
             $related .= '&#8226; <a href="' . $ds[ 'url1' ] . '" target="_blank">' . $ds[ 'link1' ] . '</a> ';
@@ -782,8 +782,8 @@ if ($action == "new") {
             $title = '<a href="index.php?site=articles&amp;action=show&amp;articlesID=' . $ds[ 'articlesID' ] . '">' .
                 clearfromtags($ds[ 'title' ]) . '</a>';
             $poster =
-                '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><b>' . getnickname($ds[ 'poster' ]) .
-                '</b></a>';
+                '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><strong>' . getnickname($ds[ 'poster' ]) .
+                '</strong></a>';
             $viewed = $ds[ 'viewed' ];
 
             $ratings = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);

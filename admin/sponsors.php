@@ -577,12 +577,12 @@ echo'<div class="panel panel-default">
   echo'<form method="post" action="admincenter.php?site=sponsors">
   <table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['sponsor'].'</b></th>
-      <th><b>'.$_language->module['clicks'].'</b></th>
-      <th class="hidden-xs hidden-sm"><b>'.$_language->module['is_displayed'].'</b></th>
-		<th class="hidden-xs hidden-sm"><b>'.$_language->module['mainsponsor'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
-      <th><b>'.$_language->module['sort'].'</b></th>
+      <th><strong>'.$_language->module['sponsor'].'</strong></th>
+      <th><strong>'.$_language->module['clicks'].'</strong></th>
+      <th class="hidden-xs hidden-sm"><strong>'.$_language->module['is_displayed'].'</strong></th>
+		<th class="hidden-xs hidden-sm"><strong>'.$_language->module['mainsponsor'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
+      <th><strong>'.$_language->module['sort'].'</strong></th>
     </thead>';
 
 	 $CAPCLASS = new \webspell\Captcha;
@@ -601,11 +601,11 @@ echo'<div class="panel panel-default">
             }
 
             $ds[ 'displayed' ] == 1 ?
-            $displayed = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
-            $displayed = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
+            $displayed = '<span style="color: #00FF00;"><strong>' . $_language->module[ 'yes' ] . '</strong></span>' :
+            $displayed = '<span style="color: #FF0000;"><strong>' . $_language->module[ 'no' ] . '</strong></span>';
             $ds[ 'mainsponsor' ] == 1 ?
-            $mainsponsor = '<span style="color: #00FF00;"><b>' . $_language->module[ 'yes' ] . '</b></span>' :
-            $mainsponsor = '<span style="color: #FF0000;"><b>' . $_language->module[ 'no' ] . '</b></span>';
+            $mainsponsor = '<span style="color: #00FF00;"><strong>' . $_language->module[ 'yes' ] . '</strong></span>' :
+            $mainsponsor = '<span style="color: #FF0000;"><strong>' . $_language->module[ 'no' ] . '</strong></span>';
 
             $url = getDefaultUrlStr($ds[ 'url' ]);
             $name = '<a href="' . getinput($url) . '" target="_blank">' . getinput($ds[ 'name' ]) . '</a>';

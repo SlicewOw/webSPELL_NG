@@ -273,7 +273,7 @@ if ($action == "user") {
                 '\', \'admincenter.php?site=spam&amp;action=multi_just_block&amp;ip=' . $ds[ 'ip' ] .
                 '&amp;captcha_hash=' . $hash . '\')">' . $_language->module[ "ban_all" ] . '</a>';
             echo '<tr>
-                <td colspan="7" class="' . $td . '"><b>' . $ds[ 'ip' ] . '</b>' . $buttons . '</td>
+                <td colspan="7" class="' . $td . '"><strong>' . $ds[ 'ip' ] . '</strong>' . $buttons . '</td>
             </tr>';
             foreach ($ids as $key => $id) {
 
@@ -296,7 +296,7 @@ if ($action == "user") {
 
                 $posts = getuserforumposts($data[ 'userID' ]);
                 if ($posts > 5) {
-                    $posts = '<b>' . $posts . '</b>';
+                    $posts = '<strong>' . $posts . '</strong>';
                 }
 
                 echo '<tr>

@@ -213,9 +213,9 @@ else {
 	echo'<form method="post" action="admincenter.php?site=faqcategories">
   <table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['faq_categories'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
-      <th><b>'.$_language->module['sort'].'</b></th>
+      <th><strong>'.$_language->module['faq_categories'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
+      <th><strong>'.$_language->module['sort'].'</strong></th>
     </thead>';
 
 	$ergebnis = safe_query("SELECT * FROM " . PREFIX . "faq_categories ORDER BY sort");
@@ -235,7 +235,7 @@ else {
         }
 
 		echo '<tr>
-            <td class="' . $td . '"><b>' . getinput($ds[ 'faqcatname' ]) . '</b>
+            <td class="' . $td . '"><strong>' . getinput($ds[ 'faqcatname' ]) . '</strong>
             <br />' . cleartext($ds[ 'description' ], true, getConstNameAdmin()) . '</td>
       <td><a href="admincenter.php?site=faqcategories&amp;action=editcat&amp;faqcatID='.$ds['faqcatID'].'" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
 

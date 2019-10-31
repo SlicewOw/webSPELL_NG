@@ -86,7 +86,7 @@ if (isset($_POST[ 'submit' ])) {
         #    $error[ ] = $_language->module[ 'error_draw_color' ];
         #}
         if (count($error)) {
-            echo '<b>' . $_language->module[ 'errors' ] . ':</b><br /><ul>';
+            echo '<strong>' . $_language->module[ 'errors' ] . ':</strong><br /><ul>';
 
             foreach ($error as $err) {
                 echo '<li>' . $err . '</li>';

@@ -701,10 +701,10 @@ else {
 	echo'<form method="post" action="admincenter.php?site=boards">
   <table class="table">
     <thead>
-      <th><b>'.$_language->module['boardname'].'</b></th>
-      <th><b>'.$_language->module['mods'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
-      <th><b>'.$_language->module['sort'].'</b></th>
+      <th><strong>'.$_language->module['boardname'].'</strong></th>
+      <th><strong>'.$_language->module['mods'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
+      <th><strong>'.$_language->module['sort'].'</strong></th>
     </thead>';
 
 	$ergebnis = safe_query("SELECT * FROM `" . PREFIX . "forum_categories` ORDER BY `sort`");
@@ -716,7 +716,7 @@ else {
     $hash = $CAPCLASS->getHash();
     while ($ds = mysqli_fetch_array($ergebnis)) {
         echo '<tr class="breadcrumb">
-	      <td><b>'.getinput($ds['name']).'</b><br /><small>'.getinput($ds['info']).'</small></td>
+	      <td><strong>'.getinput($ds['name']).'</strong><br /><small>'.getinput($ds['info']).'</small></td>
 	      <td></td>
 	      <td>
 
@@ -814,7 +814,7 @@ else {
 
 
 		echo'<tr bgcolor="#dcdcdc">
-      <td bgcolor="#FFFFFF"><b>'.getinput($db['name']).'</b></td>
+      <td bgcolor="#FFFFFF"><strong>'.getinput($db['name']).'</strong></td>
       <td bgcolor="#FFFFFF">
 
 

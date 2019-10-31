@@ -3,7 +3,7 @@ if (isset($_GET['action'])) $action = $_GET['action'];
 else $action='';
 
 $file_1 = 'install';
-$addonname = '<b>Support Ticket Addon</b>';
+$addonname = '<strong>Support Ticket Addon</strong>';
 $success = '<br/><table width="100%">
 				<tr><td colspan="2" align="center"><a href="http://addons-webspell.org/" target="_blank"><img width="468" height="60" border="0" alt="ADDONS WEBSPELL" src="http://addons-webspell.org/images/linkus/3.jpg"></a></td></tr>
 				<tr><td colspan="2">&nbsp;</td></tr>
@@ -12,14 +12,14 @@ $success = '<br/><table width="100%">
 					<td>Herzlichen Gl&uuml;ckwunsch, die Installation war erfolgreich! Viel Spa&szlig; mit dem '.$addonname.'!</td>
 				</tr>
 				<tr><td colspan="2">Nun musst du noch deine admincenter.php bearbeiten, n&auml;here Informationen dazu findest du in der readme.txt!<br/><br/></td></tr>
-				<tr><td colspan="2">Hilfe f&uuml;r dieses und viele andere Addons bekommst du auf <a href="http://addons-webspell.org/" target="_blank"><b>www.addons-webspell.org</b></a></td></tr>
+				<tr><td colspan="2">Hilfe f&uuml;r dieses und viele andere Addons bekommst du auf <a href="http://addons-webspell.org/" target="_blank"><strong>www.addons-webspell.org</strong></a></td></tr>
 				<tr><td colspan="2">&nbsp;<hr class="grey" /><br/></td></tr>
 				<tr>
 					<td valign="top"><img width="18" height="12" border="0" alt="UK" src="images/flags/uk.gif"></td>
 					<td>Congratulations, the installation was successful! Enjoy the '.$addonname.'!</td>
 				</tr>
 				<tr><td colspan="2">Now you have to edit your admincenter.php, for more information take a look in the readme.txt!<br/><br/></td></tr>
-				<tr><td colspan="2">Support for this and many other addons you get on <a href="http://addons-webspell.org/" target="_blank"><b>www.addons-webspell.org</b></a></td></tr>
+				<tr><td colspan="2">Support for this and many other addons you get on <a href="http://addons-webspell.org/" target="_blank"><strong>www.addons-webspell.org</strong></a></td></tr>
 			</table>';
 
 if ($action=="install") {

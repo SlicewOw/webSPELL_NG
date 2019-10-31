@@ -274,12 +274,12 @@ else {
   echo'<form method="post" action="admincenter.php?site=ranks">
   <table class="table table-striped">
     <thead>
-      <th class="hidden-xs"><b>'.$_language->module['rank_icon'].'</b></th>
-      <th><b>'.$_language->module['rank_name'].'</b></th>
-      <th><b>' . $_language->module[ 'special_rank' ] . '</b></th>
-      <th><b>'.$_language->module['min_posts'].'</b></th>
-      <th><b>'.$_language->module['max_posts'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
+      <th class="hidden-xs"><strong>'.$_language->module['rank_icon'].'</strong></th>
+      <th><strong>'.$_language->module['rank_name'].'</strong></th>
+      <th><strong>' . $_language->module[ 'special_rank' ] . '</strong></th>
+      <th><strong>'.$_language->module['min_posts'].'</strong></th>
+      <th><strong>'.$_language->module['max_posts'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
       </thead>';
 
 	$ergebnis = safe_query("SELECT * FROM " . PREFIX . "forum_ranks ORDER BY postmax");

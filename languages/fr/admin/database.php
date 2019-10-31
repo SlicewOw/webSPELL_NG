@@ -30,11 +30,11 @@ $language_array = Array(
 /* do not edit above this line */
 
   'access_denied'=>'Accès refusé',
-  'allowed_commands'=>'<b>Commandes autorisées:</b> insert, alter table, select',
+  'allowed_commands'=>'<strong>Commandes autorisées:</strong> insert, alter table, select',
   'backup_file'=>'Fichier de sauvegarde',
   'database'=>'Base de données',
   'export'=>'Exporter / Télécharger sauvegarde',
-  'import_info'=>'Sélectionnez un fichier pour importer la base de données SQL. <br><br> <b>Important:</b> Créez une sauvegarde avant d\'effectuer l\'import!',
+  'import_info'=>'Sélectionnez un fichier pour importer la base de données SQL. <br><br> <strong>Important:</strong> Créez une sauvegarde avant d\'effectuer l\'import!',
   'optimize'=>'Optimiser la base de données',
   'select_option'=>'Merci de choisir une option',
   'submit'=>'Envoyer',

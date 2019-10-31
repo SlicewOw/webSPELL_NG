@@ -411,11 +411,11 @@ if ($action == "add") {
   echo'<form method="post" action="admincenter.php?site=bannerrotation">
   <table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['banner'].'</b></th>
-      <th><b>'.$_language->module['banner_url'].'</b></th>
-      <th><b>'.$_language->module['clicks'].'</b></th>
-      <th class="hidden-xs hidden-sm"><b>'.$_language->module['is_displayed'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
+      <th><strong>'.$_language->module['banner'].'</strong></th>
+      <th><strong>'.$_language->module['banner_url'].'</strong></th>
+      <th><strong>'.$_language->module['clicks'].'</strong></th>
+      <th class="hidden-xs hidden-sm"><strong>'.$_language->module['is_displayed'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
     </thead>';
 
   $CAPCLASS = new \webspell\Captcha;
@@ -434,9 +434,9 @@ if ($action == "add") {
             }
 
             if ($ds['displayed'] == 1) {
-                $displayed = '<span style="color: #00FF00;"><b>' . $_language->module['yes'] . '</b></span>';
+                $displayed = '<span style="color: #00FF00;"><strong>' . $_language->module['yes'] . '</strong></span>';
             } else {
-                $displayed = '<span style="color: #FF0000;"><b>' . $_language->module['no'] . '</b></span>';
+                $displayed = '<span style="color: #FF0000;"><strong>' . $_language->module['no'] . '</strong></span>';
             }
 
             if (!isWebURLorProtocolRelative($ds['bannerurl'])) {

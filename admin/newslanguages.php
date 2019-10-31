@@ -223,10 +223,10 @@ else {
 
    echo'<table class="table table-striped">
     <thead>
-      <th><b>'.$_language->module['flag'].'</b></th>
-      <th><b>'.$_language->module['language'].'</b></th>
-      <th><b>'.$_language->module['title'].'</b></th>
-      <th><b>'.$_language->module['actions'].'</b></th>
+      <th><strong>'.$_language->module['flag'].'</strong></th>
+      <th><strong>'.$_language->module['language'].'</strong></th>
+      <th><strong>'.$_language->module['title'].'</strong></th>
+      <th><strong>'.$_language->module['actions'].'</strong></th>
     </thead>';
   $n=1;
 

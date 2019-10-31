@@ -30,7 +30,7 @@ $language_array = array(
 /* do not edit above this line */
 
     'author' => 'Autor',
-    'bbcode' => 'BBCode ist <b><span class="underline">AN</span></b>',
+    'bbcode' => 'BBCode ist <strong><span class="underline">AN</span></strong>',
     'cancel' => 'Abbrechen',
     'comm' => 'Komm',
     'comment' => '<a href="$url">[1] Kommentar</a>, letzter von $lastposter - $lastdate',
@@ -43,7 +43,7 @@ $language_array = array(
     'enter_title' => 'Du musst einen Titel eingeben!',
     'go' => 'Los!',
     'headline' => 'Überschrift',
-    'html' => 'HTML ist <b><span class="underline">AN</span></b>',
+    'html' => 'HTML ist <strong><span class="underline">AN</span></strong>',
     'intern' => 'intern',
     'languages' => 'Sprachen',
     'link' => 'Link',
@@ -69,7 +69,7 @@ $language_array = array(
     'select_all' => 'alle markieren',
     'self' => 'gleiches Fenster',
     'show_news' => 'Zeige Neuigkeiten',
-    'smilies' => 'Smilies sind <b><span class="underline">AN</span></b>',
+    'smilies' => 'Smilies sind <strong><span class="underline">AN</span></strong>',
     'sort' => 'Sortierung:',
     'tags' => 'Tags',
     'title_unpublished_news' => '<h2>UNVERÖFFENTLICHTE NEUIGKEITEN:</h2>',

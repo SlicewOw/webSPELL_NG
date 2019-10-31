@@ -30,11 +30,11 @@ $language_array = Array(
 /* do not edit above this line */
 
   'access_denied'=>'Access denied',
-  'allowed_commands'=>'<b>Allowed commands:</b> insert, alter table, select',
+  'allowed_commands'=>'<strong>Allowed commands:</strong> insert, alter table, select',
   'backup_file'=>'Backup File',
   'database'=>'Database',
   'export'=>'Export/Download Backup',
-  'import_info'=>'Select a file where to import sql data from.<br><br><b>Important:</b> Create a backup before import another one!',
+  'import_info'=>'Select a file where to import sql data from.<br><br><strong>Important:</strong> Create a backup before import another one!',
   'optimize'=>'Optimize Database',
   'select_option'=>'Please select Option',
   'submit'=>'Submit',

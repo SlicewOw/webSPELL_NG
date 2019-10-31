@@ -497,8 +497,8 @@ onmouseout="hideWMTT()" />';
 
         <div class="row bt">
             <div class="col-md-3">' . $_language->module[ 'nickname' ] . ':</div>
-            <div class="col-md-9"><span class="pull-right text-muted small"><em><b><a href="../index.php?site=profile&amp;id=' . $id . '" target="_blank">' .
-            strip_tags(stripslashes(getnickname($id))) . '</a></b></em></span></div>
+            <div class="col-md-9"><span class="pull-right text-muted small"><em><strong><a href="../index.php?site=profile&amp;id=' . $id . '" target="_blank">' .
+            strip_tags(stripslashes(getnickname($id))) . '</a></strong></em></span></div>
         </div>
             <hr style="border:solid #0095db 1px">
 
@@ -515,7 +515,7 @@ onmouseout="hideWMTT()" />';
         <br>
 
         <div class="row bt">
-            <div class="col-md-6"><b>' . $_language->module[ 'access_rights' ] . ':</b></div>
+            <div class="col-md-6"><strong>' . $_language->module[ 'access_rights' ] . ':</strong></div>
             <div class="col-md-6"></div>
         </div>
 
@@ -610,7 +610,7 @@ onmouseout="hideWMTT()" />';
 
     <table width="100%" border="0" cellspacing="1" cellpadding="3">
         <tr>
-            <td colspan="3"><br><b>' . $_language->module[ 'group_access' ] . '</b></td>
+            <td colspan="3"><br><strong>' . $_language->module[ 'group_access' ] . '</strong></td>
         </tr>';
 
     $sql = safe_query("SELECT * FROM " . PREFIX . "forum_groups");

@@ -68,18 +68,18 @@ if (isset($_POST[ 'submit' ])) {
         $sendmail = \webspell\Email::sendEmail($admin_email, 'Test eMail', $to, $subject, $message);
         if ($sendmail['result'] == 'fail') {
             if (isset($sendmail['debug'])) {
-                echo '<b>' . $_language->module[ 'test_fail' ] . '</b>';
+                echo '<strong>' . $_language->module[ 'test_fail' ] . '</strong>';
                 echo '<br>' . $sendmail[ 'error' ];
                 echo '<br>' . $sendmail[ 'debug' ];
                 redirect("admincenter.php?site=email&amp;action=test", $_language->module[ 'test_fail' ], 10);
             } else {
-                echo '<b>' . $_language->module[ 'test_fail' ] . '</b>';
+                echo '<strong>' . $_language->module[ 'test_fail' ] . '</strong>';
                 echo '<br>' . $sendmail[ 'error' ];
                 redirect("admincenter.php?site=email&amp;action=test", $_language->module[ 'test_fail' ], 10);
             }
         } else {
             if (isset($sendmail[ 'debug' ])) {
-                echo '<b> Debug </b>';
+                echo '<strong> Debug </strong>';
                 echo '<br>' . $sendmail[ 'debug' ];
                 redirect("admincenter.php?site=email&amp;action=test", $_language->module[ 'test_ok' ], 10);
             } else {
@@ -100,7 +100,7 @@ if (isset($_POST[ 'submit' ])) {
     echo '<form method="post" action="admincenter.php?site=email&amp;action=test" enctype="multipart/form-data">
   <table width="100%" border="0" cellspacing="1" cellpadding="3">
     <tr>
-      <td width="15%"><b>' . $_language->module[ 'email' ] . '</b></td>
+      <td width="15%"><strong>' . $_language->module[ 'email' ] . '</strong></td>
       <td width="85%"><input name="email" type="text" size="35" /></td>
     </tr>
     <tr>
@@ -250,52 +250,52 @@ if (isset($_POST[ 'submit' ])) {
 
         <table width="100%" border="0" cellspacing="1" cellpadding="3">
         <tr>
-            <td width="15%"><b>' . $_language->module[ 'type' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'type' ] . '</strong></td>
             <td width="35%"><select id="select_smtp" name="smtp" onchange="javascript:HideFields2();"
                 onmouseover="showWMTT(\'id1\')"
                 onmouseout="hideWMTT()">' . $smtp . '</select></td>
         </tr>
         <tr id="tr_auth"' . $show_auth2 . '>
-            <td width="15%"><b>' . $_language->module[ 'auth' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'auth' ] . '</strong></td>
             <td width="35%"><input type="checkbox" id="check_auth" name="auth"
                 onchange="javascript:HideFields(this.checked);" onmouseover="showWMTT(\'id2\')"
                 onmouseout="hideWMTT()" value="1" ' . $auth . '/></td>
         </tr>
         <tr id="tr_user"' . $show_auth . '>
-            <td width="15%"><b>' . $_language->module[ 'user' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'user' ] . '</strong></td>
             <td width="35%"><input name="user" type="text" value="' . getinput($ds[ 'user' ]) . '" size="35"
                 onmouseover="showWMTT(\'id3\')" onmouseout="hideWMTT()"/></td>
         </tr>
         <tr id="tr_password"' . $show_auth . '>
-            <td width="15%"><b>' . $_language->module[ 'password' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'password' ] . '</strong></td>
             <td width="35%"><input type="password" name="password" value="' . getinput($ds[ 'password' ]) . '"
                 size="35" onmouseover="showWMTT(\'id4\')" onmouseout="hideWMTT()"/></td>
         </tr>
         <tr id="tr_host"' . $show_auth2 . '>
-            <td width="15%"><b>' . $_language->module[ 'host' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'host' ] . '</strong></td>
             <td width="35%"><input type="text" name="host" value="' . getinput($ds[ 'host' ]) . '" size="35"
                 onmouseover="showWMTT(\'id6\')" onmouseout="hideWMTT()"/></td>
         </tr>
         <tr id="tr_port"' . $show_auth2 . '>
-            <td width="15%"><b>' . $_language->module[ 'port' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'port' ] . '</strong></td>
             <td width="35%"><input id="input_port" type="text" name="port"
                 value="' . getinput($ds[ 'port' ]) . '" size="5"
                 onmouseover="showWMTT(\'id5\')" onmouseout="hideWMTT()"/></td>
         </tr>
         <tr id="tr_html">
-            <td width="15%"><b>' . $_language->module[ 'html' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'html' ] . '</strong></td>
             <td width="35%"><input type="checkbox" id="check_html" name="html"
                 onmouseover="showWMTT(\'id7\')"
                 onmouseout="hideWMTT()" value="1" ' . $html . '/></td>
         </tr>
         <tr id="tr_secure"' . $show_auth2 . '>
-            <td width="15%"><b>' . $_language->module[ 'secure' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'secure' ] . '</strong></td>
             <td width="35%"><select id="select_secure" name="secure" onmouseover="showWMTT(\'id8\')"
                 onchange="javascript:SetPort();"
                 onmouseout="hideWMTT()">' . $secure . '</select></td>
         </tr>
         <tr id="tr_debug"' . $show_auth2 . '>
-            <td width="15%"><b>' . $_language->module[ 'debug' ] . '</b></td>
+            <td width="15%"><strong>' . $_language->module[ 'debug' ] . '</strong></td>
             <td width="35%"><select id="select_debug" name="debug" onmouseover="showWMTT(\'id9\')"
                 onmouseout="hideWMTT()">' . $debug . '</select></td>
         </tr>

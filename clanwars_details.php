@@ -39,8 +39,8 @@ $cwID = (int)$_GET[ 'cwID' ];
 $ds = mysqli_fetch_array(safe_query("SELECT * FROM `" . PREFIX . "clanwars` WHERE `cwID` = '" . (int)$cwID."'"));
 $extension = explode('.',$ds['game']);
 $date = getformatdate($ds[ 'date' ]);
-$opponent = '<a href="' . getinput($ds[ 'opphp' ]) . '" target="_blank"><b>' . getinput($ds[ 'opptag' ]) . ' / ' .
-	($ds[ 'opponent' ]) . '</b></a>';
+$opponent = '<a href="' . getinput($ds[ 'opphp' ]) . '" target="_blank"><strong>' . getinput($ds[ 'opptag' ]) . ' / ' .
+	($ds[ 'opponent' ]) . '</strong></a>';
 $league = '<a href="' . getinput($ds[ 'leaguehp' ]) . '" target="_blank">' . getinput($ds[ 'league' ]) . '</a>';
 if (is_gamefilexist('images/games/', $ds[ 'game' ])) {
 	$game_ico = 'images/games/' . is_gamefilexist('images/games/', $ds[ 'game' ]);
@@ -112,8 +112,8 @@ if ($report == "") {
 	$report = "n/a";
 }
 
-$squad = '<a href="index.php?site=clanwars&amp;action=showonly&amp;only=squad&amp;id=' . $ds[ 'squad' ] . '"><b>' .
-	getsquadname($ds[ 'squad' ]) . '</b></a>';
+$squad = '<a href="index.php?site=clanwars&amp;action=showonly&amp;only=squad&amp;id=' . $ds[ 'squad' ] . '"><strong>' .
+	getsquadname($ds[ 'squad' ]) . '</strong></a>';
 
 $opptag = getinput($ds[ 'opptag' ]);
 $oppteam = getinput($ds[ 'oppteam' ]);

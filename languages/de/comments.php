@@ -35,7 +35,7 @@ $language_array = array(
     'by' => 'von',
     'clanmember_icon' => ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>',
     'comments' => 'Kommentare',
-    'comments_disabled' => '<br><br><b>Die Kommentarfunktion ist deaktiviert.</b>',
+    'comments_disabled' => '<br><br><strong>Die Kommentarfunktion ist deaktiviert.</strong>',
     'delete_selected' => 'Ausgewählte löschen',
     'edit_comment' => 'Kommentar ändern',
     'email_link' => '<a href="mailto:%email%"><span class="fa fa-envelope" title="email"></span></a>',

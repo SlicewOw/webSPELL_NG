@@ -32,9 +32,9 @@ $language_array = Array(
     'welcome_text' => 'Dieser Installationsablauf wird Dir dabei helfen, webSPELL auf deinem Server zu installieren.
    Sechs einfache Schritte führen Dich durch die Installation.<br><br>
    Bitte halte folgende Daten bereit:<br>
-	<ul><li><b>Deine E-Mail Adresse</b></li></ul>
-	<ul><li><b>Die URL zur deiner webSPELL Seite</b></li></ul>
-   <ul><li><b>Die MySQL Zugangsdaten für deinen Webspace</b></li></ul>
+	<ul><li><strong>Deine E-Mail Adresse</strong></li></ul>
+	<ul><li><strong>Die URL zur deiner webSPELL Seite</strong></li></ul>
+   <ul><li><strong>Die MySQL Zugangsdaten für deinen Webspace</strong></li></ul>
    Danke, dass Du dich für webSPELL entschieden hast.',
     'welcome_to' => 'Willkommen zu Deiner webSPELL Installation!',
 	'installerlocked'=>'Die Installation konnte nicht gestartet werden, bitte entferne die "locked.txt" im install-Ordner um die Installation zu starten.'

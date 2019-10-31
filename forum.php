@@ -73,11 +73,11 @@ function forum_stats()
         $n++;
         $years = $db[ 'age' ];
         if ($n > 1) {
-            $birthdays .= ', <a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><b>' . $db[ 'nickname' ] .
-                '</b></a> (' . $years . ')';
+            $birthdays .= ', <a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><strong>' . $db[ 'nickname' ] .
+                '</strong></a> (' . $years . ')';
         } else {
-            $birthdays = '<a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><b>' . $db[ 'nickname' ] .
-                '</b></a> (' . $years . ')';
+            $birthdays = '<a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><strong>' . $db[ 'nickname' ] .
+                '</strong></a> (' . $years . ')';
         }
     }
     if (!$n) {
@@ -108,11 +108,11 @@ function forum_stats()
         $n++;
         $years = $db[ 'age' ];
         if ($n > 1) {
-            $birthweek .= ', <a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><b>' . $db[ 'nickname' ] .
-                '</b></a> (' . $years . ')';
+            $birthweek .= ', <a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><strong>' . $db[ 'nickname' ] .
+                '</strong></a> (' . $years . ')';
         } else {
-            $birthweek = '<a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><b>' . $db[ 'nickname' ] .
-                '</b></a> (' . $years . ')';
+            $birthweek = '<a href="index.php?site=profile&amp;id=' . $db[ 'userID' ] . '"><strong>' . $db[ 'nickname' ] .
+                '</strong></a> (' . $years . ')';
         }
     }
     if (!$n) {
@@ -164,8 +164,8 @@ function forum_stats()
                 $nickname = $ds[ 'nickname' ];
             }
             if ($n > 1) {
-                $user_names .= ', <a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><b>' . $nickname .
-                    '</b></a>';
+                $user_names .= ', <a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' . $nickname .
+                    '</strong></a>';
             } else {
                 $user_names =
                     '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' .
@@ -846,8 +846,8 @@ function showboard($board)
                 } else {
                     $member = '';
                 }
-                $link = '<a href="index.php?site=forum_topic&amp;topic=' . $dt[ 'moveID' ] . '"><b>' .
-                    $_language->module[ 'moved' ] . ': ' . $topictitle . '</b></a>';
+                $link = '<a href="index.php?site=forum_topic&amp;topic=' . $dt[ 'moveID' ] . '"><strong>' .
+                    $_language->module[ 'moved' ] . ': ' . $topictitle . '</strong></a>';
             } else {
                 // NO MOVED TOPIC
                 if ($dt[ 'replys' ]) {
@@ -875,8 +875,8 @@ function showboard($board)
                 } else {
                     $member = '';
                 }
-                $link = '<a href="index.php?site=forum_topic&amp;topic=' . $dt[ 'topicID' ] . '"><b>' . $topictitle .
-                    '</b></a>';
+                $link = '<a href="index.php?site=forum_topic&amp;topic=' . $dt[ 'topicID' ] . '"><strong>' . $topictitle .
+                    '</strong></a>';
             }
 
             $data_array = array();

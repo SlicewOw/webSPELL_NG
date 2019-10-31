@@ -45,7 +45,7 @@ include('../version.php');
 
 if (!isset($_GET[ 'action' ])) {
     if (!$getnew = file_get_contents($updateserver . "update.php?show=version")) {
-        echo '<span><b>' . $_language->module[ 'error' ] . '&nbsp;' . $updateserver . '.</b></span>';
+        echo '<span><strong>' . $_language->module[ 'error' ] . '&nbsp;' . $updateserver . '.</strong></span>';
     } else {
         $latest = explode(".", $getnew);
         $ownversion = explode(".", $version);
@@ -83,9 +83,9 @@ if ($action == "update") {
 
 		echo'<table class="table table-striped">
     <thead>
-      <th><b>' . $_language->module['filename'] . '</b></th>
-      <th><b>' . $_language->module['version'] . '</b></th>
-      <th><b>' . $_language->module['information'] . '</b></th>
+      <th><strong>' . $_language->module['filename'] . '</strong></th>
+      <th><strong>' . $_language->module['version'] . '</strong></th>
+      <th><strong>' . $_language->module['information'] . '</strong></th>
       </thead>';
 
 
@@ -103,7 +103,7 @@ if ($action == "update") {
 			}
 		}
 		echo'</table>
-    <br /><br /><a class="btn btn-primary btn-xs" type="button" href="'.$updateserver.'?get=true" target="_blank"><b>'.$_language->module['get_new_version'].'</b></a>';
+    <br /><br /><a class="btn btn-primary btn-xs" type="button" href="'.$updateserver.'?get=true" target="_blank"><strong>'.$_language->module['get_new_version'].'</strong></a>';
 	}
 }
 echo '</div></div>';

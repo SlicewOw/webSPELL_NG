@@ -33,7 +33,7 @@ $language_array = array(
     'active' => 'aktiv',
     'activity' => 'Aktivität',
     'awards' => 'Auszeichnungen',
-    'back_overview' => '&raquo; <a href="index.php?site=members"><b>zurück zur Mitgliederübersicht</b></a>',
+    'back_overview' => '&raquo; <a href="index.php?site=members"><strong>zurück zur Mitgliederübersicht</strong></a>',
     'challenge' => 'Herausfordern',
     'contact' => 'Kontakt',
     'go' => 'Los!',
@@ -45,7 +45,7 @@ $language_array = array(
     'no_entries'=>'keine Einträge vorhanden',
     'position' => 'Position',
     'results' => 'Ergebnisse',
-    'show_details' => '&raquo; <a href="index.php?site=members&amp;action=show&amp;squadID=%squadID%"><b>Details anzeigen</b></a>',
+    'show_details' => '&raquo; <a href="index.php?site=members&amp;action=show&amp;squadID=%squadID%"><strong>Details anzeigen</strong></a>',
     'show_only' => 'Zeige nur',
     'status' => 'Status',
     'town' => 'Ort'

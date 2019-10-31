@@ -292,8 +292,8 @@ if (isset($_POST['delete'])) {
                     $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
                 }
 
-                $sender = '<a href="index.php?site=profile&amp;id=' . $ds['fromuser'] . '"><b>' .
-                    getnickname($ds['fromuser']) . '</b></a>';
+                $sender = '<a href="index.php?site=profile&amp;id=' . $ds['fromuser'] . '"><strong>' .
+                    getnickname($ds['fromuser']) . '</strong></a>';
                 if (isclanmember($ds['fromuser'])) {
                     $member = '<span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
                 } else {
@@ -455,8 +455,8 @@ if (isset($_POST['delete'])) {
                         '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'add_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
                 }
 
-                $receptionist = '<a href="index.php?site=profile&amp;id=' . $ds['touser'] . '"><b>' .
-                    getnickname($ds['touser']) . '</b></a>';
+                $receptionist = '<a href="index.php?site=profile&amp;id=' . $ds['touser'] . '"><strong>' .
+                    getnickname($ds['touser']) . '</strong></a>';
 
                 if (isclanmember($ds['touser'])) {
                     $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
@@ -516,8 +516,8 @@ if (isset($_POST['delete'])) {
         if ($ds['touser'] == $userID || $ds['fromuser'] == $userID) {
             safe_query("UPDATE " . PREFIX . "messenger SET viewed='1' WHERE messageID='$id'");
             $date = getformatdatetime($ds['date']);
-            $sender = '<a href="index.php?site=profile&amp;id=' . $ds['fromuser'] . '"><b>' .
-                getnickname($ds['fromuser']) . '</b></a>';
+            $sender = '<a href="index.php?site=profile&amp;id=' . $ds['fromuser'] . '"><strong>' .
+                getnickname($ds['fromuser']) . '</strong></a>';
             $message = cleartext($ds['message']);
             $message = toggle($message, $ds['messageID']);
             $title = clearfromtags($ds['title']);

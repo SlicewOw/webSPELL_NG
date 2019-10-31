@@ -27,15 +27,15 @@
 
 $language_array = Array(
     'back'=>'zurück',
-    'delete_folder'=>'Bitte lösche das <b>/install</b> Verzeichnis zu Deiner eigenen Sicherheit.',
+    'delete_folder'=>'Bitte lösche das <strong>/install</strong> Verzeichnis zu Deiner eigenen Sicherheit.',
     'error'=>'Fehler',
     'error_database'=>'Keine Verbindung zur Datenbank',
     'error_mysql'=>'Keine Verbindung zu MySQL!',
     'install_complete'=>'Installation war erfolgreich!',
     'install_running'=>'Installation wird ausgeführt!',
     'finish_install'=>'Installation abschließen',
-    'folder_removed'=>'Das <b>/install</b> Verzeichnis wurde erfolgreich gelöscht',
-    'reset_chmod'=>'Bitte setze den CHMOD der <b>_mysql.php</b> wieder zu 644.',
+    'folder_removed'=>'Das <strong>/install</strong> Verzeichnis wurde erfolgreich gelöscht',
+    'reset_chmod'=>'Bitte setze den CHMOD der <strong>_mysql.php</strong> wieder zu 644.',
     'update_complete'=>'Update war erfoglreich!',
     'update_running'=>'Update wird ausgeführt!',
     'verify_data'=>'Bitte überprüfe Deine Daten!',

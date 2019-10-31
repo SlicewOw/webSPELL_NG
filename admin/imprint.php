@@ -88,7 +88,7 @@ if (isset($_POST[ 'submit' ])) {
 <div class="col-md-12">
 <form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=imprint" onsubmit="return chkFormular();">
   <input type="radio" name="type" value="0" ' . $type0 . ' /> ' . $_language->module['automatic'] . '<br />
-  <input type="radio" name="type" value="1" ' . $type1 . ' /> ' . $_language->module['manual'] . '<br /><br /><b>' . $_language->module['imprint'] . '</b><br /><small>' . $_language->module['you_can_use_html'] . '</small><br /><br />';
+  <input type="radio" name="type" value="1" ' . $type1 . ' /> ' . $_language->module['manual'] . '<br /><br /><strong>' . $_language->module['imprint'] . '</strong><br /><small>' . $_language->module['you_can_use_html'] . '</small><br /><br />';
 
 	echo '<div class="col-md-12">
 			  ' . $addflags . '<br>

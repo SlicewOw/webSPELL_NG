@@ -132,7 +132,7 @@ foreach ($tables_array as $table) {
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['overhead']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $db_size_op; ?> Bytes
     <?php
     if ($db_size_op != 0) {
-    	echo'<a href="admincenter.php?site=database&amp;action=optimize&amp;back=page_statistic"><span style="color: #FF0000;"><b>'.$_language->module['optimize'].'</b></span></a>';
+    	echo'<a href="admincenter.php?site=database&amp;action=optimize&amp;back=page_statistic"><span style="color: #FF0000;"><strong>'.$_language->module['optimize'].'</strong></span></a>';
     }
     ?></em></span></div></div>
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['tables']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_tables; ?></em></span></div></div>

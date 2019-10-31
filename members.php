@@ -116,8 +116,8 @@ if ($action == "show") {
 
             $country = '[flag]' . $dm[ 'country' ] . '[/flag]';
             $country = flags($country);
-            $nickname = '<a href="index.php?site=profile&amp;id=' . $dm[ 'userID' ] . '"><b>' .
-                strip_tags(stripslashes($dm[ 'nickname' ])) . '</b></a>';
+            $nickname = '<a href="index.php?site=profile&amp;id=' . $dm[ 'userID' ] . '"><strong>' .
+                strip_tags(stripslashes($dm[ 'nickname' ])) . '</strong></a>';
             $nicknamee = strip_tags(stripslashes($dm[ 'nickname' ]));
             $profilid = $dm[ 'userID' ];
 
@@ -235,8 +235,8 @@ if ($action == "show") {
                     WHERE squadID='" . $ds[ 'squadID' ] . "'"
                 )
             );
-            $name = '<a href="index.php?site=members&amp;action=show&amp;squadID=' . $ds[ 'squadID' ] . '"><b>' .
-                $ds[ 'name' ] . '</b></a>';
+            $name = '<a href="index.php?site=members&amp;action=show&amp;squadID=' . $ds[ 'squadID' ] . '"><strong>' .
+                $ds[ 'name' ] . '</strong></a>';
 
             if ($ds[ 'icon' ]) {
                 $icon =
