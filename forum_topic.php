@@ -58,7 +58,7 @@ if (isset($_GET['quoteID'])) {
 } else {
     $quoteID = '';
 }
-$do_sticky = (isset($_POST['sticky'])) ? true : false;
+$do_sticky = (isset($_POST['sticky']));
 
 if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
     include("_mysql.php");
