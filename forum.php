@@ -287,9 +287,9 @@ function boardmain()
 
             $ismod = ismoderator($userID, $db[ 'boardID' ]);
             $usergrp = 0;
-            $writer = 'ro-';
             if ($db[ 'writegrps' ] != "" && !$ismod) {
                 $writegrps = explode(";", $db[ 'writegrps' ]);
+                $writer = 'ro-';
                 foreach ($writegrps as $value) {
                     if (isinusergrp($value, $userID)) {
                         $usergrp = 1;
@@ -459,19 +459,19 @@ function boardmain()
             }
         }
 
-        $board = $db[ 'boardID' ];
+        $board_id = $db[ 'boardID' ];
         $anztopics = $db[ 'topics' ];
         $anzposts = $db[ 'posts' ];
 
         $boardname = $db[ 'name' ];
-        $boardname = '<a href="index.php?site=forum&amp;board=' . $db[ 'boardID' ] . '"><strong>' .
+        $boardname = '<a href="index.php?site=forum&amp;board=' . $board_id . '"><strong>' .
             $boardname . '</strong></a>';
 
         $boardinfo = '';
         if ($db[ 'info' ]) {
             $boardinfo = $db[ 'info' ];
         }
-        $moderators = getmoderators($db[ 'boardID' ]);
+        $moderators = getmoderators($board_id);
         if ($moderators) {
             $moderators = $_language->module[ 'moderated_by' ] . ': ' . $moderators;
         }
@@ -483,8 +483,7 @@ function boardmain()
         $member = '';
 
         $q = safe_query(
-            "SELECT topicID, lastdate, lastposter, replys FROM " . PREFIX . "forum_topics WHERE boardID='" .
-            $db[ 'boardID' ] . "' AND moveID='0' ORDER BY lastdate DESC LIMIT 0," . $maxtopics
+            "SELECT topicID, lastdate, lastposter, replys FROM " . PREFIX . "forum_topics WHERE boardID='" . $board_id . "' AND moveID='0' ORDER BY lastdate DESC LIMIT 0," . $maxtopics
         );
         $n = 1;
         $board_topics = array();

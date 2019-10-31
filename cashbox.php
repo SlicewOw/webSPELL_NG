@@ -331,7 +331,6 @@ if (!isclanmember($userID) && !iscashadmin($userID)) {
                 $paydate = getformatdate($ds[ 'paydate' ]);
 
                 $bezahlen = safe_query("SELECT * FROM " . PREFIX . "cash_box_payed WHERE cashID='$id' AND payed='1' ");
-                $payed = mysqli_num_rows($bezahlen);
                 $konto = cleartext($ds[ 'konto' ]);
 
                 $usage = $ds[ 'usedfor' ];

@@ -325,8 +325,8 @@ function imgreplace($content)
 					}
 				} else {
 					$err = "{".$_language->module['na']."}";
-				}
-                $format = "unknown";
+                }
+
                 switch ($picinfo[2]) {
                     case 1:
                         $format = "gif";
@@ -338,9 +338,10 @@ function imgreplace($content)
                         $format = "png";
                         break;
                     default:
-                        $format = "jpeg";
+                        $format = "unknown";
                         break;
                 }
+
                 if (!$picsize_l) {
                     $size_l = "9999";
                 } else {

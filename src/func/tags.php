@@ -234,7 +234,7 @@ class Tags
             if ($allowed) {
                 if (strlen($ds['content']) > 255) {
                     $string = wordwrap($ds['content'], 255);
-                    $string = substr($ds['content'], 0, strpos($ds['content'], "\n")) . '...';
+                    $string = substr($string, 0, strpos($string, "\n")) . '...';
                 } else {
                     $string = $ds['content'];
                 }

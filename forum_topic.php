@@ -606,9 +606,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                 $message = cleartext(getforminput($_POST['message']));
 
                 $message = toggle($message, 'xx');
-                $username =
-                    '<a href="index.php?site=profile&amp;id=' . $userID . '"><strong>' . getnickname($userID) .
-                    '</strong></a>';
+                $username = '<a href="index.php?site=profile&amp;id=' . $userID . '"><strong>' . getnickname($userID) . '</strong></a>';
 
                 if (isclanmember($userID)) {
                     $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
@@ -626,16 +624,11 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                     $signatur = '';
                 }
                 if (getemail($userID) && !getemailhide($userID)) {
-                    $email = '<a href="mailto:' . mail_protect(getemail($userID)) .
-                        '"><span class="fa fa-envelope" title="email"></span></a>';
+                    $email = '<a href="mailto:' . mail_protect(getemail($userID)) . '"><span class="fa fa-envelope" title="email"></span></a>';
                 } else {
                     $email = '';
                 }
-                if (isset($_POST['notify'])) {
-                    $notify = 'checked="checked"';
-                } else {
-                    $notify = '';
-                }
+
                 $pm = '';
                 $buddy = '';
                 $statuspic = '<img src="images/icons/online.gif" alt="online">';
@@ -691,15 +684,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                     }
                 }
 
-                if (isforumadmin($userID)) {
-                    $chk_sticky = '<input class="input" type="checkbox" name="sticky" value="1" ' . $_sticky . '> ' .
-                        $_language->module['make_sticky'];
-                } else if (isanymoderator($userID)) {
-                    $chk_sticky = '<input class="input" type="checkbox" name="sticky" value="1" ' . $_sticky . '> ' .
-                        $_language->module['make_sticky'];
-                } else {
-                    $chk_sticky = '';
-                }
                 $quote = "";
                 $actions = "";
                 echo '<table class="table">
@@ -748,8 +732,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             }
             $_sticky = ($dt['sticky'] == '1' || $post_sticky == '1') ? 'checked="checked"' : '';
             if (isforumadmin($userID) || ismoderator($userID, $dt['boardID'])) {
-                $chk_sticky = '<input class="input" type="checkbox" name="sticky" value="1" ' . $_sticky . '> ' .
-                    $_language->module['make_sticky'];
+                $chk_sticky = '<input class="input" type="checkbox" name="sticky" value="1" ' . $_sticky . '> ' . $_language->module['make_sticky'];
             } else {
                 $chk_sticky = '';
             }
