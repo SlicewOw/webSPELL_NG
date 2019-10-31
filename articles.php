@@ -444,12 +444,7 @@ if ($action == "new") {
         $pages = count($content);
         $content = htmloutput($content[ $page - 1 ]);
         $content = toggle($content, $ds[ 'articlesID' ]);
-        if ($pages > 1) {
-            $page_link =
-                makepagelink("index.php?site=articles&amp;action=show&amp;articlesID=$articlesID", $page, $pages);
-        } else {
-            $page_link = '';
-        }
+        $page_link = makepagelink("index.php?site=articles&amp;action=show&amp;articlesID=$articlesID", $page, $pages);
 
         $poster = '<a href="index.php?site=profile&amp;id=' . $ds[ 'poster' ] . '"><strong>' . getnickname($ds[ 'poster' ]) .
             '</strong></a>';
@@ -636,11 +631,7 @@ if ($action == "new") {
         }
     }
 
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=articles&amp;sort=" . $sort . "&amp;type=" . $type, $page, $pages);
-    } else {
-        $page_link = '';
-    }
+    $page_link = makepagelink("index.php?site=articles&amp;sort=" . $sort . "&amp;type=" . $type, $page, $pages);
 
     if ($page == "1") {
         $ergebnis =

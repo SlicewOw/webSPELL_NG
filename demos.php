@@ -679,11 +679,7 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
     $max = $maxdemos;
     $pages = ceil($gesamt / $max);
 
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=demos&amp;sort=$sort&amp;type=$type", $page, $pages);
-    } else {
-        $page_link = "";
-    }
+    $page_link = makepagelink("index.php?site=demos&amp;sort=$sort&amp;type=$type", $page, $pages);
 
     if ($page == "1") {
         $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "demos` ORDER BY $sort $type LIMIT 0, " . (int)$max);

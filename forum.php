@@ -623,10 +623,7 @@ function showboard($board)
     $max = $maxtopics;
     $pages = ceil($gesamt / $max);
 
-    $page_link = '';
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=forum&amp;board=$board", $page, $pages);
-    }
+    $page_link = makepagelink("index.php?site=forum&amp;board=$board", $page, $pages);
 
     if ($page <= 1) {
         $start = 0;
@@ -732,11 +729,7 @@ function showboard($board)
             $topicpages = 1;
             $topicpages = ceil($gesamt / $maxposts);
 
-            $topicpage_link = '';
-            if ($topicpages > 1) {
-                $topicpage_link =
-                    makepagelink("index.php?site=forum_topic&amp;topic=" . $dt[ 'topicID' ], 1, $topicpages);
-            }
+            $topicpage_link = makepagelink("index.php?site=forum_topic&amp;topic=" . $dt[ 'topicID' ], 1, $topicpages);
 
             if ($dt[ 'icon' ]) {
                 $icon = '<img src="images/icons/topicicons/' . $dt[ 'icon' ] . '" alt="">';

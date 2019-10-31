@@ -666,11 +666,7 @@ if (isset($_POST[ 'saveedit' ])) {
         $page = $_GET[ 'page' ];
     }
 
-    if ($pages > 1) {
-        $pagelink = makepagelink("index.php?site=gallery&amp;groupID=" . $_GET[ 'groupID' ], $page, $pages);
-    } else {
-        $pagelink = '';
-    }
+    $pagelink = makepagelink("index.php?site=gallery&amp;groupID=" . $_GET[ 'groupID' ], $page, $pages);
 
     $group = $galclass->getGroupName($_GET[ 'groupID' ]);
     if ($_GET[ 'groupID' ] == 0) {

@@ -52,11 +52,11 @@ function tcal (a_cfg, a_tpl) {
 		window.A_TCALS = [];
 	if (!window.A_TCALSIDX)
 		window.A_TCALSIDX = [];
-	
+
 	this.s_id = a_cfg.id ? a_cfg.id : A_TCALS.length;
 	window.A_TCALS[this.s_id] = this;
 	window.A_TCALSIDX[window.A_TCALSIDX.length] = this;
-	
+
 	// assign methods
 	this.f_show = f_tcalShow;
 	this.f_hide = f_tcalHide;
@@ -65,7 +65,7 @@ function tcal (a_cfg, a_tpl) {
 	this.f_relDate = f_tcalRelDate;
 	this.f_parseDate = f_tcalParseDate;
 	this.f_generDate = f_tcalGenerDate;
-	
+
 	// create calendar icon
 	this.s_iconId = 'tcalico_' + this.s_id;
 	this.e_icon = f_getElement(this.s_iconId);
@@ -117,7 +117,7 @@ function f_tcalShow (d_date) {
 		this.e_iframe.src = this.a_tpl.imgpath + 'pixel.gif';
 		document.body.appendChild(this.e_iframe);
 	}
-	
+
 	// hide all calendars
 	f_tcalHideAll();
 
@@ -151,7 +151,7 @@ function f_tcalHide (n_date) {
 	if (this.e_shade)
 		this.e_shade.style.visibility = 'hidden';
 	this.e_div.style.visibility = 'hidden';
-	
+
 	// change icon and status
 	this.e_icon = f_getElement(this.s_iconId);
 	this.e_icon.src = this.a_tpl.imgpath + 'cal.gif';
@@ -180,14 +180,14 @@ function f_tcalUpdate (d_date) {
 	else if (typeof(d_date) == 'string')
 		// parse from string
 		d_date = this.f_parseDate(d_date);
-		
+
 	if (!d_date) return false;
 
 	// first date to display
 	var d_firstday = new Date(d_date);
 	d_firstday.setDate(1);
 	d_firstday.setDate(1 - (7 + d_firstday.getDay() - this.a_tpl.weekstart) % 7);
-	
+
 	var a_class, s_html = '<table class="ctrl"><tbody><tr>'
 		+ (this.a_tpl.yearscroll ? '<td' + this.f_relDate(d_date, -1, 'y') + ' title="Previous Year"><img src="' + this.a_tpl.imgpath + 'prev_year.gif" /></td>' : '')
 		+ '<td' + this.f_relDate(d_date, -1) + ' title="Previous Month"><img src="' + this.a_tpl.imgpath + 'prev_mon.gif" /></td><th>'
@@ -205,7 +205,7 @@ function f_tcalUpdate (d_date) {
 	var n_date, n_month, d_current = new Date(d_firstday);
 	while (d_current.getMonth() == d_date.getMonth() ||
 		d_current.getMonth() == d_firstday.getMonth()) {
-	
+
 		// print row heder
 		s_html +='<tr>';
 		for (var n_wday = 0; n_wday < 7; n_wday++) {
@@ -234,7 +234,7 @@ function f_tcalUpdate (d_date) {
 		s_html +='</tr>';
 	}
 	s_html +='</tbody></table>';
-	
+
 	// update HTML, positions and sizes
 	this.e_div.innerHTML = s_html;
 
@@ -243,7 +243,7 @@ function f_tcalUpdate (d_date) {
 	var n_top  = f_getPosition (this.e_icon, 'Top') + this.e_icon.offsetHeight;
 	var n_left = f_getPosition (this.e_icon, 'Left') - n_width + this.e_icon.offsetWidth;
 	if (n_left < 0) n_left = 0;
-	
+
 	this.e_div.style.left = n_left + 'px';
 	this.e_div.style.top  = n_top + 'px';
 
@@ -253,7 +253,7 @@ function f_tcalUpdate (d_date) {
 	this.e_shade.innerHTML = b_ieFix
 		? '<table><tbody><tr><td rowspan="2" colspan="2" width="6"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td><td width="7" height="7" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + this.a_tpl.imgpath + 'shade_tr.png\', sizingMethod=\'scale\');"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td></tr><tr><td height="' + (n_height - 7) + '" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + this.a_tpl.imgpath + 'shade_mr.png\', sizingMethod=\'scale\');"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td></tr><tr><td width="7" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + this.a_tpl.imgpath + 'shade_bl.png\', sizingMethod=\'scale\');"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td><td style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + this.a_tpl.imgpath + 'shade_bm.png\', sizingMethod=\'scale\');" height="7" align="left"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td><td style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + this.a_tpl.imgpath + 'shade_br.png\', sizingMethod=\'scale\');"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td></tr><tbody></table>'
 		: '<table><tbody><tr><td rowspan="2" width="6"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td><td rowspan="2"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td><td width="7" height="7"><img src="' + this.a_tpl.imgpath + 'shade_tr.png"></td></tr><tr><td background="' + this.a_tpl.imgpath + 'shade_mr.png" height="' + (n_height - 7) + '"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td></tr><tr><td><img src="' + this.a_tpl.imgpath + 'shade_bl.png"></td><td background="' + this.a_tpl.imgpath + 'shade_bm.png" height="7" align="left"><img src="' + this.a_tpl.imgpath + 'pixel.gif"></td><td><img src="' + this.a_tpl.imgpath + 'shade_br.png"></td></tr><tbody></table>';
-	
+
 	if (this.e_iframe) {
 		this.e_iframe.style.left = n_left + 'px';
 		this.e_iframe.style.top  = n_top + 'px';
@@ -277,7 +277,7 @@ function f_getPosition (e_elemRef, s_coord) {
 		n_pos += parseInt(document.body[s_coord.toLowerCase() + 'Margin']);
 	else if (b_safari)
 		n_pos -= n_offset;
-	
+
 	e_elem = e_elemRef;
 	while (e_elem != document.body) {
 		n_offset = e_elem["scroll" + s_coord];
@@ -301,7 +301,7 @@ function f_tcalHideAll () {
 	if (!window.A_TCALSIDX) return;
 	for (var i = 0; i < window.A_TCALSIDX.length; i++)
 		window.A_TCALSIDX[i].f_hide();
-}	
+}
 
 function f_tcalResetTime (d_date) {
 	d_date.setHours(12);
@@ -311,7 +311,7 @@ function f_tcalResetTime (d_date) {
 	return d_date;
 }
 
-f_getElement = document.all ?
+var f_getElement = document.all ?
 	function (s_id) { return document.all[s_id] } :
 	function (s_id) { return document.getElementById(s_id) };
 
@@ -319,7 +319,7 @@ if (document.addEventListener)
 	window.addEventListener('scroll', f_tcalHideAll, false);
 if (window.attachEvent)
 	window.attachEvent('onscroll', f_tcalHideAll);
-	
+
 // global variables
 var s_userAgent = navigator.userAgent.toLowerCase(),
 	re_webkit = /WebKit\/(\d+)/i;

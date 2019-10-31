@@ -426,11 +426,7 @@ if ($action == "new") {
     $max = $maxawards;
     $pages = ceil($gesamt / $max);
 
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=awards&sort=$sort&type=$type", $page, $pages);
-    } else {
-        $page_link = '';
-    }
+    $page_link = makepagelink("index.php?site=awards&sort=$sort&type=$type", $page, $pages);
 
     if ($page == "1") {
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "awards ORDER BY $sort $type LIMIT 0,$max");

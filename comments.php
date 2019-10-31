@@ -322,11 +322,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     $gesamt = mysqli_num_rows($alle);
     $commentspages = ceil($gesamt / $maxfeedback);
 
-    if ($commentspages > 1) {
-        $page_link = makepagelink("$referer&amp;sorttype=$sorttype", $commentspage, $commentspages, 'comments');
-    } else {
-        $page_link = '';
-    }
+    $page_link = makepagelink("$referer&amp;sorttype=$sorttype", $commentspage, $commentspages, 'comments');
 
     if ($commentspage == "1") {
         $ergebnis = safe_query(

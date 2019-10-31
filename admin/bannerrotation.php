@@ -472,8 +472,9 @@ if ($action == "add") {
 
       $i++;
 		}
-	}
-  else echo'<tr><td class="td1" colspan="5">'.$_language->module['no_entries'].'</td></tr>';
+	} else {
+        echo'<tr><td class="td1" colspan="5">'.$_language->module['no_entries'].'</td></tr>';
+    }
 
   echo '</table></form>';
 }

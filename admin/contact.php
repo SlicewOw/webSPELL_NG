@@ -216,8 +216,11 @@ else {
 	  <td class="hidden-xs hidden-sm"><select name="sortcontact[]">';
 
     for($n=1; $n<=$anz; $n++) {
-			if ($ds['sort'] == $n) echo'<option value="' . $ds['contactID'] . '-' . $n . '" selected="selected">' . $n . '</option>';
-			else echo'<option value="' . $ds['contactID'] . '-' . $n . '">' . $n . '</option>';
+			if ($ds['sort'] == $n) {
+        echo'<option value="' . $ds['contactID'] . '-' . $n . '" selected="selected">' . $n . '</option>';
+      } else {
+        echo'<option value="' . $ds['contactID'] . '-' . $n . '">' . $n . '</option>';
+      }
 		}
 
 		echo'</select></td>

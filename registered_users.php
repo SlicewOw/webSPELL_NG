@@ -66,11 +66,7 @@ if (isset($_GET[ 'type' ])) {
     }
 }
 
-if ($pages > 1) {
-    $page_link = makepagelink("index.php?site=registered_users&amp;sort=$sort&amp;type=$type", $page, $pages);
-} else {
-    $page_link = '';
-}
+$page_link = makepagelink("index.php?site=registered_users&amp;sort=$sort&amp;type=$type", $page, $pages);
 
 if ($page == "1") {
     $ergebnis =

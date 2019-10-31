@@ -366,11 +366,7 @@ if (isset($_POST['delete'])) {
         }
         $pages = ceil($gesamt / $max);
 
-        if ($pages > 1) {
-            $page_link = makepagelink("index.php?site=messenger&amp;action=outgoing&amp;entries=$max", $page, $pages);
-        } else {
-            $page_link = '';
-        }
+        $page_link = makepagelink("index.php?site=messenger&amp;action=outgoing&amp;entries=$max", $page, $pages);
 
         if ($page == "1") {
             $ergebnis = safe_query(

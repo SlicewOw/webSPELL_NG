@@ -208,8 +208,7 @@ else {
     if ($gesamt>$n) $pages++;
   }
 
-  if ($pages>1) $page_link = makepagelink("admincenter.php?site=newslanguages", $page, $pages);
-    else $page_link='';
+  $page_link = makepagelink("admincenter.php?site=newslanguages", $page, $pages);
 
   if ($page == "1") {
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."news_languages ORDER BY lang ASC LIMIT 0,$max");

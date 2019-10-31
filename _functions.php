@@ -34,6 +34,11 @@ systeminc('ip');
 
 function makepagelink($link, $page, $pages, $sub = '')
 {
+
+    if ($pages < 2) {
+        return '';
+    }
+
     $page_link = '<nav>
   <ul class="pagination pagination-sm">';
 

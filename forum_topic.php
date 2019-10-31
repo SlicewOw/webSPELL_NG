@@ -393,10 +393,8 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
     $max = $maxposts;
     $pages = ceil($gesamt / $maxposts);
 
-    $page_link = '';
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=forum_topic&amp;topic=$topic&amp;type=$type", $page, $pages);
-    }
+    $page_link = makepagelink("index.php?site=forum_topic&amp;topic=$topic&amp;type=$type", $page, $pages);
+
     if ($type == "ASC") {
         $sorter =
             '<a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;page=' . $page . '&amp;type=DESC">' .

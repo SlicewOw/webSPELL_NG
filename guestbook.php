@@ -224,11 +224,7 @@ if (isset($_POST[ 'save' ])) {
     }
     $pages = ceil($gesamt / $maxguestbook);
 
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=guestbook&amp;type=$type", $page, $pages);
-    } else {
-        $page_link = '';
-    }
+    $page_link = makepagelink("index.php?site=guestbook&amp;type=$type", $page, $pages);
 
     if ($page == "1") {
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "guestbook ORDER BY date $type LIMIT 0,$maxguestbook");

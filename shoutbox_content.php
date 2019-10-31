@@ -112,11 +112,7 @@ if ($action == "save") {
         }
     }
 
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=shoutbox_content&amp;action=showall&amp;type=$type", $page, $pages);
-    } else {
-        $page_link = '';
-    }
+    $page_link = makepagelink("index.php?site=shoutbox_content&amp;action=showall&amp;type=$type", $page, $pages);
 
     if ($page == "1") {
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "shoutbox ORDER BY date $type LIMIT 0,$max");
@@ -196,9 +192,8 @@ if ($action == "save") {
         </div>
         </form>';
 
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=shoutbox_content&amp;action=showall", $page, $pages);
-    }
+    $page_link = makepagelink("index.php?site=shoutbox_content&amp;action=showall", $page, $pages);
+
 } else if (basename($_SERVER[ 'PHP_SELF' ]) != "shoutbox_content.php") {
     redirect('index.php?site=shoutbox_content&action=showall', 'shoutbox', 0);
 } else {

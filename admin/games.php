@@ -284,8 +284,7 @@ if ($action == "add") {
     if ($gesamt>$n) $pages++;
   }
 
-  if ($pages>1) $page_link = makepagelink("admincenter.php?site=games", $page, $pages);
-    else $page_link='';
+  $page_link = makepagelink("admincenter.php?site=games", $page, $pages);
 
   if ($page == "1") {
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."games ORDER BY name ASC LIMIT 0,$max");
@@ -336,7 +335,9 @@ if ($action == "add") {
   }
     echo'</table>';
 
-if ($pages>1) echo $page_link;
+  if ($pages>1) {
+    echo $page_link;
+  }
 }
 echo '</div></div>';
 ?>

@@ -30,17 +30,18 @@ $_language->readModule('about');
 $ergebnis = safe_query("SELECT * FROM " . PREFIX . "about");
 if (mysqli_num_rows($ergebnis)) {
     $ds = mysqli_fetch_array($ergebnis);
-	
+
 	$about=htmloutput($ds['about']);
 	$about=substr($about, 0, 350);
 	$about.='...';
-	
+
     $data_array = array();
     $data_array['$about'] = $about;
     $about = $GLOBALS["_template"]->replaceTemplate("about", $data_array);
     echo $about;
 
+} else {
+    echo $_language->module['no_about'];
 }
-else echo $_language->module['no_about'];
 
 ?>

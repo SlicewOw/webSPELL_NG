@@ -287,9 +287,7 @@ if ($action == "add") {
     }
 } else {
 
-
-if (isset($_GET['page'])) $page=(int)$_GET['page'];
-  else $page = 1;
+  $page= (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
 
     echo'<div class="panel panel-default">
     <div class="panel-heading">
@@ -307,17 +305,17 @@ if (isset($_GET['page'])) $page=(int)$_GET['page'];
   $max='15';
 
   for ($n=$max; $n<=$gesamt; $n+=$max) {
-    if ($gesamt>$n) $pages++;
+    if ($gesamt>$n) {
+      $pages++;
+    }
   }
 
-  if ($pages>1) $page_link = makepagelink("admincenter.php?site=countries", $page, $pages);
-    else $page_link='';
+  $page_link = makepagelink("admincenter.php?site=countries", $page, $pages);
 
   if ($page == "1") {
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."countries ORDER BY country ASC LIMIT 0,$max");
     $n=1;
-  }
-  else {
+  } else {
     $start=$page*$max-$max;
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."countries ORDER BY country ASC LIMIT $start,$max");
     $n = ($gesamt+1)-$page*$max+$max;
@@ -332,13 +330,6 @@ if (isset($_GET['page'])) $page=(int)$_GET['page'];
       <th><strong>' . $_language->module['shorthandle'] . '</strong></th>
       <th><strong>' . $_language->module['actions'] . '</strong></th>
     </thead>';
-
-
-
-
-
-
-
 
           $ds = safe_query("SELECT * FROM `" . PREFIX . "countries` ORDER BY `country`");
 
@@ -377,11 +368,10 @@ while($ds=mysqli_fetch_array($ergebnis)) {
 
     }
 
-  #else echo'<tr><td class="td1" colspan="5">'.$_language->module['no_entries'].'</td></tr>';
-
   echo '</table>';
-  if ($pages>1) echo $page_link;
-  #echo '</form>';
+  if ($pages>1) {
+    echo $page_link;
+  }
 
 }
 echo '</div></div>';

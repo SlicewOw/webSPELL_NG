@@ -1487,11 +1487,7 @@ if ($action == "new") {
     $max = $maxclanwars;
     $pages = ceil($gesamt / $max);
 
-    if ($pages > 1) {
-        $page_link = makepagelink("index.php?site=clanwars&amp;sort=$sort&amp;type=$type", $page, $pages);
-    } else {
-        $page_link = "";
-    }
+    $page_link = makepagelink("index.php?site=clanwars&amp;sort=$sort&amp;type=$type", $page, $pages);
 
     if ($page == "1") {
         $ergebnis = safe_query(
