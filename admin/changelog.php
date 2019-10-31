@@ -25,7 +25,7 @@
 		<?php
 		# written by Getschonnik
  		/*
-		try { 
+		try {
 
 			$myXMLData = file_get_contents("http://webspell-nor.de/_NOR/changelog.xml");
 			$xml=simplexml_load_string($myXMLData) or die("Error: Cannot create object");
@@ -33,7 +33,7 @@
 			 for($m = 0; $m<=(count($xml->major)-1); $m++) {
 				echo '<div class="bs-callout bs-callout-primary">';
 					echo "<strong>webSPELL | NOR ".$xml->major[$m]->version  .".".$xml->major[$m]->minor->version;
-					if($xml->major[$m]->patch->character!=""){
+					if ($xml->major[$m]->patch->character!=""){
 						echo ".".$xml->major[$m]->patch->character;
 					}
 				echo '</strong></div>';
@@ -41,7 +41,7 @@
 					echo '<div class="list-group">';
 					echo '<a href="#" class="list-group-item active">'.$xml->major[$m]->patch->description[$d]->name  .'&nbsp;<span class="badge">'.count($xml->major[$m]->patch->description[$d]->note).'</span></a>';
 					for($i = 0; $i<=(count($xml->major[$m]->patch->description[$d]->note)-1); $i++) {
-						echo '<a href="#" class="list-group-item">'.$xml->major[$m]->patch->description[$d]->note[$i]  ."</a>";	
+						echo '<a href="#" class="list-group-item">'.$xml->major[$m]->patch->description[$d]->note[$i]  ."</a>";
 					}
 					echo '</div>';
 				}

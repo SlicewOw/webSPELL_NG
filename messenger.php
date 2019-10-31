@@ -44,7 +44,7 @@ if (isset($_POST['delete'])) {
         safe_query("DELETE FROM " . PREFIX . "messenger WHERE messageID='" . $id . "' AND userID='" . $userID . "'");
     }
     header("Location: index.php?site=messenger&action=outgoing");
-} elseif (isset($_POST['quickaction'])) {
+} else if (isset($_POST['quickaction'])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -59,11 +59,11 @@ if (isset($_POST['delete'])) {
             foreach ($messageID as $id) {
                 safe_query("UPDATE " . PREFIX . "messenger SET viewed='1' WHERE messageID='$id' AND userID='$userID'");
             }
-        } elseif ($quickactiontype == "notviewed") {
+        } else if ($quickactiontype == "notviewed") {
             foreach ($messageID as $id) {
                 safe_query("UPDATE " . PREFIX . "messenger SET viewed='0' WHERE messageID='$id' AND userID='$userID'");
             }
-        } elseif ($quickactiontype == "delete") {
+        } else if ($quickactiontype == "delete") {
             foreach ($messageID as $id) {
                 safe_query("DELETE FROM " . PREFIX . "messenger WHERE messageID='$id' AND touser='$userID'");
             }
@@ -72,7 +72,7 @@ if (isset($_POST['delete'])) {
     } else {
         header("Location: index.php?site=messenger&action=incoming");
     }
-} elseif (isset($_POST['send'])) {
+} else if (isset($_POST['send'])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -135,7 +135,7 @@ if (isset($_POST['delete'])) {
         header("Location: index.php?site=messenger&action=newmessage");
         exit();
     }
-} elseif (isset($_POST['reply'])) {
+} else if (isset($_POST['reply'])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -146,7 +146,7 @@ if (isset($_POST['delete'])) {
 
     header("Location: index.php?site=messenger&action=outgoing");
     exit();
-} elseif ($userID) {
+} else if ($userID) {
     $_language->readModule('messenger');
 
     if (isset($_REQUEST['action'])) {
@@ -273,11 +273,11 @@ if (isset($_POST['delete'])) {
 
                 if ($userID == $ds['fromuser']) {
                     $buddy = '';
-                } elseif (isignored($userID, $ds['fromuser'])) {
+                } else if (isignored($userID, $ds['fromuser'])) {
                     $buddy =
                         '<a href="buddies.php?action=readd&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
                         '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
-                } elseif (isbuddy($userID, $ds['fromuser'])) {
+                } else if (isbuddy($userID, $ds['fromuser'])) {
                     $buddy =
                         '<a href="buddies.php?action=ignore&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
                         '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore' ] . '"><span class="fa fa-user-times"></span></a>';
@@ -337,7 +337,7 @@ if (isset($_POST['delete'])) {
 
         $pm_incoming_foot = $GLOBALS["_template"]->replaceTemplate("pm_incoming_foot", array());
         echo $pm_incoming_foot;
-    } elseif ($action == "outgoing") {
+    } else if ($action == "outgoing") {
         if (isset($_REQUEST['entries'])) {
             $entries = $_REQUEST['entries'];
         }
@@ -443,10 +443,10 @@ if (isset($_POST['delete'])) {
 
                 if ($userID == $ds['touser']) {
                     $buddy = '';
-                } elseif (isignored($userID, $ds['touser'])) {
+                } else if (isignored($userID, $ds['touser'])) {
                     $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
                         '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'back_buddylist' ] . '"><span class="fa fa-user-plus"></span></a>';
-                } elseif (isbuddy($userID, $ds['touser'])) {
+                } else if (isbuddy($userID, $ds['touser'])) {
                     $buddy =
                         '<a href="buddies.php?action=ignore&amp;id=' . $ds['fromuser'] . '&amp;userID=' . $userID .
                         '" data-toggle="tooltip" data-placement="top" title="' . $_language->module[ 'ignore' ] . '"><span class="fa fa-user-times"></span></a>';
@@ -464,7 +464,7 @@ if (isset($_POST['delete'])) {
                     $member = '';
                 }
 
-                if(isonline($ds['touser']) == "offline") {
+                if (isonline($ds['touser']) == "offline") {
                     $statuspic = '<span class="fa fa-circle text-danger" aria-hidden="true"></span>';
                 } else {
                     $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
@@ -498,7 +498,7 @@ if (isset($_POST['delete'])) {
 
         $pm_outgoing_foot = $GLOBALS["_template"]->replaceTemplate("pm_outgoing_foot", array());
         echo $pm_outgoing_foot;
-    } elseif ($action == "show") {
+    } else if ($action == "show") {
         $id = (int)$_GET['id'];
         $ds = mysqli_fetch_array(
             safe_query(
@@ -534,7 +534,7 @@ if (isset($_POST['delete'])) {
         } else {
             redirect('index.php?site=messenger', '', 0);
         }
-    } elseif ($action == "touser") {
+    } else if ($action == "touser") {
         $touser = $_GET['touser'];
         $_language->readModule('bbcode', true);
 
@@ -549,7 +549,7 @@ if (isset($_POST['delete'])) {
         $data_array['$touser'] = $touser;
         $pm_new_touser = $GLOBALS["_template"]->replaceTemplate("pm_new_touser", $data_array);
         echo $pm_new_touser;
-    } elseif ($action == "reply") {
+    } else if ($action == "reply") {
         $id = $_GET['id'];
         $_language->readModule('bbcode', true);
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "messenger WHERE messageID='$id'");
@@ -582,7 +582,7 @@ if (isset($_POST['delete'])) {
         } else {
             redirect('index.php?site=messenger', '', 0);
         }
-    } elseif ($action == "newmessage") {
+    } else if ($action == "newmessage") {
         $_language->readModule('bbcode', true);
         $ergebnis = safe_query("SELECT buddy FROM " . PREFIX . "buddys WHERE userID='$userID'");
         $user = '';

@@ -207,7 +207,7 @@ function codereplace($content)
             for ($z = ($i + 1); $z < $anz; $z++) {
                 if (strtolower($splits[$z]) == "[code]") {
                     $opentags++;
-                } elseif (strtolower($splits[$z]) == "[/code]") {
+                } else if (strtolower($splits[$z]) == "[/code]") {
                     $closetags++;
                 }
                 if ($closetags == $opentags) {
@@ -317,8 +317,8 @@ function imgreplace($content)
             $i++;
             if ($autoresize == 1) {
 
-				if(!empty($teil[2])) {
-					if(@getimagesize($teil[2])) {
+				if (!empty($teil[2])) {
+					if (@getimagesize($teil[2])) {
 						$picinfo = getimagesize($teil[2]);
 					} else {
 						$err = "{".$_language->module['na']."}";
@@ -348,9 +348,9 @@ function imgreplace($content)
                 } else {
                     $size_h = $picsize_h;
                 }
-				#if(!isset($err)) {
+				#if (!isset($err)) {
 					if ($picinfo[0] > $size_l || $picinfo[1] > $size_h) {
-						if(isset($err)) {
+						if (isset($err)) {
 							$nfo = $err;
 						} else {
 							$nfo = '[i]' . $_language->module['auto_resize'] .
@@ -363,8 +363,8 @@ function imgreplace($content)
 							'" alt="' . $teil[2] . '" /><br />('.$nfo.')[/url]</div>',
 							$content
 						);
-					} elseif ($picinfo[0] > (2 * $size_l) || $picinfo[1] > (2 * $size_h)) {
-						if(isset($err)) {
+					} else if ($picinfo[0] > (2 * $size_l) || $picinfo[1] > (2 * $size_h)) {
+						if (isset($err)) {
 							$nfo = $err;
 						} else {
 							$nfo = $picinfo[1] . 'x' . $picinfo[0] . 'px, ' . $format;
@@ -467,7 +467,7 @@ function quotereplace($content)
     for ($i = 0; $i < $overflow; $i++) {
         if ($starttags > $endtags) {
             $content = $content . '[/quote]';
-        } elseif ($endtags > $starttags) {
+        } else if ($endtags > $starttags) {
             $content = '[quote]' . $content;
         }
     }
@@ -519,7 +519,7 @@ function urlreplace_callback($match)
         } else {
             $url = $match[1];
         }
-    } elseif (!isset($parsed['scheme'])) {
+    } else if (!isset($parsed['scheme'])) {
         $url = "http://".$match[1];
     } else {
         $url = $match[1];

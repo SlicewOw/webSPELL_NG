@@ -95,7 +95,7 @@ $any = mysqli_num_rows($db_results);
 
 if ($any == 0) {
     echo $_language->module[ 'no_result' ];
-} elseif ($any <= 100) {
+} else if ($any <= 100) {
     while ($row = mysqli_fetch_array($db_results)) {
         $searchresult = stripslashes($row[ $column ]);
         $resultidentifier = $row[ $identifier ];

@@ -12,7 +12,7 @@ namespace {
     if (!defined('PASSWORD_BCRYPT')) {
         /**
          * PHPUnit Process isolation caches constants, but not function declarations.
-         * So we need to check if the constants are defined separately from 
+         * So we need to check if the constants are defined separately from
          * the functions to enable supporting process isolation in userland
          * code.
          */
@@ -95,7 +95,7 @@ namespace {
                 if (PasswordCompat\binary\_strlen($salt) < $required_salt_len) {
                     trigger_error(sprintf("password_hash(): Provided salt is too short: %d expecting %d", PasswordCompat\binary\_strlen($salt), $required_salt_len), E_USER_WARNING);
                     return null;
-                } elseif (0 == preg_match('#^[a-zA-Z0-9./]+$#D', $salt)) {
+                } else if (0 == preg_match('#^[a-zA-Z0-9./]+$#D', $salt)) {
                     $salt_req_encoding = true;
                 }
             } else {

@@ -207,7 +207,7 @@ if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
     }
     header("Location: index.php?site=forum_topic&topic=" . $topic . "&page=" . $page);
     exit();
-} elseif (isset($_POST['editreply']) && (bool)$_POST['editreply']) {
+} else if (isset($_POST['editreply']) && (bool)$_POST['editreply']) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -253,7 +253,7 @@ if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
         }
     }
     header("Location: index.php?site=forum_topic&topic=" . (int)$_GET['topic'] . "&page=" . (int)$_GET['page']);
-} elseif (isset($_POST['saveedittopic']) && (bool)$_POST['saveedittopic']) {
+} else if (isset($_POST['saveedittopic']) && (bool)$_POST['saveedittopic']) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -593,7 +593,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             "SELECT * FROM " . PREFIX .
             "forum_posts WHERE topicID='$topic' ORDER BY date DESC LIMIT $start, $max"
         );
-    } elseif ($addreply && !$dt['closed']) {
+    } else if ($addreply && !$dt['closed']) {
         if ($loggedin && $writer) {
             if (isset($_POST['preview'])) {
                 #$bg1 = BG_1;
@@ -659,7 +659,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                 if (isforumadmin($userID)) {
                     $usertype = $_language->module[getConstNameAdmin()];
                     $rang = '<img src="images/icons/ranks/admin.gif" alt="">';
-                } elseif (isanymoderator($userID)) {
+                } else if (isanymoderator($userID)) {
                     $usertype = $_language->module['moderator'];
                     $rang = '<img src="images/icons/ranks/moderator.gif" alt="">';
                 } else {
@@ -696,7 +696,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                 if (isforumadmin($userID)) {
                     $chk_sticky = '<input class="input" type="checkbox" name="sticky" value="1" ' . $_sticky . '> ' .
                         $_language->module['make_sticky'];
-                } elseif (isanymoderator($userID)) {
+                } else if (isanymoderator($userID)) {
                     $chk_sticky = '<input class="input" type="checkbox" name="sticky" value="1" ' . $_sticky . '> ' .
                         $_language->module['make_sticky'];
                 } else {
@@ -785,7 +785,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             $data_array['$page'] = $page;
             $forum_newreply = $GLOBALS["_template"]->replaceTemplate("forum_newreply", $data_array);
             echo $forum_newreply;
-        } elseif ($loggedin) {
+        } else if ($loggedin) {
             echo generateAlert($_language->module['no_access_write'], 'alert-danger');
         } else {
             echo generateAlert($_language->module['not_logged_msg'], 'alert-danger');
@@ -823,7 +823,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
 
         if ($date == $today) {
             $date = $_language->module['today'];
-        } elseif ($date == $yesterday && $date < $today) {
+        } else if ($date == $yesterday && $date < $today) {
             $date = $_language->module['yesterday'];
         }
 
@@ -866,7 +866,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             if (isignored($userID, $dr['poster'])) {
                 $buddy = '<a href="buddies.php?action=readd&amp;id=' . $dr['poster'] . '&amp;userID=' . $userID .
                     '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['back_buddy'] . '"><span class="fa fa-user-plus"></span></a>';
-            } elseif (isbuddy($userID, $dr['poster'])) {
+            } else if (isbuddy($userID, $dr['poster'])) {
                 $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $dr['poster'] . '&amp;userID=' . $userID .
                     '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['ignore'] . '"><span class="fa fa-user-times"></span></a></a>';
             } else {
@@ -904,7 +904,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         if (isforumadmin($dr['poster'])) {
             $usertype = $_language->module[getConstNameAdmin()];
             $rang = '<img src="images/icons/ranks/admin.gif" alt="">';
-        } elseif (isanymoderator($dr['poster'])) {
+        } else if (isanymoderator($dr['poster'])) {
             $usertype = $_language->module['moderator'];
             $rang = '<img src="images/icons/ranks/moderator.gif" alt="">';
         } else {

@@ -25,7 +25,7 @@
 ##########################################################################
 */
 
-if($_POST['agree'] == "1") {
+if ($_POST['agree'] == "1") {
 
 	function getwspath() {
 		$path = $_SERVER['HTTP_ORIGIN'] . $_SERVER['PHP_SELF'];
@@ -35,13 +35,13 @@ if($_POST['agree'] == "1") {
 	function getwebserver($path) {
 		$path=str_replace('http://','',$path);
 		$server = str_replace(strstr($path,'/'),'',$path);
-		if(mb_substr($server,0,3) == 'www') $server = mb_substr(strstr($server,'.'),1);
+		if (mb_substr($server,0,3) == 'www') $server = mb_substr(strstr($server,'.'),1);
 		return $server;
 
 	}
 	//version test
 	$versionerror=false;
-	if(phpversion()=='5.2.6') $versionerror=true;
+	if (phpversion()=='5.2.6') $versionerror=true;
 ?>
 <div class="row marketing">
     <div class="col-xs-12">

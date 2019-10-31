@@ -161,7 +161,7 @@ if ($action == "save" && isset($_POST['post'])) {
         $show = true;
         $showerror = generateErrorBoxFromArray($_language->module['problems'], $error);
     }
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     $chID = $_GET['chID'];
     if (isclanwaradmin($userID)) {
         safe_query("DELETE FROM `" . PREFIX . "challenge` WHERE `chID` = '" . (int)$chID ."'");
@@ -239,7 +239,7 @@ if ($show === true) {
         $data_array['$email'] = $email;
         $data_array['$info'] = $info;
         $challenge_loggedin = $GLOBALS["_template"]->replaceTemplate("challenge_loggedin", $data_array);
-		if(!empty($squads)) {
+		if (!empty($squads)) {
 			echo $challenge_loggedin;
 		}
     } else {
@@ -269,7 +269,7 @@ if ($show === true) {
         $data_array['$hash'] = $hash;
 		$template = $GLOBALS["_template"]->replaceTemplate("challenge_notloggedin", $data_array);
     }
-		if($showform==0) {
+		if ($showform==0) {
 			$data_array = array();
 			$data_array['$showerror'] = generateErrorBoxFromArray($_language->module['problems'], array($_language->module['no_gamingsquad']));
 			$alertbox = $GLOBALS["_template"]->replaceTemplate("challenge_noteam", $data_array);
@@ -277,7 +277,7 @@ if ($show === true) {
 			return false;
 		} else {
 			if (!$loggedin) {
-				if(!empty($squads)) {
+				if (!empty($squads)) {
 					echo $template;
 				}
 			}

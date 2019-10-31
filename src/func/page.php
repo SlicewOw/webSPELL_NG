@@ -30,7 +30,7 @@ function redirect($url, $info, $time = 1)
     if ($url == "back" && $info != '' && isset($_SERVER['HTTP_REFERER'])) {
         $url = $_SERVER['HTTP_REFERER'];
         $info = '';
-    } elseif ($url == "back" && $info != '') {
+    } else if ($url == "back" && $info != '') {
         $url = $info;
         $info = '';
     }
@@ -107,7 +107,7 @@ function generateComponents($components, $type)
     foreach ($components as $component) {
         if ($type === 'js') {
             $return .= '<script src="' . $component . '"></script>';
-        } elseif ($type === 'css') {
+        } else if ($type === 'css') {
             $return .= '<link href="' . $component . '" rel="stylesheet">';
         }
     }

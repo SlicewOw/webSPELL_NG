@@ -58,7 +58,7 @@ if ($part == "groups") {
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }
-    } elseif (isset($_POST[ 'saveedit' ])) {
+    } else if (isset($_POST[ 'saveedit' ])) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
             if (checkforempty(array('name'))) {
@@ -72,7 +72,7 @@ if ($part == "groups") {
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }
-    } elseif (isset($_POST[ 'sort' ])) {
+    } else if (isset($_POST[ 'sort' ])) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
             if (isset($_POST[ 'sortlist' ])) {
@@ -90,7 +90,7 @@ if ($part == "groups") {
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }
-    } elseif (isset($_GET[ 'delete' ])) {
+    } else if (isset($_GET[ 'delete' ])) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
             $db_result = safe_query("SELECT * FROM " . PREFIX . "gallery WHERE groupID='" . $_GET[ 'groupID' ] . "'");
@@ -132,7 +132,7 @@ if ($part == "groups") {
   </div>
 </form>
     </div></div>';
-	 } elseif ($action == "edit") {
+	 } else if ($action == "edit") {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
@@ -220,7 +220,7 @@ if ($part == "groups") {
     </table>
     </form></div></div>';
     }
-} elseif ($part == "gallerys") {
+} else if ($part == "gallerys") {
     if (isset($_POST[ 'save' ])) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -236,7 +236,7 @@ if ($part == "groups") {
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }
-    } elseif (isset($_POST[ 'saveedit' ])) {
+    } else if (isset($_POST[ 'saveedit' ])) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
             if (checkforempty(array('name'))) {
@@ -253,7 +253,7 @@ if ($part == "groups") {
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }
-    } elseif (isset($_POST[ 'saveftp' ])) {
+    } else if (isset($_POST[ 'saveftp' ])) {
         $dir = '../images/gallery/';
         if (isset($_POST[ 'comment' ])) {
             $comment = $_POST[ 'comment' ];
@@ -305,7 +305,7 @@ if ($part == "groups") {
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }
-    } elseif (isset($_POST[ 'saveform' ])) {
+    } else if (isset($_POST[ 'saveform' ])) {
         $dir = '../images/gallery/';
         $picture = $_FILES[ 'picture' ];
         $CAPCLASS = new \webspell\Captcha;
@@ -371,7 +371,7 @@ if ($part == "groups") {
                     $errors[] = $upload->translateError();
                 }
             }
-			if(isset($error)) {
+			if (isset($error)) {
 				if (count($errors)) {
 					$errors = array_unique($errors);
 					echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
@@ -380,7 +380,7 @@ if ($part == "groups") {
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }
-    } elseif (isset($_GET[ 'delete' ])) {
+    } else if (isset($_GET[ 'delete' ])) {
         //SQL
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
@@ -395,7 +395,7 @@ if ($part == "groups") {
                     $path = '../images/gallery/large/';
                     if (file_exists($path . $ds[ 'picID' ] . '.jpg')) {
                         $path = $path . $ds[ 'picID' ] . '.jpg';
-                    } elseif (file_exists($path . $ds[ 'picID' ] . '.png')) {
+                    } else if (file_exists($path . $ds[ 'picID' ] . '.png')) {
                         $path = $path . $ds[ 'picID' ] . '.png';
                     } else {
                         $path = $path . $ds[ 'picID' ] . '.gif';
@@ -468,7 +468,7 @@ if ($part == "groups") {
 	} else {
             echo '<br />' . $_language->module[ 'need_group' ];
         }
-    } elseif ($action == "edit") {
+    } else if ($action == "edit") {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
@@ -501,7 +501,7 @@ if ($part == "groups") {
       <input class="form-control" type="text" name="name" value="'.getinput($ds['name']).'" /></em></span>
     </div>
   </div>';
-  if($ds['userID'] != 0) echo '
+  if ($ds['userID'] != 0) echo '
   <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['usergallery_of'].':</label>
     <div class="col-sm-8"><span class="text-muted small"><em>
@@ -524,7 +524,7 @@ if ($part == "groups") {
   </div>
 
     </form></div></div>';
-	   } elseif ($action == "upload") {
+	   } else if ($action == "upload") {
         echo '<div class="panel panel-default">
          <div class="panel-heading">
                             <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
@@ -536,14 +536,14 @@ if ($part == "groups") {
         $dir = '../images/gallery/';
         if (isset($_POST[ 'upload' ])) {
             $upload_type = $_POST[ 'upload' ];
-        } elseif (isset($_GET[ 'upload' ])) {
+        } else if (isset($_GET[ 'upload' ])) {
             $upload_type = $_GET[ 'upload' ];
         } else {
             $upload_type = null;
         }
         if (isset($_POST[ 'galleryID' ])) {
             $id = $_POST[ 'galleryID' ];
-        } elseif (isset($_GET[ 'galleryID' ])) {
+        } else if (isset($_GET[ 'galleryID' ])) {
             $id = $_GET[ 'galleryID' ];
         }
         if ($upload_type == "ftp") {
@@ -580,9 +580,9 @@ if ($part == "groups") {
 			$picdir = opendir($dir);
 			while (false !== ($file = readdir($picdir))) {
 				if ($file != "." && $file != "..") {
-					if(is_file($dir.$file)) {
-						if($info = getimagesize($dir.$file)) {
-							if($info[2]==1 OR $info[2]==2 || $info[2]==3) $pics[] = $file;
+					if (is_file($dir.$file)) {
+						if ($info = getimagesize($dir.$file)) {
+							if ($info[2]==1 OR $info[2]==2 || $info[2]==3) $pics[] = $file;
 						}
 					}
 				}
@@ -629,7 +629,7 @@ if ($part == "groups") {
 		        </table>
 		        </form></div></div>';
 
-		} elseif ($upload_type == "form") {
+		} else if ($upload_type == "form") {
             $CAPCLASS = new \webspell\Captcha;
             $CAPCLASS->createTransaction();
             $hash = $CAPCLASS->getHash();

@@ -75,7 +75,7 @@ if ($action == "save") {
         }
     }
     redirect('index.php?site=shoutbox_content&action=showall', 'shoutbox', 0);
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     include("_mysql.php");
     include("_settings.php");
     include('_functions.php');
@@ -91,7 +91,7 @@ if ($action == "save") {
         }
     }
     header("Location: index.php?site=shoutbox_content&action=showall");
-} elseif ($action == "showall") {
+} else if ($action == "showall") {
     $_language->readModule('shoutbox');
     $title_shoutbox = $GLOBALS["_template"]->replaceTemplate("title_shoutbox", array());
     echo $title_shoutbox;
@@ -199,7 +199,7 @@ if ($action == "save") {
     if ($pages > 1) {
         $page_link = makepagelink("index.php?site=shoutbox_content&amp;action=showall", $page, $pages);
     }
-} elseif (basename($_SERVER[ 'PHP_SELF' ]) != "shoutbox_content.php") {
+} else if (basename($_SERVER[ 'PHP_SELF' ]) != "shoutbox_content.php") {
     redirect('index.php?site=shoutbox_content&action=showall', 'shoutbox', 0);
 } else {
     include("_mysql.php");

@@ -429,7 +429,7 @@ function istopicpost($topicID, $postID)
                     0,1"
             )
         );
-        if($ds[ 'postID' ] == $postID) {
+        if ($ds[ 'postID' ] == $postID) {
 	        return true;
 	    }
         else {

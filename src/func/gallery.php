@@ -111,7 +111,7 @@ class Gallery
                 $stop = false;
                 break;
             case IMAGETYPE_GIF:
-                $im = imagecreatefromgif($image);
+                $im = imagecreatefromgif ($image);
                 $stop = false;
                 break;
             case IMAGETYPE_PNG:
@@ -157,11 +157,11 @@ class Gallery
 
 
     	$anz = mysqli_num_rows(safe_query("SELECT picID FROM `" . PREFIX . "gallery_pictures` $only"));
-		$selected = mt_rand(0, $anz);	
-    	$pic = mysqli_fetch_array(								
-			safe_query(			
+		$selected = mt_rand(0, $anz);
+    	$pic = mysqli_fetch_array(
+			safe_query(
 				"SELECT `picID` FROM `" . PREFIX . "gallery_pictures` $only LIMIT $selected, 1"
-			)															
+			)
     	);
         return $pic['picID'];
     }
@@ -246,9 +246,9 @@ class Gallery
 
         if (file_exists('images/gallery/large/' . $picID . '.jpg')) {
             $file = 'images/gallery/large/' . $picID . '.jpg';
-        } elseif (file_exists('images/gallery/large/' . $picID . '.gif')) {
+        } else if (file_exists('images/gallery/large/' . $picID . '.gif')) {
             $file = 'images/gallery/large/' . $picID . '.gif';
-        } elseif (file_exists('images/gallery/large/' . $picID . '.png')) {
+        } else if (file_exists('images/gallery/large/' . $picID . '.png')) {
             $file = 'images/gallery/large/' . $picID . '.png';
         } else {
             $file = 'images/nopic.gif';

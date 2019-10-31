@@ -67,7 +67,7 @@ abstract class Upload
             if (stristr($mime, ";") !== false) {
                 $mime = substr($mime, 0, strpos($mime, ";"));
             }
-        } elseif (function_exists("mime_content_type")) {
+        } else if (function_exists("mime_content_type")) {
             $mime = mime_content_type($filename);
         }
 

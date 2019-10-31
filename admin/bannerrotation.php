@@ -99,7 +99,7 @@ if ($action == "add") {
   </div>
   </form></div>
   </div>';
-} elseif($action=="edit") {
+} elseif ($action=="edit") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
@@ -192,7 +192,7 @@ if ($action == "add") {
   </div>
   </form></div>
   </div>';
-} elseif (isset($_POST["save"])) {
+} else if (isset($_POST["save"])) {
     $bannername = $_POST["bannername"];
     $bannerurl = $_POST["bannerurl"];
     if (isset($_POST["displayed"])) {
@@ -288,7 +288,7 @@ if ($action == "add") {
     } else {
         echo generateErrorBox($_language->module['transaction_invalid']);
     }
-} elseif (isset($_POST["saveedit"])) {
+} else if (isset($_POST["saveedit"])) {
     $bannername = $_POST["bannername"];
     $bannerurl = $_POST["bannerurl"];
     if (isset($_POST["displayed"])) {
@@ -372,7 +372,7 @@ if ($action == "add") {
     } else {
         echo generateErrorBox($_language->module['transaction_invalid']);
     }
-} elseif (isset($_GET["delete"])) {
+} else if (isset($_GET["delete"])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET['captcha_hash'])) {
         if (safe_query(

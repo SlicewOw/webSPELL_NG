@@ -67,7 +67,7 @@ if (isset($_POST[ 'save' ]) && $_POST[ 'save' ]) {
     $id = mysqli_insert_id($_database);
 
     header("Location: index.php?site=cashbox&id=$id");
-} elseif (isset($_POST[ 'saveedit' ]) && $_POST[ 'saveedit' ]) {
+} else if (isset($_POST[ 'saveedit' ]) && $_POST[ 'saveedit' ]) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -98,7 +98,7 @@ if (isset($_POST[ 'save' ]) && $_POST[ 'save' ]) {
     );
 
     header("Location: index.php?site=cashbox&id=$id");
-} elseif (isset($_GET[ 'delete' ]) && $_GET[ 'delete' ]) {
+} else if (isset($_GET[ 'delete' ]) && $_GET[ 'delete' ]) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -111,7 +111,7 @@ if (isset($_POST[ 'save' ]) && $_POST[ 'save' ]) {
     safe_query("DELETE FROM " . PREFIX . "cash_box_payed WHERE cashID='".$id."'");
 
     header("Location: index.php?site=cashbox");
-} elseif (isset($_POST[ 'pay' ]) && $_POST[ 'pay' ]) {
+} else if (isset($_POST[ 'pay' ]) && $_POST[ 'pay' ]) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -206,7 +206,7 @@ if (!isclanmember($userID) && !iscashadmin($userID)) {
         $data_array['$anz'] = $anz;
         $cash_box_new = $GLOBALS["_template"]->replaceTemplate("cash_box_new", $data_array);
         echo $cash_box_new;
-    } elseif (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
+    } else if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
         if (!iscashadmin($userID)) {
             die($_language->module[ 'no_access' ]);
         }

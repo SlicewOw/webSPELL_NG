@@ -40,7 +40,7 @@ if (isset($_GET[ 'delcat' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $sortfaqcat = $_POST[ 'sortfaqcat' ];
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -53,7 +53,7 @@ if (isset($_GET[ 'delcat' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'savecat' ])) {
+} else if (isset($_POST[ 'savecat' ])) {
     $faqcatname = $_POST[ 'faqcatname' ];
     $description = $_POST[ 'message' ];
     $CAPCLASS = new \webspell\Captcha;
@@ -78,7 +78,7 @@ if (isset($_GET[ 'delcat' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveeditcat' ])) {
+} else if (isset($_POST[ 'saveeditcat' ])) {
     $faqcatname = $_POST[ 'faqcatname' ];
     $description = $_POST[ 'message' ];
     $faqcatID = $_POST[ 'faqcatID' ];
@@ -118,7 +118,7 @@ if (isset($_GET[ 'action' ])) {
     echo '<script language="JavaScript" type="text/javascript">
 					<!--
 						function chkFormular() {
-							if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+							if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
 								return false;
 							}
 						}
@@ -146,7 +146,7 @@ if (isset($_GET[ 'action' ])) {
     </form>
     </div>
   </div>';
-	 } elseif ($_GET[ 'action' ] == "editcat") {
+	 } else if ($_GET[ 'action' ] == "editcat") {
         $faqcatID = $_GET[ 'faqcatID' ];
 
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "faq_categories WHERE faqcatID='$faqcatID'");
@@ -170,7 +170,7 @@ if (isset($_GET[ 'action' ])) {
     echo '<script language="JavaScript" type="text/javascript">
 					<!--
 						function chkFormular() {
-							if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+							if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
 								return false;
 							}
 						}

@@ -239,7 +239,7 @@ function countempty($checkarray)
     foreach ($checkarray as $value) {
         if (is_array($value)) {
             $ret += countempty($value);
-        } elseif (trim($value) == "") {
+        } else if (trim($value) == "") {
             $ret++;
         }
     }
@@ -421,9 +421,9 @@ systeminc('login');
 
 if (isset($_COOKIE['language'])) {
     $_language->setLanguage($_COOKIE['language']);
-} elseif (isset($_SESSION['language'])) {
+} else if (isset($_SESSION['language'])) {
     $_language->setLanguage($_SESSION['language']);
-} elseif ($autoDetectLanguage) {
+} else if ($autoDetectLanguage) {
     $lang = detectUserLanguage();
     if (!empty($lang)) {
         $_language->setLanguage($lang);

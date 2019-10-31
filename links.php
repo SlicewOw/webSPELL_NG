@@ -101,7 +101,7 @@ if (isset($_POST[ 'save' ])) {
             }
         }
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $_language->readModule('links');
     if (!ispageadmin($userID) || !isnewsadmin($userID)) {
         echo generateAlert($_language->module['no_access'], 'alert-danger');
@@ -166,7 +166,7 @@ if (isset($_POST[ 'save' ])) {
             }
         }
     }
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -212,7 +212,7 @@ if ($action == "new") {
             generateAlert($_language->module[ 'no_access' ], 'alert-danger')
         );
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $linkID = $_GET[ 'linkID' ];
     if (ispageadmin($userID) || isnewsadmin($userID)) {
         $ds = mysqli_fetch_array(safe_query("SELECT * FROM " . PREFIX . "links WHERE linkID='$linkID'"));
@@ -261,7 +261,7 @@ if ($action == "new") {
             generateAlert($_language->module[ 'no_access' ], 'alert-danger')
         );
     }
-} elseif ($action == "show" && is_numeric($_GET[ 'linkcatID' ])) {
+} else if ($action == "show" && is_numeric($_GET[ 'linkcatID' ])) {
     if (ispageadmin($userID) || isnewsadmin($userID)) {
         echo
             '<a href="index.php?site=links&amp;action=new" class="btn btn-primary">' .

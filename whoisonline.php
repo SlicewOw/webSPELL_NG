@@ -139,11 +139,11 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
                 $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
                     <span class="fa fa-user-plus"></span>
                 </a>';
-            } elseif (isbuddy($userID, $ds[ 'userID' ])) {
+            } else if (isbuddy($userID, $ds[ 'userID' ])) {
                 $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
                     <span class="fa fa-user-times"></span></a>
                 </a>';
-            } elseif ($userID == $ds[ 'userID' ]) {
+            } else if ($userID == $ds[ 'userID' ]) {
                 $buddy = '';
             } else {
                 $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
@@ -189,27 +189,27 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
         $status = $_language->module[ 'is_watching_the' ] . ' <a href="index.php?site=' . $ds[ 'site' ] . '">' .
             $_language->module[ $ds[ 'site' ] ] . '
         </a>';
-    } elseif (in_array($ds[ 'site' ], $array_reading)) {
+    } else if (in_array($ds[ 'site' ], $array_reading)) {
         $status = $_language->module[ 'is_reading_the' ] . ' <a href="index.php?site=' . $ds[ 'site' ] . '">' .
             $_language->module[ $ds[ 'site' ] ] . '
         </a>';
-    } elseif ($ds[ 'site' ] == "buddies") {
+    } else if ($ds[ 'site' ] == "buddies") {
         $status = $_language->module[ 'is_watching_his' ] . ' <a href="index.php?site=buddies">' .
             $_language->module[ 'buddys' ] . '</a>';
-    } elseif ($ds[ 'site' ] == "clanwars_details") {
+    } else if ($ds[ 'site' ] == "clanwars_details") {
         $status = $_language->module[ 'is_watching_details_clanwar' ];
-    } elseif ($ds[ 'site' ] == "forum_topic") {
+    } else if ($ds[ 'site' ] == "forum_topic") {
         $status = $_language->module[ 'is_reading_forum' ];
-    } elseif ($ds[ 'site' ] == "messenger") {
+    } else if ($ds[ 'site' ] == "messenger") {
         $status = $_language->module[ 'is_watching_his' ] . ' <a href="index.php?site=messenger">' .
             $_language->module[ 'messenger' ] . '</a>';
-    } elseif ($ds[ 'site' ] == "myprofile") {
+    } else if ($ds[ 'site' ] == "myprofile") {
         $status =
             $_language->module[ 'is_editing_his' ] . ' <a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] .
             '">' . $_language->module[ 'profile' ] . '</a>';
-    } elseif ($ds[ 'site' ] == "news_comments") {
+    } else if ($ds[ 'site' ] == "news_comments") {
         $status = $_language->module[ 'is_reading_newscomments' ];
-    } elseif ($ds[ 'site' ] == "profile") {
+    } else if ($ds[ 'site' ] == "profile") {
         $status = $_language->module[ 'is_watching_profile' ];
     } else {
         $status =
@@ -313,11 +313,11 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
             $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
                 <span class="fa fa-user-plus"></span>
             </a>';
-        } elseif (isbuddy($userID, $ds[ 'userID' ])) {
+        } else if (isbuddy($userID, $ds[ 'userID' ])) {
             $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
                 <span class="fa fa-user-times"></span></a>
             </a>';
-        } elseif ($userID == $ds[ 'userID' ]) {
+        } else if ($userID == $ds[ 'userID' ]) {
             $buddy = '';
         } else {
             $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID . '">
@@ -353,26 +353,26 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
     if (in_array($ds[ 'site' ], $array_watching)) {
         $status = $_language->module[ 'was_watching_the' ] . ' <a href="index.php?site=' . $ds[ 'site' ] . '">' .
             $_language->module[ $ds[ 'site' ] ] . '</a>';
-    } elseif (in_array($ds[ 'site' ], $array_reading)) {
+    } else if (in_array($ds[ 'site' ], $array_reading)) {
         $status = $_language->module[ 'was_reading_the' ] . ' <a href="index.php?site=' . $ds[ 'site' ] . '">' .
             $_language->module[ $ds[ 'site' ] ] . '</a>';
-    } elseif ($ds[ 'site' ] == "buddies") {
+    } else if ($ds[ 'site' ] == "buddies") {
         $status = $_language->module[ 'was_watching_his' ] . ' <a href="index.php?site=buddies">' .
             $_language->module[ 'buddys' ] . '</a>';
-    } elseif ($ds[ 'site' ] == "clanwars_details") {
+    } else if ($ds[ 'site' ] == "clanwars_details") {
         $status = $_language->module[ 'was_watching_details_clanwar' ];
-    } elseif ($ds[ 'site' ] == "forum_topic") {
+    } else if ($ds[ 'site' ] == "forum_topic") {
         $status = $_language->module[ 'was_reading_forum' ];
-    } elseif ($ds[ 'site' ] == "messenger") {
+    } else if ($ds[ 'site' ] == "messenger") {
         $status = $_language->module[ 'was_watching_his' ] . ' <a href="index.php?site=messenger">' .
             $_language->module[ 'messenger' ] . '</a>';
-    } elseif ($ds[ 'site' ] == "myprofile") {
+    } else if ($ds[ 'site' ] == "myprofile") {
         $status =
             $_language->module[ 'was_editing_his' ] . ' <a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] .
             '">' . $_language->module[ 'profile' ] . '</a>';
-    } elseif ($ds[ 'site' ] == "news_comments") {
+    } else if ($ds[ 'site' ] == "news_comments") {
         $status = $_language->module[ 'was_reading_newscomments' ];
-    } elseif ($ds[ 'site' ] == "profile") {
+    } else if ($ds[ 'site' ] == "profile") {
         $status = $_language->module[ 'was_watching_profile' ];
     } else {
         $status = $_language->module[ 'was_watching_the' ] . ' <a href="index.php?site=news">' .

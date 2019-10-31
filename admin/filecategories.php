@@ -111,7 +111,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         redirect("admincenter.php?site=filecategories&amp;action=add", $_language->module[ 'enter_name' ], 3);
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     if (mb_strlen($_POST[ 'name' ]) > 0) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -129,7 +129,7 @@ if (isset($_POST[ 'save' ])) {
             3
         );
     }
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     $filecatID = $_GET[ 'filecatID' ];
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
@@ -176,7 +176,7 @@ if ($_GET[ 'action' ] == "add") {
   </div>
   </form></div>
   </div>';
-} elseif ($_GET[ 'action' ] == "edit") {
+} else if ($_GET[ 'action' ] == "edit") {
     $filecatID = $_GET[ 'filecatID' ];
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "files_categorys WHERE filecatID='$filecatID'");
     $ds = mysqli_fetch_array($ergebnis);

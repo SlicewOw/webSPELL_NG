@@ -53,7 +53,7 @@ if ($action == "add") {
     echo '<script>
     <!--
     function chkFormular() {
-        if(!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
+        if (!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
            return false;
        }
    }
@@ -140,7 +140,7 @@ echo'<div class="panel panel-default">
   </div>
   </form></div>
   </div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
 
     $ds = mysqli_fetch_array(
         safe_query(
@@ -182,7 +182,7 @@ echo'<div class="panel panel-default">
     echo '<script>
     <!--
     function chkFormular() {
-        if(!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
+        if (!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
            return false;
        }
    }
@@ -293,7 +293,7 @@ echo'<div class="panel panel-default">
   <div>
   </form></div>
   </div>';
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $sort = $_POST[ 'sort' ];
@@ -307,7 +307,7 @@ echo'<div class="panel panel-default">
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ "save" ])) {
+} else if (isset($_POST[ "save" ])) {
     $name = $_POST[ "name" ];
     $url = $_POST[ "url" ];
     $info = $_POST[ "message" ];
@@ -428,7 +428,7 @@ echo'<div class="panel panel-default">
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ "saveedit" ])) {
+} else if (isset($_POST[ "saveedit" ])) {
     $name = $_POST[ "name" ];
     $url = $_POST[ "url" ];
     $info = $_POST[ "message" ];
@@ -551,7 +551,7 @@ echo'<div class="panel panel-default">
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ "delete" ])) {
+} else if (isset($_GET[ "delete" ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         $get = safe_query("SELECT * FROM " . PREFIX . "sponsors WHERE sponsorID='" . $_GET[ "sponsorID" ] . "'");

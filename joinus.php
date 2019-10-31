@@ -104,7 +104,7 @@ if ($action == "save" && isset($_POST['post'])) {
                 AND
                     squadID='" . $squad . "'"
             );
-	
+
         while ($ds = mysqli_fetch_assoc($ergebnis)) {
             $touser[] = $ds['userID'];
         }
@@ -150,21 +150,21 @@ if ($show === true) {
     } else {
         $squads = getsquads();
     }
-	if(!$showonlygamingsquads) {
+	if (!$showonlygamingsquads) {
 		$_r2 = mysqli_num_rows(safe_query("SELECT * FROM `" . PREFIX . "squads` WHERE `gamesquad` = 0"));
 		$_r1 = $_r2 + mysqli_num_rows(safe_query("SELECT * FROM `" . PREFIX . "squads` WHERE `gamesquad` = 1"));
 	 } else {
 		$_r1 = mysqli_num_rows(safe_query("SELECT * FROM `" . PREFIX . "squads` WHERE `gamesquad` = 1"));
 	 }
-	if($_r1<1) {
+	if ($_r1<1) {
 		$data_array = array();
 		$data_array['$showerror'] = generateErrorBoxFromArray($_language->module['squad'], array($_language->module['no_squads_found']));
 		$joinus_failure = $GLOBALS["_template"]->replaceTemplate("joinus_failure", $data_array);
         echo $joinus_failure;
 	return false;
-	} 
+	}
 	##
-	
+
     #$bg1 = BG_1;
 
     if ($loggedin) {
@@ -179,7 +179,7 @@ if ($show === true) {
             WHERE
                 userID = '$userID'"
         );
-		
+
         $ds = mysqli_fetch_assoc($res);
         $nickname = getinput($ds['nickname']);
         $name = getinput($ds['firstname'] . " " . $ds['lastname']);

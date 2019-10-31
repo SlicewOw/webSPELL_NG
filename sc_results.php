@@ -36,7 +36,7 @@ if (mysqli_num_rows($ergebnis)) {
 
         if ($homescr > $oppscr) {
             $result = '<span style="color: ' . $wincolor . '">' . $homescr . ':' . $oppscr . '</span>';
-        } elseif ($homescr < $oppscr) {
+        } else if ($homescr < $oppscr) {
             $result = '<span style="color: ' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</span>';
         } else {
             $result = '<span style="color: ' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</span>';

@@ -51,7 +51,7 @@ if (!empty($spamapikey)) {
                 }
             }
         }
-    } elseif (isset($_GET[ 'commentID' ])) {
+    } else if (isset($_GET[ 'commentID' ])) {
         $commentID = $_GET[ 'commentID' ];
         if (ispageadmin($userID) || isfeedbackadmin($userID)) {
             $get = safe_query("SELECT * FROM " . PREFIX . "comments WHERE commentID='" . $commentID . "'");

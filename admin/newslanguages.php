@@ -54,7 +54,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         if (checkforempty(array('language', 'lang', 'alt'))) {
@@ -74,7 +74,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         safe_query("DELETE FROM " . PREFIX . "news_languages WHERE langID='" . $_GET[ 'langID' ] . "'");
@@ -136,7 +136,7 @@ if ($action == "add") {
   </form></div>
   </div>';
 
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -186,7 +186,7 @@ if ($action == "add") {
 
 else {
 
-  if(isset($_GET['page'])) $page=(int)$_GET['page'];
+  if (isset($_GET['page'])) $page=(int)$_GET['page'];
   else $page = 1;
 
   echo'<div class="panel panel-default">
@@ -205,10 +205,10 @@ else {
   $max='15';
 
   for ($n=$max; $n<=$gesamt; $n+=$max) {
-    if($gesamt>$n) $pages++;
+    if ($gesamt>$n) $pages++;
   }
 
-  if($pages>1) $page_link = makepagelink("admincenter.php?site=newslanguages", $page, $pages);
+  if ($pages>1) $page_link = makepagelink("admincenter.php?site=newslanguages", $page, $pages);
     else $page_link='';
 
   if ($page == "1") {
@@ -257,7 +257,7 @@ $n++;
   }
     echo'</table>';
 
-if($pages>1) echo $page_link;
+if ($pages>1) echo $page_link;
 
 
  echo ' </div></div>';

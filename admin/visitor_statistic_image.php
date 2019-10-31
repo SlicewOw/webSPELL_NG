@@ -54,7 +54,7 @@ if (isset($_GET[ 'size_x' ])) {
         $size_x = 1;
     }
     $_SESSION[ 'size_x' ] = $size_x;
-} elseif (isset($_SESSION[ 'size_x' ])) {
+} else if (isset($_SESSION[ 'size_x' ])) {
     $size_x = $_SESSION[ 'size_x' ];
 } else {
     $size_x = 650;
@@ -66,7 +66,7 @@ if (isset($_GET[ 'size_y' ])) {
         $size_y = 1;
     }
     $_SESSION[ 'size_y' ] = $size_y;
-} elseif (isset($_SESSION[ 'size_y' ])) {
+} else if (isset($_SESSION[ 'size_y' ])) {
     $size_y = $_SESSION[ 'size_y' ];
 } else {
     $size_y = 200;
@@ -133,7 +133,7 @@ if (isset($_GET[ 'month' ])) {
         ));
         $array[ ] = $tmp[ 'count' ] ? $tmp[ 'count' ] : 0;
     }
-} elseif (isset($_GET[ 'year' ])) {
+} else if (isset($_GET[ 'year' ])) {
     for ($i = 1; $i < 13; $i++) {
         $datemonth = date(".m.Y", mktime(0, 0, 0, $i, 1, $_GET[ 'year' ] ? $_GET[ 'year' ] : date("Y")));
         $month = 0;
@@ -144,7 +144,7 @@ if (isset($_GET[ 'month' ])) {
         }
         $array[ ] = $month;
     }
-} elseif (isset($_GET[ 'last' ])) {
+} else if (isset($_GET[ 'last' ])) {
     if ($_GET[ 'last' ] == "days") {
         if (isset($_GET[ 'count' ])) {
             $count = (int)$_GET[ 'count' ];
@@ -152,7 +152,7 @@ if (isset($_GET[ 'month' ])) {
                 $count = 2;
             }
             $_SESSION[ 'count_days' ] = $count;
-        } elseif (isset($_SESSION[ 'count_days' ])) {
+        } else if (isset($_SESSION[ 'count_days' ])) {
             $count = $_SESSION[ 'count_days' ];
         } else {
             $count = 30;
@@ -165,14 +165,14 @@ if (isset($_GET[ 'month' ])) {
             ));
             $array[ ] = $tmp[ 'count' ] ? $tmp[ 'count' ] : 0;
         }
-    } elseif ($_GET[ 'last' ] == "months") {
+    } else if ($_GET[ 'last' ] == "months") {
         if (isset($_GET[ 'count' ])) {
             $count = (int)$_GET[ 'count' ];
             if ($count <= 1) {
                 $count = 2;
             }
             $_SESSION[ 'count_months' ] = $count;
-        } elseif (isset($_SESSION[ 'count_months' ])) {
+        } else if (isset($_SESSION[ 'count_months' ])) {
             $count = $_SESSION[ 'count_months' ];
         } else {
             $count = 12;
@@ -258,7 +258,7 @@ foreach ($array as $i => $int) {
             date("d", mktime(0, 0, 0, date("m"), date("d") - $count + $i, date("Y"))),
             $schwarz
         );
-    } elseif (isset($_GET[ 'last' ]) && $_GET[ 'last' ] == "months") {
+    } else if (isset($_GET[ 'last' ]) && $_GET[ 'last' ] == "months") {
         imagestring(
             $im,
             2,

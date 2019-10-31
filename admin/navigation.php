@@ -5,7 +5,7 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[getConstNameRequestUri(
 
 $tmp = safe_query("SELECT * FROM `".PREFIX."navigation_main`");
 $x = 0; $main_nav = "";
-if(mysqli_num_rows($tmp)) {
+if (mysqli_num_rows($tmp)) {
 	$main_sort = ""; $y=1;
 	while($tmp2=mysqli_fetch_array($tmp)) {
 		$main_sort .= '<option value="'.$y.'">'.$y.'</option>';
@@ -16,25 +16,25 @@ if(mysqli_num_rows($tmp)) {
 unset($tmp, $tmp2);
 $tmp = safe_query("SELECT * FROM `".PREFIX."navigation_sub`");
 $sub_sort = "";
-if(mysqli_num_rows($tmp)) {
+if (mysqli_num_rows($tmp)) {
 	$sub_sort = ""; $y=1;
 	while($tmp2=mysqli_fetch_array($tmp)) {
 		$sub_sort .= '<option value="'.$y.'">'.$y.'</option>';
 		$y++;
 	}
 }
-if(isset($_GET['do'])) { $do = $_GET['do']; } else { $do=""; }
-if(isset($_GET['op'])) { $op = $_GET['op']; } else { $op=""; }
-if(isset($_GET['mnav'])) { $mnav = $_GET['mnav']; } else { $mnav=""; }
-if(isset($_GET['snav'])) { $snav = $_GET['snav']; } else { $snav=""; }
+if (isset($_GET['do'])) { $do = $_GET['do']; } else { $do=""; }
+if (isset($_GET['op'])) { $op = $_GET['op']; } else { $op=""; }
+if (isset($_GET['mnav'])) { $mnav = $_GET['mnav']; } else { $mnav=""; }
+if (isset($_GET['snav'])) { $snav = $_GET['snav']; } else { $snav=""; }
 #lang -> add language->Module()                  ### T O D O ###
 $msg_success = "Operation Successfull / Vorgang Erfolgreich durchgef&uuml;hrt";
 $msg_failed = "Operation Failed / Vorgang fehlgeschlagen";
 $msg_order_sort = "The main and sub-navigation is displayed by the numerical order.<br />Die Haupt- und Unternavigation wird sortiert nach der Numerischen Reihenfolge dargestellt. <br /><br />";
 # delete main nav
-if($do=="del" && $mnav!="") {
+if ($do=="del" && $mnav!="") {
 	$run = safe_query("DELETE FROM `".PREFIX."navigation_main` WHERE `mnavID` = '".$mnav."' LIMIT 1");
-	if($run) {
+	if ($run) {
 		echo $msg_success;
 	} else {
 		echo $msg_failed;
@@ -43,9 +43,9 @@ if($do=="del" && $mnav!="") {
 	return false;
 }
 # new main navi
-if($do=="new" && $op=="main") {
+if ($do=="new" && $op=="main") {
 	$x = $x +1;
-	if(isset($main_sort)) { $main_sort .= '<option value="'.$x.'" selected>'.$x.'</option>'; } else { $main_sort = '<option value="'.$x.'" selected>'.$x.'</option>'; }
+	if (isset($main_sort)) { $main_sort .= '<option value="'.$x.'" selected>'.$x.'</option>'; } else { $main_sort = '<option value="'.$x.'" selected>'.$x.'</option>'; }
 	echo '<div class="panel panel-default">
 <div class="panel-heading">
                             <span class="fa fa-indent"></span> Navigation
@@ -67,9 +67,9 @@ if($do=="new" && $op=="main") {
 	return false;
 }
 # save main new
-if(isset($_POST['sve_newm'])) {
+if (isset($_POST['sve_newm'])) {
 	$run = safe_query("INSERT INTO `".PREFIX."navigation_main` (`name`, `link`, `sort`, `isdropdown`) VALUES ('".$_POST['name']."', '".$_POST['link']."', '".$_POST['sort']."', '".$_POST['dropdown']."');");
-	if($run) {
+	if ($run) {
 		echo $msg_success;
 	} else {
 		echo $msg_failed;
@@ -78,11 +78,11 @@ if(isset($_POST['sve_newm'])) {
 	return false;
 }
 # save main edit
-if(isset($_POST['sve_edit'])) {
+if (isset($_POST['sve_edit'])) {
 	$id=intval($_POST['mID']);
 	try {
 		$run = safe_query("UPDATE `".PREFIX."navigation_main` SET `name` = '".$_POST['name']."', `link` = '".$_POST['link']."', `sort` = '".$_POST['sort']."', `isdropdown` = '".$_POST['dropdown']."' WHERE `mnavID` = '".$id." LIMIT 1';");
-		if($run) {
+		if ($run) {
 			echo $msg_success;
 			redirect("admincenter.php?site=navigation", "3");
 		} else {
@@ -95,9 +95,9 @@ if(isset($_POST['sve_edit'])) {
 	return false;
 }
 # delete sub nav
-if($do=="del" && $snav!="") {
+if ($do=="del" && $snav!="") {
 	$run = safe_query("DELETE FROM `".PREFIX."navigation_sub` WHERE `snavID` = '".$snav."' LIMIT 1");
-	if($run) {
+	if ($run) {
 		echo $msg_success;
 	} else {
 		echo $msg_failed;
@@ -106,11 +106,11 @@ if($do=="del" && $snav!="") {
 	return false;
 }
 # save sub edit
-if(isset($_POST['sve_subedit'])) {
+if (isset($_POST['sve_subedit'])) {
 	$id=intval($_POST['sID']);
 	try {
 		$run = safe_query("UPDATE `".PREFIX."navigation_sub` SET `mnav_ID` = '".$_POST['mnav']."', `name` = '".$_POST['name']."', `link` = '".$_POST['link']."', `sort` = '".$_POST['sort']."', `indropdown` = '".$_POST['dropdown']."' WHERE `snavID` = '".$id."' LIMIT 1;");
-		if($run) {
+		if ($run) {
 			echo $msg_success;
 			redirect("admincenter.php?site=navigation", "3");
 		} else {
@@ -123,7 +123,7 @@ if(isset($_POST['sve_subedit'])) {
 	return false;
 }
 # new sub navi
-if($do=="new" && $op=="sub") {
+if ($do=="new" && $op=="sub") {
 	$x = $x +1;
 	echo '<div class="panel panel-default">
 <div class="panel-heading">
@@ -147,9 +147,9 @@ if($do=="new" && $op=="sub") {
 	return false;
 }
 # save sub new
-if(isset($_POST['sve_news'])) {
+if (isset($_POST['sve_news'])) {
 	$run = safe_query("INSERT INTO `".PREFIX."navigation_sub` (`mnav_ID`, `name`, `link`, `sort`, `indropdown`) VALUES ('".$_POST['mnav']."', '".$_POST['name']."', '".$_POST['link']."', '".$_POST['sort']."', '".$_POST['indropdown']."');");
-	if($run) {
+	if ($run) {
 		echo $msg_success;
 	} else {
 		echo $msg_failed;

@@ -210,10 +210,10 @@ if (isset($_GET[ 'action' ])) {
     function SelectAllEval() {
     for(var x=0;x<document.form.elements.length;x++) {
         var y=document.form.elements[x];
-        if(y.name!=\'ALL\'){
+        if (y.name!=\'ALL\'){
             y.checked=document.form.ALL.checked;
             parts = y.value.split(\' => \');
-            if(parts.length == 2){
+            if (parts.length == 2){
                 setUser(parts[0],parts[1],y.checked);
             }
         }
@@ -298,7 +298,7 @@ if (isset($_GET[ 'action' ])) {
     echo '<script type="text/javascript">
   /*<![CDATA[*/
   	function checkForFilter(select){
-  		if(select.options[4].selected == true){
+  		if (select.options[4].selected == true){
   			document.getElementById(\'addfield\').style.display = \'block\';
   			document.getElementById(\'addfield\').focus();
   		} else {

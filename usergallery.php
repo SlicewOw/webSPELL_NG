@@ -46,7 +46,7 @@ if ($userID) {
         } else {
             redirect('index.php?site=usergallery&action=add', $_language->module[ 'please_enter_name' ]);
         }
-    } elseif (isset($_POST[ 'saveedit' ])) {
+    } else if (isset($_POST[ 'saveedit' ])) {
         safe_query(
             "UPDATE
                 " . PREFIX . "gallery
@@ -56,7 +56,7 @@ if ($userID) {
                 galleryID='" . (int)$_POST[ 'galleryID' ] . "' AND
                 userID='" . (int)$userID."'"
         );
-    } elseif (isset($_POST[ 'saveform' ])) {
+    } else if (isset($_POST[ 'saveform' ])) {
         $dir = 'images/gallery/';
 
         $_language->readModule('formvalidation', true);
@@ -135,7 +135,7 @@ if ($userID) {
                 }
             }
         }
-    } elseif (isset($_GET[ 'delete' ])) {
+    } else if (isset($_GET[ 'delete' ])) {
         //SQL
         if (safe_query(
             "DELETE FROM
@@ -160,7 +160,7 @@ if ($userID) {
                 $path = 'images/gallery/large/';
                 if (file_exists($path . $ds[ 'picID' ] . '.jpg')) {
                     $path = $path . $ds[ 'picID' ] . '.jpg';
-                } elseif (file_exists($path . $ds[ 'picID' ] . '.png')) {
+                } else if (file_exists($path . $ds[ 'picID' ] . '.png')) {
                     $path = $path . $ds[ 'picID' ] . '.png';
                 } else {
                     $path = $path . $ds[ 'picID' ] . '.gif';
@@ -179,7 +179,7 @@ if ($userID) {
         if ($_GET[ 'action' ] == "add") {
             $usergallery_add = $GLOBALS["_template"]->replaceTemplate("usergallery_add", array());
             echo $usergallery_add;
-        } elseif ($_GET[ 'action' ] == "edit") {
+        } else if ($_GET[ 'action' ] == "edit") {
             $ergebnis = safe_query(
                 "SELECT
                     *
@@ -198,7 +198,7 @@ if ($userID) {
             $data_array['$galleryID'] = $galleryID;
             $usergallery_edit = $GLOBALS["_template"]->replaceTemplate("usergallery_edit", $data_array);
             echo $usergallery_edit;
-        } elseif ($_GET[ 'action' ] == "upload") {
+        } else if ($_GET[ 'action' ] == "upload") {
             $id = (int)$_GET[ 'galleryID' ];
 
             $data_array = array();

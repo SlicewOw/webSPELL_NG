@@ -71,7 +71,7 @@ if (isset($_POST[ 'submit' ])) {
   echo '<script language="JavaScript" type="text/javascript">
 					<!--
 						function chkFormular() {
-							if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+							if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
 								return false;
 							}
 						}

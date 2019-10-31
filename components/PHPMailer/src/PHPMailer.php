@@ -1930,7 +1930,7 @@ class PHPMailer
                 $prefix = 'ssl://';
                 $tls = false; // Can't have SSL and TLS at the same time
                 $secure = 'ssl';
-            } elseif ('tls' == $hostinfo[2]) {
+            } else if ('tls' == $hostinfo[2]) {
                 $tls = true;
                 // tls doesn't use a prefix
                 $secure = 'tls';
@@ -2188,9 +2188,9 @@ class PHPMailer
                             $len = $space_left;
                             if ($is_utf8) {
                                 $len = $this->utf8CharBoundary($word, $len);
-                            } elseif ('=' == substr($word, $len - 1, 1)) {
+                            } else if ('=' == substr($word, $len - 1, 1)) {
                                 --$len;
-                            } elseif ('=' == substr($word, $len - 2, 1)) {
+                            } else if ('=' == substr($word, $len - 2, 1)) {
                                 $len -= 2;
                             }
                             $part = substr($word, 0, $len);
@@ -2209,9 +2209,9 @@ class PHPMailer
                         $len = $length;
                         if ($is_utf8) {
                             $len = $this->utf8CharBoundary($word, $len);
-                        } elseif ('=' == substr($word, $len - 1, 1)) {
+                        } else if ('=' == substr($word, $len - 1, 1)) {
                             --$len;
-                        } elseif ('=' == substr($word, $len - 2, 1)) {
+                        } else if ('=' == substr($word, $len - 2, 1)) {
                             $len -= 2;
                         }
                         $part = substr($word, 0, $len);
@@ -2273,12 +2273,12 @@ class PHPMailer
                         $maxLength -= $lookBack - $encodedCharPos;
                     }
                     $foundSplitPos = true;
-                } elseif ($dec >= 192) {
+                } else if ($dec >= 192) {
                     // First byte of a multi byte character
                     // Reduce maxLength to split at start of character
                     $maxLength -= $lookBack - $encodedCharPos;
                     $foundSplitPos = true;
-                } elseif ($dec < 192) {
+                } else if ($dec < 192) {
                     // Middle byte of a multi byte character, look further back
                     $lookBack += 3;
                 }
@@ -2339,7 +2339,7 @@ class PHPMailer
                 if ('mail' != $this->Mailer) {
                     $result .= $this->addrAppend('To', $this->to);
                 }
-            } elseif (count($this->cc) == 0) {
+            } else if (count($this->cc) == 0) {
                 $result .= $this->headerLine('To', 'undisclosed-recipients:;');
             }
         }
@@ -2487,7 +2487,7 @@ class PHPMailer
         $len = 32; //32 bytes = 256 bits
         if (function_exists('random_bytes')) {
             $bytes = random_bytes($len);
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
+        } else if (function_exists('openssl_random_pseudo_bytes')) {
             $bytes = openssl_random_pseudo_bytes($len);
         } else {
             //Use a hash to force the length to the same as the other methods
@@ -2667,7 +2667,7 @@ class PHPMailer
             if ($this->exceptions) {
                 throw new Exception($this->lang('empty_message'), self::STOP_CRITICAL);
             }
-        } elseif ($this->sign_key_file) {
+        } else if ($this->sign_key_file) {
             try {
                 if (!defined('PKCS7_TEXT')) {
                     throw new Exception($this->lang('extension_missing') . 'openssl');
@@ -3152,7 +3152,7 @@ class PHPMailer
                 $encoded = trim(chunk_split($encoded, $maxlen, "\n"));
             }
             $encoded = preg_replace('/^(.*)$/m', ' =?' . $this->CharSet . "?$encoding?\\1?=", $encoded);
-        } elseif ($matchcount > 0) {
+        } else if ($matchcount > 0) {
             //1 or more chars need encoding, use Q-encode
             $encoding = 'Q';
             //Recalc max line length for Q encoding - see comments on B encode
@@ -3161,7 +3161,7 @@ class PHPMailer
             $encoded = $this->wrapText($encoded, $maxlen, true);
             $encoded = str_replace('=' . static::$LE, "\n", trim($encoded));
             $encoded = preg_replace('/^(.*)$/m', ' =?' . $this->CharSet . "?$encoding?\\1?=", $encoded);
-        } elseif (strlen($str) > $maxlen) {
+        } else if (strlen($str) > $maxlen) {
             //No chars need encoding, but line is too long, so fold it
             $encoded = trim($this->wrapText($str, $maxlen, false));
             if ($str == $encoded) {
@@ -3728,11 +3728,11 @@ class PHPMailer
         $result = '';
         if (!empty($this->Hostname)) {
             $result = $this->Hostname;
-        } elseif (isset($_SERVER) and array_key_exists('SERVER_NAME', $_SERVER)) {
+        } else if (isset($_SERVER) and array_key_exists('SERVER_NAME', $_SERVER)) {
             $result = $_SERVER['SERVER_NAME'];
-        } elseif (function_exists('gethostname') and gethostname() !== false) {
+        } else if (function_exists('gethostname') and gethostname() !== false) {
             $result = gethostname();
-        } elseif (php_uname('n') !== false) {
+        } else if (php_uname('n') !== false) {
             $result = php_uname('n');
         }
         if (!static::isValidHost($result)) {
@@ -3875,7 +3875,7 @@ class PHPMailer
                 if (preg_match('#^data:(image/(?:jpe?g|gif|png));?(base64)?,(.+)#', $url, $match)) {
                     if (count($match) == 4 and static::ENCODING_BASE64 == $match[2]) {
                         $data = base64_decode($match[3]);
-                    } elseif ('' == $match[2]) {
+                    } else if ('' == $match[2]) {
                         $data = rawurldecode($match[3]);
                     } else {
                         //Not recognised so leave it alone
@@ -4432,13 +4432,13 @@ class PHPMailer
             if (strpos($header, 'From:') === 0) {
                 $from_header = $header;
                 $current = 'from_header';
-            } elseif (strpos($header, 'To:') === 0) {
+            } else if (strpos($header, 'To:') === 0) {
                 $to_header = $header;
                 $current = 'to_header';
-            } elseif (strpos($header, 'Date:') === 0) {
+            } else if (strpos($header, 'Date:') === 0) {
                 $date_header = $header;
                 $current = 'date_header';
-            } elseif (!empty($this->DKIM_extraHeaders)) {
+            } else if (!empty($this->DKIM_extraHeaders)) {
                 foreach ($this->DKIM_extraHeaders as $extraHeader) {
                     if (strpos($header, $extraHeader . ':') === 0) {
                         $headerValue = $header;

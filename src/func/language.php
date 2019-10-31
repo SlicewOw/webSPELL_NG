@@ -38,8 +38,8 @@ class Language
         if ($pluginpath) {
             $this->language_path = $pluginpath.$this->language_path;
         }
-		if($admin AND $pluginpath) {
-			$this->language_path = "../".$pluginpath."languages/";	
+		if ($admin AND $pluginpath) {
+			$this->language_path = "../".$pluginpath."languages/";
 		}
         $langs = array();
         foreach (new \DirectoryIterator($this->language_path) as $fileInfo) {
@@ -65,10 +65,10 @@ class Language
         if ($admin AND !$pluginpath) {
             $langFolder = '../'.$this->language_path;
             $folderPath = '%s%s/admin/%s.php';
-        } elseif ($admin AND $pluginpath) {
+        } else if ($admin AND $pluginpath) {
             $langFolder = '../'.$pluginpath.$this->language_path;
             $folderPath = '%s%s/admin/%s.php';
-        } elseif ($pluginpath) {
+        } else if ($pluginpath) {
             $langFolder = $pluginpath.$this->language_path;
             $folderPath = '%s%s/%s.php';
         } else {

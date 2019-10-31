@@ -68,10 +68,10 @@ if (mysqli_num_rows($get) == 0) {
             if (mysqli_num_rows($check)) {
                 $ds = mysqli_fetch_array($check);
                 $login = 0;
-                        
-            // /!\ check (old) password                                                                     
+
+            // /!\ check (old) password
             $ws_pwd = generatePasswordHash(stripslashes($_POST[ 'password' ]));
-            if(!empty($ds['password']) AND !empty($_POST[ 'password' ])) {
+            if (!empty($ds['password']) AND !empty($_POST[ 'password' ])) {
                 if (hash_equals($ws_pwd, $ds[ 'password' ])) {
                     $new_pepper = Gen_PasswordPepper();
                     Set_PasswordPepper($new_pepper, $ds['userID']);
@@ -147,12 +147,12 @@ if (mysqli_num_rows($get) == 0) {
                     $return->code = 'invalid_password';
                 }
             }   // END OF OLD PASSWORD                                                                  # <<
-                
-                
+
+
                 // check new password
                 $ws_pwd = stripslashes($_POST[ 'password' ]).$ds['password_pepper'];
                 $valid = password_verify($ws_pwd,$ds['password_hash']);
-                if ($valid==1) {                                            
+                if ($valid==1) {
                     //session
                     $_SESSION[ 'referer' ] = $_SERVER[ 'HTTP_REFERER' ];
                     //remove sessiontest variable
@@ -237,7 +237,7 @@ if (mysqli_num_rows($get) == 0) {
                     $return->message = $_language->module[ 'invalid_password' ];
                     $return->code = 'invalid_password';
                 }
-        
+
             } else {
                 $return->message = $_language->module[ 'not_activated' ];
                 $return->code = 'not_activated';

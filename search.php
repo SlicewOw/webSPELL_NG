@@ -50,7 +50,7 @@ if ($action == "search" &&
     if ($run) {
         $title_search = $GLOBALS["_template"]->replaceTemplate("title_search", array());
         echo $title_search;
-	
+
         $text = str_replace(array('%', '*'), array('\%', '%'), $_REQUEST[ 'text' ]);
         if (!isset($_REQUEST[ 'r' ]) || $_REQUEST[ 'r' ] < 1 || $_REQUEST[ 'r' ] > 100) {
             $results = 50;
@@ -114,7 +114,7 @@ if ($action == "search" &&
                         substr_count(strtolower($ds[ 'title' ]), strtolower(stripslashes($text))) == 0
                     ) {
                         continue;
-                    } elseif (!mysqli_num_rows($ergebnis_articles_contents)) {
+                    } else if (!mysqli_num_rows($ergebnis_articles_contents)) {
                         $query_result = mysqli_fetch_array(
                             safe_query(
                                 "SELECT

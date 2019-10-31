@@ -97,9 +97,9 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
 
     if (in_array(trim($name), $nicks)) {
         header("Location: " . $_POST[ 'referer' ] . "&error=nickname#post");
-    } elseif (!($CAPCLASS->checkCaptcha($_POST[ 'captcha' ], $_POST[ 'captcha_hash' ]))) {
+    } else if (!($CAPCLASS->checkCaptcha($_POST[ 'captcha' ], $_POST[ 'captcha_hash' ]))) {
         header("Location: " . $_POST[ 'referer' ] . "&error=captcha#post");
-    } elseif (checkCommentsAllow($type, $parentID) === false) {
+    } else if (checkCommentsAllow($type, $parentID) === false) {
         header("Location: " . $_POST[ 'referer' ]);
     } else {
         $date = time();
@@ -156,7 +156,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
         unset($_SESSION[ 'comments_message' ]);
         header("Location: " . $_POST[ 'referer' ]);
     }
-} elseif (isset($_POST[ 'saveusercomment' ])) {
+} else if (isset($_POST[ 'saveusercomment' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -215,7 +215,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
         }
     }
     header("Location: " . $_POST[ 'referer' ]);
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -227,7 +227,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
         safe_query("DELETE FROM " . PREFIX . "comments WHERE commentID='" . (int)$id."'");
     }
     header("Location: " . $_POST[ 'referer' ]);
-} elseif (isset($_GET[ 'editcomment' ])) {
+} else if (isset($_GET[ 'editcomment' ])) {
     $id = $_GET[ 'id' ];
     $referer = $_GET[ 'ref' ];
     $_language->readModule('comments');
@@ -263,7 +263,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
     } else {
         redirect($referer, $_language->module[ 'access_denied' ], 2);
     }
-} elseif (isset($_POST[ 'saveeditcomment' ])) {
+} else if (isset($_POST[ 'saveeditcomment' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -446,12 +446,12 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                             '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
                             '"><span class="fa fa-user-plus" title="' .
                             $_language->module[ 'readd_buddy' ] . '"></span></a>';
-                    } elseif (isbuddy($userID, $ds[ 'userID' ])) {
+                    } else if (isbuddy($userID, $ds[ 'userID' ])) {
                         $buddy =
                             '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
                             '"><span class="fa fa-user-times" title="' .
                             $_language->module[ 'ignore_user' ] . '"></span></a>';
-                    } elseif ($userID == $ds[ 'userID' ]) {
+                    } else if ($userID == $ds[ 'userID' ]) {
                         $buddy = '';
                     } else {
                         $buddy =
@@ -596,7 +596,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
             $data_array['$type'] = $type;
             $comments_add_user = $GLOBALS["_template"]->replaceTemplate("comments_add_user", $data_array);
             echo $comments_add_user;
-        } elseif ($comments_allowed == 2) {
+        } else if ($comments_allowed == 2) {
             if (isset($_COOKIE[ 'visitor_info' ])) {
                 $visitor = explode("--||--", $_COOKIE[ 'visitor_info' ]);
                 $name = getforminput(stripslashes($visitor[ 0 ]));
@@ -616,7 +616,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
             if ($err == "nickname") {
                 $error = $_language->module[ 'error_nickname' ];
                 $name = "";
-            } elseif ($err == "captcha") {
+            } else if ($err == "captcha") {
                 $error = $_language->module[ 'error_captcha' ];
             } else {
                 $error = '';

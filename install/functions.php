@@ -4862,7 +4862,7 @@ function update_420_125($_database) {
 	$transaction = new Transaction($_database);
 	include("../version.php");
 
-	if($version != '4.3.0' ) {
+	if ($version != '4.3.0' ) {
 		$transaction->addQuery("ALTER TABLE ".PREFIX."user CHANGE `connection` `verbindung` VARCHAR(255)");
 	}
 	$transaction->addQuery("ALTER TABLE ".PREFIX."user ADD password_hash VARCHAR(255) NOT NULL AFTER password");

@@ -49,7 +49,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $sort = $_POST[ 'sort' ];
@@ -60,7 +60,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $name = $_POST[ 'name' ];
@@ -151,7 +151,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo  $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $name = $_POST[ 'name' ];
@@ -311,7 +311,7 @@ if ($action == "add") {
 
   </form></div>
   </div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();

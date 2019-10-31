@@ -58,7 +58,7 @@ if (isset($_POST[ 'submit' ])) {
     } else {
         redirect("admincenter.php?site=email", $_language->module[ 'transaction_invalid' ], 3);
     }
-} elseif (isset($_POST[ 'send' ])) {
+} else if (isset($_POST[ 'send' ])) {
     $to = $_POST[ 'email' ];
     $subject = $_language->module[ 'test_subject' ];
     $message = $_language->module[ 'test_message' ];
@@ -89,7 +89,7 @@ if (isset($_POST[ 'submit' ])) {
     } else {
         redirect("admincenter.php?site=email&amp;action=test", $_language->module[ 'transaction_invalid' ], 3);
     }
-} elseif ($action == "test") {
+} else if ($action == "test") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -177,11 +177,11 @@ if (isset($_POST[ 'submit' ])) {
 
     echo '<script type="text/javascript">
         function HideFields(state){
-            if(state == true){
+            if (state == true){
                 document.getElementById(\'tr_user\').style.display = "";
                 document.getElementById(\'tr_password\').style.display = "";
             }
-            else{
+            else {
                 document.getElementById(\'tr_user\').style.display = "none";
                 document.getElementById(\'tr_password\').style.display = "none";
             }
@@ -207,7 +207,7 @@ if (isset($_POST[ 'submit' ])) {
 
         function HideFields2(){
             var x = document.getElementById(\'select_smtp\').selectedIndex;
-            if(x == \'0\'){
+            if (x == \'0\'){
                 document.getElementById(\'tr_user\').style.display = "none";
                 document.getElementById(\'tr_password\').style.display = "none";
                 document.getElementById(\'tr_auth\').style.display = "none";
@@ -216,9 +216,9 @@ if (isset($_POST[ 'submit' ])) {
                 document.getElementById(\'tr_port\').style.display = "none";
                 document.getElementById(\'tr_secure\').style.display = "none";
             }
-            else{
+            else {
                 var y = document.getElementById(\'check_auth\').checked;
-                if(y === true){
+                if (y === true){
                     document.getElementById(\'tr_user\').style.display = "";
                     document.getElementById(\'tr_password\').style.display = "";
                     document.getElementById(\'tr_auth\').style.display = "";

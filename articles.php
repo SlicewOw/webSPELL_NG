@@ -146,7 +146,7 @@ if ($action == "save") {
             " . time() . " - `date` > " . (2 * 60 * 60)
     );
     die('<body onload="window.close()"></body>');
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -247,7 +247,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=articles', $_language->module[ 'no_access' ]);
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -389,7 +389,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=articles', $_language->module[ 'no_access' ]);
     }
-} elseif ($action == "show") {
+} else if ($action == "show") {
     $_language->readModule('articles');
 
     $articlesID = (int)$_GET[ 'articlesID' ];

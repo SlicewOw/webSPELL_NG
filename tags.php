@@ -35,11 +35,11 @@ if (isset($_GET[ 'tag' ])) {
             $data_check = null;
             if ($ds[ 'rel' ] == "news") {
                 $data_check = \webspell\Tags::getNews($ds[ 'ID' ]);
-            } elseif ($ds[ 'rel' ] == "articles") {
+            } else if ($ds[ 'rel' ] == "articles") {
                 $data_check = \webspell\Tags::getArticle($ds[ 'ID' ]);
-            } elseif ($ds[ 'rel' ] == "static") {
+            } else if ($ds[ 'rel' ] == "static") {
                 $data_check = \webspell\Tags::getStaticPage($ds[ 'ID' ]);
-            } elseif ($ds[ 'rel' ] == "faq") {
+            } else if ($ds[ 'rel' ] == "faq") {
                 $data_check = \webspell\Tags::getFaq($ds[ 'ID' ]);
             }
             if (is_array($data_check)) {

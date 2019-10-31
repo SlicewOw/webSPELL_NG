@@ -468,7 +468,7 @@ onmouseout="hideWMTT()" />';
 
     echo '<script>
         function chkFormular() {
-            if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+            if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
                 return false;
             }
         }

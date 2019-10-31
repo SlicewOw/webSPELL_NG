@@ -62,7 +62,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         \webspell\Tags::removeTags('static', $_GET[ 'staticID' ]);
@@ -89,7 +89,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
   echo '<script>
   <!--
   function chkFormular() {
-    if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+    if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
       return false;
     }
   }
@@ -163,7 +163,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
   </div>
   </form></div></div>';
 
-} elseif (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
+} else if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
     $_language->readModule('bbcode', true, true);
 
     $staticID = $_GET[ 'staticID' ];
@@ -176,7 +176,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
     $public = "";
     if ($ds[ 'accesslevel' ] == 2) {
         $clanmember = "checked=\"checked\"";
-    } elseif ($ds[ 'accesslevel' ] == 1) {
+    } else if ($ds[ 'accesslevel' ] == 1) {
         $user = "checked=\"checked\"";
     } else {
         $public = "checked=\"checked\"";
@@ -201,7 +201,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
 	echo '<script language="JavaScript" type="text/javascript">
 					<!--
 						function chkFormular() {
-							if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+							if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
 								return false;
 							}
 						}
@@ -311,7 +311,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
         }
         if ($ds[ 'accesslevel' ] == 2) {
             $accesslevel = $_language->module[ 'clanmember_only' ];
-        } elseif ($ds[ 'accesslevel' ] == 1) {
+        } else if ($ds[ 'accesslevel' ] == 1) {
             $accesslevel = $_language->module[ 'registered_only' ];
         } else {
             $accesslevel = $_language->module[ 'public' ];

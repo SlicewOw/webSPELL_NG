@@ -80,7 +80,7 @@ if ($action == "add") {
   </div>';
 
 
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $ds =
         mysqli_fetch_array(safe_query(
             "SELECT * FROM " . PREFIX . "countries WHERE countryID='" . $_GET[ "countryID" ] .
@@ -141,7 +141,7 @@ if ($action == "add") {
   </div>';
 
 
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $icon = $_FILES[ "icon" ];
     $country = $_POST[ "country" ];
     $short = $_POST[ "shorthandle" ];
@@ -205,7 +205,7 @@ if ($action == "add") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ "saveedit" ])) {
+} else if (isset($_POST[ "saveedit" ])) {
     $icon = $_FILES[ "icon" ];
     $country = $_POST[ "country" ];
     $short = $_POST[ "shorthandle" ];
@@ -267,7 +267,7 @@ if ($action == "add") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ "delete" ])) {
+} else if (isset($_GET[ "delete" ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         $countryID = (int) $_GET[ "countryID" ];
@@ -288,7 +288,7 @@ if ($action == "add") {
 } else {
 
 
-if(isset($_GET['page'])) $page=(int)$_GET['page'];
+if (isset($_GET['page'])) $page=(int)$_GET['page'];
   else $page = 1;
 
     echo'<div class="panel panel-default">
@@ -307,10 +307,10 @@ if(isset($_GET['page'])) $page=(int)$_GET['page'];
   $max='15';
 
   for ($n=$max; $n<=$gesamt; $n+=$max) {
-    if($gesamt>$n) $pages++;
+    if ($gesamt>$n) $pages++;
   }
 
-  if($pages>1) $page_link = makepagelink("admincenter.php?site=countries", $page, $pages);
+  if ($pages>1) $page_link = makepagelink("admincenter.php?site=countries", $page, $pages);
     else $page_link='';
 
   if ($page == "1") {
@@ -380,7 +380,7 @@ while($ds=mysqli_fetch_array($ergebnis)) {
   #else echo'<tr><td class="td1" colspan="5">'.$_language->module['no_entries'].'</td></tr>';
 
   echo '</table>';
-  if($pages>1) echo $page_link;
+  if ($pages>1) echo $page_link;
   #echo '</form>';
 
 }

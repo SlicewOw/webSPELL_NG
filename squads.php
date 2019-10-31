@@ -150,7 +150,7 @@ if ($action == "show") {
                 if (isignored($userID, $dm[ 'userID' ])) {
                     $buddy = '<a href="buddies.php?action=readd&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
                         '"><span class="fa fa-user-plus"></span></a>';
-                } elseif (isbuddy($userID, $dm[ 'userID' ])) {
+                } else if (isbuddy($userID, $dm[ 'userID' ])) {
                     $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
                         '"><span class="fa fa-user-times"></span></a>';
                 } else {

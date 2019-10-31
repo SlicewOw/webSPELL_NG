@@ -65,7 +65,7 @@ $providerName = '';
 if (array_key_exists('provider', $_GET)) {
     $providerName = $_GET['provider'];
     $_SESSION['provider'] = $providerName;
-} elseif (array_key_exists('provider', $_SESSION)) {
+} else if (array_key_exists('provider', $_SESSION)) {
     $providerName = $_SESSION['provider'];
 }
 if (!in_array($providerName, ['Google', 'Microsoft', 'Yahoo'])) {
@@ -125,7 +125,7 @@ if (!isset($_GET['code'])) {
     header('Location: ' . $authUrl);
     exit;
 // Check given state against previously stored one to mitigate CSRF attack
-} elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
+} else if (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
     unset($_SESSION['oauth2state']);
     unset($_SESSION['provider']);
     exit('Invalid state');

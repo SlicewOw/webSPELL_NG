@@ -74,7 +74,7 @@ class ModRewrite
                 if (PHP_RELEASE_VERSION > 24) {
                     $fixedHeader = true;
                 }
-            } elseif (PHP_MINOR_VERSION == 5) {
+            } else if (PHP_MINOR_VERSION == 5) {
                 if (PHP_RELEASE_VERSION > 8) {
                     $fixedHeader = true;
                 }

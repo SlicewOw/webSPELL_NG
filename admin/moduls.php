@@ -40,7 +40,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $sort = $_POST[ 'sort' ];
@@ -51,21 +51,21 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $module = $_POST[ 'module' ];
 
 
-		if(@$_POST['radio1']=="le_activated") {
+		if (@$_POST['radio1']=="le_activated") {
 			  $le_activated = 1;
 			  $re_activated = 0;
 			  $activated = 0;
-		} elseif(@$_POST['radio1']=="re_activated") {
+		} elseif (@$_POST['radio1']=="re_activated") {
 			  $le_activated = 0;
 			  $re_activated = 1;
 			  $activated = 0;
-		} elseif(@$_POST['radio1']=="activated") {
+		} elseif (@$_POST['radio1']=="activated") {
         $le_activated = 0;
         $re_activated = 0;
         $activated = 1;
@@ -101,27 +101,27 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo  $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $module = $_POST[ 'module' ];
 
-      if(@$_POST['radio1']=="le_activated") {
+      if (@$_POST['radio1']=="le_activated") {
         $le_activated = 1;
         $re_activated = 0;
         $activated = 0;
         $deactivated = 0;
-    } elseif(@$_POST['radio1']=="re_activated") {
+    } elseif (@$_POST['radio1']=="re_activated") {
         $le_activated = 0;
         $re_activated = 1;
         $activated = 0;
         $deactivated = 0;
-    } elseif(@$_POST['radio1']=="activated") {
+    } elseif (@$_POST['radio1']=="activated") {
         $le_activated = 0;
         $re_activated = 0;
         $activated = 1;
         $deactivated = 0;
-    } elseif(@$_POST['radio1']=="deactivated") {
+    } elseif (@$_POST['radio1']=="deactivated") {
         $le_activated = 0;
         $re_activated = 0;
         $activated = 0;
@@ -239,7 +239,7 @@ if ($action == "add") {
 
   </form></div>
   </div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();

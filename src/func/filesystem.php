@@ -95,7 +95,7 @@ function isFileURL($url)
 {
     if (!empty($url)) {
         $urlInfo = parse_url($url);
-		if(isset($urlInfo['scheme'])) {
+		if (isset($urlInfo['scheme'])) {
 			return in_array($urlInfo['scheme'], array('ftp','http','https')) && !empty($urlInfo['path']);
 		} else {
 			return false;

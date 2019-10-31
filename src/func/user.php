@@ -349,7 +349,7 @@ function gen_token() {
 	return $tk;
 }
 function verify_token($post, $sess) {
-	if($post==$sess) { return 1; } else { return 0; }
+	if ($post==$sess) { return 1; } else { return 0; }
 }
 function destroy_token() {
 	$_SESSION['token'] =""; unset($_SESSION['token']);
@@ -358,7 +358,7 @@ function destroy_token() {
 function is_PasswordPepper($userID) {
 	$q=safe_query("SELECT `password_pepper` FROM `".PREFIX."user` WHERE `userID` = '".intval($userID)."'");
 	$r=mysqli_fetch_array($q);
-	if(mysqli_num_rows($q) && !empty($r['password_pepper'])) {
+	if (mysqli_num_rows($q) && !empty($r['password_pepper'])) {
 		return true;
 	} else {
 		return false;
@@ -380,7 +380,7 @@ function Set_PasswordPepper($pep, $userID) {
 function Get_PasswordPepper($userID) {
 	$q=safe_query("SELECT `password_pepper` FROM `".PREFIX."user` WHERE `userID` = '".intval($userID)."' LIMIT 1");
 	$r=mysqli_fetch_array($q);
-	if(mysqli_num_rows($q) && !empty($r['password_pepper'])) {
+	if (mysqli_num_rows($q) && !empty($r['password_pepper'])) {
 		return $r['password_pepper'];
 	} else {
 		return false;
@@ -393,7 +393,7 @@ function Gen_Hash($string, $pepper) {
 	return password_hash($string.$pepper,PASSWORD_DEFAULT,array('cost'=>12));
 }
 function Gen_PasswordHash($password, $userID) {
-	if(is_PasswordPepper($userID)) {
+	if (is_PasswordPepper($userID)) {
 		$pepper = Get_PasswordPepper($userID);
 		$hash = password_hash($password.$pepper,PASSWORD_BCRYPT,array('cost'=>12));
 	} else {

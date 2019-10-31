@@ -69,7 +69,7 @@ echo'<div class="panel panel-default">
 echo '<script>
 					<!--
 						function chkFormular() {
-							if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+							if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
 								return false;
 							}
 						}

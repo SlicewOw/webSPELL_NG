@@ -149,7 +149,7 @@ if ($action == "save") {
                 echo generateErrorBox($upload->translateError());
             }
 
-        } elseif (!empty($fileurl)) {
+        } else if (!empty($fileurl)) {
             $file = $fileurl;
         } else {
             $error[] = $_language->module[ 'no_file_uploaded' ];
@@ -204,7 +204,7 @@ if ($action == "save") {
             }
         }
     }
-} elseif ($action == "saveedit") {
+} else if ($action == "saveedit") {
     if (!isfileadmin($userID)) {
         echo generateErrorBox($_language->module[ 'no_access' ]);
     } else {
@@ -253,7 +253,7 @@ if ($action == "save") {
                 echo generateErrorBox($upload->translateError());
             }
 
-        } elseif (isFileURL($fileurl)) {
+        } else if (isFileURL($fileurl)) {
             $file = $fileurl;
         }
 
@@ -285,7 +285,7 @@ if ($action == "save") {
             );
         }
     }
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     if (!isfileadmin($userID)) {
         echo generateErrorBox($_language->module[ 'no_access' ]);
     } else {
@@ -309,7 +309,7 @@ if ($action == "save") {
             redirect("index.php?site=files", generateErrorBox($_language->module[ 'cant_delete_without_fileID' ]), "3");
         }
     }
-} elseif ($action == "newfile") {
+} else if ($action == "newfile") {
     // ADMINACTIONS
     $adminactions =
         '<div class="row"><div class="col-xs-6"><a href="index.php?site=files" class="btn btn-default">' .
@@ -344,7 +344,7 @@ if ($action == "save") {
     } else {
         redirect("index.php?site=files", generateErrorBox($_language->module[ 'no_access' ]), "3");
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $fileID = intval($_GET[ 'fileID' ]);
     if ($fileID) {
         if (isfileadmin($userID)) {
@@ -436,7 +436,7 @@ if ($action == "save") {
     } else {
         redirect("index.php", generateErrorBox($_language->module[ 'cant_edit_without_fileID' ]), "3");
     }
-} elseif (isset($_GET[ 'cat' ])) {
+} else if (isset($_GET[ 'cat' ])) {
     $accesslevel = 1;
     if (isclanmember($userID)) {
         $accesslevel = 2;
@@ -640,7 +640,7 @@ if ($action == "save") {
     if (!isset($n)) {
         echo "<br>" . $_language->module[ 'cant_display_empty_cat' ];
     }
-} elseif (isset($_GET[ 'file' ])) {
+} else if (isset($_GET[ 'file' ])) {
     // ADMINACTIONS
     $adminactions = '';
     if (isfileadmin($userID)) {
@@ -872,7 +872,7 @@ if ($action == "save") {
     $data_array['$admintools'] = $admintools;
     $files_display = $GLOBALS["_template"]->replaceTemplate("files_display", $data_array);
     echo $files_display;
-} elseif ($action == "report") {
+} else if ($action == "report") {
     // DEAD-LINK TICKET SYSTEM
     $mode = 'deadlink';
     $type = 'files';
@@ -1009,7 +1009,7 @@ if ($action == "save") {
             LIMIT 0,5"
         );
         $top5 = '<strong>' . $_language->module[ 'top_5_downloads' ] . '</strong><ul class="list-group">';
-		if(!isset($n)) { $n=1; }
+		if (!isset($n)) { $n=1; }
         while ($file = mysqli_fetch_array($top5qry)) {
             $filename = $file[ 'filename' ];
             if (mb_strlen($filename) > 40) {

@@ -41,7 +41,7 @@ if (isset($_GET[ 'delete' ])) {
         redirect("admincenter.php?site=dashnavi",3);
     return false;
     }
-} elseif (isset($_GET[ 'delcat' ])) {
+} else if (isset($_GET[ 'delcat' ])) {
     $catID = $_GET[ 'catID' ];
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
@@ -50,8 +50,8 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sortieren' ])) {
-    if(isset($_POST[ 'sortcat' ])) { $sortcat = $_POST[ 'sortcat' ]; } else { $sortcat="";}
+} else if (isset($_POST[ 'sortieren' ])) {
+    if (isset($_POST[ 'sortcat' ])) { $sortcat = $_POST[ 'sortcat' ]; } else { $sortcat="";}
     $sortlinks = $_POST[ 'sortlinks' ];
 
     if (is_array($sortcat) AND !empty($sortcat)) {
@@ -66,7 +66,7 @@ if (isset($_GET[ 'delete' ])) {
             safe_query("UPDATE " . PREFIX . "dashnavi_links SET sort='$sorter[1]' WHERE linkID='$sorter[0]' ");
         }
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $anz = mysqli_num_rows(
@@ -85,7 +85,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'savecat' ])) {
+} else if (isset($_POST[ 'savecat' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])
     ) {
@@ -97,7 +97,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         safe_query(
@@ -109,7 +109,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveeditcat' ])) {
+} else if (isset($_POST[ 'saveeditcat' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         safe_query(
@@ -198,7 +198,7 @@ if ($action == "add") {
   </div>
 
           </form></div></div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '
@@ -287,7 +287,7 @@ if ($action == "add") {
 
     </form>
     </div></div>';
-} elseif ($action == "addcat") {
+} else if ($action == "addcat") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '
@@ -317,7 +317,7 @@ if ($action == "add") {
 
     </form>
     </div></div>';
-} elseif ($action == "editcat") {
+} else if ($action == "editcat") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-bars"></span> ' . $_language->module[ 'dashnavi' ] . '

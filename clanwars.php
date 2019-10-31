@@ -146,7 +146,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=clanwars', 'no access!');
     }
-} elseif ($action == "save") {
+} else if ($action == "save") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -356,7 +356,7 @@ if ($action == "new") {
         if ($homescr > $oppscr) {
             $results = '[color=' . $wincolor . '][b]' . $homescr . ':' . $oppscr . '[/b][/color]';
             $result2 = 'won';
-        } elseif ($homescr < $oppscr) {
+        } else if ($homescr < $oppscr) {
             $results = '[color=' . $loosecolor . '][b]' . $homescr . ':' . $oppscr . '[/b][/color]';
             $result2 = 'lost';
         } else {
@@ -384,7 +384,7 @@ if ($action == "new") {
                     $score .=
                         '<td>[color=' . $wincolor . '][b]' . $scoreHome[ $d ] . '[/b][/color] : [color=' . $loosecolor .
                         '][b]' . $scoreOpp[ $d ] . '[/b][/color]</td>';
-                } elseif ($scoreHome[ $d ] < $scoreOpp[ $d ]) {
+                } else if ($scoreHome[ $d ] < $scoreOpp[ $d ]) {
                     $score .=
                         '<td>[color=' . $loosecolor . '][b]' . $scoreHome[ $d ] . '[/b][/color] : [color=' . $wincolor .
                         '][b]' . $scoreOpp[ $d ] . '[/b][/color]</td>';
@@ -520,7 +520,7 @@ if ($action == "new") {
             $_language->module[ 'upload_screenshot' ] . '">
     <input type="button" onclick="javascript:self.close()" value="' . $_language->module[ 'close_window' ] . '"></p>';
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -690,7 +690,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=clanwars', $_language->module[ 'no_access' ]);
     }
-} elseif ($action == "saveedit") {
+} else if ($action == "saveedit") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -794,7 +794,7 @@ if ($action == "new") {
         '\',\'Clanwars\',\'toolbar=no,status=no,scrollbars=yes,width=800,height=600\')" value="' .
         $_language->module[ 'upload_screenshot' ] . '">
     <input type="button" onclick="javascript:self.close()" value="' . $_language->module[ 'close_window' ] . '"></p>';
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -824,7 +824,7 @@ if ($action == "new") {
     }
     safe_query("DELETE FROM `" . PREFIX . "clanwars` WHERE `cwID` = '$cwID'");
     header("Location: index.php?site=clanwars");
-} elseif (isset($_POST[ 'quickactiontype' ]) == "delete") {
+} else if (isset($_POST[ 'quickactiontype' ]) == "delete") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -855,7 +855,7 @@ if ($action == "new") {
         }
     }
     header("Location: index.php?site=clanwars");
-} elseif ($action == "stats") {
+} else if ($action == "stats") {
     $title_clanwars = $GLOBALS["_template"]->replaceTemplate("title_clanwars", array());
     echo $title_clanwars;
 
@@ -1171,7 +1171,7 @@ if ($action == "new") {
             unset($squadcwdata);
         }
     }
-} elseif ($action == "showonly") {
+} else if ($action == "showonly") {
     $id = 0;
     if (isset($_GET[ 'id' ])) {
         if (is_numeric($_GET[ 'id' ]) || (is_gametag($_GET[ 'id' ]))) {
@@ -1362,7 +1362,7 @@ if ($action == "new") {
 
             if ($homescr > $oppscr) {
                 $results = '<span style="color: ' . $wincolor . '">' . $homescr . ':' . $oppscr . '</span>';
-            } elseif ($homescr < $oppscr) {
+            } else if ($homescr < $oppscr) {
                 $results = '<span style="color: ' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</span>';
             } else {
                 $results = '<span style="color: ' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</span>';
@@ -1430,7 +1430,7 @@ if ($action == "new") {
     } else {
         echo $_language->module[ 'no_entries' ];
     }
-} elseif (empty($_GET[ 'action' ])) {
+} else if (empty($_GET[ 'action' ])) {
     if (isset($_GET[ 'page' ])) {
         $page = (int)$_GET[ 'page' ];
     } else {
@@ -1618,7 +1618,7 @@ if ($action == "new") {
 
             if ($homescr > $oppscr) {
                 $results = '<span style="color: ' . $wincolor . '">' . $homescr . ':' . $oppscr . '</span>';
-            } elseif ($homescr < $oppscr) {
+            } else if ($homescr < $oppscr) {
                 $results = '<span style="color: ' . $loosecolor . '">' . $homescr . ':' . $oppscr . '</span>';
             } else {
                 $results = '<span style="color: ' . $drawcolor . '">' . $homescr . ':' . $oppscr . '</span>';

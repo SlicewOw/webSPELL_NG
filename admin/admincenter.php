@@ -186,7 +186,7 @@ if ($getavatar = getavatar($userID)) {
 			chdir("../");
 			$plugin = $load->plugin_data($site,0,true);
 			$plugin_path = $plugin['path'];
-			if(file_exists($plugin_path."admin/".$plugin['admin_file'].".php")) {
+			if (file_exists($plugin_path."admin/".$plugin['admin_file'].".php")) {
 				include($plugin_path."admin/".$plugin['admin_file'].".php");
 			} else {
 				chdir("admin");

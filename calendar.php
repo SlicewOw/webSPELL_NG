@@ -305,7 +305,7 @@ function print_termine($tag, $month, $year)
                             while ($da = mysqli_fetch_array($anmeldung)) {
                                 if ($da['status'] == "y") {
                                     $fontcolor = $wincolor;
-                                } elseif ($da['status'] == "n") {
+                                } else if ($da['status'] == "n") {
                                     $fontcolor = $loosecolor;
                                 } else {
                                     $fontcolor = $drawcolor;
@@ -411,7 +411,7 @@ function print_termine($tag, $month, $year)
                             while ($da = mysqli_fetch_array($anmeldung)) {
                                 if ($da['status'] == "y") {
                                     $fontcolor = $wincolor;
-                                } elseif ($da['status'] == "n") {
+                                } else if ($da['status'] == "n") {
                                     $fontcolor = $loosecolor;
                                 } else {
                                     $fontcolor = $drawcolor;
@@ -583,7 +583,7 @@ if ($action === "savewar") {
         date("n", $date) . "&year=" .
         date("Y", $date)
     );
-} elseif ($action === "delete") {
+} else if ($action === "delete") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -596,7 +596,7 @@ if ($action === "savewar") {
     safe_query("DELETE FROM " . PREFIX . "upcoming WHERE upID='$upID'");
     safe_query("DELETE FROM " . PREFIX . "upcoming_announce WHERE upID='$upID'");
     header("Location: index.php?site=calendar");
-} elseif ($action === "saveannounce") {
+} else if ($action === "saveannounce") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -655,7 +655,7 @@ if ($action === "savewar") {
     } else {
         header("Location: index.php?site=calendar");
     }
-} elseif ($action === "saveeditdate") {
+} else if ($action === "saveeditdate") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -689,7 +689,7 @@ if ($action === "savewar") {
         date("n", $date_start) . "&year=" .
         date("Y", $date_start)
     );
-} elseif ($action === "savedate") {
+} else if ($action === "savedate") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -734,7 +734,7 @@ if ($action === "savewar") {
         "",
         0
     );
-} elseif ($action === "saveeditwar") {
+} else if ($action === "saveeditwar") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -783,7 +783,7 @@ if ($action === "savewar") {
         date("n", $date) . "&year=" .
         date("Y", $date)
     );
-} elseif ($action === "addwar") {
+} else if ($action === "addwar") {
     $_language->readModule('calendar');
     if (isclanwaradmin($userID)) {
         $title_calendar = $GLOBALS["_template"]->replaceTemplate("title_calendar", array());
@@ -858,7 +858,7 @@ if ($action === "savewar") {
     } else {
         redirect('index.php?site=calendar', $_language->module['no_access']);
     }
-} elseif ($action === "editwar") {
+} else if ($action === "editwar") {
     $_language->readModule('calendar');
     if (isclanwaradmin($userID)) {
         $title_calendar = $GLOBALS["_template"]->replaceTemplate("title_calendar", array());
@@ -916,7 +916,7 @@ if ($action === "savewar") {
     } else {
         redirect('index.php?site=calendar', $_language->module['no_access']);
     }
-} elseif ($action === "adddate") {
+} else if ($action === "adddate") {
     $_language->readModule('calendar');
     if (isclanwaradmin($userID)) {
         $title_calendar = $GLOBALS["_template"]->replaceTemplate("title_calendar", array());
@@ -944,7 +944,7 @@ if ($action === "savewar") {
     } else {
         redirect('index.php?site=calendar', $_language->module['no_access']);
     }
-} elseif ($action === "editdate") {
+} else if ($action === "editdate") {
     $_language->readModule('calendar');
     if (isclanwaradmin($userID)) {
         $title_calendar = $GLOBALS["_template"]->replaceTemplate("title_calendar", array());
@@ -995,7 +995,7 @@ if ($action === "savewar") {
     } else {
         redirect('index.php?site=calendar', $_language->module['no_access']);
     }
-} elseif ($action === "announce" && isclanmember($userID)) {
+} else if ($action === "announce" && isclanmember($userID)) {
     $_language->readModule('calendar');
 
     $title_calendar = $GLOBALS["_template"]->replaceTemplate("title_calendar", array());

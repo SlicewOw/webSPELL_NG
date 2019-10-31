@@ -38,12 +38,12 @@ if (isset($_GET[ 'cwID' ])) {
     $table = "clanwars";
     $tableid = "cwID";
     $id = (int)$_GET[ 'cwID' ];
-} elseif (isset($_GET[ 'newsID' ])) {
+} else if (isset($_GET[ 'newsID' ])) {
     $filepath = "images/news-pics/";
     $table = "news";
     $tableid = "newsID";
     $id = (int)$_GET[ 'newsID' ];
-} elseif (isset($_GET[ 'articlesID' ])) {
+} else if (isset($_GET[ 'articlesID' ])) {
     $filepath = "images/articles-pics/";
     $table = "articles";
     $tableid = "articlesID";
@@ -87,7 +87,7 @@ if (isset($_POST[ 'submit' ])) {
         }
     }
     header("Location: upload.php?$tableid=$id");
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     $file = basename($_GET[ 'file' ]);
     if (file_exists($filepath . $file)) {
         @unlink($filepath . $file);
@@ -115,7 +115,7 @@ if (isset($_POST[ 'submit' ])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="description" content="Website using webSPELL-NOR CMS">
-    <meta name="author" content="webspell-nor.de">    
+    <meta name="author" content="webspell-nor.de">
     <title>' . $_language->module[ 'file_upload' ] . '</title>
     <link href="css/page.css" rel="stylesheet">';
     foreach ($components['css'] as $component) {

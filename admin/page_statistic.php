@@ -131,7 +131,7 @@ foreach ($tables_array as $table) {
 <div class="col-md-6">
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['overhead']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $db_size_op; ?> Bytes
     <?php
-    if($db_size_op != 0) {
+    if ($db_size_op != 0) {
     	echo'<a href="admincenter.php?site=database&amp;action=optimize&amp;back=page_statistic"><span style="color: #FF0000;"><b>'.$_language->module['optimize'].'</b></span></a>';
     }
     ?></em></span></div></div>
@@ -163,7 +163,7 @@ foreach ($tables_array as $table) {
 
 <?php
   for($i = 0; $i < count($count_array); $i += 1) {
-    if($i%4) { $td='td1'; }
+    if ($i%4) { $td='td1'; }
     else { $td='td2'; }
   ?>
 <div class="col-md-6">
@@ -173,7 +173,7 @@ foreach ($tables_array as $table) {
 
 
 
-    <?php if(isset($count_array[$i + 1])) { ?>
+    <?php if (isset($count_array[$i + 1])) { ?>
 	<div class="col-md-6">
 <div class="row bte"><div class="col-md-6"><?php echo $count_array[$i + 1][0]; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_array[$i + 1][1]; ?></em></span></div></div>
 </div>

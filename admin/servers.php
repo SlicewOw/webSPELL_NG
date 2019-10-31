@@ -52,7 +52,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         safe_query(
@@ -63,7 +63,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sort' ])) {
+} else if (isset($_POST[ 'sort' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         if (is_array($_POST[ 'sortlist' ])) {
@@ -75,7 +75,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         safe_query("DELETE FROM " . PREFIX . "servers WHERE serverID='" . $_GET[ 'serverID' ] . "'");
@@ -117,7 +117,7 @@ if ($action == "add") {
 
     echo '<script>
         function chkFormular() {
-            if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+            if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
                 return false;
             }
         }
@@ -176,7 +176,7 @@ if ($action == "add") {
   </div>
   </form></div>
   </div>';
-} elseif($action=="edit") {
+} elseif ($action=="edit") {
 
   echo'<div class="panel panel-default">
     <div class="panel-heading">
@@ -204,7 +204,7 @@ if ($action == "add") {
 
     echo '<script>
         function chkFormular() {
-            if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+            if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
                 return false;
             }
         }

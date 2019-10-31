@@ -2,7 +2,7 @@
 //Script made by BlueaKaKev //
 $qry = safe_query("SELECT * FROM ".PREFIX."user_blog WHERE blogID!=0 ORDER BY blogID DESC LIMIT 0,5");
 $anz = mysqli_num_rows($qry);
-if($anz) {
+if ($anz) {
 	echo '<ul class="list-group">';
 	$n=1;
 	while($blog = mysqli_fetch_array($qry)) {
@@ -10,7 +10,7 @@ if($anz) {
 		$blogh = $blog['headline'];
 		$visits = $blog['visits'];
 		$date = date("d.m.y", $blog['date']);
-		if($n%2) {
+		if ($n%2) {
 			$bg1=BG_1;
 			$bg2=BG_2;
 		}
@@ -19,7 +19,7 @@ if($anz) {
 			$bg2=BG_4;
 		}
 		$maxblogchars = 18;
-		if(mb_strlen($blogh)>$maxblogchars) {
+		if (mb_strlen($blogh)>$maxblogchars) {
 			$blogh=mb_substr($blogh, 0, $maxblogchars);
 			$blogh.='...';
 		}

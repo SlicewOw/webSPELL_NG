@@ -203,7 +203,7 @@ class SpamApi
                 curl_close($ch);
                 return "";
             }
-        } elseif (include("HTTP/Request2.php") && class_exists("HTTP_Request2")) {
+        } else if (include("HTTP/Request2.php") && class_exists("HTTP_Request2")) {
             $request = new \HTTP_Request2($this->host, \HTTP_Request2::METHOD_POST);
             if (stripos($this->host, "https") == 0) {
                 $request->setConfig(array("ssl_cafile" => "src/ca.pem", "ssl_verify_peer" => false));
@@ -216,7 +216,7 @@ class SpamApi
                 $this->logError("No Api-Respone. Code: " . $ex->getCode() . ", Message: " . $ex->getMessage(), $data);
                 return "";
             }
-        } elseif (class_exists("HttpRequest")) {
+        } else if (class_exists("HttpRequest")) {
             $request = new \HttpRequest($this->host, \HttpRequest::METH_POST);
             $request->addPostFields($data);
             try {
@@ -225,7 +225,7 @@ class SpamApi
                 $this->logError("No Api-Respone. Code: " . $ex->getCode() . ", Message: " . $ex->getMessage(), $data);
                 return "";
             }
-        } elseif (ini_get("allow_url_fopen")) {
+        } else if (ini_get("allow_url_fopen")) {
             $build_data = http_build_query($data);
             $params = array(
                 'http' => array(

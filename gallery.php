@@ -84,7 +84,7 @@ if (isset($_POST[ 'saveedit' ])) {
     }
 
     redirect('index.php?site=gallery&amp;picID=' . $_POST[ 'picID' ], '', 0);
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $_language->readModule('gallery');
 
     if ($_GET[ 'id' ]) {
@@ -122,7 +122,7 @@ if (isset($_POST[ 'saveedit' ])) {
     } else {
         redirect('index.php?site=gallery', $_language->module[ 'no_pic_set' ]);
     }
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     include('_mysql.php');
     include('_settings.php');
     include('_functions.php');
@@ -183,7 +183,7 @@ if (isset($_POST[ 'saveedit' ])) {
         );
     }
     redirect('index.php?site=gallery&amp;galleryID=' . $ds[ 'galleryID' ], '', 0);
-} elseif ($action == "diashow" || $action == "window") {
+} else if ($action == "diashow" || $action == "window") {
     include('_mysql.php');
     include('_settings.php');
     include('_functions.php');
@@ -284,7 +284,7 @@ if (isset($_POST[ 'saveedit' ])) {
     }
 
     echo '</body></html>';
-} elseif (isset($_GET[ 'picID' ])) {
+} else if (isset($_GET[ 'picID' ])) {
     $_language->readModule('gallery');
 
     $galclass = new \webspell\Gallery;
@@ -497,7 +497,7 @@ if (isset($_POST[ 'saveedit' ])) {
 
         include("comments.php");
     }
-} elseif (isset($_GET[ 'galleryID' ])) {
+} else if (isset($_GET[ 'galleryID' ])) {
     $_language->readModule('gallery');
 
     $galclass = new \webspell\Gallery;
@@ -568,7 +568,7 @@ if (isset($_POST[ 'saveedit' ])) {
 	$p = 1;
 	while($dy=mysqli_fetch_array($dx)) {
 		$g = $dy['galleryID'];
-		if($g==$galleryID) {
+		if ($g==$galleryID) {
 			$pagelink .= '<li>'.$p.'</li>';
 		} else {
 			$pagelink .= '<li><a href="index.php?site=gallery&amp;galleryID='.$g.'">'.$p.'</li>';
@@ -644,7 +644,7 @@ if (isset($_POST[ 'saveedit' ])) {
     $data_array['$pagelink'] = $pagelink;
     $gallery = $GLOBALS["_template"]->replaceTemplate("gallery_gallery_foot", $data_array);
     echo $gallery;
-} elseif (isset($_GET[ 'groupID' ])) {
+} else if (isset($_GET[ 'groupID' ])) {
     $_language->readModule('gallery');
 
     $galclass = new \webspell\Gallery;

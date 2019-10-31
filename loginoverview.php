@@ -47,7 +47,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
     $newmessages = getnewmessages($userID);
     if ($newmessages == 1) {
         $newmessages = $_language->module[ 'one_new_message' ];
-    } elseif ($newmessages > 1) {
+    } else if ($newmessages > 1) {
         $newmessages = str_replace('%new_messages%', $newmessages, $_language->module[ 'x_new_message' ]);
     } else {
         $newmessages = $_language->module[ 'no_new_messages' ];
@@ -290,7 +290,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
                             while ($da = mysqli_fetch_array($anmeldung)) {
                                 if ($da[ 'status' ] == "y") {
                                     $fontcolor = "label-success";
-                                } elseif ($da[ 'status' ] == "n") {
+                                } else if ($da[ 'status' ] == "n") {
                                     $fontcolor = "label-important";
                                 } else {
                                     $fontcolor = "label-warning";

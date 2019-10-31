@@ -28,8 +28,8 @@
 $_language->readModule('sc_randompic');
 
 $all_users = array();$res = safe_query("SELECT userID FROM `".PREFIX."user`");
-while($row=mysqli_fetch_array($res)) { 
-	$all_users[ ] = $row[ 'userID' ]; 
+while($row=mysqli_fetch_array($res)) {
+	$all_users[ ] = $row[ 'userID' ];
 }
 $picpath = './images/userpics/';
 //get randomPic
@@ -41,16 +41,16 @@ if ($anz) {
 	$registerdate = getregistered($the_user);
 	$rex = safe_query("SELECT * FROM `".PREFIX."user` WHERE `userID`='".intval($the_user)."'");
 	$rox = mysqli_fetch_array($rex);
-	if(isset($rox[ 'userpic' ])) {
-		if($rox[ 'userpic' ]=="") { 
-			$upic = "nouserpic.png"; 
-		} 
-		else { 
-			$upic = $rox[ 'userpic' ]; 
+	if (isset($rox[ 'userpic' ])) {
+		if ($rox[ 'userpic' ]=="") {
+			$upic = "nouserpic.png";
 		}
-	} 
-	else { 
-		$upic = "nouserpic.png"; 
+		else {
+			$upic = $rox[ 'userpic' ];
+		}
+	}
+	else {
+		$upic = "nouserpic.png";
 	}
 	$picurl = $picpath . $upic;
 

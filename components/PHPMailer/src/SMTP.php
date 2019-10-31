@@ -478,7 +478,7 @@ class SMTP
 
                 return false;
             }
-        } elseif (empty($authtype)) {
+        } else if (empty($authtype)) {
             $authtype = 'LOGIN';
         }
         switch ($authtype) {

@@ -79,7 +79,7 @@ if (is_array($theMaps)) {
 if ($homescr > $oppscr) {
 	$results_1 = '<span style="color: ' . $wincolor . '">' . $homescr . '</span>';
 	$results_2 = '<span style="color: ' . $wincolor . '">' . $oppscr . '</span>';
-} elseif ($homescr < $oppscr) {
+} else if ($homescr < $oppscr) {
 	$results_1 = '<span style="color: ' . $loosecolor . '">' . $homescr . '</span>';
 	$results_2 = '<span style="color: ' . $loosecolor . '">' . $oppscr . '</span>';
 } else {
@@ -181,7 +181,7 @@ $oppscr = array_sum($scoreOpp);
 if ($homescr > $oppscr) {
 	$result_map = '[color=' . $wincolor . '][b]' . $homescr . ':' . $oppscr . '[/b][/color]';
 	$result_map2 = 'won';
-} elseif ($homescr < $oppscr) {
+} else if ($homescr < $oppscr) {
 	$result_map = '[color=' . $loosecolor . '][b]' . $homescr . ':' . $oppscr . '[/b][/color]';
 	$result_map2 = 'lost';
 } else {
@@ -203,7 +203,7 @@ if (is_array($theMaps)) {
 		if ($scoreHome[ $d ] > $scoreOpp[ $d ]) {
 			$score_1 = '<span style="color: ' . $wincolor . '"><strong>' . $scoreHome[ $d ] . '</strong></span>';
 			$score_2 = '<span style="color: ' . $wincolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></span>';
-		} elseif ($scoreHome[ $d ] < $scoreOpp[ $d ]) {
+		} else if ($scoreHome[ $d ] < $scoreOpp[ $d ]) {
 			$score_1 = '<span style="color: ' . $loosecolor . '"><strong>' . $scoreHome[ $d ] . '</strong></span>';
 			$score_2 = '<span style="color: ' . $loosecolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></span>';
 		} else {

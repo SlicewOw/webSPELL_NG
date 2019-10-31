@@ -51,7 +51,7 @@ if (isset($_POST[ 'add' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'edit' ])) {
+} else if (isset($_POST[ 'edit' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $id = $_POST[ 'id' ];
@@ -221,7 +221,7 @@ if (isset($_POST[ 'add' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'newuser' ])) {
+} else if (isset($_POST[ 'newuser' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $newnickname = htmlspecialchars(mb_substr(trim($_POST[ 'username' ]), 0, 30));
@@ -247,7 +247,7 @@ if (isset($_POST[ 'add' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         $id = $_GET[ 'id' ];
@@ -273,7 +273,7 @@ if (isset($_POST[ 'add' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'ban' ])) {
+} else if (isset($_POST[ 'ban' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $id = $_POST[ 'id' ];
@@ -338,7 +338,7 @@ if ($action == "activate") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif ($action == "ban") {
+} else if ($action == "ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
@@ -381,7 +381,7 @@ if ($action == "activate") {
 
             echo '<script type="text/javascript">
 				function hide_forms() {
-					if(document.getElementById("permanent").checked){
+					if (document.getElementById("permanent").checked){
 						document.getElementById("until_date").style.display = "none";
 						document.getElementById("ban_for").style.display = "none";
 					}
@@ -395,7 +395,7 @@ if ($action == "activate") {
 					document.getElementById("ban_num").value = "";
 				}
 				function kill_form(type) {
-					if(type == "until") {
+					if (type == "until") {
 						document.getElementById("permanent").checked == false;
 						document.getElementById("ban_num").value = "";
 					}
@@ -490,7 +490,7 @@ if ($action == "activate") {
             $_language->module[ 'you_cant_ban_yourself' ] . '<br /><br />&laquo; <a href="javascript:history.back()">' .
             $_language->module[ 'back' ] . '</a>';
     }
-} elseif ($action == "addtoclan") {
+} else if ($action == "addtoclan") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
@@ -542,7 +542,7 @@ if ($action == "activate") {
     </div>
   </form>
   </div></div>';
-} elseif ($action == "adduser") {
+} else if ($action == "adduser") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -583,7 +583,7 @@ if ($action == "activate") {
 
   </form>
   </div></div>';
-} elseif ($action == "profile") {
+} else if ($action == "profile") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
@@ -900,14 +900,14 @@ if ($action == "activate") {
     if (isset($_GET[ 'sort' ])) {
         if (($_GET[ 'sort' ] == 'nickname') || ($_GET[ 'sort' ] == 'registerdate')) {
             $sort = "u." . $_GET[ 'sort' ];
-        } elseif ($_GET[ 'sort' ] == 'status') {
-            $sort = "IF(	(SELECT super FROM " . PREFIX . "user_groups WHERE userID=u.userID LIMIT 0,1) = 1,'1',
-	  				IF( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND (page='1' OR
+        } else if ($_GET[ 'sort' ] == 'status') {
+            $sort = "if (	(SELECT super FROM " . PREFIX . "user_groups WHERE userID=u.userID LIMIT 0,1) = 1,'1',
+	  				if ( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND (page='1' OR
 	  				            forum='1' OR user='1' OR news='1' OR clanwars='1' OR feedback='1' OR super='1' OR
 	  				            gallery='1' OR cash='1' OR files='1') LIMIT 0,1) =u.userID,2,
-	  					IF( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND
+	  					if ( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND
 	  					    moderator='1' LIMIT 0,1) = u.userID, 3,
-	  						IF( 	(SELECT userID FROM " . PREFIX . "squads_members WHERE
+	  						if ( 	(SELECT userID FROM " . PREFIX . "squads_members WHERE
 	  						userID=u.userID LIMIT 0,1) = u.userID,4,5 )
 	  					)
 	  				)
@@ -976,7 +976,7 @@ if ($action == "activate") {
         }
         if ($status === true) {
             $sort = "status";
-        } elseif (($_GET[ 'sort' ] == 'nickname') || ($_GET[ 'sort' ] == 'registerdate')) {
+        } else if (($_GET[ 'sort' ] == 'nickname') || ($_GET[ 'sort' ] == 'registerdate')) {
             $sort = $_GET[ 'sort' ];
         }
         if ($type == "ASC") {
@@ -1043,17 +1043,17 @@ if ($action == "activate") {
 
             if (issuperadmin($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
                 $status = $_language->module[ 'superadmin' ] . '<br />&amp; ' . $_language->module[ 'clanmember' ];
-            } elseif (issuperadmin($ds[ 'userID' ])) {
+            } else if (issuperadmin($ds[ 'userID' ])) {
                 $status = $_language->module[ 'superadmin' ];
-            } elseif (isanyadmin($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
+            } else if (isanyadmin($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
                 $status = $_language->module[ getConstNameAdmin() ] . '<br />&amp; ' . $_language->module[ 'clanmember' ];
-            } elseif (isanyadmin($ds[ 'userID' ])) {
+            } else if (isanyadmin($ds[ 'userID' ])) {
                 $status = $_language->module[ getConstNameAdmin() ];
-            } elseif (isanymoderator($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
+            } else if (isanymoderator($ds[ 'userID' ]) && isclanmember($ds[ 'userID' ])) {
                 $status = $_language->module[ 'moderator' ] . '<br />&amp; ' . $_language->module[ 'clanmember' ];
-            } elseif (isanymoderator($ds[ 'userID' ])) {
+            } else if (isanymoderator($ds[ 'userID' ])) {
                 $status = $_language->module[ 'moderator' ];
-            } elseif (isclanmember($ds[ 'userID' ])) {
+            } else if (isclanmember($ds[ 'userID' ])) {
                 $status = $_language->module[ 'clanmember' ];
             } else {
                 $status = $_language->module[ 'user' ];

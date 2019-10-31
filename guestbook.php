@@ -98,7 +98,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         header("Location: index.php?site=guestbook&action=add&error=captcha");
     }
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -112,7 +112,7 @@ if (isset($_POST[ 'save' ])) {
         }
     }
     header("Location: index.php?site=guestbook");
-} elseif (isset($_POST[ 'savecomment' ])) {
+} else if (isset($_POST[ 'savecomment' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -132,7 +132,7 @@ if (isset($_POST[ 'save' ])) {
     );
 
     header("Location: index.php?site=guestbook");
-} elseif ($action == 'comment' && is_numeric($_GET[ 'guestbookID' ])) {
+} else if ($action == 'comment' && is_numeric($_GET[ 'guestbookID' ])) {
     $_language->readModule('guestbook');
     $_language->readModule('bbcode', true);
     if (!isfeedbackadmin($userID)) {
@@ -152,7 +152,7 @@ if (isset($_POST[ 'save' ])) {
     $data_array['$guestbookID'] = (int)$_GET[ 'guestbookID' ];
     $guestbook_comment = $GLOBALS["_template"]->replaceTemplate("guestbook_comment", $data_array);
     echo $guestbook_comment;
-} elseif ($action == 'add') {
+} else if ($action == 'add') {
     $_language->readModule('guestbook');
     $_language->readModule('bbcode', true);
 

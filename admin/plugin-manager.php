@@ -49,9 +49,9 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
     die($_language->module[ 'access_denied' ]);
 }
 
-if(isset($_GET['do'])) { $do=$_GET['do']; } else { $do=""; }
-if(isset($_GET['id'])) { $id=intval($_GET['id']); } else { $id=""; }
-if($id!="" && $do=="dea") {
+if (isset($_GET['do'])) { $do=$_GET['do']; } else { $do=""; }
+if (isset($_GET['id'])) { $id=intval($_GET['id']); } else { $id=""; }
+if ($id!="" && $do=="dea") {
 	try {
 		safe_query("UPDATE `".PREFIX."plugins` SET `activate` = '0' WHERE `pluginID` = '".$id."';");
 		echo $_language->module[ 'success_deactivated' ];
@@ -61,7 +61,7 @@ if($id!="" && $do=="dea") {
 		 redirect("admincenter.php?site=plugin-manager", 5); return false;
 	}
 }
-if($id!="" && $do=="act") {
+if ($id!="" && $do=="act") {
 	try {
 		safe_query("UPDATE `".PREFIX."plugins` SET `activate` = '1' WHERE `pluginID` = '".$id."';");
 		echo $_language->module[ 'success_activated' ];
@@ -71,7 +71,7 @@ if($id!="" && $do=="act") {
 		 redirect("admincenter.php?site=plugin-manager", 5); return false;
 	}
 }
-if($id!="" && $do=="del") {
+if ($id!="" && $do=="del") {
 	try {
 		safe_query("DELETE FROM `".PREFIX."plugins` WHERE `pluginID` = '".$id."' LIMIT 1");
 		echo $_language->module[ 'success_delete' ];
@@ -82,8 +82,8 @@ if($id!="" && $do=="del") {
 	}
 }
 
-if(isset($_REQUEST['svn'])) {
-	if(isset($_REQUEST['activate'])) { $acti = 1; } else { $acti = 0; }
+if (isset($_REQUEST['svn'])) {
+	if (isset($_REQUEST['activate'])) { $acti = 1; } else { $acti = 0; }
 	try {
 		safe_query("INSERT INTO `".PREFIX."plugins` (`pluginID`, `name`, `description`, `activate`, `admin_file`, `author`, `website`, `index_link`, `sc_link`, `hiddenfiles`, `version`, `path`) VALUES (NULL, '".$_REQUEST['name']."', '".$_REQUEST['description']."', '".$acti."', '".$_REQUEST['admin_file']."', '".$_REQUEST['author']."', '".$_REQUEST['website']."', '".$_REQUEST['index']."', '".$_REQUEST['sclink']."', '".$_REQUEST['hiddenfiles']."', '".$_REQUEST['version']."', '".$_REQUEST['path']."');");
 		echo $_language->module[ 'success_save' ]."<br /><br />";
@@ -94,8 +94,8 @@ if(isset($_REQUEST['svn'])) {
 	}
 return false;
 }
-if(isset($_REQUEST['sve'])) {
-	if(isset($_REQUEST['activate'])) { $acti = 1; } else { $acti = 0; }
+if (isset($_REQUEST['sve'])) {
+	if (isset($_REQUEST['activate'])) { $acti = 1; } else { $acti = 0; }
 	try {
 		safe_query("UPDATE `".PREFIX."plugins` SET `name` = '".$_REQUEST['name']."', `description` = '".$_REQUEST['description']."', `activate` = '".$acti."', `admin_file` = '".$_REQUEST['admin_file']."', `author` = '".$_REQUEST['author']."', `website` = '".$_REQUEST['website']."', `index_link` = '".$_REQUEST['index']."', `sc_link` = '".$_REQUEST['sclink']."', `hiddenfiles` = '".$_REQUEST['hiddenfiles']."', `version` = '".$_REQUEST['version']."', `path` = '".$_REQUEST['path']."' WHERE `pluginID` = '".intval($_REQUEST['pid'])."';");
 		echo $_language->module[ 'success_edit' ]."<br /><br />";
@@ -106,11 +106,11 @@ if(isset($_REQUEST['sve'])) {
 	}
 return false;
 }
-if($do=="edit") {
+if ($do=="edit") {
 	try {
 		$res = safe_query("SELECT * FROM `".PREFIX."plugins` WHERE `pluginID`='".$id."' LIMIT 1");
 		$row = mysqli_fetch_array($res);
-		if($row['activate'] == 1) { $acti = 'checked="checked"'; } else { $acti = ""; }
+		if ($row['activate'] == 1) { $acti = 'checked="checked"'; } else { $acti = ""; }
 	} CATCH (Exception $e) {
 			echo $e->getMessage();
 		return false;
@@ -213,7 +213,7 @@ if($do=="edit") {
 return false;
 
 }
-if($do=="new") {
+if ($do=="new") {
 	echo '
 	<div class="panel panel-default">
   <div class="panel-heading">
@@ -343,7 +343,7 @@ $CAPCLASS = new \webspell\Captcha;
 	# query activated first
 
 	$res=safe_query("SELECT * FROM `".PREFIX."plugins` WHERE `activate`=1 ORDER BY `pluginID` ");
-	if(mysqli_num_rows($res)) {
+	if (mysqli_num_rows($res)) {
 		while($row=mysqli_fetch_array($res)) {
 			echo '
   <div class="row">
@@ -396,7 +396,7 @@ $CAPCLASS = new \webspell\Captcha;
 
 
 	$res=safe_query("SELECT * FROM `".PREFIX."plugins` WHERE `activate`=0 ORDER BY `pluginID` ");
-	if(mysqli_num_rows($res)) {
+	if (mysqli_num_rows($res)) {
 		while($row=mysqli_fetch_array($res)) {
 			echo '<div class="row">
   				<div class="col-sm-1">'.$row['pluginID'].'</div>

@@ -156,7 +156,7 @@ if ($action == "new") {
     $data_array['$componentsJs'] = $componentsJs;
     $news_post = $GLOBALS["_template"]->replaceTemplate("news_post", $data_array);
     echo $news_post;
-} elseif ($action == "save") {
+} else if ($action == "save") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -292,7 +292,7 @@ if ($action == "new") {
     if (isset($_POST[ 'topnews' ])) {
         if ($_POST[ 'topnews' ]) {
             safe_query("UPDATE " . PREFIX . "settings SET topnewsID='" . $newsID . "'");
-        } elseif (!$_POST[ 'topnews' ] && $newsID == $topnewsID) {
+        } else if (!$_POST[ 'topnews' ] && $newsID == $topnewsID) {
             safe_query("UPDATE " . PREFIX . "settings SET topnewsID='0'");
         }
     }
@@ -306,7 +306,7 @@ if ($action == "new") {
     if ($languagecount) {
         header("Location: news.php?action=edit&newsID=" . $newsID);
     }
-} elseif ($action == "preview") {
+} else if ($action == "preview") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -428,7 +428,7 @@ if ($action == "new") {
     $tags = \webspell\Tags::getTagsLinked('news', $ds[ 'newsID' ]);
 
     $data_array = array();
-    if($rubricpic!='') { $data_array['$rubric_pic'] =  '<div><div class="thumbnail pull-left">'.$rubricpic.'</div></div>'; } else {$data_array['$rubric_pic']='';}
+    if ($rubricpic!='') { $data_array['$rubric_pic'] =  '<div><div class="thumbnail pull-left">'.$rubricpic.'</div></div>'; } else {$data_array['$rubric_pic']='';}
     $data_array['$langs'] = $langs;
 	$data_array['$related'] = $related;
     $data_array['$newsID'] = $newsID;
@@ -452,7 +452,7 @@ if ($action == "new") {
         \'' . $_language->module[ 'really_delete' ] .
         '\', \'news.php?action=delete&amp;id=' . $newsID . '&amp;close=true\'
     )" value="' . $_language->module[ 'delete' ] . '" class="btn btn-danger"></body></html>';
-} elseif ($quickactiontype == "publish") {
+} else if ($quickactiontype == "publish") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -475,7 +475,7 @@ if ($action == "new") {
     } else {
         header("Location: index.php?site=news&action=unpublished");
     }
-} elseif ($quickactiontype == "unpublish") {
+} else if ($quickactiontype == "unpublish") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -496,7 +496,7 @@ if ($action == "new") {
         generate_rss2();
     }
     header("Location: index.php?site=news");
-} elseif ($quickactiontype == "delete") {
+} else if ($quickactiontype == "delete") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -541,7 +541,7 @@ if ($action == "new") {
         generate_rss2();
         header("Location: index.php?site=news&action=archive");
     }
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -586,7 +586,7 @@ if ($action == "new") {
     } else {
         header("Location: index.php?site=news");
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -768,10 +768,10 @@ if ($action == "new") {
     $data_array['$componentsJs'] = $componentsJs;
     $news_post = $GLOBALS["_template"]->replaceTemplate("news_post", $data_array);
     echo $news_post;
-} elseif (basename($_SERVER[ 'PHP_SELF' ]) == "news.php") {
+} else if (basename($_SERVER[ 'PHP_SELF' ]) == "news.php") {
     generate_rss2();
     header("Location: index.php?site=news");
-} elseif ($action == "unpublished") {
+} else if ($action == "unpublished") {
     $_language->readModule('news');
 
     $title_news = $GLOBALS["_template"]->replaceTemplate("title_news", array());
@@ -881,7 +881,7 @@ if ($action == "new") {
             unset($ds);
         }
     }
-} elseif ($action == "archive") {
+} else if ($action == "archive") {
     $_language->readModule('news');
 
     $title_news = $GLOBALS["_template"]->replaceTemplate("title_news", array());
@@ -1324,7 +1324,7 @@ if ($action == "new") {
         }
 
 		$data_array = array();
-		if($rubricpic!='') {
+		if ($rubricpic!='') {
 			$data_array['$rubric_pic'] =  '<div><div class="thumbnail pull-left">'.$rubricpic.'</div></div>';
 		} else {
 			$data_array['$rubric_pic']='';

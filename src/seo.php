@@ -228,7 +228,7 @@ function parseWebspellURL($parameters = null)
                         'index.php?site=faq'
                     );
                     $returned_title[] = array($get['faqcatname']);
-                } elseif ($action == "faq") {
+                } else if ($action == "faq") {
                     $returned_title[] = array(
                         $_language->module['faq'],
                         'index.php?site=faq'
@@ -271,7 +271,7 @@ function parseWebspellURL($parameters = null)
                         'index.php?site=files'
                     );
                     $returned_title[] = array($cat['name']);
-                } elseif (isset($parameters['file'])) {
+                } else if (isset($parameters['file'])) {
                     $file = mysqli_fetch_array(
                         safe_query(
                             "SELECT
@@ -391,7 +391,7 @@ function parseWebspellURL($parameters = null)
                         'index.php?site=gallery'
                     );
                     $returned_title[] = array($groupID['name']);
-                } elseif (isset($parameters['galleryID'])) {
+                } else if (isset($parameters['galleryID'])) {
                     $galleryID = mysqli_fetch_array(
                         safe_query(
                             "SELECT
@@ -424,7 +424,7 @@ function parseWebspellURL($parameters = null)
                         'index.php?site=gallery&amp;galleryID=' . $galleryID['galleryID']
                     );
                     $returned_title[] = array($galleryID['name']);
-                } elseif (isset($parameters['picID'])) {
+                } else if (isset($parameters['picID'])) {
                     $getgalleryname = mysqli_fetch_array(
                         safe_query(
                             "SELECT
@@ -627,7 +627,7 @@ function parseWebspellURL($parameters = null)
                         'index.php?site=polls'
                     );
                     $returned_title[] = array($vote['titel']);
-                } elseif (isset($parameters['pollID'])) {
+                } else if (isset($parameters['pollID'])) {
                     $pollID = mysqli_fetch_array(
                         safe_query("SELECT titel FROM " . PREFIX . "poll WHERE pollID=" . (int)$pollID)
                     );

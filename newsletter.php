@@ -118,7 +118,7 @@ if ($action == "save") {
             );
         }
     }
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     $ergebnis = safe_query("SELECT pass FROM " . PREFIX . "newsletter WHERE email='" . $_POST['email'] . "'");
     $any = mysqli_num_rows($ergebnis);
     if ($any) {
@@ -145,7 +145,7 @@ if ($action == "save") {
             3
         );
     }
-} elseif ($action == "forgot") {
+} else if ($action == "forgot") {
     $ergebnis = safe_query("SELECT pass FROM " . PREFIX . "newsletter WHERE email='" . $_POST['email'] . "'");
     $dn = mysqli_fetch_array($ergebnis);
 

@@ -41,7 +41,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $name = $_POST[ 'name' ];
     $max = $_POST[ 'max' ];
     $min = $_POST[ 'min' ];
@@ -128,7 +128,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $rank = $_POST[ 'rank' ];
     $min = $_POST[ 'min' ];
     $max = $_POST[ 'max' ];
@@ -193,11 +193,11 @@ if ($action == "add") {
 
     echo '<script type="text/javascript">
   function HideFields(state){
-  	if(state == true){
+  	if (state == true){
   		document.getElementById(\'max\').style.display = "none";
   		document.getElementById(\'min\').style.display = "none";
   	}
-  	else{
+  	else {
   		document.getElementById(\'max\').style.display = "";
   		document.getElementById(\'min\').style.display = "";
   	}

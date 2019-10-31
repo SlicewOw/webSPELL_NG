@@ -39,7 +39,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $sortcontact = $_POST[ 'sortcontact' ];
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -52,7 +52,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $name = $_POST[ 'name' ];
     $email = $_POST[ 'email' ];
     $CAPCLASS = new \webspell\Captcha;
@@ -65,7 +65,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $name = $_POST[ 'name' ];
     $email = $_POST[ 'email' ];
     $contactID = $_POST[ 'contactID' ];
@@ -116,7 +116,7 @@ if (isset($_GET[ 'action' ])) {
     </div>
   </div>';
 
-	 } elseif ($_GET[ 'action' ] == "edit") {
+	 } else if ($_GET[ 'action' ] == "edit") {
         $contactID = (int)$_GET[ 'contactID' ];
 
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "contact WHERE contactID='$contactID'");
@@ -216,7 +216,7 @@ else {
 	  <td class="hidden-xs hidden-sm"><select name="sortcontact[]">';
 
     for($n=1; $n<=$anz; $n++) {
-			if($ds['sort'] == $n) echo'<option value="' . $ds['contactID'] . '-' . $n . '" selected="selected">' . $n . '</option>';
+			if ($ds['sort'] == $n) echo'<option value="' . $ds['contactID'] . '-' . $n . '" selected="selected">' . $n . '</option>';
 			else echo'<option value="' . $ds['contactID'] . '-' . $n . '">' . $n . '</option>';
 		}
 

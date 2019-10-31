@@ -213,11 +213,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 				$_language->readModule('plugin');
 				$plugin = new plugin_manager();
 				$plugin->set_debug(DEBUG);
-				if(!empty($site) AND $plugin->is_plugin($site)>0) {
+				if (!empty($site) AND $plugin->is_plugin($site)>0) {
 					$data = $plugin->plugin_data($site);
 					$plugin_path = $data['path'];
 					$check = $plugin->plugin_check($data, $site);
-					if($check['status']==1) {
+					if ($check['status']==1) {
 						include($check['data']);
 					} else {
 						echo $check['data'];

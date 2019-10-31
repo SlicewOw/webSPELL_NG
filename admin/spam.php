@@ -210,7 +210,7 @@ if ($action == "user") {
     <input class="btn btn-danger btn-xs" type="submit" name="spam" value="' . $_language->module[ "ban_user" ] . '" />
   </form>';
   echo '</div></div>';
-} elseif ($action == "user_ban") {
+} else if ($action == "user_ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Spam</div>
 <div class="panel-body">';
@@ -219,7 +219,7 @@ if ($action == "user") {
         $spammerID = $_POST[ 'id' ];
         if (!is_numeric($spammerID)) {
             echo $_language->module[ "userid_must_be_numeric" ];
-        } elseif (isclanmember($spammerID)) {
+        } else if (isclanmember($spammerID)) {
             echo $_language->module[ "cant_delete_team_members" ];
         } else {
             echo "<h3>" . getnickname($spammerID) . "</h3>";
@@ -229,7 +229,7 @@ if ($action == "user") {
         echo $_language->module[ 'transaction_invalid' ];
     }
     echo '</div></div>';
-} elseif ($action == "multi") {
+} else if ($action == "multi") {
     echo '<div class="panel panel-default">
     <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Multiple Accounts</div>
 <div class="panel-body">';
@@ -319,7 +319,7 @@ if ($action == "user") {
         echo $_language->module[ "no_accounts_with_same_ips" ];
     }
     echo '</div></div>';
-} elseif ($action == "multi_ban") {
+} else if ($action == "multi_ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <<span class="fa fa-exclamation-triangle"></span> Multiple Accounts
@@ -341,7 +341,7 @@ if ($action == "user") {
         echo $_language->module[ 'transaction_invalid' ];
     }
     echo '</div></div>';
-} elseif ($action == "multi_just_block") {
+} else if ($action == "multi_just_block") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-exclamation-triangle"></span> Multiple Accounts
@@ -382,7 +382,7 @@ if ($action == "user") {
         echo $_language->module[ 'transaction_invalid' ];
     }
     echo '</div></div>';
-} elseif ($action == "api_log") {
+} else if ($action == "api_log") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-exclamation-triangle"></span> Api-Log
@@ -425,7 +425,7 @@ if ($action == "user") {
         echo "n/a";
     }
     echo '</div></div>';
-} elseif ($action == "forum_spam") {
+} else if ($action == "forum_spam") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-exclamation-triangle"></span> Forum Spam
@@ -453,13 +453,13 @@ if ($action == "user") {
         }
         safe_query("DELETE FROM " . PREFIX . "forum_posts_spam");
         safe_query("DELETE FROM " . PREFIX . "comments_spam");
-    } elseif (isset($_GET[ 'del_option' ]) && $_GET[ 'del_option' ] == "delete_topic") {
+    } else if (isset($_GET[ 'del_option' ]) && $_GET[ 'del_option' ] == "delete_topic") {
         $topicID = $_GET[ 'topicID' ];
         safe_query("DELETE FROM " . PREFIX . "forum_topics_spam WHERE topicID='" . $topicID . "'");
-    } elseif (isset($_GET[ 'del_option' ]) && $_GET[ 'del_option' ] == "delete_post") {
+    } else if (isset($_GET[ 'del_option' ]) && $_GET[ 'del_option' ] == "delete_post") {
         $postID = $_GET[ 'postID' ];
         safe_query("DELETE FROM " . PREFIX . "forum_posts_spam WHERE postID='" . $postID . "'");
-    } elseif (isset($_GET[ 'del_option' ]) && $_GET[ 'del_option' ] == "delete_comment") {
+    } else if (isset($_GET[ 'del_option' ]) && $_GET[ 'del_option' ] == "delete_comment") {
         $commentID = $_GET[ 'commentID' ];
         safe_query("DELETE FROM " . PREFIX . "comments_spam WHERE commentID='" . $commentID . "'");
     }

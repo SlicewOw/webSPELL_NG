@@ -42,22 +42,22 @@ if ($handle = opendir('./languages/')) {
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">
-                	<div class="pull-left panel-line"><?php echo $_language->module['welcome_to']; ?></div> 
+                	<div class="pull-left panel-line"><?php echo $_language->module['welcome_to']; ?></div>
                     <div class="pull-right"><small><?php echo $_language->module['select_a_language']; ?>: <?php echo $languages; ?></small></div>
                     <div class="clearfix"></div>
                 </h3>
 			</div>
 			<div class="panel-body">
-				<?php 
-				if(file_exists("locked.txt")) {
-					echo $_language->module['installerlocked']; 
+				<?php
+				if (file_exists("locked.txt")) {
+					echo $_language->module['installerlocked'];
 				} else {
 					echo $_language->module['welcome_text']; ?><br /><?php echo $_language->module['webspell_team'];
 				}
-				
-				if(!file_exists("locked.txt")) {
-                echo '<div class="pull-right"><a class="btn btn-primary" href="javascript:document.ws_install.submit()">continue</a></div>'; } 
-				
+
+				if (!file_exists("locked.txt")) {
+                echo '<div class="pull-right"><a class="btn btn-primary" href="javascript:document.ws_install.submit()">continue</a></div>'; }
+
 				?>
 			</div>
 		</div>

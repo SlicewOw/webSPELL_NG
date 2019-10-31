@@ -32,9 +32,9 @@ $carousel = safe_query("SELECT * FROM " . PREFIX . "carousel WHERE (displayed = 
 echo '<div id="myCarousel" class="carousel slide" data-ride="carousel"> <!-- Carousel start -->
       <!-- Indicators -->
       <ol class="carousel-indicators">';
-       if(mysqli_num_rows($carousel)) {
+       if (mysqli_num_rows($carousel)) {
            for($i=0; $i<=(mysqli_num_rows($carousel)-1); $i++) {
-               if($i==0) {
+               if ($i==0) {
                     echo '<li data-target="#myCarousel" data-slide-to="'.$i.'" class="active"></li>';
                } else {
                     echo '<li data-target="#myCarousel" data-slide-to="'.$i.'"></li>';
@@ -46,7 +46,7 @@ $x = 1;
 if (mysqli_num_rows($carousel)) {
     while ($db = mysqli_fetch_array($carousel)) {
         $title=""; $link=""; $description="";
-        if($x==1) { echo '<div class="item active">'; } else { echo '<div class="item">'; }
+        if ($x==1) { echo '<div class="item active">'; } else { echo '<div class="item">'; }
         if (!empty($db[ 'carousel_pic' ])) {
             $carousel_pic = '<img src="images/carousel/' . $db[ 'carousel_pic' ] . '" alt="' . htmlspecialchars($db[ 'title' ]) .
                 '" class="img-responsive img-mobile">';

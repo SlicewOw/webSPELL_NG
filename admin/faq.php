@@ -45,7 +45,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $sortfaq = $_POST[ 'sortfaq' ];
 
     $CAPCLASS = new \webspell\Captcha;
@@ -59,7 +59,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $faqcat = $_POST[ 'faqcat' ];
     $question = $_POST[ 'question' ];
     $answer = $_POST[ 'message' ];
@@ -95,7 +95,7 @@ if (isset($_GET[ 'delete' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $faqcat = $_POST[ 'faqcat' ];
     $question = $_POST[ 'question' ];
     $answer = $_POST[ 'message' ];
@@ -160,7 +160,7 @@ if (isset($_GET[ 'action' ])) {
 
         echo '<script>
             function chkFormular() {
-                if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+                if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
                     return false;
                 }
             }
@@ -211,7 +211,7 @@ if (isset($_GET[ 'action' ])) {
   </div>
     </form></div>
   </div>';
-	} elseif ($_GET[ 'action' ] == "edit") {
+	} else if ($_GET[ 'action' ] == "edit") {
         $faqID = $_GET[ 'faqID' ];
 
         $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "faq` WHERE `faqID` = '$faqID'");
@@ -251,7 +251,7 @@ if (isset($_GET[ 'action' ])) {
 
         echo '<script>
             function chkFormular() {
-                if(!validbbcode(document.getElementById(\'message\').value, \'admin\')){
+                if (!validbbcode(document.getElementById(\'message\').value, \'admin\')){
                     return false;
                 }
             }

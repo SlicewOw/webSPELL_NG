@@ -120,7 +120,7 @@ if ($action == "send") {
 
 $getemail = '';
 $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "contact` ORDER BY `sort`");
-if(mysqli_num_rows($ergebnis)<1) {
+if (mysqli_num_rows($ergebnis)<1) {
 	$data_array = array();
     $data_array['$showerror'] = generateErrorBoxFromArray($_language->module['errors_there'], array($_language->module['no_contact_setup']));
     $contact_failure = $GLOBALS["_template"]->replaceTemplate("contact_failure", $data_array);

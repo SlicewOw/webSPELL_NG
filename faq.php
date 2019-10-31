@@ -84,7 +84,7 @@ if ($action == "faqcat" && is_numeric($_GET[ 'faqcatID' ])) {
     } else {
         echo generateAlert($_language->module[ 'no_faq' ], 'alert-info');
     }
-} elseif ($action == "faq") {
+} else if ($action == "faq") {
     if (ispageadmin($userID)) {
         echo
             '<p><input type="button" onclick="window.open(

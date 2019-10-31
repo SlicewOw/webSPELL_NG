@@ -51,8 +51,8 @@ switch ($ds[ 'accesslevel' ]) {
 }
 $_language->readModule('navigation');
 if ($allowed) {
-	if(isset($_language->module[strtolower($ds['name'])])) { 
-		$title = $_language->module[strtolower($ds['name'])]; 
+	if (isset($_language->module[strtolower($ds['name'])])) {
+		$title = $_language->module[strtolower($ds['name'])];
 	} else {
 	    $title=$ds['name'];
 	}

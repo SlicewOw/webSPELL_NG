@@ -29,9 +29,9 @@ $pictureID = (int)$_GET[ 'id' ];
 
 if (file_exists('images/gallery/large/' . $pictureID . '.jpg')) {
     $file = 'images/gallery/large/' . $pictureID . '.jpg';
-} elseif (file_exists('images/gallery/large/' . $pictureID . '.gif')) {
+} else if (file_exists('images/gallery/large/' . $pictureID . '.gif')) {
     $file = 'images/gallery/large/' . $pictureID . '.gif';
-} elseif (file_exists('images/gallery/large/' . $pictureID . '.png')) {
+} else if (file_exists('images/gallery/large/' . $pictureID . '.png')) {
     $file = 'images/gallery/large/' . $pictureID . '.png';
 } else {
     $file = '';

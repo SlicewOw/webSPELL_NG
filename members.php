@@ -130,7 +130,7 @@ if ($action == "show") {
             if (file_exists("images/userpics/" . $profilid . ".jpg")) {
                 $userpic = $profilid . ".jpg";
                 $pic_info = $dm[ 'nickname' ] . " userpicture";
-            } elseif (file_exists("images/userpics/" . $profilid . ".gif")) {
+            } else if (file_exists("images/userpics/" . $profilid . ".gif")) {
                 $userpic = $profilid . ".gif";
                 $pic_info = $dm[ 'nickname' ] . " userpicture";
             } else {
@@ -158,11 +158,11 @@ if ($action == "show") {
                         '<a href="buddies.php?action=readd&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
                         '" title="back to buddylist"><span class="fa fa-user-plus"></span>
                         </a>';
-                } elseif (isbuddy($userID, $dm[ 'userID' ])) {
+                } else if (isbuddy($userID, $dm[ 'userID' ])) {
                     $buddy =
                         '<a title="ignore user" href="buddies.php?action=ignore&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
                         '"><span class="fa fa-user-times"></span></a>';
-                } elseif ($userID == $dm[ 'userID' ]) {
+                } else if ($userID == $dm[ 'userID' ]) {
                     $buddy = "";
                 } else {
                     $buddy =
@@ -215,7 +215,7 @@ if ($action == "show") {
     if (isset($_POST[ 'squadID' ])) {
         $onesquadonly = 'WHERE squadID="' . (int)$_POST[ 'squadID' ] . '"';
         $visible = "block";
-    } elseif (isset($_GET[ 'squadID' ])) {
+    } else if (isset($_GET[ 'squadID' ])) {
         $onesquadonly = 'WHERE squadID="' . (int)$_GET[ 'squadID' ] . '"';
         $visible = "block";
     } else {
@@ -326,11 +326,11 @@ if ($action == "show") {
                             '<a href="buddies.php?action=readd&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
                             '" title="back to buddylist"><span class="fa fa-user-plus"></span>
                             </a>';
-                    } elseif (isbuddy($userID, $dm[ 'userID' ])) {
+                    } else if (isbuddy($userID, $dm[ 'userID' ])) {
                         $buddy =
                             '<a title="ignore user" href="buddies.php?action=ignore&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
                             '"><span class="fa fa-user-times"></span></a>';
-                    } elseif ($userID == $dm[ 'userID' ]) {
+                    } else if ($userID == $dm[ 'userID' ]) {
                         $buddy = "";
                     } else {
                         $buddy =

@@ -69,7 +69,7 @@ if (isset($_POST[ 'savemods' ])) {
             echo $_language->module[ 'transaction_invalid' ];
         }
     }
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     $boardID = $_GET[ 'boardID' ];
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
@@ -106,7 +106,7 @@ if (isset($_POST[ 'savemods' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ 'delcat' ])) {
+} else if (isset($_GET[ 'delcat' ])) {
     $catID = $_GET[ 'catID' ];
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
@@ -127,7 +127,7 @@ if (isset($_POST[ 'savemods' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $sortcat = $_POST[ 'sortcat' ];
     $sortboards = $_POST[ 'sortboards' ];
     if (isset($_POST[ "hideboards" ])) {
@@ -148,7 +148,7 @@ if (isset($_POST[ 'savemods' ])) {
             safe_query("UPDATE " . PREFIX . "forum_boards SET sort='$sorter[1]' WHERE boardID='$sorter[0]' ");
         }
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $kath = $_POST[ 'kath' ];
     $name = $_POST[ 'name' ];
     $boardinfo = $_POST[ 'boardinfo' ];
@@ -190,7 +190,7 @@ if (isset($_POST[ 'savemods' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'savecat' ])) {
+} else if (isset($_POST[ 'savecat' ])) {
     $catname = $_POST[ 'catname' ];
     $catinfo = $_POST[ 'catinfo' ];
     if (isset($_POST[ 'readgrps' ])) {
@@ -217,7 +217,7 @@ if (isset($_POST[ 'savemods' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     $kath = $_POST[ 'kath' ];
     $name = $_POST[ 'name' ];
     $boardinfo = $_POST[ 'boardinfo' ];
@@ -259,7 +259,7 @@ if (isset($_POST[ 'savemods' ])) {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ 'saveeditcat' ])) {
+} else if (isset($_POST[ 'saveeditcat' ])) {
     $catname = $_POST[ 'catname' ];
     $catinfo = $_POST[ 'catinfo' ];
     $catID = $_POST[ 'catID' ];
@@ -342,7 +342,7 @@ if ($action == "mods") {
 	</form>
 	</div>
   </div>';
-} elseif ($action == "add") {
+} else if ($action == "add") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
                             <span class="fa fa-list"></span> '.$_language->module['boards'].'
@@ -427,7 +427,7 @@ if ($action == "mods") {
   </form>
   </div>
   </div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
                             <span class="fa fa-list"></span> '.$_language->module['boards'].'
@@ -550,7 +550,7 @@ if ($action == "mods") {
   </form>
   </div>
   </div>';
-} elseif ($action == "addcat") {
+} else if ($action == "addcat") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
                             <span class="fa fa-list"></span> '.$_language->module['boards'].'
@@ -609,7 +609,7 @@ if ($action == "mods") {
   </form>
   </div>
   </div>';
-} elseif ($action == "editcat") {
+} else if ($action == "editcat") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
                             <span class="fa fa-list"></span> '.$_language->module['boards'].'

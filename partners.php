@@ -25,7 +25,7 @@
 ##########################################################################
 */
 
-if($site=="partners") {
+if ($site=="partners") {
 	$_language->readModule('sc_partners');
 	echo    '<div class="page-header">
 			<h2><a href="index.php?site=partners">'.$_language->module['partner'].'</a></h2>
@@ -58,12 +58,12 @@ if (mysqli_num_rows($ergebnis)) {
             $text = $name;
         }
 		$link = '<a href="'.$db['url'].'" onclick="setTimeout(function(){window.location.href=\'out.php?partnerID=' . $db['partnerID'] . '\', 1000})" target="_blank">' . $text . '</a>';
-		
-		$script = '<script>	
+
+		$script = '<script>
 		window.addEventListener("load", function(){
     var boy'.$db['partnerID'].' = document.getElementById("box_'.$db['partnerID'].'")
     boy'.$db['partnerID'].'.addEventListener("touchstart", function(e){
-		setTimeout(function(){window.location.href="out.php?partnerID=' . $db['partnerID'] . '", 200}) 
+		setTimeout(function(){window.location.href="out.php?partnerID=' . $db['partnerID'] . '", 200})
         e.preventDefault()
     }, false)
     boy'.$db['partnerID'].'.addEventListener("touchmove", function(e){
@@ -73,9 +73,9 @@ if (mysqli_num_rows($ergebnis)) {
 				window.open("'.$db['url'].'", "_blank")
         e.preventDefault()
     }, false)
-}, false)	
+}, false)
 </script>';
-		
+
         $data_array = array();
         $data_array['$partnerID'] = $partnerID;
         $data_array['$link'] = $link;

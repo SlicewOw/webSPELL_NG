@@ -27,7 +27,7 @@
 
 if (isset($_POST[ 'board' ])) {
     $board = (int)$_POST[ 'board' ];
-} elseif (isset($_GET[ 'board' ])) {
+} else if (isset($_GET[ 'board' ])) {
     $board = (int)$_GET[ 'board' ];
 } else {
     $board = null;
@@ -92,7 +92,7 @@ function forum_stats()
             FROM
                 " . PREFIX . "user
             WHERE
-                IF(DAYOFYEAR(NOW())<=358,((DAYOFYEAR(birthday)>DAYOFYEAR(NOW()))
+                if (DAYOFYEAR(NOW())<=358,((DAYOFYEAR(birthday)>DAYOFYEAR(NOW()))
             AND
                 (DAYOFYEAR(birthday)<=DAYOFYEAR(DATE_ADD(NOW(), INTERVAL 7 DAY)))),(DAYOFYEAR(BIRTHDAY)>DAYOFYEAR(NOW())
             OR
@@ -156,9 +156,9 @@ function forum_stats()
         while ($ds = mysqli_fetch_array($ergebnis)) {
             if (isforumadmin($ds[ 'userID' ])) {
                 $nickname = '<span class="label label-danger">' . $ds[ 'nickname' ] . '</span>';
-            } elseif (isanymoderator($ds[ 'userID' ])) {
+            } else if (isanymoderator($ds[ 'userID' ])) {
                 $nickname = '<span class="label label-warning">' . $ds[ 'nickname' ] . '</span>';
-            } elseif (isclanmember($ds[ 'userID' ])) {
+            } else if (isclanmember($ds[ 'userID' ])) {
                 $nickname = '<span class="label label-success">' . $ds[ 'nickname' ] . '</span>';
             } else {
                 $nickname = $ds[ 'nickname' ];
@@ -352,7 +352,7 @@ function boardmain()
 
                     if ($date == $today) {
                         $date = $_language->module[ 'today' ];
-                    } elseif ($date == $yesterday && $date < $today) {
+                    } else if ($date == $yesterday && $date < $today) {
                         $date = $_language->module[ 'yesterday' ];
                     }
 
@@ -496,7 +496,7 @@ function boardmain()
 
                 if ($date == $today) {
                     $date = $_language->module[ 'today' ];
-                } elseif ($date == $yesterday && $date < $today) {
+                } else if ($date == $yesterday && $date < $today) {
                     $date = $_language->module[ 'yesterday' ];
                 }
 
@@ -769,9 +769,9 @@ function showboard($board)
             if ($dt[ 'closed' ]) {
                 $folder =
                     '<button type="button" class="btn btn-danger"><span class="fa fa-lock"></span></button>';
-            } elseif ($dt[ 'moveID' ]) {
+            } else if ($dt[ 'moveID' ]) {
                 $folder = '<button type="button" class="btn btn-default"><span class="fa fa-arrow-right"></span></button>';
-            } elseif ($userID) {
+            } else if ($userID) {
                 $is_unread = mysqli_num_rows(
                     safe_query(
                         "SELECT userID FROM " . PREFIX . "user WHERE topics LIKE '%|" .
@@ -834,7 +834,7 @@ function showboard($board)
                 $yesterday = getformatdate(time() - 3600 * 24);
                 if ($date == $today) {
                     $date = $_language->module[ 'today' ] . ", " . $time;
-                } elseif ($date == $yesterday && $date < $today) {
+                } else if ($date == $yesterday && $date < $today) {
                     $date = $_language->module[ 'yesterday' ] . ", " . $time;
                 } else {
                     $date = $date . ", " . $time;
@@ -863,7 +863,7 @@ function showboard($board)
                 $yesterday = getformatdate(time() - 3600 * 24);
                 if ($date == $today) {
                     $date = $_language->module[ 'today' ] . ", " . $time;
-                } elseif ($date == $yesterday && $date < $today) {
+                } else if ($date == $yesterday && $date < $today) {
                     $date = $_language->module[ 'yesterday' ] . ", " . $time;
                 } else {
                     $date = $date . ", " . $time;
@@ -948,7 +948,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
 
         safe_query("UPDATE " . PREFIX . "forum_topics SET closed='1' WHERE topicID='$topicID' ");
         header("Location: index.php?site=forum&board=$board");
-    } elseif ($_POST[ 'admaction' ] == "opentopic") {
+    } else if ($_POST[ 'admaction' ] == "opentopic") {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -963,7 +963,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
 
         safe_query("UPDATE " . PREFIX . "forum_topics SET closed='0' WHERE topicID='$topicID' ");
         header("Location: index.php?site=forum&board=$board");
-    } elseif ($_POST[ 'admaction' ] == "deletetopic") {
+    } else if ($_POST[ 'admaction' ] == "deletetopic") {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -993,7 +993,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         safe_query("DELETE FROM " . PREFIX . "forum_topics WHERE moveID='$topicID' ");
         safe_query("DELETE FROM " . PREFIX . "forum_posts WHERE topicID='$topicID' ");
         header("Location: index.php?site=forum&board=$board");
-    } elseif ($_POST[ 'admaction' ] == "stickytopic") {
+    } else if ($_POST[ 'admaction' ] == "stickytopic") {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -1008,7 +1008,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
 
         safe_query("UPDATE " . PREFIX . "forum_topics SET sticky='1' WHERE topicID='$topicID' ");
         header("Location: index.php?site=forum&board=$board");
-    } elseif ($_POST[ 'admaction' ] == "unstickytopic") {
+    } else if ($_POST[ 'admaction' ] == "unstickytopic") {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -1023,7 +1023,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
 
         safe_query("UPDATE " . PREFIX . "forum_topics SET sticky='0' WHERE topicID='$topicID' ");
         header("Location: index.php?site=forum&board=$board");
-    } elseif ($_POST[ 'admaction' ] == "delposts") {
+    } else if ($_POST[ 'admaction' ] == "delposts") {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -1070,7 +1070,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         } else {
             header("Location: index.php?site=forum_topic&topic=$topicID");
         }
-    } elseif (isset($_POST[ 'movetopic' ])) {
+    } else if (isset($_POST[ 'movetopic' ])) {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -1128,7 +1128,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         );
 
         header("Location: index.php?site=forum&board=$toboard");
-    } elseif ($_POST[ 'admaction' ] == "movetopic") {
+    } else if ($_POST[ 'admaction' ] == "movetopic") {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -1167,7 +1167,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         $data_array['$topic'] = (int)$_POST['topicID'];
         $forum_move_topic = $GLOBALS["_template"]->replaceTemplate("forum_move_topic", $data_array);
         echo $forum_move_topic;
-    } elseif (isset($_POST[ 'newtopic' ]) && !isset($_POST[ 'preview' ])) {
+    } else if (isset($_POST[ 'newtopic' ]) && !isset($_POST[ 'preview' ])) {
         include("_mysql.php");
         include("_settings.php");
         include('_functions.php');
@@ -1310,7 +1310,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         } else {
             header("Location: index.php?site=forum");
         }
-    } elseif (isset($_REQUEST[ 'addtopic' ])) {
+    } else if (isset($_REQUEST[ 'addtopic' ])) {
         $_language->readModule('forum');
         $_language->readModule('bbcode', true);
 
@@ -1424,7 +1424,7 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
                 if (isforumadmin($userID)) {
                     $usertype = "Administrator";
                     $rang = '<img src="images/icons/ranks/admin.gif" alt="">';
-                } elseif (ismoderator($userID, $board)) {
+                } else if (ismoderator($userID, $board)) {
                     $usertype = $_language->module[ 'moderator' ];
                     $rang = '<img src="images/icons/ranks/moderator.gif" alt="">';
                 } else {
@@ -1532,10 +1532,10 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         } else {
             echo $_language->module[ 'not_logged_msg' ];
         }
-    } elseif (!$_POST[ 'admaction' ]) {
+    } else if (!$_POST[ 'admaction' ]) {
         header("Location: index.php?site=forum");
     }
-} elseif (!isset($board)) {
+} else if (!isset($board)) {
     boardmain();
 } else {
     showboard($board);

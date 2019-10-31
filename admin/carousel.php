@@ -91,7 +91,7 @@ if ($action == "add") {
   </div>
 </form>
 </div></div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-object-group"></span> ' . $_language->module[ 'carousel' ] . '
@@ -167,7 +167,7 @@ if ($action == "add") {
   </div>
 </form>
 </div></div>';
-} elseif (isset($_POST[ 'sortieren' ])) {
+} else if (isset($_POST[ 'sortieren' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
         $sort = $_POST[ 'sort' ];
@@ -181,7 +181,7 @@ if ($action == "add") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ "save" ])) {
+} else if (isset($_POST[ "save" ])) {
     $title = $_POST[ 'title' ];
     $link = $_POST[ 'link' ];
     $description = $_POST[ 'description' ];
@@ -249,7 +249,7 @@ if ($action == "add") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_POST[ "saveedit" ])) {
+} else if (isset($_POST[ "saveedit" ])) {
     $title = $_POST[ "title" ];
     $link = $_POST[ "link" ];
     $description = $_POST[ "description" ];
@@ -260,10 +260,9 @@ if ($action == "add") {
     }
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        if (stristr($link, 'http://')) {
-            $link = $link;
-        } else {
-            $link = 'http://' . $link;
+
+        if (!stristr($link, 'https://')) {
+            $link = 'https://' . $link;
         }
 
         safe_query(
@@ -323,7 +322,7 @@ if ($action == "add") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif (isset($_GET[ "delete" ])) {
+} else if (isset($_GET[ "delete" ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         $get = safe_query("SELECT * FROM " . PREFIX . "carousel WHERE carouselID='" . $_GET[ "carouselID" ] . "'");

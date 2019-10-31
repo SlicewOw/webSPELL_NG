@@ -95,7 +95,7 @@ if ($action == "add") {
     </tr>
     </table>
     </form></div></div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $ds = mysqli_fetch_assoc(safe_query(
         "SELECT * FROM " . PREFIX . "modrewrite WHERE ruleID='" . $_GET["ruleID"] .
         "'"
@@ -169,7 +169,7 @@ if ($action == "add") {
     </tr>
     </table>
     </form></div></div>';
-} elseif ($action == 'rebuild') {
+} else if ($action == 'rebuild') {
     $ds = safe_query("SELECT * FROM " . PREFIX . "modrewrite");
     $anz = mysqli_num_rows($ds);
     while ($flags = mysqli_fetch_array($ds)) {
@@ -189,7 +189,7 @@ if ($action == "add") {
         );
     }
     echo "Done";
-} elseif (isset($_POST['save'])) {
+} else if (isset($_POST['save'])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST['captcha_hash'])) {
         $data = array();
@@ -223,7 +223,7 @@ if ($action == "add") {
     } else {
         echo $_language->module['transaction_invalid'];
     }
-} elseif (isset($_POST["saveedit"])) {
+} else if (isset($_POST["saveedit"])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST['captcha_hash'])) {
         $data = array();
@@ -261,7 +261,7 @@ if ($action == "add") {
     } else {
         echo $_language->module['transaction_invalid'];
     }
-} elseif (isset($_GET["delete"])) {
+} else if (isset($_GET["delete"])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET['captcha_hash'])) {
         safe_query("DELETE FROM " . PREFIX . "modrewrite WHERE ruleID='" . $_GET["ruleID"] . "'");
@@ -269,7 +269,7 @@ if ($action == "add") {
     } else {
         echo $_language->module['transaction_invalid'];
     }
-} elseif (isset($_POST['test'])) {
+} else if (isset($_POST['test'])) {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-location-arrow"></span> ' . $_language->module['modrewrite_settings'] . '
@@ -284,7 +284,7 @@ if ($action == "add") {
         } else {
             $info .= $_language->module['modrewrite_is_disabled'] . '<br>';
         }
-    } elseif (stristr($_SERVER['SERVER_SOFTWARE'], 'Apache')) {
+    } else if (stristr($_SERVER['SERVER_SOFTWARE'], 'Apache')) {
         $info = $_language->module['apache_with_cgi'] . '<br>';
         $do_test = true;
     } else {
@@ -331,11 +331,11 @@ if ($action == "add") {
                 $info .= $_language->module['fopen_disabled'];
                 $status = '<div id="result"></div>';
                 $unlink = false;
-            } elseif (stristr($headers[0], '404')) {
+            } else if (stristr($headers[0], '404')) {
                 $status = $_language->module['modrewrite_failed'];
-            } elseif (stristr($headers[0], '500')) {
+            } else if (stristr($headers[0], '500')) {
                 $status = $_language->module['htaccess_failed'];
-            } elseif (stristr($headers[0], '200') && file_get_contents($base_test) == "not_existing_file") {
+            } else if (stristr($headers[0], '200') && file_get_contents($base_test) == "not_existing_file") {
                 $headers = @get_headers($mutliview_test, 1);
                 if (stristr($headers[0], '200') && file_get_contents($mutliview_test) == "test/multiview") {
                     $status = $_language->module['test_successful'];
@@ -384,7 +384,7 @@ if ($action == "add") {
 </div>
 
     </form></div></div>';
-} elseif (isset($_POST['enable'])) {
+} else if (isset($_POST['enable'])) {
     $folder = '../';
     $file = ".htaccess";
     $path = $GLOBALS['_modRewrite']->getRewriteBase();
@@ -406,7 +406,7 @@ if ($action == "add") {
         echo $info;
         redirect("admincenter.php?site=modrewrite", $_language->module['successful'], 2);
     }
-} elseif (isset($_POST['disable'])) {
+} else if (isset($_POST['disable'])) {
     $folder = '../';
     $file = ".htaccess";
     $path = $GLOBALS['_modRewrite']->getRewriteBase();

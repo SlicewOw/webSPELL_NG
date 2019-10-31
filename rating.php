@@ -45,13 +45,13 @@ $id = $_POST[ 'id' ];
 if ($type == "ar") {
     $table = "articles";
     $key = "articlesID";
-} elseif ($type == "de") {
+} else if ($type == "de") {
     $table = "demos";
     $key = "demoID";
-} elseif ($type == "fi") {
+} else if ($type == "fi") {
     $table = "files";
     $key = "fileID";
-} elseif ($type == "ga") {
+} else if ($type == "ga") {
     $table = "gallery_pictures";
     $key = "picID";
 }

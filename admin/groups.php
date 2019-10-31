@@ -50,7 +50,7 @@ if ($action == "delete") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif ($action == "add") {
+} else if ($action == "add") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-users"></span> '.$_language->module['groups'].'
@@ -79,7 +79,7 @@ if ($action == "delete") {
   </form>
   </div>
   </div>';
-} elseif ($action == "save") {
+} else if ($action == "save") {
     if (!$_POST[ 'name' ]) {
         die('<b>' . $_language->module[ 'error_group' ] .
             '</b><br /><br /><a href="admincenter.php?site=groups&amp;action=add">&laquo; ' .
@@ -98,7 +98,7 @@ if ($action == "delete") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif ($action == "saveedit") {
+} else if ($action == "saveedit") {
     $name = $_POST[ 'name' ];
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -110,7 +110,7 @@ if ($action == "delete") {
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-users"></span> '.$_language->module['groups'].'

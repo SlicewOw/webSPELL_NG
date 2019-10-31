@@ -115,7 +115,7 @@ if ($action == "vote") {
     } else {
         header('Location: index.php?site=polls');
     }
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     include("_mysql.php");
     include("_settings.php");
     include('_functions.php');
@@ -179,7 +179,7 @@ if ($action == "vote") {
             values( '$id', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' )"
     );
     header('Location: index.php?site=polls');
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     include("_mysql.php");
     include("_settings.php");
     include('_functions.php');
@@ -293,7 +293,7 @@ if ($action == "vote") {
         );
     }
     header('Location: index.php?site=polls');
-} elseif (isset($_GET[ 'end' ])) {
+} else if (isset($_GET[ 'end' ])) {
     include("_mysql.php");
     include("_settings.php");
     include('_functions.php');
@@ -304,7 +304,7 @@ if ($action == "vote") {
     $pollID = intval($_GET[ 'pollID' ]);
     safe_query("UPDATE " . PREFIX . "poll SET aktiv='0' WHERE pollID='" . $pollID . "'");
     header('Location: index.php?site=polls');
-} elseif (isset($_GET[ 'reopen' ])) {
+} else if (isset($_GET[ 'reopen' ])) {
     include("_mysql.php");
     include("_settings.php");
     include('_functions.php');
@@ -315,7 +315,7 @@ if ($action == "vote") {
     $pollID = intval($_GET[ 'pollID' ]);
     safe_query("UPDATE " . PREFIX . "poll SET aktiv='1' WHERE pollID='" . $pollID . "'");
     header('Location: index.php?site=polls');
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     include("_mysql.php");
     include("_settings.php");
     include('_functions.php');
@@ -341,7 +341,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=news', $_language->module[ 'no_access' ], 3);
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     if (ispollsadmin($userID)) {
         $pollID = intval($_GET[ 'pollID' ]);
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "poll WHERE pollID='$pollID'");
@@ -401,7 +401,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=polls', $_language->module[ 'no_access' ], 3);
     }
-} elseif (isset($_GET[ 'pollID' ])) {
+} else if (isset($_GET[ 'pollID' ])) {
     $pollID = intval($_GET[ 'pollID' ]);
     if (ispollsadmin($userID)) {
         echo '<div class="form-group">
@@ -533,7 +533,7 @@ if ($action == "new") {
     $referer = "index.php?site=polls&amp;pollID=" . $pollID;
 
     include("comments.php");
-} elseif (isset($_GET[ 'vote' ])) {
+} else if (isset($_GET[ 'vote' ])) {
     #$pagebg = PAGEBG;
     #$border = BORDER;
     #$bghead = BGHEAD;

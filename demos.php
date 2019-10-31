@@ -135,7 +135,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo generateErrorBox($_language->module[ 'no_access' ]);
     }
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     if (isfileadmin($userID)) {
         $_language->readModule('formvalidation', true);
         $demo = new \webspell\HttpUpload('demo');
@@ -220,7 +220,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo generateErrorBox($_language->module[ 'no_access' ]);
     }
-} elseif ($action == "delete") {
+} else if ($action == "delete") {
     if (isfileadmin($userID)) {
         $demoID = (int)$_GET[ 'demoID' ];
         $filepath = "./demos/";
@@ -238,7 +238,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         echo generateErrorBox($_language->module[ 'no_access' ]);
     }
-} elseif ($action == "new") {
+} else if ($action == "new") {
     if (isfileadmin($userID)) {
         $countries = getcountries();
         $games = getGamesAsOptionList();
@@ -250,7 +250,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         redirect('index.php?site=demos', generateErrorBox($_language->module[ 'no_access' ]));
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $demoID = (int)$_GET[ 'demoID' ];
     if (isfileadmin($userID)) {
         $ds = mysqli_fetch_array(safe_query("SELECT * FROM `" . PREFIX . "demos` WHERE `demoID` = '" . $demoID ."'"));
@@ -309,7 +309,7 @@ if (isset($_POST[ 'save' ])) {
     } else {
         redirect('index.php?site=demos', generateErrorBox($_language->module[ 'no_access' ]));
     }
-} elseif ($action == "showdemo") {
+} else if ($action == "showdemo") {
     $demoID = $_GET[ 'demoID' ];
     if (isfileadmin($userID)) {
         echo
@@ -428,7 +428,7 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
     $referer = "index.php?site=demos&amp;action=showdemo&amp;demoID=$demoID";
 
     include("comments.php");
-} elseif ($action == "showgame") {
+} else if ($action == "showgame") {
     $game = $_GET[ 'game' ];
 
     if (isset($_GET[ 'page' ])) {

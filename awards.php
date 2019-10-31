@@ -70,7 +70,7 @@ if (isset($_POST[ 'save' ])) {
             )"
     );
     header("Location: index.php?site=awards");
-} elseif (isset($_POST[ 'saveedit' ])) {
+} else if (isset($_POST[ 'saveedit' ])) {
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
@@ -105,7 +105,7 @@ if (isset($_POST[ 'save' ])) {
             awardID = '". (int)$awardID."'"
     );
     header("Location: index.php?site=awards");
-} elseif (isset($_GET[ 'delete' ])) {
+} else if (isset($_GET[ 'delete' ])) {
     if (!isclanwaradmin($userID) && !isnewsadmin($userID)) {
         die($_language->module[ 'no_access' ]);
     }
@@ -166,7 +166,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=awards', $_language->module[ 'no_access' ]);
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $awardID = $_GET[ 'awardID' ];
     if (isclanwaradmin($userID) || isnewsadmin($userID)) {
         $_language->readModule('bbcode', true);
@@ -223,7 +223,7 @@ if ($action == "new") {
     } else {
         redirect('index.php?site=awards', $_language->module[ 'no_access' ]);
     }
-} elseif ($action == "showsquad") {
+} else if ($action == "showsquad") {
     $squadID = $_GET[ 'squadID' ];
     $page = (isset($_GET[ 'page' ])) ? $_GET[ 'page' ] : 1;
     $sort = (isset($_GET[ 'page' ])) ? $_GET[ 'page' ] : "date";
@@ -347,7 +347,7 @@ if ($action == "new") {
     } else {
         echo $_language->module[ 'no_entries' ];
     }
-} elseif ($action == "details") {
+} else if ($action == "details") {
     $awardID = $_GET[ 'awardID' ];
     $ds = mysqli_fetch_array(
         safe_query(

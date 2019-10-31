@@ -86,7 +86,7 @@ if (isset($_POST['save'])) {
             }
         }
     }
-} elseif (isset($_POST['saveedit'])) {
+} else if (isset($_POST['saveedit'])) {
     $_language->readModule('linkus');
     if (!ispageadmin($userID)) {
         echo generateAlert($_language->module['no_access'], 'alert-danger');
@@ -148,7 +148,7 @@ if (isset($_POST['save'])) {
             }
         }
     }
-} elseif (isset($_GET['delete'])) {
+} else if (isset($_GET['delete'])) {
     include("_mysql.php");
     include("_settings.php");
     include('_functions.php');
@@ -187,7 +187,7 @@ if ($action == "new") {
             generateAlert($_language->module['no_access'], 'alert-danger')
         );
     }
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     if (ispageadmin($userID)) {
         $bannerID = $_GET['bannerID'];
         $ds = mysqli_fetch_array(

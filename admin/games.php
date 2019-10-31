@@ -79,7 +79,7 @@ if ($action == "add") {
   </div>
   </div>';
 
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     $ds = mysqli_fetch_array(safe_query("SELECT * FROM " . PREFIX . "games WHERE gameID='" . $_GET[ "gameID" ] . "'"));
     $pic = '<img src="../images/games/'.is_gamefilexist($filepath, $ds[ 'tag' ]).'" alt="' . $ds[ 'name' ] . '">';
 
@@ -130,7 +130,7 @@ if ($action == "add") {
   </div>
   </div>';
 
-} elseif (isset($_POST[ 'save' ])) {
+} else if (isset($_POST[ 'save' ])) {
     $icon = $_FILES[ "icon" ];
     $name = $_POST[ "name" ];
     $tag = $_POST[ "tag" ];
@@ -188,7 +188,7 @@ if ($action == "add") {
         echo $_language->module[ 'transaction_invalid' ];
     }
     redirect("admincenter.php?site=games", "", 0);
-} elseif (isset($_POST[ "saveedit" ])) {
+} else if (isset($_POST[ "saveedit" ])) {
     $icon = $_FILES[ "icon" ];
     $name = $_POST[ "name" ];
     $tag = $_POST[ "tag" ];
@@ -244,7 +244,7 @@ if ($action == "add") {
         echo $_language->module[ 'transaction_invalid' ];
     }
     redirect("admincenter.php?site=games", "", 0);
-} elseif (isset($_GET[ "delete" ])) {
+} else if (isset($_GET[ "delete" ])) {
     $CAPCLASS = new \webspell\Captcha();
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         $ds = mysqli_fetch_array(
@@ -263,7 +263,7 @@ if ($action == "add") {
     }
 } else {
 
-  if(isset($_GET['page'])) $page=(int)$_GET['page'];
+  if (isset($_GET['page'])) $page=(int)$_GET['page'];
   else $page = 1;
 
   echo'<div class="panel panel-default">
@@ -281,10 +281,10 @@ if ($action == "add") {
   $max='15';
 
   for ($n=$max; $n<=$gesamt; $n+=$max) {
-    if($gesamt>$n) $pages++;
+    if ($gesamt>$n) $pages++;
   }
 
-  if($pages>1) $page_link = makepagelink("admincenter.php?site=games", $page, $pages);
+  if ($pages>1) $page_link = makepagelink("admincenter.php?site=games", $page, $pages);
     else $page_link='';
 
   if ($page == "1") {
@@ -313,7 +313,7 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
 
   while($ds=mysqli_fetch_array($ergebnis)) {
-	  if(is_gamefilexist($filepath,$ds[ 'tag' ])) {
+	  if (is_gamefilexist($filepath,$ds[ 'tag' ])) {
 		 $pic = '<img src="../images/games/' . is_gamefilexist($filepath,$ds[ 'tag' ]).'" alt="">';
 	  }
 	  else {
@@ -336,7 +336,7 @@ if ($action == "add") {
   }
     echo'</table>';
 
-if($pages>1) echo $page_link;
+if ($pages>1) echo $page_link;
 }
 echo '</div></div>';
 ?>

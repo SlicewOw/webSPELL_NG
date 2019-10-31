@@ -58,8 +58,8 @@ class Template
     }
     private function load_html($template, $content, $path=false)
     {
-		if($path!=false) { $file = $path . "templates/" . $template . ".html"; } else { $file = $this->rootFolder . "/" . $template . ".html"; }
-        
+		if ($path!=false) { $file = $path . "templates/" . $template . ".html"; } else { $file = $this->rootFolder . "/" . $template . ".html"; }
+
         if (file_exists($file)) {
 			$lo = file_get_contents($file);
 			$a = explode("<!-- ".$template."_".$content." -->", $lo);
@@ -101,7 +101,7 @@ class Template
     }
     public function loadTemplate($template, $content, $data = array(), $path=false)	# v1.1
     {
-		if($path!=false) { $newpath=$path; } else { $newpath=false; }
+		if ($path!=false) { $newpath=$path; } else { $newpath=false; }
         $templateString = $this->load_html($template, $content, $newpath);
         $templateTranslated = $this->replaceLanguage($templateString);
         return $this->replace($templateTranslated, $data);

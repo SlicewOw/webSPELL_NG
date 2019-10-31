@@ -316,7 +316,7 @@ if (!$userID) {
         $data_array['$userID'] = $userID;
         $myprofile_editpwd = $GLOBALS["_template"]->replaceTemplate("myprofile_editpwd", $data_array);
         echo $myprofile_editpwd;
-    } elseif (isset($_POST['savepwd'])) {
+    } else if (isset($_POST['savepwd'])) {
         $oldpwd = $_POST['oldpwd'];
         $pwd1 = $_POST['pwd1'];
         $pwd2 = $_POST['pwd2'];
@@ -369,7 +369,7 @@ if (!$userID) {
             echo generateAlert('<strong>ERROR: ' . $error . '</strong><br>
 			<a href="index.php?site=myprofile&action=editpwd" class="alert-link">' . $_language->module['back'] . '</a>', 'alert-danger');
         }
-    } elseif (isset($_GET['action']) && $_GET['action'] == "editmail") {
+    } else if (isset($_GET['action']) && $_GET['action'] == "editmail") {
         #$bg1 = BG_1;
         #$bg2 = BG_2;
         #$bg3 = BG_3;
@@ -380,7 +380,7 @@ if (!$userID) {
         $data_array['$userID'] = $userID;
         $myprofile_editmail = $GLOBALS["_template"]->replaceTemplate("myprofile_editmail", $data_array);
         echo $myprofile_editmail;
-    } elseif (isset($_POST['savemail'])) {
+    } else if (isset($_POST['savemail'])) {
         $activationkey = md5(RandPass(20));
         $activationlink = $hp_url . '/index.php?site=register&mailkey=' . $activationkey;
         $pwd = $_POST['oldpwd'];
@@ -466,14 +466,14 @@ if (!$userID) {
 			echo generateAlert('<strong>ERROR: ' . $error . '</strong><br>
 			<a href="index.php?site=myprofile&action=editmail" class="alert-link">' . $_language->module['back'] . '</a>', 'alert-danger');
         }
-    } elseif(isset($_GET['action']) && $_GET['action'] == "deleteaccount") {
+    } elseif (isset($_GET['action']) && $_GET['action'] == "deleteaccount") {
 
 	    $data_array = array();
         $data_array['$userID'] = $userID;
         $myprofile_deleteaccount = $GLOBALS["_template"]->replaceTemplate("myprofile_deleteaccount", $data_array);
         echo $myprofile_deleteaccount;
 
-    } elseif(isset($_POST['deleteAccount'])) {
+    } elseif (isset($_POST['deleteAccount'])) {
 	    $pwd = $_POST['pwd'];
 	    $ergebnis = safe_query("SELECT password_hash, password_pepper, password, userID FROM " . PREFIX . "user WHERE userID='" . $userID . "'");
         $ds = mysqli_fetch_array($ergebnis);
@@ -486,7 +486,7 @@ if (!$userID) {
             $error = $_language->module['wrong_password'];
         }
 
-        if(empty($error)) {
+        if (empty($error)) {
 	        safe_query("DELETE FROM ".PREFIX."forum_moderators WHERE userID='" .$ds['userID']. "'");
 			safe_query("DELETE FROM ".PREFIX."messenger WHERE touser='" .$ds['userID']. "'");
 			safe_query("DELETE FROM ".PREFIX."squads_members WHERE userID='" .$ds['userID']. "'");
@@ -496,7 +496,7 @@ if (!$userID) {
 
 			$userfiles = array('images/avatars/' . $ds['userID'] . '.jpg', 'images/avatars/' . $ds['userID'] . '.png', 'images/avatars/' . $ds['userID'] . '.gif', 'images/userpics/' . $ds['userID'] . '.jpg', 'images/userpics/' . $ds['userID'] . '.gif', 'images/userpics/' . $ds['userID'] . '.png');
 			foreach($userfiles as $file) {
-				if(file_exists($file)) {
+				if (file_exists($file)) {
 					unlink($file);
 				}
 			}

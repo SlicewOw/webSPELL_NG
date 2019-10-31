@@ -167,10 +167,10 @@ if ($anz) {
             if (isignored($userID, $ds[ 'userID' ])) {
                 $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
                     '"><span class="fa fa-user-plus" title="back to buddylist"></span></a>';
-            } elseif (isbuddy($userID, $ds[ 'userID' ])) {
+            } else if (isbuddy($userID, $ds[ 'userID' ])) {
                 $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
                     '"><span class="fa fa-user-times" title="ignore user"></span></a></a>';
-            } elseif ($userID == $ds[ 'userID' ]) {
+            } else if ($userID == $ds[ 'userID' ]) {
                 $buddy = '';
             } else {
                 $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .

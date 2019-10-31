@@ -37,7 +37,7 @@ $index_language = $_language->module;
 // end important data include
 
 $sql = safe_query("SELECT module, le_activated FROM ".PREFIX."moduls WHERE le_activated = '1'");
-if(mysqli_num_rows($sql)) {
+if (mysqli_num_rows($sql)) {
     while($row = mysqli_fetch_array($sql)) {
         $hide1[] = $row['module'];
     }
@@ -47,7 +47,7 @@ else {
 }
 
 $sql = safe_query("SELECT module, re_activated FROM ".PREFIX."moduls WHERE re_activated = '1'");
-if(mysqli_num_rows($sql)) {
+if (mysqli_num_rows($sql)) {
     while($row = mysqli_fetch_array($sql)) {
         $hide2[] = $row['module'];
     }
@@ -57,7 +57,7 @@ else {
 }
 
 $sql = safe_query("SELECT module, activated FROM ".PREFIX."moduls WHERE activated = '1'");
-if(mysqli_num_rows($sql)) {
+if (mysqli_num_rows($sql)) {
     while($row = mysqli_fetch_array($sql)) {
         $hide3[] = $row['module'];
     }
@@ -92,7 +92,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     <!-- Head & Title include -->
     <title><?php
      $pm = new plugin_manager();
-     if(isset($_GET['site']) AND $pm->plugin_updatetitle($_GET['site'])) {
+     if (isset($_GET['site']) AND $pm->plugin_updatetitle($_GET['site'])) {
       echo $pm->plugin_updatetitle($_GET['site']);
      } else {
       echo PAGETITLE;
@@ -149,7 +149,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav visible-xs">
                 <li class="dropdown">
-                    <?php if($loggedin) {
+                    <?php if ($loggedin) {
                         echo
                             '<a href="index.php?site=loginoverview">' . getnickname($userID) . '</a>';
                     } else {
@@ -262,11 +262,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 				$_language->readModule('plugin');
 				$plugin = new plugin_manager();
 				$plugin->set_debug(DEBUG);
-				if(!empty($site) AND $plugin->is_plugin($site)>0) {
+				if (!empty($site) AND $plugin->is_plugin($site)>0) {
 					$data = $plugin->plugin_data($site);
 					$plugin_path = $data['path'];
 					$check = $plugin->plugin_check($data, $site);
-					if($check['status']==1) {
+					if ($check['status']==1) {
 						include($check['data']);
 					} else {
 						echo $check['data'];

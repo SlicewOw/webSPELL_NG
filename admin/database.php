@@ -87,7 +87,7 @@ if ($action == "optimize") {
         safe_query("OPTIMIZE TABLE `" . $table[ 0 ] . "`");
     }
     redirect('admincenter.php?site=' . $returnto, '', 0);
-} elseif ($action == "write") {
+} else if ($action == "write") {
     include('../_mysql.php');
     include('../_settings.php');
     include('../version.php');

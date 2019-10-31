@@ -9,46 +9,46 @@ echo $template;
 $ergebnis=safe_query("SELECT * FROM ".PREFIX."awaylist_settings");
 $ds=mysqli_fetch_array($ergebnis);
 
-if(isset($_POST['action'])) $action = $_POST['action'];
+if (isset($_POST['action'])) $action = $_POST['action'];
 else $action='';
 if ($action == "send") {
- 
+
  	  $name = $userID;
 	  $awayfrom1 = $_POST['awayfrom'];
-	  $awayfrom = strtotime($awayfrom1);  
+	  $awayfrom = strtotime($awayfrom1);
 	  $awayto1 = $_POST['awayto'];
 	  $awayto = strtotime($awayto1);
 	  $reason = trim(stripslashes($_POST['reason']));
-	
-//Überprüfung der Eingabefelder  
-	  if(!$reason) {
+
+//ï¿½berprï¿½fung der Eingabefelder
+	  if (!$reason) {
 	  echo ''.$_language->module['no_reason'].'<br /><br /><b><a href="javascript:history.back()">'.$_language->module['back'].'</a></b>';
 	  }
-	  
+
 	  elseif (!preg_match("/[0-9]{2}-[0-9]{2}-[0-9]{4}/",$awayfrom1)) {
 	  echo ''.$_language->module['no_date'].'<br /><br /><b><a href="javascript:history.back()">'.$_language->module['back'].'</a></b>';
 	  }
-	 
+
 	  elseif (!preg_match("/[0-9]{2}-[0-9]{2}-[0-9]{4}/",$awayto1)) {
 	  echo ''.$_language->module['no_date'].'<br /><br /><b><a href="javascript:history.back()">'.$_language->module['back'].'</a></b>';
 	  }
-	  
+
 	  else {
 		safe_query("INSERT INTO ".PREFIX."awaylist (name, awayfrom, awayto, reason) values ( '$name', '$awayfrom', '$awayto', '$reason' ) ");
 		#redirect('index.php?site=awaylist');
 		redirect('index.php?site=awaylist', $_language->module['submitted'], '3');
-		
+
 //Email-Benachrichtigung
 	  $notification=$ds['notification'];
 	  $mailaddy=$ds['mailaddy'];
-	  if($ds['showonly'] == "mem") {
+	  if ($ds['showonly'] == "mem") {
 	  $memberoruser=$_language->module['clanmember'];
 	  }
-	  if($ds['showonly'] == "reg") {
+	  if ($ds['showonly'] == "reg") {
 	  $memberoruser=$_language->module['communitymember'];
 	  }
-	  
-		if($notification == "1") {
+
+		if ($notification == "1") {
 $empfaenger = "$mailaddy";
 $empfaengerCC = array('<>');
 $absender = 'Awaylist Notifier<donot@reply>';
@@ -59,9 +59,9 @@ $message = ''.$_language->module['message1'].''.$memberoruser.''.$_language->mod
 
 // Baut Header der Mail zusammen
 $headers .= 'From:' . $absender . "\n";
-$headers .= 'Reply-To:' . $reply . "\n"; 
-$headers .= 'X-Mailer: PHP/' . phpversion() . "\n"; 
-$headers .= 'X-Sender-IP: ' . $REMOTE_ADDR . "\n"; 
+$headers .= 'Reply-To:' . $reply . "\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() . "\n";
+$headers .= 'X-Sender-IP: ' . $REMOTE_ADDR . "\n";
 $headers .= "Content-type: text/html\n";
 
 // Extrahiere Emailadressen
@@ -73,8 +73,8 @@ $headers .= 'Cc: ' . $empfaengerCCString . "\n";
 /* Verschicken der Mail */
 mail($empfaengerString, $subject, $message, $headers);
 }
-//Ende Email-Benachrichtigung		
-		
+//Ende Email-Benachrichtigung
+
 		#redirect('index.php?site=awaylist');
 		redirect('index.php?site=awaylist', $_language->module['submitted'], '3');
 		#echo $_language->module['submitted'];
@@ -83,25 +83,25 @@ mail($empfaengerString, $subject, $message, $headers);
 }
 //
 //
-//Überprüfung ob sichtbar für Community oder Clanmember
-elseif($ds['showonly'] == "mem") {
+//ï¿½berprï¿½fung ob sichtbar fï¿½r Community oder Clanmember
+elseif ($ds['showonly'] == "mem") {
 
-// Löschen veralteter Einträge
+// Lï¿½schen veralteter Eintrï¿½ge
 	$heute = strtotime(date ("d-m-Y"));
-// Zum manuellen testen der Löschfunktion
+// Zum manuellen testen der Lï¿½schfunktion
 	//$heute = "2011-03-20";
 	$ergebnis = safe_query("DELETE FROM ".PREFIX."awaylist WHERE awayto<='$heute'");
 //	$ds = mysqli_fetch_array($ergebnis);
-		
+
   $ergebnis = safe_query("SELECT * FROM ".PREFIX."awaylist");
 
-if(isclanmember($userID)) {
+if (isclanmember($userID)) {
 #eval ("\$awaylist = \"".gettemplate("awaylist")."\";");
 #echo $awaylist;
 $template = $GLOBALS["_template"]->replaceTemplate("awaylist", $data_array);
 echo $template;
 //Ausgabe aller Abwesenheiten falls aktiviert
-if($ds['showaways'] == "1") {
+if ($ds['showaways'] == "1") {
 
 #eval ("\$awaylist_tablehead = \"".gettemplate("awaylist_tablehead")."\";");
 #echo $awaylist_tablehead;
@@ -111,7 +111,7 @@ echo $template;
 $ergebnis=safe_query("SELECT * FROM ".PREFIX."awaylist");
 $n=1;
 while($ds=mysqli_fetch_array($ergebnis)) {
- if($n%2) {
+ if ($n%2) {
 			$bg1=BG_1;
 			$bg2=BG_2;
 		}
@@ -121,10 +121,10 @@ while($ds=mysqli_fetch_array($ergebnis)) {
 		}
 // Begrenzung der Ausgabe von Grund auf 25 Zeichen, komplette Ausgabe per Tooltip
   $reasonshort = $ds['reason'];
-  if(strlen($reasonshort)>15) {
+  if (strlen($reasonshort)>15) {
 	    $reasonshort=substr($reasonshort, 0, 15);
 		$reasonshort.='..';
-	}	
+	}
 
 $nick =	cleartext('[flag]'.getcountry($ds['name']).'[/flag]').' <a href="index.php?site=profile&amp;id='.$ds['name'].'">'.getnickname($ds['name']).'</a>';
 $awayfrom2 = $ds['awayfrom'];
@@ -137,17 +137,17 @@ $reason = $ds['reason'];
 
 
 
-// Löschen eigener Abwesenheiten
+// Lï¿½schen eigener Abwesenheiten
 $name = $userID;
-if ($name == $ds['name']) { 
+if ($name == $ds['name']) {
 $delete='<input type="button" class="button" onClick="MM_goToURL(\'parent\',\'index.php?site=awaylist&delete=true&ID='.$ds['ID'].'\');return document.MM_returnValue" value="'.$_language->module['delete'].'" name="'.$_language->module['delete'].'" id="delete">';
 }
 else {
 $delete='';
 }
 
-//if($_GET['delete']) {
-if(isset($_GET['delete'])) $delete2 = $_GET['delete'];
+//if ($_GET['delete']) {
+if (isset($_GET['delete'])) $delete2 = $_GET['delete'];
 else $delete2='';
 if ($delete2 == "true") {
 
@@ -171,7 +171,7 @@ $data_array['$awayto'] = date("d-m-Y",$awayto2);
 $data_array['$reason'] = $ds['reason'];
 $data_array['$reasonshort'] = substr($reasonshort, 0, 15);
 $data_array['$reasonshort'] = $reasonshort.='..';
-	
+
 
 #$data_array['$delete'] = $delete;
 
@@ -197,8 +197,8 @@ else {
 echo $_language->module['clanmember_only'];
 }
 }
-elseif($ds['showonly'] == "reg") {
-if(!$userID) echo ''.$_language->module['login_first'].'<br><br>
+elseif ($ds['showonly'] == "reg") {
+if (!$userID) echo ''.$_language->module['login_first'].'<br><br>
 
 	  &#8226; <a href="index.php?site=register">'.$_language->module['register_now'].'</a><br>
 	  &#8226; <a href="index.php?site=login">'.$_language->module['login'].'</a>';
@@ -206,31 +206,31 @@ if(!$userID) echo ''.$_language->module['login_first'].'<br><br>
 else {
 
 $template = $GLOBALS["_template"]->replaceTemplate("awaylist", $data_array);
-echo $template;	
+echo $template;
 #eval ("\$awaylist = \"".gettemplate("awaylist")."\";");
 #echo $awaylist;
-	  
-// Löschen veralteter Einträge
+
+// Lï¿½schen veralteter Eintrï¿½ge
 	$heute = strtotime(date ("d-m-Y"));
-// Zum manuellen testen der Löschfunktion
+// Zum manuellen testen der Lï¿½schfunktion
 	//$heute = "2011-02-20";
 	$ergebnis = safe_query("DELETE FROM ".PREFIX."awaylist WHERE awayto<='$heute'");
 //	$ds = mysqli_fetch_array($ergebnis);
-		
+
   $ergebnis = safe_query("SELECT * FROM ".PREFIX."awaylist");
 
 //Ausgabe aller Abwesenheiten falls aktiviert
-if($ds['showaways'] == "1") {
+if ($ds['showaways'] == "1") {
 
 #eval ("\$awaylist_tablehead = \"".gettemplate("awaylist_tablehead")."\";");
 #echo $awaylist_tablehead;
 $template = $GLOBALS["_template"]->replaceTemplate("awaylist_tablehead", $data_array);
-echo $template;        
+echo $template;
 
 $ergebnis=safe_query("SELECT * FROM ".PREFIX."awaylist");
 $n=1;
 while($ds=mysqli_fetch_array($ergebnis)) {
- if($n%2) {
+ if ($n%2) {
 			$bg1=BG_1;
 			$bg2=BG_2;
 		}
@@ -240,13 +240,13 @@ while($ds=mysqli_fetch_array($ergebnis)) {
 		}
 // Begrenzung der Ausgabe von Grund auf 15 Zeichen, komplette Ausgabe per Tooltip
   $reasonshort = $ds['reason'];
-  if(strlen($reasonshort)>15) {
+  if (strlen($reasonshort)>15) {
 	    $reasonshort=substr($reasonshort, 0, 15);
 		$reasonshort.='..';
-	}	
+	}
 
 
-				
+
 $nick =	cleartext('[flag]'.getcountry($ds['name']).'[/flag]').' <a href="index.php?site=profile&amp;id='.$ds['name'].'">'.getnickname($ds['name']).'</a>';
 $awayfrom2 = $ds['awayfrom'];
 $awayfrom = date("d-m-Y",$awayfrom2);
@@ -256,16 +256,16 @@ $reason = $ds['reason'];
 
 
 
-// Löschen eigener Abwesenheiten
+// Lï¿½schen eigener Abwesenheiten
 $name = $userID;
-if ($name == $ds['name']) { 
+if ($name == $ds['name']) {
 $delete='<input type="button" class="button" onClick="MM_goToURL(\'parent\',\'index.php?site=awaylist&delete=true&ID='.$ds['ID'].'\');return document.MM_returnValue" value="'.$_language->module['delete'].'" name="'.$_language->module['delete'].'" id="delete">';
 }
 else {
 $delete='';
 }
-//if($_GET['delete']) {
-if(isset($_GET['delete'])) $delete3 = $_GET['delete'];
+//if ($_GET['delete']) {
+if (isset($_GET['delete'])) $delete3 = $_GET['delete'];
 else $delete3='';
 if ($delete3 == "true") {
 
@@ -286,7 +286,7 @@ $data_array['$awayto'] = date("d-m-Y",$awayto2);
 $data_array['$reason'] = $ds['reason'];
 $data_array['$reasonshort'] = substr($reasonshort, 0, 15);
 $data_array['$reasonshort'] = $reasonshort.='..';
-	
+
 
 $data_array['$delete'] = $delete;
 

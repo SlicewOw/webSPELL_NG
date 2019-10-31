@@ -77,7 +77,7 @@ if (isset($_POST['save'])) {
         // check username
         if (!(mb_strlen(trim($username)))) {
             $error[] = $_language->module['enter_username'];
-        } elseif (mb_strlen(trim($username)) > 30) {
+        } else if (mb_strlen(trim($username)) > 30) {
             $error[] = $_language->module['username_toolong'];
         }
 
@@ -111,7 +111,7 @@ if (isset($_POST['save'])) {
         }
 
         // check exisitings accounts from ip with same password
-		if(!$register_per_ip) {
+		if (!$register_per_ip) {
 	        $get_users =
 	            safe_query(
 	                "SELECT
@@ -238,7 +238,7 @@ if (isset($_GET['key'])) {
     } else {
         redirect('index.php?site=login', $_language->module['wrong_activationkey'], 3);
     }
-} elseif (isset($_GET['mailkey'])) {
+} else if (isset($_GET['mailkey'])) {
     if (mb_strlen(trim($_GET['mailkey'])) == 32) {
         safe_query(
             "UPDATE

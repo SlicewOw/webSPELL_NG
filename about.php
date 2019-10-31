@@ -33,10 +33,10 @@ echo $title_about;
 $ergebnis = safe_query("SELECT * FROM " . PREFIX . "about");
 if (mysqli_num_rows($ergebnis)) {
     $ds = mysqli_fetch_array($ergebnis);
-    
-    if($ds[ 'about' ] != "") {
+
+    if ($ds[ 'about' ] != "") {
 		$about = htmloutput($ds[ 'about' ]);
-		$about = toggle($about, 1); 
+		$about = toggle($about, 1);
     }
     else {
 	    $about = generateAlert($_language->module[ 'no_about' ], 'alert-info');

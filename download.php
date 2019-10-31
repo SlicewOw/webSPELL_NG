@@ -44,7 +44,7 @@ function download($file, $extern = 0)
         header("Content-Transfer-Encoding: binary");
 
         @readfile($file); */
-		header("Location: /downloads/" . $filename . ""); 
+		header("Location: /downloads/" . $filename . "");
 
         exit;
     } else {
@@ -96,7 +96,7 @@ if (isset($fileID)) {
             download('downloads/' . $dd[ 'file' ]);
         }
     }
-} elseif (isset($demoID)) {
+} else if (isset($demoID)) {
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "demos WHERE demoID='" . $demoID . "'");
     $dd = mysqli_fetch_array($ergebnis);
     $allowed = 0;

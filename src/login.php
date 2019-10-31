@@ -209,7 +209,7 @@ $loggedin = false;
 if (isset($_SESSION['ws_user'])) {
     $userID = $_SESSION['ws_user'];
     $loggedin = true;
-} elseif (isset($_COOKIE['ws_auth'])) {
+} else if (isset($_COOKIE['ws_auth'])) {
     LoginCookie::purge();
     LoginCookie::check('ws_auth');
 }

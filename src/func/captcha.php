@@ -80,7 +80,7 @@ class Captcha
 
         if ($ds[ 'captcha_math' ] == 1) {
             $this->math = 1;
-        } elseif ($ds[ 'captcha_math' ] == 2) {
+        } else if ($ds[ 'captcha_math' ] == 2) {
             $this->math = rand(0, 1);
         } else {
             $this->math = 0;
@@ -88,7 +88,7 @@ class Captcha
 
         if ($ds[ 'captcha_type' ] == 1) {
             $this->type = 'g';
-        } elseif (function_exists('imagecreatetruecolor') && ($ds[ 'captcha_type' ] == 2)) {
+        } else if (function_exists('imagecreatetruecolor') && ($ds[ 'captcha_type' ] == 2)) {
             $this->type = 'g';
         } else {
             $this->type = 't';
@@ -271,7 +271,7 @@ class Captcha
             $file = 'tmp/' . $ds[ 'hash' ] . '.jpg';
             if (file_exists($file)) {
                 unlink($file);
-            } elseif (file_exists('../' . $file)) {
+            } else if (file_exists('../' . $file)) {
                 unlink('../' . $file);
             }
         }

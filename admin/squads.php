@@ -352,7 +352,7 @@ if ($action == "add") {
     echo '<script>
 		<!--
 			function chkFormular() {
-				if(!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
+				if (!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
 					return false;
 				}
 			}
@@ -429,7 +429,7 @@ onsubmit="return chkFormular();">
   </div>
     </form></div>
   </div>';
-} elseif ($action == "edit") {
+} else if ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-users"></span> '.$_language->module['squads'].'
@@ -494,7 +494,7 @@ type="radio" name="gamesquad" value="1" checked="checked" /> ' . $_language->mod
     echo '<script>
 		<!--
 			function chkFormular() {
-				if(!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
+				if (!validbbcode(document.getElementById(\'message\').value, \'admin\')) {
 					return false;
 				}
 			}
