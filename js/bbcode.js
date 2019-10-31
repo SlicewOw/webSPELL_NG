@@ -424,14 +424,19 @@ function postRequest(strURL, id, action) {
 	} else if (window.ActiveXObject) {
 		xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlHttp.open("POST", strURL, true);
-	xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlHttp.onreadystatechange = function() {
-		if (xmlHttp.readyState === 4) {
-			updatepage(xmlHttp.responseText, id, action);
-		}
-	};
-	xmlHttp.send(strURL);
+	try {
+		xmlHttp.open("POST", strURL, true);
+		xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlHttp.onreadystatechange = function() {
+			if (xmlHttp.readyState === 4) {
+				updatepage(xmlHttp.responseText, id, action);
+			}
+		};
+		xmlHttp.send(strURL);
+	}
+	catch (e) {
+		console.log(e);
+	}
 }
 // Fetch data for onclick/onchange events
 
@@ -549,7 +554,7 @@ function validbbcode(txt) {
 			}
 		}
 	}
-	if (result === null) {
+	if (!result) {
 		return true;
 	}
 	arraylength = result.length;
