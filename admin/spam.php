@@ -195,15 +195,15 @@ if ($action == "user") {
     echo '<form method="post" id="post" name="post" action="admincenter.php?site=spam&amp;action=user_ban">';
     echo '<table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-            <td valign="top" width="25%">' . $_language->module[ "userID" ] . ':</td>
-            <td valign="top">
+            <td style="vertical-align: top;">' . $_language->module[ "userID" ] . ':</td>
+            <td style="vertical-align: top;">
                 <input class="form-control" type="text" name="id" value="' . $id .
                 '" onchange="fetch(\'spam.php?getnickname=\'+this.value+\'\',\'nick\',\'replace\',\'event\');" />
             </td>
         </tr>
         <tr>
-            <td valign="top">' . $_language->module[ "profile" ] . ':</td>
-            <td valign="top"><span id="nick">' . $nick . '</span></td>
+            <td style="vertical-align: top;">' . $_language->module[ "profile" ] . ':</td>
+            <td style="vertical-align: top;"><span id="nick">' . $nick . '</span></td>
         </tr>
     </table>';
     echo '<br><input type="hidden" name="captcha_hash" value="' . $hash . '" />

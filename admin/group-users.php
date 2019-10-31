@@ -314,12 +314,12 @@ if (isset($_GET[ 'action' ])) {
       <th><strong>'.$_language->module['user_filter'].'</strong></th>
     </thead>
     <tr>
-      <td class="td1" valign="top">
+      <td style="vertical-align: top;">
       <select class="form-control" name="groups[]" multiple="multiple">
         '.$groups.'
       </select>
       </td>
-      <td class="td1" valign="top">
+      <td style="vertical-align: top;">
       <select class="form-control" name="users[]" multiple="multiple" onchange="checkForFilter(this);">
         <option value="4">'.$_language->module['filter_registered'].'</option>
         <option value="0">'.$_language->module['filter_clanmember'].'</option>

@@ -284,13 +284,7 @@ if ($ajax === true) {
         <body>
         <table class="table">
             <tr>
-                <td height="500" class="text-center">
-                    <table width="350" border="0" cellpadding="10" cellspacing="0">
-                        <tr>
-                            <td class="text-center"><?php echo $message; ?></td>
-                        </tr>
-                    </table>
-                </td>
+                <td><?php echo $message; ?></td>
             </tr>
         </table>
         </body>

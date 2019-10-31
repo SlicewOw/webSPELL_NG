@@ -152,7 +152,7 @@ if (mysqli_num_rows($thread)) {
         }
 
         echo '<tr>
-        <td valign="top"><span>' . $date . ', ' . $time . ' </span> - <strong>' . $username . '</strong> - ' .
+        <td style="vertical-align: top;"><span>' . $date . ', ' . $time . ' </span> - <strong>' . $username . '</strong> - ' .
             $usertype . $rang . $specialrang . $specialtype . ' - ' . $posts . ' ' . $_language->module[ 'posts' ] .
             '<br>' . $message . ' ><span>' . $signatur . '</span>><br>&nbsp;</td>
         </tr>';
