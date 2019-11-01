@@ -773,9 +773,10 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             $date = $_language->module['yesterday'];
         }
 
-        $message = cleartext($dr['message']);
-        $message = toggle($message, $dr['postID']);
         $postID = $dr['postID'];
+
+        $message = cleartext($dr['message']);
+        $message = toggle($message, $postID);
 
         $username = '<a href="index.php?site=profile&amp;id=' . $dr['poster'] . '"><strong>' .
             stripslashes(getnickname($dr['poster'])) . '</strong></a>';
@@ -831,7 +832,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         if (!$dt['closed']) {
             $quote =
                 '<a href="index.php?site=forum_topic&amp;addreply=true&amp;board=' . $dt['boardID'] . '&amp;topic=' .
-                $topic . '&amp;quoteID=' . $dr['postID'] . '&amp;page=' . $page . '&amp;type=' . $type .
+                $topic . '&amp;quoteID=' . $postID . '&amp;page=' . $page . '&amp;type=' . $type .
                 '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['quote'] . '"><span class="fa fa-quote-left"></span></a>';
         } else {
             $quote = "";
@@ -881,11 +882,10 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         if (($userID == $dr['poster'] || isforumadmin($userID) || ismoderator($userID, $dt['boardID']))
             && !$dt['closed']
         ) {
-            $actions = ' <a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;edit=true&amp;id=' .
-                $dr['postID'] . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['edit'] . '"><span class="fa fa-pencil"></span></a> ';
+            $actions = ' <a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;edit=true&amp;id=' . $postID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['edit'] . '"><span class="fa fa-pencil"></span></a> ';
         }
         if (isforumadmin($userID) || ismoderator($userID, $dt['boardID'])) {
-            $actions .= '<input class="input" type="checkbox" name="postID[]" value="' . $dr['postID'] . '">';
+            $actions .= '<input class="input" type="checkbox" name="postID[]" value="' . $postID . '">';
         }
 
         $data_array = array();

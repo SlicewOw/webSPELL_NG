@@ -49,27 +49,27 @@ namespace {
                 return null;
             }
             $resultLength = 0;
-            switch ($algo) {
-                case PASSWORD_BCRYPT:
-                    $cost = PASSWORD_BCRYPT_DEFAULT_COST;
-                    if (isset($options['cost'])) {
-                        $cost = (int) $options['cost'];
-                        if ($cost < 4 || $cost > 31) {
-                            trigger_error(sprintf("password_hash(): Invalid bcrypt cost parameter specified: %d", $cost), E_USER_WARNING);
-                            return null;
-                        }
+            if ($algo == PASSWORD_BCRYPT) {
+
+                $cost = PASSWORD_BCRYPT_DEFAULT_COST;
+                if (isset($options['cost'])) {
+                    $cost = (int) $options['cost'];
+                    if ($cost < 4 || $cost > 31) {
+                        trigger_error(sprintf("password_hash(): Invalid bcrypt cost parameter specified: %d", $cost), E_USER_WARNING);
+                        return null;
                     }
-                    // The length of salt to generate
-                    $raw_salt_len = 16;
-                    // The length required in the final serialization
-                    $required_salt_len = 22;
-                    $hash_format = sprintf("$2y$%02d$", $cost);
-                    // The expected length of the final crypt() output
-                    $resultLength = 60;
-                    break;
-                default:
-                    trigger_error(sprintf("password_hash(): Unknown password hashing algorithm: %s", $algo), E_USER_WARNING);
-                    return null;
+                }
+                // The length of salt to generate
+                $raw_salt_len = 16;
+                // The length required in the final serialization
+                $required_salt_len = 22;
+                $hash_format = sprintf("$2y$%02d$", $cost);
+                // The expected length of the final crypt() output
+                $resultLength = 60;
+
+            } else {
+                trigger_error(sprintf("password_hash(): Unknown password hashing algorithm: %s", $algo), E_USER_WARNING);
+                return null;
             }
             $salt_req_encoding = false;
             if (isset($options['salt'])) {
@@ -211,16 +211,11 @@ namespace {
             if ($info['algo'] !== (int) $algo) {
                 return true;
             }
-            switch ($algo) {
-                case PASSWORD_BCRYPT:
-                    $cost = isset($options['cost']) ? (int) $options['cost'] : PASSWORD_BCRYPT_DEFAULT_COST;
-                    if ($cost !== $info['options']['cost']) {
-                        return true;
-                    }
-                    break;
-                default:
-                    return false;
-                    break;
+            if ($algo == PASSWORD_BCRYPT) {
+                $cost = isset($options['cost']) ? (int) $options['cost'] : PASSWORD_BCRYPT_DEFAULT_COST;
+                if ($cost !== $info['options']['cost']) {
+                    return true;
+                }
             }
             return false;
         }

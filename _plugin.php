@@ -79,7 +79,6 @@ class PluginManager {
 					if (file_exists($plugin_path)) {
 						$return['status'] = 1;
 						$return['data'] = $plugin_path;
-						return $return;
 					} else {
 						if (DEBUG==="ON") {
 							echo '<br /><span class="label label-danger">'.$_language->module[ 'plugin_not_found' ].'</span>';
@@ -90,7 +89,7 @@ class PluginManager {
 						}
 						$return['status'] = 1;
 						$return['data'] = $site . ".php";
-						return $return;
+
 					}
 				}
 			} else {
@@ -98,8 +97,8 @@ class PluginManager {
 				if (file_exists($plugin_path)) {
 					$return['status'] = 1;
 					$return['data'] = $plugin_path;
-					return $return;
 				} else {
+
 					if (DEBUG==="ON") {
 						return '<br /><span class="label label-danger">'.$_language->module[ 'plugin_not_found' ].'</span>';
 					}
@@ -109,7 +108,6 @@ class PluginManager {
 					}
 					$return['status'] = 1;
 					$return['data']= $site.".php";
-					return $return;
 
 				}
 			}
@@ -122,8 +120,8 @@ class PluginManager {
 			}
 			$return['status'] = 1;
 			$return['data']= $site.".php";
-			return $return;
 		}
+		return $return;
 	}
 
 	//@info   check if the plugin is activated and exists

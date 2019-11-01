@@ -112,15 +112,24 @@
                 <li>
                     <a href="#"><span class="fa fa-indent"></span> <?php echo $_language->module['rubrics']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <?php } if (isnewsadmin($userID)) { ?>
+                        <?php
+                        }
+                        if (isnewsadmin($userID)) {
+                        ?>
                         <li><a href="admincenter.php?site=rubrics"><?php echo $_language->module['news_rubrics']; ?></a></li>
                         <li><a href="admincenter.php?site=newslanguages"><?php echo $_language->module['news_languages']; ?></a></li>
-                        <?php } if (isfileadmin($userID)) { ?>
+                        <?php
+                        }
+                        if (isfileadmin($userID)) {
+                        ?>
                         <li><a href="admincenter.php?site=filecategories"><?php echo $_language->module['file_categories']; ?></a></li>
-                        <?php } if (ispageadmin($userID)) { ?>
+                        <?php
+                        }
+                        if (ispageadmin($userID)) {
+                        ?>
                         <li><a href="admincenter.php?site=faqcategories"><?php echo $_language->module['faq_categories']; ?></a></li>
                         <li><a href="admincenter.php?site=linkcategories"><?php echo $_language->module['link_categories']; ?></a></li>
-                            <?php echo admincenternav(4); ?>
+                        <?php echo admincenternav(4); ?>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>

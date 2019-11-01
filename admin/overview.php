@@ -99,9 +99,7 @@ if (function_exists("gd_info")) {
     if (isset($gdinfo[ 'GIF Create Support' ]) && $gdinfo[ 'GIF Create Support' ] === true) {
         $get_gdtypes[ ] = "*.gif " . $_language->module[ 'create' ];
     }
-    if (isset($gdinfo[ 'JPG Support' ]) && $gdinfo[ 'JPG Support' ] === true) {
-        $get_gdtypes[ ] = "*.jpg";
-    } else if (isset($gdinfo[ 'JPEG Support' ]) && $gdinfo[ 'JPEG Support' ] === true) {
+    if ((isset($gdinfo[ 'JPG Support' ]) && $gdinfo[ 'JPG Support' ] === true) || (isset($gdinfo[ 'JPEG Support' ]) && $gdinfo[ 'JPEG Support' ] === true)) {
         $get_gdtypes[ ] = "*.jpg";
     }
     if (isset($gdinfo[ 'PNG Support' ]) && $gdinfo[ 'PNG Support' ] === true) {
@@ -133,11 +131,8 @@ $get = safe_query("SELECT DATABASE()");
 $ret = mysqli_fetch_array($get);
 $db = $ret[ 0 ];
 
-echo '
-<div class="panel panel-default">
-<div class="panel-heading">
-                            <span class="fa fa-smile-o"></span> '.$_language->module['welcome'].'
-</div>
+echo '<div class="panel panel-default">
+<div class="panel-heading"><span class="fa fa-smile-o"></span> '.$_language->module['welcome'].'</div>
 <div class="panel-body">';
 
 echo $_language->module['hello'].'&nbsp;'.$username.',&nbsp;'.$_language->module['last_login'].'&nbsp;'.$lastlogin.'.<br /><br />';
@@ -195,20 +190,6 @@ echo $_language->module['welcome_message'];
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="col-md-6">
 
 <div class="panel panel-default">
@@ -232,12 +213,6 @@ echo $_language->module['welcome_message'];
 
 
 </div>
-
-
-
-
-
-
 
 <div class="panel panel-default">
 <div class="panel-heading">

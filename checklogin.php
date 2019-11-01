@@ -34,11 +34,6 @@ $closed = 0;
 
 include("_functions.php");
 
-//settings
-
-$sleep = 1; //idle status for script if password is wrong?
-
-//settings end
 $_language->readModule('checklogin');
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -78,9 +73,7 @@ if (mysqli_num_rows($get) == 0) {
                     $pass = Gen_PasswordHash($_POST['password'], $ds['userID']);
                     safe_query("UPDATE " . PREFIX . "user SET password='', password_hash='" . $pass . "' WHERE userID='" . intval($ds['userID']) . "' LIMIT 1");
                 } else {
-                    if ($sleep) {
-                        sleep(3);
-                    }
+
                     $get = safe_query(
                         "SELECT
                             `wrong`
@@ -169,9 +162,7 @@ if (mysqli_num_rows($get) == 0) {
                     $return->state = "success";
                     $return->message = $_language->module[ 'login_successful' ];
                 } else {
-                    if ($sleep) {
-                        sleep(3);
-                    }
+
                     $get = safe_query(
                         "SELECT
                             `wrong`

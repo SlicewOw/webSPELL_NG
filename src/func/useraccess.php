@@ -439,8 +439,7 @@ function isinusergrp($usergrp, $userID)
             FROM
                 " . PREFIX . "user_forum_groups
             WHERE
-                `" . $usergrp . "` = 1 AND
-                `userID` = " . (int)$userID
+                `" . $usergrp . "` = 1 AND `userID` = " . (int)$userID
     )) > 0
     ) {
         return true;

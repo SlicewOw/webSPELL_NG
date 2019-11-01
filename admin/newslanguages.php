@@ -226,16 +226,14 @@ else {
       <th><strong>'.$_language->module['title'].'</strong></th>
       <th><strong>'.$_language->module['actions'].'</strong></th>
     </thead>';
-  $n=1;
 
   $CAPCLASS = new \webspell\Captcha;
-    $CAPCLASS->createTransaction();
-    $hash = $CAPCLASS->getHash();
+  $CAPCLASS->createTransaction();
+  $hash = $CAPCLASS->getHash();
 
   while($ds=mysqli_fetch_array($ergebnis)) {
 
-
-$getflag = '<img src="../images/flags/' . $ds[ 'lang' ] . '.gif" alt="' . $ds[ 'alt' ] . '">';
+    $getflag = '<img src="../images/flags/' . $ds[ 'lang' ] . '.gif" alt="' . $ds[ 'alt' ] . '">';
 
     echo'<tr>
       <td>'.$getflag.'</td>
@@ -251,14 +249,14 @@ $getflag = '<img src="../images/flags/' . $ds[ 'lang' ] . '.gif" alt="' . $ds[ '
       </td>
     </tr>';
 
-$n++;
   }
-    echo'</table>';
+  echo'</table>';
 
-if ($pages>1) echo $page_link;
+  if ($pages>1) {
+    echo $page_link;
+  }
 
-
- echo ' </div></div>';
+  echo ' </div></div>';
 }
 ?>
 

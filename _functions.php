@@ -208,11 +208,7 @@ if (!function_exists("hash_equals")) {
     {
         $result = 0;
 
-        if (!is_string($known_str)) {
-            return false;
-        }
-
-        if (!is_string($user_str)) {
+        if (!is_string($known_str) || !is_string($user_str)) {
             return false;
         }
 
