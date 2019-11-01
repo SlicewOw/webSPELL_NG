@@ -163,9 +163,6 @@ if ($show === true) {
         echo $joinus_failure;
 	return false;
 	}
-	##
-
-    #$bg1 = BG_1;
 
     if ($loggedin) {
         if (!isset($showerror)) {

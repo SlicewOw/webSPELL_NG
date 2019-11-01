@@ -32,7 +32,7 @@ include("_functions.php");
 include("_plugin.php");
 chdir(getConstNameAdmin());
 
-$load = new plugin_manager();
+$load = new PluginManager();
 $_language->readModule('admincenter', false, true);
 
 if (isset($_GET['site'])) {

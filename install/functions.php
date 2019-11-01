@@ -72,7 +72,6 @@ function update_progress($functions_to_call)
 </div><div id="details_text" style="height: 150px; overflow-y:scroll;"></div>';
 }
 
-/** fixme */
 function updateMySQLConfig()
 {
     global $_language;

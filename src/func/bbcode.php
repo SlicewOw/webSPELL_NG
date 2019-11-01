@@ -176,10 +176,6 @@ function codereplace($content)
     global $_language;
     $_language->readModule('bbcode', true);
 
-    global $picsize_l;
-
-    #$border = BORDER;
-    #$bg1 = BG_1;
     $splits = preg_split("/(\[[\/]{0,1}code\])/si", $content, -1, PREG_SPLIT_DELIM_CAPTURE);
     $anz = count($splits);
     for ($i = 0; $i < $anz; $i++) {

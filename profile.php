@@ -460,9 +460,6 @@ if (isset($id) && getnickname($id) != '') {
                     $title_profile = $GLOBALS["_template"]->replaceTemplate("title_profile", $data_array);
                     echo $title_profile;
 
-                    #$bg1 = BG_1;
-                    #$bg2 = BG_2;
-
                     $gesamt =
                         mysqli_num_rows(
                             safe_query(
@@ -543,7 +540,7 @@ if (isset($id) && getnickname($id) != '') {
                     echo '<form method="post" name="form"
                         action="index.php?site=profile&amp;id=' . $id . '&amp;action=guestbook&amp;delete=true">';
                     while ($ds = mysqli_fetch_array($ergebnis)) {
-                        #$n % 2 ? $bg1 = BG_1 : $bg1 = BG_2;
+
                         $date = getformatdatetime($ds[ 'date' ]);
 
                         if (validate_email($ds[ 'email' ])) {
@@ -1042,11 +1039,6 @@ if (isset($id) && getnickname($id) != '') {
             $lastvisits = '<tr><td colspan="2">' . $_language->module[ 'no_visits' ] . '</td>
     </tr>';
         }
-
-        #$bg1 = BG_1;
-        #$bg2 = BG_2;
-        #$bg3 = BG_3;
-        #$bg4 = BG_4;
 
         $data_array = array();
 		$data_array['$id'] = $id;

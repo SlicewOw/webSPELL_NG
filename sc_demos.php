@@ -47,15 +47,7 @@ if (mysqli_num_rows($ergebnis)) {
         $tag1 = $ds[ 'clantag1' ];
         $tag2 = $ds[ 'clantag2' ];
         $clan2 = $ds[ 'clan2' ];
-        $number = $n;
-
-        #if ($n % 2) {
-        #    $bg1 = BG_1;
-        #    $bg2 = BG_2;
-        #} else {
-        #    $bg1 = BG_3;
-        #    $bg2 = BG_4;
-        #}
+        $number = $n++;
 
         $data_array = array();
         $data_array['$count'] = $count;
@@ -65,7 +57,6 @@ if (mysqli_num_rows($ergebnis)) {
         $sc_demos = $GLOBALS["_template"]->replaceTemplate("sc_demos", $data_array);
         echo $sc_demos;
 
-        $n++;
     }
     echo '</ul>';
 }

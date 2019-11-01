@@ -94,15 +94,9 @@ if ($anz) {
     $data_array['$page'] = $page;
     $registered_users_head = $GLOBALS["_template"]->replaceTemplate("registered_users_head", $data_array);
     echo $registered_users_head;
-    $n = 1;
+
     while ($ds = mysqli_fetch_array($ergebnis)) {
-        #if ($n % 2) {
-        #    $bg1 = BG_1;
-        #    $bg2 = BG_2;
-        #} else {
-        #    $bg1 = BG_3;
-        #    $bg2 = BG_4;
-        #}
+
         $id = $ds[ 'userID' ];
         $country = '[flag]' . htmlspecialchars($ds[ 'country' ]) . '[/flag]';
         $country = flags($country);
@@ -170,7 +164,7 @@ if ($anz) {
         $data_array['$registereddate'] = $registereddate;
         $registered_users_content = $GLOBALS["_template"]->replaceTemplate("registered_users_content", $data_array);
         echo $registered_users_content;
-        $n++;
+
     }
     $registered_users_foot = $GLOBALS["_template"]->replaceTemplate("registered_users_foot", array());
     echo $registered_users_foot;

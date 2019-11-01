@@ -327,8 +327,6 @@ if ($action == "save") {
             $_language->module[ 'registered' ] . '</option><option value="2">' . $_language->module[ 'clanmember' ] .
             '</option>';
 
-        #$bg1 = BG_1;
-
         if ($filecats == '') {
             redirect('index.php?site=files', $_language->module[ 'first_create_file-category' ], '3');
         } else {
@@ -580,17 +578,7 @@ if ($action == "save") {
         $files_category_list = $GLOBALS["_template"]->replaceTemplate("files_category_list_head", $data_array);
         echo $files_category_list;
 
-        $n = 0;
-
         while ($file = mysqli_fetch_array($files)) {
-            $n++;
-            #if ($n % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_4;
-            #    $bg2 = BG_3;
-            #}
 
             $fileid = $file[ 'fileID' ];
             $filename =

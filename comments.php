@@ -24,7 +24,7 @@
 #                                                                        #
 ##########################################################################
 */
-#$bg1 = BG_1;
+
 function checkCommentsAllow($type, $parentID)
 {
     global $userID;

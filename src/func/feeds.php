@@ -66,26 +66,27 @@ function generate_rss2()
                     `language` = '" . $rss_default_language . "'"
             );
             $any_newscontent = mysqli_num_rows($db_newscontent);
-            if ($any_newscontent) {
-                $newscontent = mysqli_fetch_array($db_newscontent);
-                $xmlstring .= '<item>
-                <title>' . htmlspecialchars(($newscontent['headline'])) . '</title>
-                <description><![CDATA[' . htmloutput($newscontent['content']) . ']]></description>
-                <author>' .
-                    getemail($news['poster']) . ' (' .
-                    getfirstname($news['poster']) . ' ' .
-                    getlastname($news['poster']) . ')' .
-                '</author>
-                <guid>
-                    <![CDATA[' . $hp_url . '/index.php?site=news_comments&newsID=' . $news['newsID'] . ']]>
-                </guid>
-                <link>
-                    <![CDATA[' . $hp_url . '/index.php?site=news_comments&newsID=' . $news['newsID'] . ']]>
-                </link>
-                </item>';
-            } else {
+            if (!$any_newscontent) {
                 continue;
             }
+
+            $newscontent = mysqli_fetch_array($db_newscontent);
+            $xmlstring .= '<item>
+            <title>' . htmlspecialchars(($newscontent['headline'])) . '</title>
+            <description><![CDATA[' . htmloutput($newscontent['content']) . ']]></description>
+            <author>' .
+                getemail($news['poster']) . ' (' .
+                getfirstname($news['poster']) . ' ' .
+                getlastname($news['poster']) . ')' .
+            '</author>
+            <guid>
+                <![CDATA[' . $hp_url . '/index.php?site=news_comments&newsID=' . $news['newsID'] . ']]>
+            </guid>
+            <link>
+                <![CDATA[' . $hp_url . '/index.php?site=news_comments&newsID=' . $news['newsID'] . ']]>
+            </link>
+            </item>';
+
         }
     }
     $xmlstring .= '</channel></rss>';

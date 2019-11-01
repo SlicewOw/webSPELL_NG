@@ -666,7 +666,6 @@ function showboard($board)
     );
     $anztopics = mysqli_num_rows(safe_query("SELECT boardID FROM " . PREFIX . "forum_topics WHERE boardID='$board'"));
 
-    $i = 1;
     unset($link);
     if ($anztopics) {
         $data_array = array();
@@ -675,13 +674,6 @@ function showboard($board)
         $forum_topics_head = $GLOBALS["_template"]->replaceTemplate("forum_topics_head", $data_array);
         echo $forum_topics_head;
         while ($dt = mysqli_fetch_array($topics)) {
-            #if ($i % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
 
             if ($dt[ 'moveID' ]) {
                 $gesamt = 0;
@@ -849,7 +841,7 @@ function showboard($board)
             $data_array['$member'] = $member;
             $forum_topics_content = $GLOBALS["_template"]->replaceTemplate("forum_topics_content", $data_array);
             echo $forum_topics_content;
-            $i++;
+
             unset($topicpage_link);
             unset($lastposter);
             unset($member);
@@ -1110,10 +1102,6 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         }
 
         $pagetitle = PAGETITLE;
-        #$pagebg = PAGEBG;
-        #$border = BORDER;
-        #$bghead = BGHEAD;
-        #$bg1 = BG_1;
 
         $data_array = array();
         $data_array['$pagetitle'] = $pagetitle;
@@ -1309,14 +1297,10 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
         $forum_head = $GLOBALS["_template"]->replaceTemplate("forum_head", $data_array);
         echo $forum_head;
 
-        #$bg1 = BG_1;
-
         $message = '';
 
         if ($loggedin) {
             if (isset($_POST[ 'preview' ])) {
-                #$bg1 = BG_1;
-                #$bg2 = BG_2;
 
                 $time = getformattime(time());
                 $date = "today";

@@ -258,13 +258,6 @@ if (!isclanmember($userID) && !iscashadmin($userID)) {
             global $_language;
             $_language->readModule('cash_box');
 
-            #$bg1 = BG_1;
-            #$bg2 = BG_2;
-            #$pagebg = PAGEBG;
-            #$border = BORDER;
-            #$bghead = BGHEAD;
-            #$bgcat = BGCAT;
-
             global $wincolor;
             global $loosecolor;
             global $drawcolor;
@@ -491,9 +484,6 @@ if (!isclanmember($userID) && !iscashadmin($userID)) {
         } else {
             $fontcolor = $wincolor;
         }
-
-        #$bg1 = BG_1;
-        #$bg2 = BG_2;
 
         if (iscashadmin($userID)) {
             $cashadmin =

@@ -101,15 +101,7 @@ if ($action == "show") {
         $squads_head = $GLOBALS["_template"]->replaceTemplate("squads_head", $data_array);
         echo $squads_head;
 
-        $i = 1;
         while ($dm = mysqli_fetch_array($member)) {
-            #if ($i % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
 
             $country = '[flag]' . $dm[ 'country' ] . '[/flag]';
             $country = flags($country);
@@ -193,7 +185,7 @@ if ($action == "show") {
             $data_array['$userdescription'] = $userdescription;
             $squads_content = $GLOBALS["_template"]->replaceTemplate("squads_content", $data_array);
             echo $squads_content;
-            $i++;
+
         }
         $squads_foot = $GLOBALS["_template"]->replaceTemplate("squads_foot", array());
         echo $squads_foot;

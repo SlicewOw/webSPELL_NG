@@ -9,7 +9,7 @@
 
 $version = "1.5";
 
-class plugin_manager {
+class PluginManager {
 	var $_debug;
 
 	//@debug   if debug mode ON show failure messages otherwise hide this
@@ -132,7 +132,7 @@ class plugin_manager {
 		$_language = new \webspell\Language;
 		$_language->readModule('plugin');
 		if (!empty($pid)) {
-			$manager = new plugin_manager();
+			$manager = new PluginManager();
 			$row=$manager->plugin_data("", $pid);
 			if ($row['activate'] != "1") {
 				if ($this->_debug==="ON") {
@@ -168,7 +168,7 @@ class plugin_manager {
 		$_language = new \webspell\Language;
 		$_language->readModule('plugin');
 		if (!empty($pid) && !empty($name)) {
-			$manager = new plugin_manager();
+			$manager = new PluginManager();
 			$row=$manager->plugin_data("", $pid);
 			$hfiles = $row['hiddenfiles'];
 			$tfiles = explode(",",$hfiles);
@@ -241,7 +241,7 @@ class plugin_manager {
 	/* CALL IT
 				/!\ NEVER use the variable $_language (conflict with the main module)
 
-		$pm = new plugin_manager();
+		$pm = new PluginManager();
 		$_lang = $pm->plugin_language("my-plugin", $plugin_path);
 
 	*/
@@ -292,7 +292,7 @@ class plugin_manager {
 	//@info  update website title for SEO
 	function plugin_updatetitle($site) {
 		try {
-			$pm = new plugin_manager();
+			$pm = new PluginManager();
 			if ($pm->is_plugin($site)==1) {
 				$arr = $pm->plugin_data($site);
 				if (isset($arr['name'])) {

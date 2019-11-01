@@ -94,15 +94,8 @@ $data_array['$type'] = $type;
 $whoisonline_head = $GLOBALS["_template"]->replaceTemplate("whoisonline_head", $data_array);
 echo $whoisonline_head;
 
-$n = 1;
 while ($ds = mysqli_fetch_array($ergebnis)) {
-    #if ($n % 2) {
-    #    $bg1 = BG_1;
-    #    $bg2 = BG_2;
-    #} else {
-    #    $bg1 = BG_3;
-    #    $bg2 = BG_4;
-    #}
+
     if ($ds[ 'ip' ] == '') {
         $nickname =
             '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' . $ds[ 'nickname' ] .
@@ -227,7 +220,7 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
     $data_array['$status'] = $status;
     $whoisonline_content = $GLOBALS["_template"]->replaceTemplate("whoisonline_content", $data_array);
     echo $whoisonline_content;
-    $n++;
+
 }
 
 $whoisonline_foot = $GLOBALS["_template"]->replaceTemplate("whoisonline_foot", array());
@@ -266,15 +259,7 @@ $data_array['$type'] = $type;
 $whowasonline_head = $GLOBALS["_template"]->replaceTemplate("whowasonline_head", $data_array);
 echo $whowasonline_head;
 
-$n = 1;
 while ($ds = mysqli_fetch_array($ergebnis)) {
-    #if ($n % 2) {
-    #    $bg1 = BG_1;
-    #    $bg2 = BG_2;
-    #} else {
-    #    $bg1 = BG_3;
-    #    $bg2 = BG_4;
-    #}
 
     $date = getformatdatetime($ds[ 'time' ]);
     $nickname = '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' . $ds[ 'nickname' ] .
@@ -390,7 +375,7 @@ while ($ds = mysqli_fetch_array($ergebnis)) {
     $data_array['$date'] = $date;
     $whowasonline_content = $GLOBALS["_template"]->replaceTemplate("whowasonline_content", $data_array);
     echo $whowasonline_content;
-    $n++;
+
 }
 
 $whowasonline_foot = $GLOBALS["_template"]->replaceTemplate("whowasonline_foot", array());

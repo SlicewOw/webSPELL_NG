@@ -136,7 +136,6 @@ if ($action == "faqcat" && is_numeric($_GET[ 'faqcatID' ])) {
         $faq_answer_head = $GLOBALS["_template"]->replaceTemplate("faq_answer_head", $data_array);
         echo $faq_answer_head;
 
-        #$bg1 = BG_1;
         $date = getformatdate($ds[ 'date' ]);
         $answer = htmloutput($ds[ 'answer' ]);
 
@@ -162,28 +161,19 @@ if ($action == "faqcat" && is_numeric($_GET[ 'faqcatID' ])) {
     $anzcats = mysqli_num_rows($faqcats);
     if ($anzcats) {
 
-        $i = 1;
         while ($ds = mysqli_fetch_array($faqcats)) {
-            $anzfaqs =
-                mysqli_num_rows(
-                    safe_query(
-                        "SELECT
-                            `faqID`
-                        FROM
-                            `" . PREFIX . "faq`
-                        WHERE
-                            `faqcatID` = '" . (int)$ds[ 'faqcatID' ] . "'"
-                    )
-                );
-            #if ($i % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
-            $faqcatname = '<a href="index.php?site=faq&amp;action=faqcat&amp;faqcatID=' . $ds[ 'faqcatID' ] . '">' .
-                $ds[ 'faqcatname' ] . '</a>';
+            $anzfaqs = mysqli_num_rows(
+                safe_query(
+                    "SELECT
+                        `faqID`
+                    FROM
+                        `" . PREFIX . "faq`
+                    WHERE
+                        `faqcatID` = '" . (int)$ds[ 'faqcatID' ] . "'"
+                )
+            );
+
+            $faqcatname = '<a href="index.php?site=faq&amp;action=faqcat&amp;faqcatID=' . $ds[ 'faqcatID' ] . '">' . $ds[ 'faqcatname' ] . '</a>';
             $description = htmloutput($ds[ 'description' ]);
 
             $data_array = array();
@@ -192,7 +182,7 @@ if ($action == "faqcat" && is_numeric($_GET[ 'faqcatID' ])) {
             $data_array['$description'] = $description;
             $faq_category = $GLOBALS["_template"]->replaceTemplate("faq_category", $data_array);
             echo $faq_category;
-            $i++;
+
         }
     } else {
         echo generateAlert($_language->module[ 'no_categories' ], 'alert-info');

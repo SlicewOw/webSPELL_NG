@@ -115,9 +115,10 @@ $ergebnis = safe_query(
 );
 $anz = mysqli_num_rows($ergebnis);
 if ($anz) {
+
     $latesttopics_head = $GLOBALS["_template"]->replaceTemplate("latesttopics_head", array());
     echo $latesttopics_head;
-    $n = 1;
+
     while ($ds = mysqli_fetch_array($ergebnis)) {
         if ($ds[ 'readgrps' ] != "") {
             $usergrps = explode(";", $ds[ 'readgrps' ]);
@@ -132,13 +133,6 @@ if ($anz) {
                 continue;
             }
         }
-        #if ($n % 2) {
-        #    $bg1 = BG_1;
-        #    $bg2 = BG_2;
-        #} else {
-        #    $bg1 = BG_3;
-        #    $bg2 = BG_4;
-        #}
 
         $topictitle_full = clearfromtags($ds[ 'topic' ]);
         $topictitle = unhtmlspecialchars($topictitle_full);
@@ -171,7 +165,7 @@ if ($anz) {
         $data_array['$replys'] = $replys;
         $latesttopics_content = $GLOBALS["_template"]->replaceTemplate("latesttopics_content", $data_array);
         echo $latesttopics_content;
-        $n++;
+
     }
     $latesttopics_foot = $GLOBALS["_template"]->replaceTemplate("latesttopics_foot", array());
     echo $latesttopics_foot;

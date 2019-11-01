@@ -101,7 +101,7 @@ if (isset($_POST[ 'saveedit' ])) {
             );
 
         $picID = $_GET[ 'id' ];
-        #$bg1 = BG_1;
+
         $comments = '<option value="0">' . $_language->module[ 'no_comments' ] . '</option><option value="1">' .
             $_language->module[ 'user_comments' ] . '</option><option value="2">' .
             $_language->module[ 'visitor_comments' ] . '</option>';

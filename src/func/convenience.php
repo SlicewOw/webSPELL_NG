@@ -39,9 +39,7 @@ function getPage() {
 
 }
 
-function shortenText($text) {
-
-    $text_length = 255;
+function shortenText($text, $text_length=255) {
 
     if (mb_strlen($text) > $text_length) {
         $string = wordwrap($text, $text_length);

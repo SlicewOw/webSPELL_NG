@@ -341,20 +341,6 @@ function isclanmember($userID)
     }
 }
 
-function isjoinusmember($userID)
-{
-    if (mysqli_num_rows(
-        safe_query(
-            "SELECT userID FROM `" . PREFIX . "squads_members` WHERE `userID` = " . (int)$userID
-        )
-    ) > 0
-    ) {
-        return true;
-    } else {
-        return issuperadmin($userID);
-    }
-}
-
 function isbanned($userID)
 {
     return (

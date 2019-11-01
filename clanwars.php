@@ -465,7 +465,6 @@ if ($action == "new") {
         while ($dr = mysqli_fetch_array($newsrubrics)) {
             $rubrics .= '<option value="' . $dr[ 'rubricID' ] . '">' . $dr[ 'rubric' ] . '</option>';
         }
-        #$bg1 = BG_1;
 
         $comments = '<option value="0">' . $_language->module[ 'no_comments' ] . '</option><option value="1">' .
             $_language->module[ 'user_comments' ] . '</option><option value="2" selected="selected">' .
@@ -1120,15 +1119,8 @@ if ($action == "new") {
             }
             // member's details and the output
             if (is_array($playerlist)) {
-                $i = 1;
+
                 foreach ($playerlist as $id) {
-                    #if ($i % 2) {
-                    #    $bg1 = BG_1;
-                    #    $bg2 = BG_2;
-                    #} else {
-                    #    $bg1 = BG_3;
-                    #    $bg2 = BG_4;
-                    #}
 
                     $country = '[flag]' . getcountry($id) . '[/flag]';
                     $country = flags($country);
@@ -1158,8 +1150,9 @@ if ($action == "new") {
                         $data_array
                     );
                     echo $clanwars_stats_player_content;
-                    $i++;
+
                 }
+
             }
             echo '</table>';
 

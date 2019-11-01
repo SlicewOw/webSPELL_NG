@@ -377,7 +377,7 @@ if ($action == "new") {
             } else {
                 $intern = '';
             }
-            #$bg1 = BG_1;
+
             $data_array = array();
             $data_array['$polltitle'] = $polltitle;
             $data_array['$runtime_date'] = $runtime_date;
@@ -414,7 +414,7 @@ if ($action == "new") {
     $ergebnis =
         safe_query("SELECT * FROM " . PREFIX . "poll WHERE pollID='$pollID' AND intern<=" . (int)isclanmember($userID));
     $ds = mysqli_fetch_array($ergebnis);
-    #$bg1 = BG_1;
+
     $title = $ds[ 'titel' ];
 
     if ($ds[ 'intern' ] == 1) {
@@ -642,13 +642,8 @@ if ($action == "new") {
         );
     $anz = mysqli_num_rows($ergebnis);
     if ($anz) {
-        $i = 1;
+
         while ($ds = mysqli_fetch_array($ergebnis)) {
-            #if ($i % 2) {
-            #    $bg1 = BG_1;
-            #} else {
-            #    $bg1 = BG_2;
-            #}
 
             $title = $ds[ 'titel' ];
 
@@ -754,8 +749,6 @@ if ($action == "new") {
             $data_array['$adminactions'] = $adminactions;
             $polls_foot = $GLOBALS["_template"]->replaceTemplate("polls_foot", $data_array);
             echo $polls_foot;
-
-            $i++;
 
             unset($options);
         }

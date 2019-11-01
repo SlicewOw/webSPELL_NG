@@ -335,11 +335,6 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
     }
     unset($events);
 
-    #$bg1 = BG_1;
-    #$bg2 = BG_2;
-    #$bg3 = BG_3;
-    #$bg4 = BG_4;
-
     $events = '';
     $ergebnis =
         safe_query("SELECT * FROM `" . PREFIX . "upcoming` WHERE type='d' AND date>" . time() . " ORDER by date");

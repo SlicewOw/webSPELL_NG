@@ -306,12 +306,6 @@ if (!$userID) {
     }
 
     if (isset($_GET['action']) && $_GET['action'] == "editpwd") {
-        #$bg1 = BG_1;
-        #$bg2 = BG_2;
-        #$bg3 = BG_3;
-        #$bg4 = BG_4;
-        #$border = BORDER;
-
         $data_array = array();
         $data_array['$userID'] = $userID;
         $myprofile_editpwd = $GLOBALS["_template"]->replaceTemplate("myprofile_editpwd", $data_array);
@@ -370,12 +364,6 @@ if (!$userID) {
 			<a href="index.php?site=myprofile&action=editpwd" class="alert-link">' . $_language->module['back'] . '</a>', 'alert-danger');
         }
     } else if (isset($_GET['action']) && $_GET['action'] == "editmail") {
-        #$bg1 = BG_1;
-        #$bg2 = BG_2;
-        #$bg3 = BG_3;
-        #$bg4 = BG_4;
-        #$border = BORDER;
-
         $data_array = array();
         $data_array['$userID'] = $userID;
         $myprofile_editmail = $GLOBALS["_template"]->replaceTemplate("myprofile_editmail", $data_array);
@@ -690,11 +678,6 @@ if (!$userID) {
             $lang_flag = '[flag]' . $ds['language'] . '[/flag]';
             $lang_country = flags($lang_flag);
             $lang_country = str_replace("<img", "<img id='lang_county'", $lang_country);
-
-            #$bg1 = BG_1;
-            #$bg2 = BG_2;
-            #$bg3 = BG_3;
-            #$bg4 = BG_4;
 
             $data_array = array();
             $data_array['$showerror'] = $showerror;

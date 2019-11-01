@@ -41,7 +41,6 @@ function print_calendar($mon, $year)
     if ($start_day == 0) {
         $start_day = 7;
     }
-    $res = getdate($first_day);
 
     $no_days_in_month = date("t", $first_day);
 
@@ -832,7 +831,6 @@ if ($action === "savewar") {
             $info = '';
         }
 
-        #$bg1 = BG_1;
         $data_array = array();
         $data_array['$date'] = $date;
         $data_array['$squads'] = $squads;
@@ -926,7 +924,6 @@ if ($action === "savewar") {
         $squads = getgamesquads();
         $countries = getcountries();
 
-        #$bg1 = BG_1;
         $data_array = array();
         $data_array['$date'] = $date;
         $data_array['$countries'] = $countries;
@@ -970,7 +967,6 @@ if ($action === "savewar") {
         $locationhp = htmlspecialchars($ds['locationhp']);
         $dateinfo = htmlspecialchars($ds['dateinfo']);
 
-        #$bg1 = BG_1;
         $data_array = array();
         $data_array['$date_start'] = $date_start;
         $data_array['$date_end'] = $date_end;

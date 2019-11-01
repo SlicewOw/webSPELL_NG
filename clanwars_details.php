@@ -160,11 +160,6 @@ if (!(mb_strlen(trim($screenshots)))) {
 	$screenshots = $_language->module[ 'no_screenshots' ];
 }
 
-#$bg1 = BG_1;
-#$bg2 = BG_2;
-#$bg3 = BG_3;
-#$bg4 = BG_4;
-
 $linkpage = cleartext($ds[ 'linkpage' ]);
 $linkpage = str_replace('http://', '', $ds[ 'linkpage' ]);
 if ($linkpage == "") {

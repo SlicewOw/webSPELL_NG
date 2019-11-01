@@ -37,7 +37,6 @@ if (mysqli_num_rows($ergebnis)) {
     $history = htmloutput($ds[ 'history' ]);
     $history = toggle($history, 1);
 
-    #$bg1 = BG_1;
     $data_array = array();
     $data_array['$history'] = $history;
     $history = $GLOBALS["_template"]->replaceTemplate("history", $data_array);

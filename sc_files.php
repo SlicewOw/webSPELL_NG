@@ -57,15 +57,7 @@ if (mysqli_num_rows($ergebnis)) {
         $fileID = $ds[ 'fileID' ];
         $count = $ds[ 'downloads' ];
         $filename = $ds[ 'filename' ];
-        $number = $n;
-
-        #if ($n % 2) {
-        #    $bg1 = BG_1;
-        #    $bg2 = BG_2;
-        #} else {
-        #    $bg1 = BG_3;
-        #    $bg2 = BG_4;
-        #}
+        $number = $n++;
 
         $data_array = array();
         $data_array['$count'] = $count;
@@ -74,7 +66,6 @@ if (mysqli_num_rows($ergebnis)) {
         $sc_files = $GLOBALS["_template"]->replaceTemplate("sc_files", $data_array);
         echo $sc_files;
 
-        $n++;
     }
     echo '</ul>';
 }

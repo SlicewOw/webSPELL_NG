@@ -45,19 +45,11 @@ $ergebnis = safe_query(
 );
 if (mysqli_num_rows($ergebnis)) {
     echo '<ul class="nav nav-pills">';
-    $n = 1;
+
     while ($ds = mysqli_fetch_array($ergebnis)) {
         $date = getformatdate($ds[ 'date' ]);
         $time = getformattime($ds[ 'date' ]);
         $news_id = $ds[ 'newsID' ];
-
-        #if ($n % 2) {
-        #    $bg1 = BG_1;
-        #    $bg2 = BG_2;
-        #} else {
-        #    $bg1 = BG_3;
-        #    $bg2 = BG_4;
-        #}
 
         $message_array = array();
         $query =
@@ -116,7 +108,6 @@ if (mysqli_num_rows($ergebnis)) {
         $sc_headlines = $GLOBALS["_template"]->replaceTemplate("sc_headlines", $data_array);
         echo $sc_headlines;
 
-        $n++;
     }
     echo '</ul>';
     unset($rubricID);

@@ -201,7 +201,6 @@ if ($action == "new") {
         while ($dr = mysqli_fetch_array($rubrics)) {
             $linkcats .= '<option value="' . $dr[ 'linkcatID' ] . '">' . htmlspecialchars($dr[ 'name' ]) . '</option>';
         }
-        #$bg1 = BG_1;
         $data_array = array();
         $data_array['$linkcats'] = $linkcats;
         $links_new = $GLOBALS["_template"]->replaceTemplate("links_new", $data_array);
@@ -246,7 +245,6 @@ if ($action == "new") {
                 $linkcats
             );
 
-        #$bg1 = BG_1;
         $data_array = array();
         $data_array['$linkcats'] = $linkcats;
         $data_array['$name'] = $name;

@@ -232,15 +232,9 @@ if (isset($_POST['delete'])) {
 
         $anz = mysqli_num_rows($ergebnis);
         if ($anz) {
-            $n = 1;
+
             while ($ds = mysqli_fetch_array($ergebnis)) {
-                #if ($n % 2) {
-                #    $bg1 = BG_1;
-                #    $bg2 = BG_2;
-                #} else {
-                #    $bg1 = BG_3;
-                #    $bg2 = BG_4;
-                #}
+
                 $date = getformatdatetime($ds['date']);
 
                 if ($userID == $ds['fromuser']) {
@@ -301,7 +295,7 @@ if (isset($_POST['delete'])) {
                 $data_array['$buddy'] = $buddy;
                 $pm_incoming_content = $GLOBALS["_template"]->replaceTemplate("pm_incoming_content", $data_array);
                 echo $pm_incoming_content;
-                $n++;
+
             }
         } else {
             echo '<tr>' . $_language->module['no_incoming'] . '</td></tr>';
@@ -369,15 +363,9 @@ if (isset($_POST['delete'])) {
 
         $anz = mysqli_num_rows($ergebnis);
         if ($anz) {
-            $n = 1;
+
             while ($ds = mysqli_fetch_array($ergebnis)) {
-                #if ($n % 2) {
-                #    $bg1 = BG_1;
-                #    $bg2 = BG_2;
-                #} else {
-                #    $bg1 = BG_3;
-                #    $bg2 = BG_4;
-                #}
+
                 $date = getformatdatetime($ds['date']);
 
                 if ($userID == $ds['touser']) {
@@ -429,7 +417,7 @@ if (isset($_POST['delete'])) {
                 $data_array['$buddy'] = $buddy;
                 $pm_outgoing_content = $GLOBALS["_template"]->replaceTemplate("pm_outgoing_content", $data_array);
                 echo $pm_outgoing_content;
-                $n++;
+
             }
         } else {
             echo '<tr>' . $_language->module['no_outgoing'] . '</td></tr>';
@@ -461,7 +449,6 @@ if (isset($_POST['delete'])) {
             $message = toggle($message, $ds['messageID']);
             $title = clearfromtags($ds['title']);
 
-            #$bg1 = BG_1;
             $data_array = array();
             $data_array['$title'] = $title;
             $data_array['$date'] = $date;
@@ -480,7 +467,6 @@ if (isset($_POST['delete'])) {
         $tousernick = getnickname($touser);
         $touser = getforminput($touser);
 
-        #$bg1 = BG_1;
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $data_array = array();
         $data_array['$tousernick'] = $tousernick;
@@ -509,7 +495,6 @@ if (isset($_POST['delete'])) {
 
             $message = '[QUOTE=' . $tousernick . ']' . getinput($ds['message']) . '[/QUOTE]';
 
-            #$bg1 = BG_1;
             $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
             $data_array = array();
             $data_array['$title'] = $title;
@@ -542,8 +527,6 @@ if (isset($_POST['delete'])) {
         } else {
             $error = $message = $subject = "";
         }
-
-        #$bg1 = BG_1;
 
         if (isanyadmin($userID)) {
             $admin = '<strong>' . $_language->module['adminoptions'] . '</strong><br>' .

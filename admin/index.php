@@ -85,13 +85,13 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
 	<!-- Plugin-Manager 1.2 load css/js -->
 	<?php
-		$load = new plugin_manager();
+		$load = new PluginManager();
 		echo $load->plugin_loadheadfile();
 	?>
 	<script src="js/bbcode.js" type="text/javascript"></script>
     <!-- end Head & Title include -->
     <?php
-    $plugin = new plugin_manager();
+    $plugin = new PluginManager();
     $plugin->set_debug(DEBUG);
     echo $plugin->plugin_sc(4);
 ?>
@@ -179,7 +179,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <!-- end partners include -->
                     <hr class="grey">
                     <?php
-    $plugin = new plugin_manager();
+    $plugin = new PluginManager();
     $plugin->set_debug(DEBUG);
     echo $plugin->plugin_sc(19);
 ?>
@@ -205,7 +205,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 $site = str_replace($invalide, ' ', $site);
 
 				$_language->readModule('plugin');
-				$plugin = new plugin_manager();
+				$plugin = new PluginManager();
 				$plugin->set_debug(DEBUG);
 				if (!empty($site) && $plugin->is_plugin($site)>0) {
 					$data = $plugin->plugin_data($site);

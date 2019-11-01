@@ -439,8 +439,6 @@ if ($action == "search" &&
     $title_search = $GLOBALS["_template"]->replaceTemplate("title_search", array());
     echo $title_search;
 
-    #$bg1 = BG_1;
-
     if ($userID) {
         $data_array = array();
         $data_array['$text'] = $text;

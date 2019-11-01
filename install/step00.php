@@ -29,8 +29,7 @@ $languages = '';
 if ($handle = opendir('./languages/')) {
     while (false !== ($file = readdir($handle))) {
         if (is_dir('./languages/' . $file) && $file != ".." && $file != "." && $file != ".svn") {
-            $languages .= '<a class="btn btn-default btn-margin btn-sm" href="index.php?lang=' . $file . '"><img src="../images/languages/' . $file . '.gif"
-            alt="' . $file . '"></a>';
+            $languages .= '<a class="btn btn-default btn-margin btn-sm" href="index.php?lang=' . $file . '"><img src="../images/languages/' . $file . '.gif" alt="' . $file . '"></a>';
         }
     }
     closedir($handle);
@@ -49,6 +48,7 @@ if ($handle = opendir('./languages/')) {
 			</div>
 			<div class="panel-body">
 				<?php
+
 				if (file_exists("locked.txt")) {
 					echo $_language->module['installerlocked'];
 				} else {
@@ -56,7 +56,8 @@ if ($handle = opendir('./languages/')) {
 				}
 
 				if (!file_exists("locked.txt")) {
-                echo '<div class="pull-right"><a class="btn btn-primary" href="javascript:document.ws_install.submit()">continue</a></div>'; }
+					echo '<div class="pull-right"><a class="btn btn-primary" href="javascript:document.ws_install.submit()">continue</a></div>';
+				}
 
 				?>
 			</div>

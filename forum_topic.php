@@ -468,7 +468,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         $id = $_GET['id'];
         $dr = mysqli_fetch_array(safe_query("SELECT * FROM " . PREFIX . "forum_posts WHERE postID='" . $id . "'"));
         $topic = $_GET['topic'];
-        #$bg1 = BG_1;
+
         $_sticky = ($dt['sticky'] == '1') ? 'checked="checked"' : '';
 
         $anz = mysqli_num_rows(
@@ -482,7 +482,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
 
         if ($anz || isforumadmin($userID) || ismoderator($userID, $board)) {
             if (istopicpost($dt['topicID'], $id)) {
-                #$bg1 = BG_1;
 
                 // topicmessage
                 $message = getinput($dr['message']);
@@ -582,14 +581,11 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
     } else if ($addreply && !$dt['closed']) {
         if ($loggedin && $writer) {
             if (isset($_POST['preview'])) {
-                #$bg1 = BG_1;
-                #$bg2 = BG_2;
 
                 $time = getformattime(time());
                 $date = $_language->module['today'];
 
                 $message_preview = getforminput($_POST['message']);
-                $postID = 0;
 
                 $message = cleartext(getforminput($_POST['message']));
 

@@ -285,7 +285,6 @@ if (isset($_POST[ 'save' ])) {
             $comments
         );
 
-        #$bg1 = BG_1;
         $data_array = array();
         $data_array['$date'] = $date;
         $data_array['$games'] = $games;
