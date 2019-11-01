@@ -32,9 +32,10 @@ function download($file, $extern = 0)
 {
 
     if (!$extern) {
+
         $filename = basename($file);
 
-   /*     header("Expires: 0");
+        header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
         header("Content-Type: application/force-download");
         header("Content-Description: File Transfer");
@@ -43,8 +44,7 @@ function download($file, $extern = 0)
         header("Content-Length: " . filesize($file));
         header("Content-Transfer-Encoding: binary");
 
-        @readfile($file); */
-		header("Location: /downloads/" . $filename . "");
+        @readfile($file);
 
         exit;
     } else {

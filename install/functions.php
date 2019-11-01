@@ -51,7 +51,6 @@ class Transaction
             $this->database->commit();
             return true;
         } else {
-            //$this->error = mysqli_error($this->database);
             $this->database->rollback();
             return false;
         }

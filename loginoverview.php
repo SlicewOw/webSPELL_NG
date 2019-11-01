@@ -32,13 +32,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
     $title_loginoverview = $GLOBALS["_template"]->replaceTemplate("title_loginoverview", array());
     echo $title_loginoverview;
 
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
-
-    $ds =
-        mysqli_fetch_array(safe_query("SELECT registerdate FROM `" . PREFIX . "user` WHERE userID='" . $userID . "'"));
+    $ds = mysqli_fetch_array(safe_query("SELECT registerdate FROM `" . PREFIX . "user` WHERE userID='" . $userID . "'"));
     $username = '<a href="index.php?site=profile&amp;id=' . $userID . '">' . getnickname($userID) . '</a>';
     $lastlogin = getformatdatetime($_SESSION[ 'ws_lastlogin' ]);
     $registerdate = getformatdatetime($ds[ 'registerdate' ]);
@@ -272,7 +266,7 @@ if ($userID && !isset($_GET[ 'userID' ]) && !isset($_POST[ 'userID' ])) {
                     </thead><tbody>';
 
                     while ($ds = mysqli_fetch_array($ergebnis)) {
-                        #$n % 2 ? $bg = BG_1 : $bg = BG_2;
+
                         $date = getformatdate($ds[ 'date' ]);
 
                         $anmeldung =

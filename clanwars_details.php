@@ -187,14 +187,8 @@ if ($homescr > $oppscr) {
 if (is_array($theMaps)) {
 	$d = 0;
 	foreach ($theMaps as $map) {
+
 		$score = '';
-		#if (($d + 1) % 2) {
-		#    $bgone = BG_1;
-		#    $bgtwo = BG_2;
-		#} else {
-		#    $bgone = BG_3;
-		#    $bgtwo = BG_4;
-		#}
 		if ($scoreHome[ $d ] > $scoreOpp[ $d ]) {
 			$score_1 = '<span style="color: ' . $wincolor . '"><strong>' . $scoreHome[ $d ] . '</strong></span>';
 			$score_2 = '<span style="color: ' . $wincolor . '"><strong>' . $scoreOpp[ $d ] . '</strong></span>';

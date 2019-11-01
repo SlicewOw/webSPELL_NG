@@ -251,11 +251,6 @@ function print_termine($tag, $month, $year)
 
     $_language->readModule('calendar');
 
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
-
     $start_date = mktime(0, 0, 0, $month, $tag, $year);
     $end_date = mktime(23, 59, 59, $month, $tag, $year);
     unset($termin);

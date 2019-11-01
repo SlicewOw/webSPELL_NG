@@ -337,11 +337,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
     $_language->readModule('forum');
     $_language->readModule('bbcode', true);
 
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
-
     $thread = safe_query("SELECT * FROM " . PREFIX . "forum_topics WHERE topicID='$topic' ");
     $dt = mysqli_fetch_array($thread);
 

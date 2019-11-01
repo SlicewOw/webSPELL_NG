@@ -89,9 +89,9 @@ if (isset($id) && getnickname($id) != '') {
         $buddylist = "";
         $buddys = safe_query("SELECT buddy FROM " . PREFIX . "buddys WHERE userID='" . $id . "'");
         if (mysqli_num_rows($buddys)) {
-            $n = 1;
+
             while ($db = mysqli_fetch_array($buddys)) {
-                #$n % 2 ? $bgcolor = BG_1 : $bgcolor = BG_2;
+
                 $flag = '[flag]' . getcountry($db[ 'buddy' ]) . '[/flag]';
                 $country = flags($flag);
                 $nicknamebuddy = getnickname($db[ 'buddy' ]);
@@ -122,7 +122,6 @@ if (isset($id) && getnickname($id) != '') {
 			</td>
             </tr>';
 
-                $n++;
             }
         } else {
             $buddylist = '<tr>
@@ -147,10 +146,6 @@ if (isset($id) && getnickname($id) != '') {
 
         $galclass = new \webspell\Gallery();
 
-        #$border = BORDER;
-        #$bgcat = BGCAT;
-        #$pagebg = PAGEBG;
-
         $galleries = safe_query("SELECT * FROM " . PREFIX . "gallery WHERE userID='" . $id . "'");
 
         echo '<div class="row">
@@ -167,9 +162,8 @@ if (isset($id) && getnickname($id) != '') {
 
         if ($usergalleries) {
             if (mysqli_num_rows($galleries)) {
-                $n = 1;
+
                 while ($ds = mysqli_fetch_array($galleries)) {
-                    #$n % 2 ? $bg = BG_1 : $bg = BG_2;
 
                     $piccount =
                         mysqli_num_rows(
@@ -216,7 +210,6 @@ if (isset($id) && getnickname($id) != '') {
                     $profile = $GLOBALS["_template"]->replaceTemplate("profile_galleries", $data_array);
                     echo $profile;
 
-                    $n++;
                 }
             } else {
                 echo '<tr><td colspan="4">' . $_language->module[ 'no_galleries' ] . '</td></tr>';
@@ -273,7 +266,7 @@ if (isset($id) && getnickname($id) != '') {
                         continue;
                     }
                 }
-                #$n % 2 ? $bgcolor = BG_1 : $bgcolor = BG_2;
+
                 $posttime = getformatdatetime($db[ 'date' ]);
 
                 $topiclist .= '<tr><td>
@@ -332,8 +325,6 @@ if (isset($id) && getnickname($id) != '') {
                     }
                 }
 
-                #$n % 2 ? $bgcolor1 = BG_1 : $bgcolor1 = BG_2;
-                #$n % 2 ? $bgcolor2 = BG_3 : $bgcolor2 = BG_4;
                 $posttime = getformatdatetime($db[ 'date' ]);
                 if (mb_strlen($db[ 'message' ]) > 100) {
                     $message = mb_substr(
@@ -989,9 +980,9 @@ if (isset($id) && getnickname($id) != '') {
                 LIMIT 0,10"
         );
         if (mysqli_num_rows($visitors)) {
-            $n = 1;
+
             while ($dv = mysqli_fetch_array($visitors)) {
-                #$n % 2 ? $bgcolor = BG_1 : $bgcolor = BG_2;
+
                 $flag = '[flag]' . $dv[ 'country' ] . '[/flag]';
                 $country = flags($flag);
                 $nicknamevisitor = $dv[ 'nickname' ];
@@ -1033,7 +1024,6 @@ if (isset($id) && getnickname($id) != '') {
                 <td class="text-right"><small>' . $now . $days . $hours . $minutes . '</small> ' . $statuspic . '</td>
             </tr>';
 
-                $n++;
             }
         } else {
             $lastvisits = '<tr><td colspan="2">' . $_language->module[ 'no_visits' ] . '</td>

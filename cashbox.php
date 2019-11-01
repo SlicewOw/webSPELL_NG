@@ -417,21 +417,17 @@ if (!isclanmember($userID) && !iscashadmin($userID)) {
 
                         if (iscashadmin($userID)) {
                             if ($du[ 'costs' ]) {
-                                #$bg = BG_1;
                                 $costs = $du[ 'costs' ];
                             } else {
                                 $costs = "";
-                                #$bg = BG_2;
                             }
                             $payment = '<input type="text" size="7" name="payid[' . $usID . ']"
                                 value="' . $costs . '" dir="rtl" class="form-control">';
                         } else {
                             if ($du[ 'costs' ]) {
                                 $costs = '<strong>' . $du[ 'costs' ] . ' €</strong>';
-                                #$bg = BG_1;
                             } else {
                                 $costs = '<span style="color:' . $loosecolor . '">0.00 €</span>';
-                                #$bg = BG_2;
                             }
                             $payment = $costs;
                         }

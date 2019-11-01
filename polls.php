@@ -534,10 +534,6 @@ if ($action == "new") {
 
     include("comments.php");
 } else if (isset($_GET[ 'vote' ])) {
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
 
     $poll = intval($_GET[ 'vote' ]);
 

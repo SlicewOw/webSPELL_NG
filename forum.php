@@ -205,11 +205,6 @@ function boardmain()
 
     $_language->readModule('forum');
 
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
-
     $title_messageboard = $GLOBALS["_template"]->replaceTemplate("title_messageboard", array());
     echo $title_messageboard;
 
@@ -552,11 +547,6 @@ function showboard($board)
     global $_language;
 
     $_language->readModule('forum');
-
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
 
     $title_messageboard = $GLOBALS["_template"]->replaceTemplate("title_messageboard", array());
     echo $title_messageboard;

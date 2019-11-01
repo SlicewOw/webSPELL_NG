@@ -593,11 +593,6 @@ if (isset($_POST[ 'saveedit' ])) {
     $percent = 100 / $pics_per_row;
 
     while ($pic = mysqli_fetch_array($ergebnis)) {
-        #if ($i % 2) {
-        #    $bg = BG_2;
-        #} else {
-        #    $bg = BG_1;
-        #}
 
         $firstactive = '';
         if ($i == 1) {

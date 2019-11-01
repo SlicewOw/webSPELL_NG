@@ -43,11 +43,6 @@ if ($action == "new") {
         die($_language->module[ 'no_access' ]);
     }
 
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
-
     if (isset($_GET[ 'upID' ])) {
         $upID = $_GET[ 'upID' ];
     }
@@ -155,11 +150,6 @@ if ($action == "new") {
     if (!isanyadmin($userID)) {
         die($_language->module[ 'no_access' ]);
     }
-
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
 
     $date = strtotime($_POST['date']);
     if (isset($_POST[ 'hometeam' ])) {
@@ -529,11 +519,6 @@ if ($action == "new") {
     if (!isanyadmin($userID)) {
         die($_language->module[ 'no_access' ]);
     }
-
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
 
     $cwID = $_GET[ 'cwID' ];
 

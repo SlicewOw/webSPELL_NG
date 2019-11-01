@@ -245,7 +245,6 @@ if ($action == "show") {
                     '</a>';
             }
 
-            #$bgcat = BGCAT;
             $data_array = array();
             $data_array['$icon'] = $icon;
             $data_array['$name'] = $name;

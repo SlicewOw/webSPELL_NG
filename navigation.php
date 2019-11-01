@@ -158,6 +158,3 @@ try {
 	echo $e->message();
 	return false;
 }
-
-# $navigation = $GLOBALS["_template"]->replaceTemplate("navigation", array());
-# echo $navigation;
