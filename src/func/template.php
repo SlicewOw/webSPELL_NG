@@ -45,7 +45,7 @@ class Template
     * @param string $template name of the template
     *
     * @return string content of the template
-    * @throws \Exception when the file is not found
+    * @throws \InvalidArgumentException when the file is not found
     */
     private function loadFile($template)
     {
@@ -53,7 +53,7 @@ class Template
         if (file_exists($file)) {
             return file_get_contents($file);
         } else {
-            throw new \Exception("Unknown Template File " . $file, 1);
+            throw new \InvalidArgumentException("Unknown Template File " . $file, 1);
         }
     }
     private function load_html($template, $content, $path=false)
@@ -70,7 +70,7 @@ class Template
 			$b = explode("<!-- END -->", $a[1]);
 			return $b[0];
         } else {
-            throw new \Exception("Unknown Template File " . $file, 1);
+            throw new \InvalidArgumentException("Unknown Template File " . $file, 1);
         }
     }
 
@@ -95,7 +95,6 @@ class Template
     * @param array  $data data which gets replaced
     *
     * @return string
-    * @throws \Exception
     */
     public function replaceTemplate($template, $data = array())
     {
@@ -135,12 +134,12 @@ class Template
     *
     *
     * @return string
-    * @throws \Exception
+    * @throws \InvalidArgumentException
     */
     public function replaceMulti($template, &$datas = array())
     {
         if (!is_array($datas) || !isset($datas[ 0 ]) || !is_array($datas[ 0 ])) {
-            throw new \Exception("No multidimensional data given", 2);
+            throw new \InvalidArgumentException("No multidimensional data given", 2);
         }
 
         $templateString = $this->loadFile($template);

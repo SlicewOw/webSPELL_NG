@@ -45,7 +45,7 @@ function getPageTitle($url = null, $prefix = true)
     }
 
     $titles = array_map("extractFirstElement", $data['titles']);
-    $title = implode($titles, '&nbsp; &raquo; &nbsp;');
+    $title = implode('&nbsp; &raquo; &nbsp;', $titles);
     if ($prefix) {
         $title = settitle($title);
     }
@@ -451,7 +451,6 @@ function parseWebspellURL($parameters = null)
                     );
                     if ($getgroupname['name'] == "") {
                         $getgroupname['name'] = $_language->module['usergallery'];
-                    } else {
                     }
                     $picID = mysqli_fetch_array(
                         safe_query(
