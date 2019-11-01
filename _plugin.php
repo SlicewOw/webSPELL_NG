@@ -76,10 +76,10 @@ class plugin_manager {
 				$ifiles = $data['index_link'];
 				$tfiles = explode(",",$ifiles);
 				if (in_array($site, $tfiles)) {
-					if (file_exists($data['path'].$site.".php")) {
-						$plugin_path = $data['path'];
+					$plugin_path = $data['path'].$site.".php";
+					if (file_exists($plugin_path)) {
 						$return['status'] = 1;
-						$return['data'] = $data['path'].$site.".php";
+						$return['data'] = $plugin_path;
 						return $return;
 					} else {
 						if (DEBUG==="ON") {
@@ -127,10 +127,8 @@ class plugin_manager {
 		}
 	}
 
-	//@info   check if the plugin is activated and exists.
-	//    True = include the sc_file from plugin directory
-	//    False = dont load this plugin
-	function plugin_sc($id, $name=false) {
+	//@info   check if the plugin is activated and exists
+	function plugin_sc($id) {
 		$pid = intval($id);
 		$_language = new \webspell\Language;
 		$_language->readModule('plugin');
@@ -143,9 +141,9 @@ class plugin_manager {
 				}
 				return false;
 			}
-			if (file_exists($row['path'].$row['sc_link'].".php")) {
-				$plugin_path = $row['path'];
-				require_once($row['path'].$row['sc_link'].".php");
+			$plugin_path = $row['path'].$row['sc_link'].".php";
+			if (file_exists($plugin_path)) {
+				require_once($plugin_path);
 				return false;
 			} else {
 				if ($this->_debug === "ON") {

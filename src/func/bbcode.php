@@ -35,20 +35,10 @@ function unhtmlspecialchars($input)
     return $input;
 }
 
-function replace_smileys($text, $calledfrom = 'root')
+function replace_smileys($text)
 {
-    if ($calledfrom == getConstNameAdmin()) {
-        $prefix = '.';
-        $prefix2 = '../';
-    } else {
-        $prefix = '';
-        $prefix2 = '';
-    }
-
-
     $replacements_1 = array();
     $replacements_2 = array();
-
 
     $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "smileys`");
     while ($ds = mysqli_fetch_array($ergebnis)) {
@@ -89,7 +79,7 @@ function smileys($text, $specialchars = 0, $calledfrom = 'root')
             }
         }
         if ($match === false) {
-            $splits[$i] = replace_smileys($splits[$i], $calledfrom);
+            $splits[$i] = replace_smileys($splits[$i]);
         } else {
             $i = $z;
         }

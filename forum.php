@@ -122,7 +122,6 @@ function forum_stats()
     // WHOISONLINE
     $guests = mysqli_num_rows(safe_query("SELECT ip FROM " . PREFIX . "whoisonline WHERE userID=''"));
     $user = mysqli_num_rows(safe_query("SELECT userID FROM " . PREFIX . "whoisonline WHERE ip=''"));
-    $useronline = $guests + $user;
 
     if ($user == 1) {
         $user_on = $_language->module[ 'registered_user' ];

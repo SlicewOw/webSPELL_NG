@@ -28,7 +28,6 @@ $n=1;
 $_language->readModule('files');
 function get_all_sub_cats($parent, $start = 0)
 {
-    $end = 0;
     if ($start == 1) {
         $cat_query = "( filecatID='" . $parent . "' ";
     } else {

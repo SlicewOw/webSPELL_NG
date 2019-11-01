@@ -42,7 +42,7 @@ function print_calendar($mon, $year)
         $start_day = 7;
     }
     $res = getdate($first_day);
-    $month_name = $res["month"];
+
     $no_days_in_month = date("t", $first_day);
 
     //If month's first day does not start with first Sunday, fill table cell with a space
@@ -179,11 +179,6 @@ function print_calendar($mon, $year)
             }
 
             $t = $dates[$row][$col];
-            if ($t < 10) {
-                $tag = "0$t";
-            } else {
-                $tag = $t;
-            }
 
             // DATENBANK ABRUF
             $start_date = mktime(0, 0, 0, $mon, (int)$t, $year);

@@ -380,7 +380,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         die($_language->module['topic_not_found'] . " <a href=\"javascript:history.back()\">back</a>");
     }
     $pages = 1;
-    if (!isset($page) || $site = '') {
+    if (!isset($page)) {
         $page = 1;
     }
     if (isset($type)) {
@@ -434,8 +434,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
     $db = mysqli_fetch_array($ergebnis);
     $boardname = $db['name'];
 
-    $moderators = getmoderators($dt['boardID']);
-
     $topicactions = '<a href="printview.php?board=' . $dt['boardID'] . '&amp;topic=' . $topic .
         '" target="_blank" class="btn btn-default"><span class="fa fa-print"></span></a>';
     if ($loggedin && $writer) {
@@ -445,12 +443,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             '</a> <a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;addreply=true&amp;page=' . $pages .
             '&amp;type=' . $type . '" class="btn btn-primary"><span class="fa fa-share"></span> ' . $_language->module['new_reply'] . '</a>';
     }
-    if ($dt['closed']) {
-        $closed = $_language->module['closed_image'];
-    } else {
-        $closed = '';
-    }
-    $posttype = 'topic';
 
     $kathname = getcategoryname($db['category']);
     $data_array = array();
@@ -605,11 +597,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                 $message = toggle($message, 'xx');
                 $username = '<a href="index.php?site=profile&amp;id=' . $userID . '"><strong>' . getnickname($userID) . '</strong></a>';
 
-                if (isclanmember($userID)) {
-                    $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
-                } else {
-                    $member = '';
-                }
                 if ($getavatar = getavatar($userID)) {
                     $avatar = '<img src="images/avatars/' . $getavatar . '" alt="">';
                 } else {
@@ -748,7 +735,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                 );
             $notify = ($mysql_notify || $post_notify == '1') ? 'checked="checked"' : '';
 
-            #$bg1 = BG_1;
             $board = $dt['boardID'];
 
             $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
@@ -784,15 +770,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
     $forum_topic_head = $GLOBALS["_template"]->replaceTemplate("forum_topic_head", array());
     echo $forum_topic_head;
 
-    $i = 1;
     while ($dr = mysqli_fetch_array($replys)) {
-        #if ($i % 2) {
-        #    $bg1 = BG_1;
-        #    $bg2 = BG_2;
-        #} else {
-        #    $bg1 = BG_3;
-        #    $bg2 = BG_4;
-        #}
 
         $date = getformatdate($dr['date']);
         $time = getformattime($dr['date']);
@@ -812,12 +790,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
 
         $username = '<a href="index.php?site=profile&amp;id=' . $dr['poster'] . '"><strong>' .
             stripslashes(getnickname($dr['poster'])) . '</strong></a>';
-
-        if (isclanmember($dr['poster'])) {
-            $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
-        } else {
-            $member = '';
-        }
 
         if ($getavatar = getavatar($dr['poster'])) {
             $avatar = '<img src="images/avatars/' . $getavatar . '" alt="">';
@@ -916,17 +888,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
             }
         }
 
-        $spam_buttons = "";
-        if (!empty($spamapikey)) {
-            if (ispageadmin($userID) || ismoderator($userID, $dt['boardID'])) {
-                $spam_buttons =
-                    '<input type="button" value="Spam" onclick="eventfetch(\'ajax_spamfilter.php?postID=' . $postID .
-                    '&type=spam\',\'\',\'return\')">
-                    <input type="button" value="Ham" onclick="eventfetch(\'ajax_spamfilter.php?postID=' . $postID .
-                    '&type=ham\',\'\',\'return\')">';
-            }
-        }
-
         $actions = '';
         if (($userID == $dr['poster'] || isforumadmin($userID) || ismoderator($userID, $dt['boardID']))
             && !$dt['closed']
@@ -961,7 +922,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         $forum_topic_content = $GLOBALS["_template"]->replaceTemplate("forum_topic_content", $data_array);
         echo $forum_topic_content;
         unset($actions);
-        $i++;
+
     }
 
     $adminactions = "";

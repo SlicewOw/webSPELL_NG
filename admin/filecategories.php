@@ -38,17 +38,11 @@ function generate_overview($filecats = '', $offset = '', $subcatID = 0)
     $rubrics =
         safe_query("SELECT * FROM " . PREFIX . "files_categorys WHERE subcatID = '" . $subcatID . "' ORDER BY name");
 
-    $i = 1;
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
     while ($ds = mysqli_fetch_array($rubrics)) {
-        if ($i % 2) {
-            $td = 'td1';
-        } else {
-            $td = 'td2';
-        }
 
 		$filecats .= '<tr>
         <td>'.$offset.getinput($ds['name']).'</td>
@@ -60,8 +54,6 @@ function generate_overview($filecats = '', $offset = '', $subcatID = 0)
       	<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=filecategories&amp;delete=true&amp;filecatID='.$ds['filecatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
         </td>
     	</tr>';
-
-        $i++;
 
         if (mysqli_num_rows(safe_query(
             "SELECT * FROM " . PREFIX . "files_categorys WHERE subcatID = '" .

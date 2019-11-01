@@ -149,27 +149,28 @@ function deleteSpamUser($spammerID)
     // Delete Guestbooks
     $get = safe_query("SELECT nickname, email FROM " . PREFIX . "user WHERE userID='" . $spammerID . "'");
     $spammer = mysqli_fetch_assoc($get);
-    $user_g_book =
-        safe_query(
-            "DELETE FROM
-                " . PREFIX . "user_gbook
-            WHERE
-                name='" . $spammer[ 'nickname' ] . "' AND
-                email='" . $spammer[ 'email' ] . "'"
-        );
+
+    safe_query(
+        "DELETE FROM
+            " . PREFIX . "user_gbook
+        WHERE
+            name='" . $spammer[ 'nickname' ] . "' AND
+            email='" . $spammer[ 'email' ] . "'"
+    );
     echo mysqli_affected_rows($_database) . " " . $_language->module[ "guestbook_deleted" ] . "<br />";
 
     // Delete Messenges
-    $mess =
-        safe_query(
-            "DELETE FROM " . PREFIX . "messenger WHERE userID='" . $spammerID . "' OR fromuser='" . $spammerID . "'"
-        );
+    safe_query(
+        "DELETE FROM " . PREFIX . "messenger WHERE userID='" . $spammerID . "' OR fromuser='" . $spammerID . "'"
+    );
     echo mysqli_affected_rows($_database) . " " . $_language->module[ "messages_deleted" ] . "<br />";
 
     safe_query(
         "UPDATE " . PREFIX . "user SET banned='perm', ban_reason='Spam',about='' WHERE userID='" . $spammerID . "'"
     );
+
     echo $_language->module[ "user_banned" ] . "<br />";
+
 }
 
 if (isset($_GET[ 'action' ])) {
