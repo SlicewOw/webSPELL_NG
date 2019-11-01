@@ -293,8 +293,8 @@ class plugin_manager {
 	function plugin_updatetitle($site) {
 		try {
 			$pm = new plugin_manager();
-			if ($pm->is_plugin($_GET['site'])==1) {
-				$arr = $pm->plugin_data($_GET['site']);
+			if ($pm->is_plugin($site)==1) {
+				$arr = $pm->plugin_data($site);
 				if (isset($arr['name'])) {
 					return settitle($arr['name']);
 				}

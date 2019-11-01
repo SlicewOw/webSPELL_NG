@@ -47,7 +47,7 @@ function replace_smileys($text)
     return strtr($text, array_combine($replacements_1, $replacements_2));
 }
 
-function smileys($text, $specialchars = 0, $calledfrom = 'root')
+function smileys($text, $specialchars = 0)
 {
 
     if ($specialchars) {

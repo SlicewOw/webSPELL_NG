@@ -85,21 +85,6 @@ imagefill($im, 0, 0, $weiss);
 $linie_still = array($grau, $grau, $weiss, $weiss);
 imagesetstyle($im, $linie_still);
 
-function teilen(&$item, $key, $teiler)
-{
-    $item = round($item / $teiler);
-}
-
-function multiplizieren(&$item, $key, $faktor)
-{
-    $item = round($item * $faktor);
-}
-
-function hinzufuegen(&$item, $key, $faktor)
-{
-    $item = $item + $faktor;
-}
-
 $array = array();
 if (isset($_GET[ 'month' ])) {
     $datemonth = date(

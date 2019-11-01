@@ -72,18 +72,6 @@ function update_progress($functions_to_call)
 </div><div id="details_text" style="height: 150px; overflow-y:scroll;"></div>';
 }
 
-function update_clearfolder($_database)
-{
-    global $_language;
-    include("../src/func/filesystem.php");
-    $remove_install = @rm_recursive("./");
-    if ($remove_install) {
-        return array('status' => 'success', 'message' => $_language->module['folder_removed']);
-    } else {
-        return array('status' => 'success', 'message' => $_language->module['delete_folder']);
-    }
-}
-
 /** fixme */
 function updateMySQLConfig()
 {

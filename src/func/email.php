@@ -70,7 +70,7 @@ class Email
 
         $mail->SMTPDebug = $debug;
         $mail->Debugoutput = function ($str, $level) {
-            $GLOBALS['mail_debug'] .= $str . '<br>';
+            $GLOBALS['mail_debug'] .= $str . ' - ' . $level . '<br />';
         };
 
         if (isset($pop)) {
