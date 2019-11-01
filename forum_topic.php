@@ -623,12 +623,6 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                 }
                 $registered = getregistered($userID);
                 $posts = getuserforumposts($userID);
-                if (isset($_POST['sticky'])) {
-                    $post_sticky = $_POST['sticky'];
-                } else {
-                    $post_sticky = null;
-                }
-                $_sticky = ($dt['sticky'] == '1' || $post_sticky == '1') ? 'checked="checked"' : '';
 
                 if (isforumadmin($userID)) {
                     $usertype = $_language->module[getConstNameAdmin()];

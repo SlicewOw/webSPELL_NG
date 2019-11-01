@@ -265,28 +265,17 @@ function boardmain()
         $i = 1;
 
         while ($db = mysqli_fetch_array($boards)) {
-            #if ($i % 2) {
-            #    $bg1 = BG_1;
-            #    $bg2 = BG_2;
-            #} else {
-            #    $bg1 = BG_3;
-            #    $bg2 = BG_4;
-            #}
 
             $ismod = ismoderator($userID, $db[ 'boardID' ]);
             $usergrp = 0;
             if ($db[ 'writegrps' ] != "" && !$ismod) {
                 $writegrps = explode(";", $db[ 'writegrps' ]);
-                $writer = 'ro-';
                 foreach ($writegrps as $value) {
                     if (isinusergrp($value, $userID)) {
                         $usergrp = 1;
-                        $writer = '';
                         break;
                     }
                 }
-            } else {
-                $writer = '';
             }
             if ($db[ 'readgrps' ] != "" && !$usergrp && !$ismod) {
                 $readgrps = explode(";", $db[ 'readgrps' ]);
@@ -316,8 +305,6 @@ function boardmain()
             if ($moderators) {
                 $moderators = $_language->module[ 'moderated_by' ] . ': ' . $moderators;
             }
-
-
 
             $postlink = '';
             $date = '';
@@ -411,13 +398,6 @@ function boardmain()
     $boards = safe_query("SELECT * FROM " . PREFIX . "forum_boards WHERE category='0' ORDER BY sort");
     $i = 1;
     while ($db = mysqli_fetch_array($boards)) {
-        #if ($i % 2) {
-        #    $bg1 = BG_1;
-        #    $bg2 = BG_2;
-        #} else {
-        #    $bg1 = BG_3;
-        #    $bg2 = BG_4;
-        #}
 
         $usergrp = 0;
         $writer = 'ro-';

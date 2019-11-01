@@ -38,3 +38,18 @@ function getPage() {
     return $page;
 
 }
+
+function shortenText($text) {
+
+    $text_length = 255;
+
+    if (mb_strlen($text) > $text_length) {
+        $string = wordwrap($text, $text_length);
+        $string = substr($string, 0, strpos($string, "\n")) . '...';
+    } else {
+        $string = $text;
+    }
+
+    return $string;
+
+}

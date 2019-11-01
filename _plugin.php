@@ -94,10 +94,10 @@ class plugin_manager {
 					}
 				}
 			} else {
-				if (file_exists($data['path'].$data['index_link'].".php")) {
-					$plugin_path = $data['path'];
+				$plugin_path = $data['path'].$data['index_link'].".php";
+				if (file_exists($plugin_path)) {
 					$return['status'] = 1;
-					$return['data'] = $data['path'].$data['index_link'].".php";
+					$return['data'] = $plugin_path;
 					return $return;
 				} else {
 					if (DEBUG==="ON") {

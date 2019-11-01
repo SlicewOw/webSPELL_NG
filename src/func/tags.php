@@ -141,16 +141,10 @@ class Tags
                 )
             )
         ) {
-            if (strlen($ds['content']) > 255) {
-                $string = substr($ds['content'], 0, strpos(wordwrap($ds['content'], 255), "\n")) . '...';
-            } else {
-                $string = $ds['content'];
-            }
-
             return array(
                 'date' => $ds['date'],
                 'type' => 'News',
-                'content' => $string,
+                'content' => shortenText($ds['content']),
                 'title' => $ds['headline'],
                 'link' => 'index.php?site=news_comments&amp;newsID=' . $newsID
             );
@@ -188,16 +182,10 @@ class Tags
                     0,1"
             );
             $get = mysqli_fetch_assoc($get2);
-            if (strlen($get['content']) > 255) {
-                $string = substr($get['content'], 0, strpos(wordwrap($get['content'], 255), "\n")) . '...';
-            } else {
-                $string = $get['content'];
-            }
-
             return array(
                 'date' => $ds['date'],
                 'type' => 'Artikel',
-                'content' => $string,
+                'content' => shortenText($get['content']),
                 'title' => $ds['title'],
                 'link' => 'index.php?site=articles&amp;action=show&amp;articlesID=' . $articlesID
             );
@@ -232,16 +220,10 @@ class Tags
                     break;
             }
             if ($allowed) {
-                if (strlen($ds['content']) > 255) {
-                    $string = wordwrap($ds['content'], 255);
-                    $string = substr($string, 0, strpos($string, "\n")) . '...';
-                } else {
-                    $string = $ds['content'];
-                }
                 return array(
                     'date' => time(),
                     'type' => 'StaticPage',
-                    'content' => $string,
+                    'content' => shortenText($ds['content']),
                     'title' => $ds['name'],
                     'link' => 'index.php?site=static&amp;staticID=' . $staticID
                 );
@@ -271,16 +253,10 @@ class Tags
         if ($get->num_rows) {
             $ds = mysqli_fetch_array($get);
             $answer = htmloutput($ds['answer']);
-            if (mb_strlen($answer) > 255) {
-                $string = wordwrap($answer, 255);
-                $string = substr($answer, 0, strpos($answer, "\n")) . '...';
-            } else {
-                $string = $answer;
-            }
             return array(
                 'date' => $ds['date'],
                 'type' => 'StaticPage',
-                'content' => $string,
+                'content' => shortenText($answer),
                 'title' => $ds['question'],
                 'link' =>
                     'index.php?site=faq&amp;action=faq&amp;faqID=' . $ds['faqID'] . '&amp;faqcatID=' . $ds['faqcatID']
