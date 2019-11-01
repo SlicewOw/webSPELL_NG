@@ -53,10 +53,8 @@ function makepagelink($link, $page, $pages, $sub = '')
     } else {
         $pagex = $page + 4;
     }
-    for ($i = $page - 4; $i <= $pagex; $i++) {
-        if ($i <= 0) {
-            $i = 1;
-        }
+    $start = (($page - 4) > 0) ? ($page - 4) : 1;
+    for ($i = $start; $i <= $pagex; $i++) {
         if ($i == $page) {
             $pageLinkArray[] = '<li class="active"><a href="#" aria-label="Previous"><span aria-hidden="true">' . $i . '</span></a></li>';
         } else {

@@ -77,7 +77,7 @@ function smileys($text, $specialchars = 0)
         if ($match === false) {
             $splits[$i] = replace_smileys($splits[$i]);
         } else {
-            $i = $z;
+            break;
         }
     }
     $text = implode("", $splits);
@@ -200,11 +200,7 @@ function codereplace($content)
                 }
             }
             if ($match) {
-                $splits[$i] =
-                   # '<div style="max-width:' . $picsize_l . 'px;" class="panel panel-default code">' .
-                    #'<div class="panel-heading">' . $_language->module['code'] . ':</div><div class="panel-body">';
-                        '<div style="max-width:auto;" class="panel panel-default code">' .
-                         '<div class="panel-heading">' . $_language->module['code'] . ':</div><div class="panel-body" style="overflow:auto;">';
+                $splits[$i] = '<div style="max-width:auto;" class="panel panel-default code">' . '<div class="panel-heading">' . $_language->module['code'] . ':</div><div class="panel-body" style="overflow:auto;">';
 
                 /* concat pieces until arriving closing tag ($z) and save to $i+1 */
                 for ($x = ($i + 2); $x < $z; $x++) {
@@ -214,7 +210,7 @@ function codereplace($content)
 
                 $splits[($i + 1)] = insideCode($splits[($i + 1)]);
                 $splits[$z] = '</div></div>';
-                $i = $z;
+                break;
             }
         }
     }

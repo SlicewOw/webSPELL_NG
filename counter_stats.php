@@ -80,9 +80,7 @@ $monatsstat = '';
 
 for ($i = date("d", time()); $i > 0; $i--) {
 
-    if (mb_strlen($i) < 2) {
-        $i = "0" . $i;
-    }
+    $day = (mb_strlen($i) < 2) ? "0" . $i : $i;
 
     $tmp = mysqli_fetch_array(
         safe_query(
@@ -91,7 +89,7 @@ for ($i = date("d", time()); $i > 0; $i--) {
             FROM
                 `" . PREFIX . "counter_stats`
             WHERE
-                `dates` = '" . $i . $datemonth."'"
+                `dates` = '" . $day . $datemonth."'"
         )
     );
 
@@ -102,7 +100,7 @@ for ($i = date("d", time()); $i > 0; $i--) {
     }
 
     $prozent = $visits * 100 / $month_max;
-    $monatsstat .= '<li class="list-group-item"><span class="badge">' . $visits . '</span> ' . $i . $datemonth . '<div class="progress"><div class="progress-bar progress-bar-info" style="width: ' . (round($prozent)) . '%"></div></div></li>';
+    $monatsstat .= '<li class="list-group-item"><span class="badge">' . $visits . '</span> ' . $day . $datemonth . '<div class="progress"><div class="progress-bar progress-bar-info" style="width: ' . (round($prozent)) . '%"></div></div></li>';
 }
 
 $tmp = mysqli_fetch_array(safe_query("SELECT `online` FROM `" . PREFIX . "counter`"));

@@ -31,8 +31,6 @@ if (!isanyadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri(
     die($_language->module[ 'access_denied' ]);
 }
 
-
-
 $count_array = array();
 $tables_array = array(
     PREFIX . "articles",
@@ -108,87 +106,57 @@ foreach ($tables_array as $table) {
     $count_array[ ] = array($table_name, $data[ 'Rows' ]);
 }
 ?>
-
-
 <div class="panel panel-default">
-
-<div class="panel-heading">
-                            <span class="fa fa-database"></span> <?php echo $_language->module['database']; ?>
-                        </div>
-
-<div class="panel-body">
-
-<div class="row">
-<div class="col-md-6">
-
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['mysql_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo mysqli_get_server_info($_database); ?></em></span></div></div>
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['size']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $db_size; ?> Bytes (<?php echo round($db_size / 1024 / 1024, 2); ?> MB)</em></span></div></div>
-
+    <div class="panel-heading">
+        <span class="fa fa-database"></span> <?php echo $_language->module['database']; ?>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row bt"><div class="col-md-6"><?php echo $_language->module['mysql_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo mysqli_get_server_info($_database); ?></em></span></div></div>
+                <div class="row bt"><div class="col-md-6"><?php echo $_language->module['size']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $db_size; ?> Bytes (<?php echo round($db_size / 1024 / 1024, 2); ?> MB)</em></span></div></div>
+            </div>
+            <div class="col-md-6">
+                <div class="row bt"><div class="col-md-6"><?php echo $_language->module['overhead']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $db_size_op; ?> Bytes
+                <?php
+                if ($db_size_op != 0) {
+                    echo'<a href="admincenter.php?site=database&amp;action=optimize&amp;back=page_statistic"><span style="color: #FF0000;"><strong>'.$_language->module['optimize'].'</strong></span></a>';
+                }
+                ?></em></span></div></div>
+                <div class="row bt"><div class="col-md-6"><?php echo $_language->module['tables']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_tables; ?></em></span></div></div>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-
-<div class="col-md-6">
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['overhead']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $db_size_op; ?> Bytes
-    <?php
-    if ($db_size_op != 0) {
-    	echo'<a href="admincenter.php?site=database&amp;action=optimize&amp;back=page_statistic"><span style="color: #FF0000;"><strong>'.$_language->module['optimize'].'</strong></span></a>';
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="fa fa-pie-chart"></span> <?php echo $_language->module['page_stats']; ?>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+<?php
+for ($i = 0; $i < count($count_array); $i += 2) {
+?>
+            <div class="col-md-4">
+                <div class="row bte">
+                    <div class="col-md-6"><?php echo $count_array[$i][0]; ?>:</div>
+                    <div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_array[$i][1]; ?></em></span></div>
+                </div>
+            </div>
+<?php
+    if (isset($count_array[$i + 1])) {
+?>
+	<div class="col-md-4">
+        <div class="row bte">
+            <div class="col-md-6"><?php echo $count_array[$i + 1][0]; ?>:</div>
+            <div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_array[$i + 1][1]; ?></em></span></div>
+        </div>
+    </div>
+<?php
     }
-    ?></em></span></div></div>
-	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['tables']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_tables; ?></em></span></div></div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="panel panel-default">
-
-<div class="panel-heading">
-                            <span class="fa fa-pie-chart"></span> <?php echo $_language->module['page_stats']; ?>
-                        </div>
-
-<div class="panel-body">
-
-<div class="row">
-
-<?php
-  for($i = 0; $i < count($count_array); $i += 1) {
-    if ($i%4) { $td='td1'; }
-    else { $td='td2'; }
-  ?>
-<div class="col-md-6">
-<div class="row bte"><div class="col-md-6"><?php echo $count_array[$i][0]; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_array[$i][1]; ?></em></span></div></div>
-</div>
-
-
-
-
-    <?php if (isset($count_array[$i + 1])) { ?>
-	<div class="col-md-6">
-<div class="row bte"><div class="col-md-6"><?php echo $count_array[$i + 1][0]; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo $count_array[$i + 1][1]; ?></em></span></div></div>
-</div>
-    <?php
-		}
-  	else { ?>
-
-    <?php } ?>
-
-<?php
-$i++;
 }
 ?>
-
+        </div>
+    </div>
 </div>
-</div>
-</div>
-
