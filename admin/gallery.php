@@ -75,16 +75,14 @@ if ($part == "groups") {
     } else if (isset($_POST[ 'sort' ])) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-            if (isset($_POST[ 'sortlist' ])) {
-                if (is_array($_POST[ 'sortlist' ])) {
-                    foreach ($_POST[ 'sortlist' ] as $sortstring) {
-                        $sorter = explode("-", $sortstring);
-                        safe_query(
-                            "UPDATE " . PREFIX . "gallery_groups
-                            SET sort='$sorter[1]'
-                            WHERE groupID='$sorter[0]' "
-                        );
-                    }
+            if (isset($_POST[ 'sortlist' ]) && is_array($_POST[ 'sortlist' ])) {
+                foreach ($_POST[ 'sortlist' ] as $sortstring) {
+                    $sorter = explode("-", $sortstring);
+                    safe_query(
+                        "UPDATE " . PREFIX . "gallery_groups
+                        SET sort='$sorter[1]'
+                        WHERE groupID='$sorter[0]' "
+                    );
                 }
             }
         } else {
