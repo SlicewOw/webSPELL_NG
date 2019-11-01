@@ -78,11 +78,7 @@ if (isset($_GET[ 'action' ])) {
     if ($_GET[ 'action' ] == 'show') {
             $anz_users_page = 50;
     }
-    if (isset($_REQUEST[ 'page' ])) {
-        $page = (int)$_REQUEST[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     if (isset($_GET[ 'users' ])) {
         $_POST[ 'users' ] = explode("-", $_GET[ 'users' ]);
     }

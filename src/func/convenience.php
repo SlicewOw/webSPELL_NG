@@ -20,3 +20,21 @@ function getStartValue($page, $max) {
     }
 
 }
+
+function getPage() {
+
+    if (isset($_GET['page'])) {
+
+        $page = (int)$_GET['page'];
+
+        if ($page < 1) {
+            $page = 1;
+        }
+
+    } else {
+        $page = 1;
+    }
+
+    return $page;
+
+}

@@ -263,8 +263,7 @@ if ($action == "add") {
     }
 } else {
 
-  if (isset($_GET['page'])) $page=(int)$_GET['page'];
-  else $page = 1;
+  $page = getPage();
 
   echo'<div class="panel panel-default">
    <div class="panel-heading">

@@ -431,11 +431,7 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
 } else if ($action == "showgame") {
     $game = $_GET[ 'game' ];
 
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $sort = "date";
     if (isset($_GET[ 'sort' ])) {
         if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'game') || ($_GET[ 'sort' ] == 'league') ||
@@ -626,11 +622,7 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
         echo $_language->module[ 'no_demos' ];
     }
 } else {
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $sort = "date";
     if (isset($_GET[ 'sort' ])) {
         if ($_GET[ 'sort' ] == 'date'

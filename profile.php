@@ -475,9 +475,7 @@ if (isset($id) && getnickname($id) != '') {
                             )
                         );
 
-                    if (isset($_GET[ 'page' ])) {
-                        $page = (int)$_GET[ 'page' ];
-                    }
+                    $page = getPage();
                     $type = "DESC";
                     if (isset($_GET[ 'type' ])) {
                         if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
@@ -486,9 +484,7 @@ if (isset($id) && getnickname($id) != '') {
                     }
 
                     $pages = 1;
-                    if (!isset($page)) {
-                        $page = 1;
-                    }
+
                     if (!isset($type)) {
                         $type = "DESC";
                     }

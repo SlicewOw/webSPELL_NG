@@ -33,11 +33,7 @@ if (isset($_POST[ 'board' ])) {
     $board = null;
 }
 
-if (!isset($_GET[ 'page' ])) {
-    $page = '';
-} else {
-    $page = (int)$_GET[ 'page' ];
-}
+$page = getPage();
 if (!isset($_GET[ 'action' ])) {
     $action = '';
 } else {
@@ -46,14 +42,7 @@ if (!isset($_GET[ 'action' ])) {
 
 function forum_stats()
 {
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
-    #$bg1 = BG_1;
-    global $wincolor;
-    global $loosecolor;
-    global $drawcolor;
+
     global $_language;
 
     $_language->readModule('forum');

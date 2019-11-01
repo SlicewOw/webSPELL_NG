@@ -652,19 +652,13 @@ if (isset($_POST[ 'saveedit' ])) {
     $gallery = $GLOBALS["_template"]->replaceTemplate("title_gallery", array());
     echo $gallery;
 
-    $galleries =
-        mysqli_num_rows(
-            safe_query(
-                "SELECT `galleryID` FROM `" . PREFIX . "gallery` WHERE `groupID` = '" . (int)$_GET[ 'groupID' ] . "'"
-            )
-        );
+    $galleries = mysqli_num_rows(
+        safe_query(
+            "SELECT `galleryID` FROM `" . PREFIX . "gallery` WHERE `groupID` = '" . (int)$_GET[ 'groupID' ] . "'"
+        )
+    );
     $pages = ceil($galleries / $gallerypictures);
-
-    if (!isset($_GET[ 'page' ])) {
-        $page = 1;
-    } else {
-        $page = $_GET[ 'page' ];
-    }
+    $page = getPage();
 
     $pagelink = makepagelink("index.php?site=gallery&amp;groupID=" . $_GET[ 'groupID' ], $page, $pages);
 

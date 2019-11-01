@@ -25,9 +25,8 @@
 ##########################################################################
 */
 
-if (isset($_GET['page'])) {
-    $page = (int)$_GET['page'];
-}
+$page = getPage();
+
 if (isset($_GET['delete'])) {
     $delete = (bool)$_GET['delete'];
 } else {
@@ -252,7 +251,7 @@ if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
             }
         }
     }
-    header("Location: index.php?site=forum_topic&topic=" . (int)$_GET['topic'] . "&page=" . (int)$_GET['page']);
+    header("Location: index.php?site=forum_topic&topic=" . (int)$_GET['topic'] . "&page=" . $page);
 } else if (isset($_POST['saveedittopic']) && (bool)$_POST['saveedittopic']) {
     include("_mysql.php");
     include("_settings.php");

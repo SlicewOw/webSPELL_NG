@@ -100,11 +100,7 @@ if ($action == "save") {
     $gesamt = $tmp[ 'cnt' ];
     $pages = ceil($gesamt / $maxsball);
     $max = $maxsball;
-    if (!isset($_GET[ 'page' ])) {
-        $page = 1;
-    } else {
-        $page = (int)$_GET[ 'page' ];
-    }
+    $page = getPage();
     $type = 'DESC';
     if (isset($_GET[ 'type' ])) {
         if ($_GET[ 'type' ] == 'ASC') {

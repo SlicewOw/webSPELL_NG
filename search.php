@@ -57,7 +57,9 @@ if ($action == "search" &&
         } else {
             $results = (int)$_REQUEST[ 'r' ];
         }
-        isset($_REQUEST[ 'page' ]) ? $page = (int)$_REQUEST[ 'page' ] : $page = 1;
+
+        $page = getPage();
+
         isset($_REQUEST[ 'afterdate' ]) ? $afterdate = $_REQUEST[ 'afterdate' ] : $afterdate = 0;
         isset($_REQUEST[ 'beforedate' ]) ? $beforedate = $_REQUEST[ 'beforedate' ] : $beforedate = 0;
         $keywords = preg_split("/ ,/si", strtolower(str_replace(array('\%', '%'), '', $text)));

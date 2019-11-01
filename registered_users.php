@@ -43,11 +43,7 @@ $alle = safe_query("SELECT userID FROM " . PREFIX . "user");
 $gesamt = mysqli_num_rows($alle);
 $pages = ceil($gesamt / $maxusers);
 
-if (isset($_GET[ 'page' ])) {
-    $page = (int)$_GET[ 'page' ];
-} else {
-    $page = 1;
-}
+$page = getPage();
 $sort = "nickname";
 if (isset($_GET[ 'sort' ])) {
     if ($_GET[ 'sort' ] === 'country' ||

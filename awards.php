@@ -223,7 +223,7 @@ if ($action == "new") {
     }
 } else if ($action == "showsquad") {
     $squadID = $_GET[ 'squadID' ];
-    $page = (isset($_GET[ 'page' ])) ? $_GET[ 'page' ] : 1;
+    $page = getPage();
     $sort = (isset($_GET[ 'page' ])) ? $_GET[ 'page' ] : "date";
     $type = (isset($_GET[ 'type' ])) ? $_GET[ 'type' ] : "DESC";
 
@@ -381,7 +381,7 @@ if ($action == "new") {
     $awards_info = $GLOBALS["_template"]->replaceTemplate("awards_info", $data_array);
     echo $awards_info;
 } else {
-    $page = (isset($_GET[ 'page' ])) ? (int)$_GET[ 'page' ] : 1;
+    $page = getPage();
     $sort = (isset($_GET[ 'sort' ]) && $_GET[ 'sort' ] == 'squadID') ? "squadID" : "date";
     $type = (isset($_GET[ 'type' ]) && $_GET[ 'type' ] == 'ASC') ? "ASC" : "DESC";
 

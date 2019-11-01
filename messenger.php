@@ -166,11 +166,7 @@ if (isset($_POST['delete'])) {
         $alle = safe_query("SELECT messageID FROM " . PREFIX . "messenger WHERE touser='$userID' AND userID='$userID'");
         $gesamt = mysqli_num_rows($alle);
         $pages = 1;
-        if (isset($_GET['page'])) {
-            $page = (int)$_GET['page'];
-        } else {
-            $page = 1;
-        }
+        $page = getPage();
         $sort = "date";
         if (isset($_GET['sort'])) {
             if (($_GET['sort'] == 'date') || ($_GET['sort'] == 'fromuser') || ($_GET['sort'] == 'title')) {
@@ -322,12 +318,7 @@ if (isset($_POST['delete'])) {
             safe_query("SELECT messageID FROM " . PREFIX . "messenger WHERE fromuser='$userID' AND userID='$userID'");
         $gesamt = mysqli_num_rows($alle);
         $pages = 1;
-
-        if (!isset($_GET['page'])) {
-            $page = 1;
-        } else {
-            $page = (int)$_GET['page'];
-        }
+        $page = getPage();
         $sort = 'date';
         $type = 'DESC';
         if (isset($_GET['type'])) {

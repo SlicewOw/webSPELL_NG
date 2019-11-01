@@ -383,11 +383,7 @@ if ($action == "new") {
     $_language->readModule('articles');
 
     $articlesID = (int)$_GET[ 'articlesID' ];
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
 
     if (isnewsadmin($userID)) {
         echo
@@ -576,11 +572,7 @@ if ($action == "new") {
 } else {
     $_language->readModule('articles');
 
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $sort = "date";
     if (isset($_GET[ 'sort' ])) {
         if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'poster') || ($_GET[ 'sort' ] == 'rating')

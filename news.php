@@ -890,11 +890,7 @@ if ($action == "new") {
     $title_news = $GLOBALS["_template"]->replaceTemplate("title_news", array());
     echo $title_news;
 
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $sort = "date";
     if (isset($_GET[ 'sort' ])) {
         if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'poster') || ($_GET[ 'sort' ] == 'rubric')) {

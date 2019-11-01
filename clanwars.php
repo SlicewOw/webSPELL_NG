@@ -1184,11 +1184,7 @@ if ($action == "new") {
             $only = $_GET[ 'only' ];
         }
     }
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $sort = "date";
     if (isset($_GET[ 'sort' ])) {
         if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'game') || ($_GET[ 'sort' ] == 'squad')
@@ -1409,11 +1405,7 @@ if ($action == "new") {
         echo $_language->module[ 'no_entries' ];
     }
 } else if (empty($_GET[ 'action' ])) {
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $sort = "date";
     if (isset($_GET[ 'sort' ])) {
         if ($_GET[ 'sort' ] == 'date'

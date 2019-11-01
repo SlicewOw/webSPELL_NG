@@ -506,11 +506,9 @@ if ($action == "activate") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
+    $page = getPage();
 
-
-
-
- echo'<form class="form-horizontal" method="post" action="admincenter.php?site=users&amp;page='.(int)$_GET['page'].'&amp;type='.getforminput($_GET['type']).'&amp;sort='.$_GET['sort'].'">
+ echo'<form class="form-horizontal" method="post" action="admincenter.php?site=users&amp;page='.$page.'&amp;type='.getforminput($_GET['type']).'&amp;sort='.$_GET['sort'].'">
     <div class="form-group">
 <label class="col-sm-2 control-label">'.$_language->module['nickname'].':</label>
       <div class="col-sm-8"><span class="text-muted small"><em>
@@ -652,7 +650,8 @@ if ($action == "activate") {
         $ranks = str_replace("value='0", "value='0' selected='selected'", $ranks);
     }
 
-    echo '<form class="form-horizontal" method="post" enctype="multipart/form-data" action="admincenter.php?site=users&amp;page='.$_GET['page'].'&amp;type='.$_GET['type'].'&amp;sort='.$_GET['sort'].'">
+    $page = getPage();
+    echo '<form class="form-horizontal" method="post" enctype="multipart/form-data" action="admincenter.php?site=users&amp;page='.$page.'&amp;type='.$_GET['type'].'&amp;sort='.$_GET['sort'].'">
 
    <div class="form-group">
     <label class="col-sm-2 control-label">'.$_language->module['user_id'].'</label>
@@ -884,11 +883,7 @@ if ($action == "activate") {
     } else {
         $search = '';
     }
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $type = "ASC";
     if (isset($_GET[ 'type' ])) {
         if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {

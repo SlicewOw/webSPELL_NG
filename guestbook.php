@@ -211,11 +211,7 @@ if (isset($_POST[ 'save' ])) {
 
     $gesamt = mysqli_num_rows(safe_query("SELECT gbID FROM " . PREFIX . "guestbook"));
 
-    if (isset($_GET[ 'page' ])) {
-        $page = (int)$_GET[ 'page' ];
-    } else {
-        $page = 1;
-    }
+    $page = getPage();
     $type = "DESC";
     if (isset($_GET[ 'type' ])) {
         if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
