@@ -49,9 +49,10 @@ $reenter = false;
 
 $get = safe_query("SELECT * FROM " . PREFIX . "banned_ips WHERE ip='" . $GLOBALS[ 'ip' ] . "'");
 if (mysqli_num_rows($get) == 0) {
-    $ws_user = $_POST[ 'ws_user' ];
 
-    $check = safe_query("SELECT * FROM " . PREFIX . "user WHERE username='" . $ws_user . "'");
+    $ws_email = (isset($_POST[ 'ws_email' ]) && validate_email($_POST[ 'ws_email' ])) ? $_POST[ 'ws_email' ] : '';
+
+    $check = safe_query("SELECT * FROM " . PREFIX . "user WHERE email='" . $ws_email . "'");
     $anz = mysqli_num_rows($check);
     $login = 0;
 
@@ -59,7 +60,7 @@ if (mysqli_num_rows($get) == 0) {
         $error = $_language->module[ 'session_error' ];
     } else {
         if ($anz) {
-            $check = safe_query("SELECT * FROM " . PREFIX . "user WHERE username='" . $ws_user . "' AND activated='1'");
+            $check = safe_query("SELECT * FROM " . PREFIX . "user WHERE email='" . $ws_email . "' AND activated='1'");
             if (mysqli_num_rows($check)) {
                 $ds = mysqli_fetch_array($check);
                 $login = 0;
@@ -139,8 +140,7 @@ if (mysqli_num_rows($get) == 0) {
                     $return->message = $_language->module[ 'invalid_password' ];
                     $return->code = 'invalid_password';
                 }
-            }   // END OF OLD PASSWORD                                                                  # <<
-
+            }   // END OF OLD PASSWORD
 
                 // check new password
                 $ws_pwd = stripslashes($_POST[ 'password' ]).$ds['password_pepper'];
@@ -234,7 +234,7 @@ if (mysqli_num_rows($get) == 0) {
                 $return->code = 'not_activated';
             }
         } else {
-            $return->message = str_replace('%username%', htmlspecialchars($ws_user), $_language->module[ 'no_user' ]);
+            $return->message = str_replace('%username%', htmlspecialchars($ws_email), $_language->module[ 'no_user' ]);
             $return->code = 'no_user';
             $reenter = true;
         }

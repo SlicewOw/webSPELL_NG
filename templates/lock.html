@@ -12,7 +12,7 @@
     <base href="$rewriteBase">
     <link href="components/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="css/lockpage.css" rel="stylesheet" type="text/css">
-    
+
 </head>
 
 <body>
@@ -24,10 +24,10 @@
 		</div>
 		<h2>The page is currently locked, please try again later!</h2>
 		<p>$reason</p>
-		<h4>Admin Login</h4> 
+		<h4>Admin Login</h4>
 		<form class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4 col-lg-4 col-lg-offset-4" method="post" name="login" action="checklogin.php">
 			<div class="form-group">
-				<input class="form-control text-center" name="ws_user" type="text" placeholder="Username">
+				<input class="form-control text-center" name="ws_email" type="email" placeholder="max@mustermann.de">
 			</div>
 			<div class="form-group">
 				<input class="form-control text-center" name="password" type="password" placeholder="Password">
