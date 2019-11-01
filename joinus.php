@@ -38,11 +38,8 @@ if (isset($site)) {
 $title_joinus = $GLOBALS["_template"]->replaceTemplate("title_joinus", array());
 echo $title_joinus;
 
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = "";
-}
+$action = getAction();
+
 $show = true;
 if ($action == "save" && isset($_POST['post'])) {
     if (isset($_POST['squad'])) {

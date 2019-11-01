@@ -175,11 +175,13 @@ if ($userID) {
     $usergallery_title = $GLOBALS["_template"]->replaceTemplate("title_usergallery", array());
     echo $usergallery_title;
 
-    if (isset($_GET[ 'action' ])) {
-        if ($_GET[ 'action' ] == "add") {
+    $action = getAction();
+
+    if (!empty($action)) {
+        if ($action == "add") {
             $usergallery_add = $GLOBALS["_template"]->replaceTemplate("usergallery_add", array());
             echo $usergallery_add;
-        } else if ($_GET[ 'action' ] == "edit") {
+        } else if ($action == "edit") {
             $ergebnis = safe_query(
                 "SELECT
                     *
@@ -198,7 +200,7 @@ if ($userID) {
             $data_array['$galleryID'] = $galleryID;
             $usergallery_edit = $GLOBALS["_template"]->replaceTemplate("usergallery_edit", $data_array);
             echo $usergallery_edit;
-        } else if ($_GET[ 'action' ] == "upload") {
+        } else if ($action == "upload") {
             $id = (int)$_GET[ 'galleryID' ];
 
             $data_array = array();

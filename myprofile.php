@@ -305,7 +305,9 @@ if (!$userID) {
         }
     }
 
-    if (isset($_GET['action']) && $_GET['action'] == "editpwd") {
+    $action = getAction();
+
+    if ($action == "editpwd") {
         $data_array = array();
         $data_array['$userID'] = $userID;
         $myprofile_editpwd = $GLOBALS["_template"]->replaceTemplate("myprofile_editpwd", $data_array);
@@ -363,7 +365,7 @@ if (!$userID) {
             echo generateAlert('<strong>ERROR: ' . $error . '</strong><br>
 			<a href="index.php?site=myprofile&action=editpwd" class="alert-link">' . $_language->module['back'] . '</a>', 'alert-danger');
         }
-    } else if (isset($_GET['action']) && $_GET['action'] == "editmail") {
+    } else if ($action == "editmail") {
         $data_array = array();
         $data_array['$userID'] = $userID;
         $myprofile_editmail = $GLOBALS["_template"]->replaceTemplate("myprofile_editmail", $data_array);
@@ -454,7 +456,7 @@ if (!$userID) {
 			echo generateAlert('<strong>ERROR: ' . $error . '</strong><br>
 			<a href="index.php?site=myprofile&action=editmail" class="alert-link">' . $_language->module['back'] . '</a>', 'alert-danger');
         }
-    } elseif (isset($_GET['action']) && $_GET['action'] == "deleteaccount") {
+    } elseif ($action == "deleteaccount") {
 
 	    $data_array = array();
         $data_array['$userID'] = $userID;

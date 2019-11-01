@@ -173,12 +173,7 @@ function deleteSpamUser($spammerID)
 
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = null;
-}
-
+$action = getAction();
 
 if ($action == "user") {
     echo '<div class="panel panel-default">

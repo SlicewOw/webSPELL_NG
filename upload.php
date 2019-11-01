@@ -52,11 +52,7 @@ if (isset($_GET[ 'cwID' ])) {
     die($_language->module[ 'invalid_access' ]);
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = null;
-}
+$action = getAction();
 
 if (isset($_POST[ 'submit' ])) {
     $_language->readModule('formvalidation', true);

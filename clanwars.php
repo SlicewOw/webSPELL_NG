@@ -28,11 +28,8 @@ if (isset($site)) {
     $_language->readModule('clanwars');
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = "";
-}
+$action = getAction();
+
 if ($action == "new") {
     include("_mysql.php");
     include("_settings.php");
@@ -1382,7 +1379,7 @@ if ($action == "new") {
     } else {
         echo $_language->module[ 'no_entries' ];
     }
-} else if (empty($_GET[ 'action' ])) {
+} else if (empty($action)) {
     $page = getPage();
     $sort = "date";
     if (isset($_GET[ 'sort' ])) {

@@ -34,11 +34,7 @@ if (isset($_POST[ 'board' ])) {
 }
 
 $page = getPage();
-if (!isset($_GET[ 'action' ])) {
-    $action = '';
-} else {
-    $action = $_GET[ 'action' ];
-}
+$action = getAction();
 
 function forum_stats()
 {
@@ -864,7 +860,7 @@ function showboard($board)
 }
 
 if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'addtopic' ])
-    || isset($_POST[ 'addtopic' ]) || (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "admin-action")
+    || isset($_POST[ 'addtopic' ]) || ($action == "admin-action")
     || isset($_POST[ 'admaction' ])
 ) {
     if (!isset($_POST[ 'admaction' ])) {

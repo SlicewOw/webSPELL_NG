@@ -25,11 +25,7 @@
 ##########################################################################
 */
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if (isset($_POST[ 'save' ])) {
     $_language->readModule('links');

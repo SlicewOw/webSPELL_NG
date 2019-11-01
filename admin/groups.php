@@ -31,11 +31,7 @@ if (!isforumadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUr
     die($_language->module[ 'access_denied' ]);
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "delete") {
     $CAPCLASS = new \webspell\Captcha;

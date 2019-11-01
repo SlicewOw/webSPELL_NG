@@ -21,6 +21,10 @@ function getStartValue($page, $max) {
 
 }
 
+function getAction() {
+    return isset($_GET['action']) ? getinput($_GET['action']) : '';
+}
+
 function getPage() {
 
     if (isset($_GET['page'])) {

@@ -33,11 +33,7 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
 
 $filepath = "../images/flags/";
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;

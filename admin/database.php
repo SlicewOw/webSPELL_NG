@@ -57,11 +57,7 @@ if (isset($_POST[ 'upload' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if (isset($_GET[ 'back' ])) {
     $returnto = $_GET[ 'back' ];

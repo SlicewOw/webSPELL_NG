@@ -173,11 +173,7 @@ if (isset($_GET[ 'delete' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;

@@ -203,7 +203,9 @@ if (isset($_POST[ 'saveedit' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
+$action = getAction();
+
+if ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
                             <span class="fa fa-users"></span> '.$_language->module['members'].'

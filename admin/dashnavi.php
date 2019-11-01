@@ -121,11 +121,7 @@ if (isset($_GET[ 'delete' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "add") {
     echo '<div class="panel panel-default">

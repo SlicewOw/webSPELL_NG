@@ -25,11 +25,7 @@
 ##########################################################################
 */
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = "";
-}
+$action = getAction();
 
 if ($action == "vote") {
     include("_mysql.php");

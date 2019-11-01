@@ -38,11 +38,8 @@ if (isset($_GET[ 'part' ])) {
 } else {
     $part = '';
 }
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+
+$action = getAction();
 
 if ($part == "groups") {
     if (isset($_POST[ 'save' ])) {

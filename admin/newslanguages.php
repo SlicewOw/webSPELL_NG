@@ -89,11 +89,7 @@ while ($dt = mysqli_fetch_array($getlangs)) {
     $langs .= '<option value="' . $dt[ 'short' ] . '">' . $dt[ 'country' ] . '</option>';
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;

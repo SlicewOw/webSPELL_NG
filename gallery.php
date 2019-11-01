@@ -32,11 +32,7 @@ $pics_per_row = 2;
 
 //Script
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if (isset($_POST[ 'saveedit' ])) {
     include('_mysql.php');
@@ -250,14 +246,14 @@ if (isset($_POST[ 'saveedit' ])) {
         )
     );
 
-    if ($browse[ 'picID' ] && $_GET[ 'action' ] == "diashow") {
+    if ($browse[ 'picID' ] && $action == "diashow") {
         echo '<meta http-equiv="refresh" content="2;URL=gallery.php?action=diashow&amp;galleryID=' .
             (int)$_GET[ 'galleryID' ] . '&amp;picID=' . $browse[ 'picID' ] . '">';
     }
 
     echo '</head><body class="text-center">';
 
-    if ($_GET[ 'action' ] == "diashow") {
+    if ($action == "diashow") {
         if ($browse[ 'picID' ]) {
             echo '<a href="gallery.php?action=diashow&amp;galleryID=' . $_GET[ 'galleryID' ] . '&amp;picID=' .
                 $browse[ 'picID' ] . '">';
@@ -279,7 +275,7 @@ if (isset($_POST[ 'saveedit' ])) {
     echo '<img src="picture.php?id=' . $picID . '" alt=""><br>
     <strong>' . cleartext($ds[ 'comment' ], false) . '</strong>';
 
-    if ($browse[ 'picID' ] || $_GET[ 'action' ] == "window") {
+    if ($browse[ 'picID' ] || $action == "window") {
         echo '</a>';
     }
 

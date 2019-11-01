@@ -118,11 +118,7 @@ if (isset($_POST[ 'save' ])) {
 $title_awards = $GLOBALS["_template"]->replaceTemplate("title_awards", array());
 echo $title_awards;
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = "";
-}
+$action = getAction();
 
 if ($action == "new") {
     if (isclanwaradmin($userID) || isnewsadmin($userID)) {

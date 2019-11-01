@@ -285,11 +285,7 @@ if (isset($_POST[ 'savemods' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "mods") {
     echo '<div class="panel panel-default">

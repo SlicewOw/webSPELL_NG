@@ -91,11 +91,7 @@ function unit_to_size($num, $unit)
 $title_files = $GLOBALS["_template"]->replaceTemplate("title_files", array());
 echo $title_files;
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = "";
-}
+$action = getAction();
 
 if ($action == "save") {
     if (!isfileadmin($userID)) {

@@ -28,11 +28,7 @@
 $_language->readModule('newsletter');
 $_language->readModule('formvalidation', true);
 
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "save") {
     $email = $_POST['email'];

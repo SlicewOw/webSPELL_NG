@@ -81,8 +81,10 @@ if (isset($_GET[ 'delete' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    if ($_GET[ 'action' ] == "add") {
+$action = getAction();
+
+if (!empty($action)) {
+    if ($action == "add") {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
@@ -116,7 +118,7 @@ if (isset($_GET[ 'action' ])) {
     </div>
   </div>';
 
-	 } else if ($_GET[ 'action' ] == "edit") {
+	 } else if ($action == "edit") {
         $contactID = (int)$_GET[ 'contactID' ];
 
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "contact WHERE contactID='$contactID'");

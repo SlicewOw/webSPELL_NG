@@ -90,11 +90,7 @@ while ($dv = mysqli_fetch_array($gamesa)) {
     $games .= '<option value="' . $dv[ 'tag' ] . '">' . getinput($dv[ 'name' ]) . '</option>';
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;

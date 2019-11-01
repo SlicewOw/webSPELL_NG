@@ -123,8 +123,10 @@ if (isset($_GET[ 'delete' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    if ($_GET[ 'action' ] == "add") {
+$action = getAction();
+
+if (!empty($action)) {
+    if ($action == "add") {
         $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "faq_categories` ORDER BY `sort`");
         $faqcats = '<select class="form-control" name="faqcat">';
         while ($ds = mysqli_fetch_array($ergebnis)) {
@@ -211,7 +213,7 @@ if (isset($_GET[ 'action' ])) {
   </div>
     </form></div>
   </div>';
-	} else if ($_GET[ 'action' ] == "edit") {
+	} else if ($action == "edit") {
         $faqID = $_GET[ 'faqID' ];
 
         $ergebnis = safe_query("SELECT * FROM `" . PREFIX . "faq` WHERE `faqID` = '$faqID'");

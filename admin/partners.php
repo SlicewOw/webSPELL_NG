@@ -241,11 +241,7 @@ if (isset($_GET[ 'delete' ])) {
 
 $_language->readModule('partners', false, true);
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;

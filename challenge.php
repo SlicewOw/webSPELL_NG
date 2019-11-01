@@ -32,11 +32,7 @@ if (isset($site)) {
 $title_challenge = $GLOBALS["_template"]->replaceTemplate("title_challenge", array());
 echo $title_challenge;
 
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = "";
-}
+$action = getAction();
 
 $show = true;
 if ($action == "save" && isset($_POST['post'])) {

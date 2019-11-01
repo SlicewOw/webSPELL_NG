@@ -72,7 +72,9 @@ if (isset($_POST[ 'save' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
+$action = getAction();
+
+if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -163,7 +165,7 @@ if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "add") {
   </div>
   </form></div></div>';
 
-} else if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
+} else if ($action == "edit") {
     $_language->readModule('bbcode', true, true);
 
     $staticID = $_GET[ 'staticID' ];

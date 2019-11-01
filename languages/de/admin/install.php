@@ -1,6 +1,6 @@
 <?php
-if (isset($_GET['action'])) $action = $_GET['action'];
-else $action='';
+
+$action = getAction();
 
 $file_1 = 'install';
 $addonname = '<strong>Support Ticket Addon</strong>';

@@ -25,11 +25,8 @@
 ##########################################################################
 */
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = null;
-}
+$action = getAction();
+
 if ($action == "save") {
     $message = trim($_POST[ 'message' ]);
     $name = trim($_POST[ 'name' ]);

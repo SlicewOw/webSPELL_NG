@@ -31,11 +31,7 @@ if (isset($_GET[ 'ajax' ])) {
     include("_functions.php");
     chdir(getConstNameAdmin());
     if (isforumadmin($userID)) {
-        if (isset($_GET[ 'action' ])) {
-            $action = $_GET[ 'action' ];
-        } else {
-            $action = '';
-        }
+        $action = getAction();
         if ($action == "usergroups") {
             $user = (int)$_GET[ 'user' ];
             $group = $_GET[ 'group' ];
@@ -74,9 +70,11 @@ if (!isforumadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUr
     die($_language->module[ 'access_denied' ]);
 }
 
-if (isset($_GET[ 'action' ])) {
-    if ($_GET[ 'action' ] == 'show') {
-            $anz_users_page = 50;
+$action = getAction();
+
+if (!empty($action)) {
+    if ($action == 'show') {
+        $anz_users_page = 50;
     }
     $page = getPage();
     if (isset($_GET[ 'users' ])) {

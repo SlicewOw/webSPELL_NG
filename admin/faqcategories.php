@@ -97,8 +97,10 @@ if (isset($_GET[ 'delcat' ])) {
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    if ($_GET[ 'action' ] == "addcat") {
+$action = getAction();
+
+if (!empty($action)) {
+    if ($action == "addcat") {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
@@ -146,7 +148,7 @@ if (isset($_GET[ 'action' ])) {
     </form>
     </div>
   </div>';
-	 } else if ($_GET[ 'action' ] == "editcat") {
+	 } else if ($action == "editcat") {
         $faqcatID = $_GET[ 'faqcatID' ];
 
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "faq_categories WHERE faqcatID='$faqcatID'");

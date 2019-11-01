@@ -30,11 +30,7 @@ $_language->readModule('faq');
 $title_faq = $GLOBALS["_template"]->replaceTemplate("title_faq", array());
 echo $title_faq;
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "faqcat" && is_numeric($_GET[ 'faqcatID' ])) {
     if (ispageadmin($userID)) {

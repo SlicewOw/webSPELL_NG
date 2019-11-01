@@ -43,34 +43,26 @@ $updateserver = "https://update.webspell-nor.de/";
 // reading version
 include('../version.php');
 
-if (!isset($_GET[ 'action' ])) {
+$action = getAction();
+
+if (empty($action)) {
     if (!$getnew = file_get_contents($updateserver . "update.php?show=version")) {
         echo '<span><strong>' . $_language->module[ 'error' ] . '&nbsp;' . $updateserver . '.</strong></span>';
     } else {
         $latest = explode(".", $getnew);
         $ownversion = explode(".", $version);
 
-
         if ($latest[ 0 ] > $ownversion[ 0 ]) {
-            echo '<a href="admincenter.php?site=update&amp;action=update"><span style="color: #ff0000;">' .
-                $_language->module[ 'new_version' ] . '!</span></a>';
+            echo '<a href="admincenter.php?site=update&amp;action=update"><span style="color: #ff0000;">' . $_language->module[ 'new_version' ] . '!</span></a>';
         } else if ($latest[ 0 ] == $ownversion[ 0 ] && $latest[ 1 ] > $ownversion[ 1 ]) {
-            echo '<a href="admincenter.php?site=update&amp;action=update">' . $_language->module[ 'new_functions' ] .
-                '!</a>';
-        } else if ($latest[ 0 ] == $ownversion[ 0 ] &&
-            $latest[ 1 ] == $ownversion[ 1 ] && $latest[ 2 ] > $ownversion[ 2 ]
-        ) {
-            echo '<a href="admincenter.php?site=update&amp;action=update">' . $_language->module[ 'new_updates' ] .
-                '!</a>';
+            echo '<a href="admincenter.php?site=update&amp;action=update">' . $_language->module[ 'new_functions' ] . '!</a>';
+        } else if ($latest[ 0 ] == $ownversion[ 0 ] && $latest[ 1 ] == $ownversion[ 1 ] && $latest[ 2 ] > $ownversion[ 2 ] ) {
+            echo '<a href="admincenter.php?site=update&amp;action=update">' . $_language->module[ 'new_updates' ] . '!</a>';
         }
     }
 }
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "update") {
     //update server sends update information in following form:

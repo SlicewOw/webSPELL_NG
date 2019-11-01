@@ -131,11 +131,9 @@ if (isset($_POST[ 'save' ])) {
     }
 }
 
-if (!isset($_GET[ 'action' ])) {
-    $_GET[ 'action' ] = '';
-}
+$action = getAction();
 
-if ($_GET[ 'action' ] == "add") {
+if ($action == "add") {
     $filecats = generateFileCategoryOptions('<option value="0">' . $_language->module[ 'main' ] . '</option>', '- ');
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -168,7 +166,7 @@ if ($_GET[ 'action' ] == "add") {
   </div>
   </form></div>
   </div>';
-} else if ($_GET[ 'action' ] == "edit") {
+} else if ($action == "edit") {
     $filecatID = $_GET[ 'filecatID' ];
     $ergebnis = safe_query("SELECT * FROM " . PREFIX . "files_categorys WHERE filecatID='$filecatID'");
     $ds = mysqli_fetch_array($ergebnis);

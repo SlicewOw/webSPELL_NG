@@ -29,11 +29,9 @@ $_language->readModule('squads');
 
 $title_squads = $GLOBALS["_template"]->replaceTemplate("title_squads", array());
 echo $title_squads;
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = "";
-}
+
+$action = getAction();
+
 if ($action == "show") {
     if ($_GET[ 'squadID' ]) {
         $getsquad = 'WHERE squadID="' . (int)$_GET[ 'squadID' ] . '"';

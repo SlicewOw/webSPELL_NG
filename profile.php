@@ -32,11 +32,8 @@ if (isset($_GET[ 'id' ])) {
 } else {
     $id = $userID;
 }
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+
+$action = getAction();
 
 if (isset($id) && getnickname($id) != '') {
 

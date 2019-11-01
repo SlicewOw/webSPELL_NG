@@ -174,10 +174,12 @@ if (isset($_POST[ 'save' ]) && $_POST[ 'save' ]) {
     header("Location: index.php?site=cashbox&id=$id");
 }
 
+$action = getAction();
+
 if (!isclanmember($userID) && !iscashadmin($userID)) {
     echo $_language->module[ 'clanmembers_only' ];
 } else {
-    if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "new") {
+    if ($action == "new") {
         if (!iscashadmin($userID)) {
             die($_language->module[ 'no_access' ]);
         }
@@ -206,7 +208,7 @@ if (!isclanmember($userID) && !iscashadmin($userID)) {
         $data_array['$anz'] = $anz;
         $cash_box_new = $GLOBALS["_template"]->replaceTemplate("cash_box_new", $data_array);
         echo $cash_box_new;
-    } else if (isset($_GET[ 'action' ]) && $_GET[ 'action' ] == "edit") {
+    } else if ($action == "edit") {
         if (!iscashadmin($userID)) {
             die($_language->module[ 'no_access' ]);
         }

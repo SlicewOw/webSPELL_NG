@@ -30,11 +30,7 @@ $_language->readModule('members');
 $title_members = $GLOBALS["_template"]->replaceTemplate("title_members", array());
 echo $title_members;
 
-if (isset($_GET[ 'action' ])) {
-    $action = $_GET[ 'action' ];
-} else {
-    $action = '';
-}
+$action = getAction();
 
 if ($action == "show") {
     if (isset($_GET[ 'squadID' ])) {
