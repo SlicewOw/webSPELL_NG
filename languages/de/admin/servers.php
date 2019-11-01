@@ -44,7 +44,6 @@ $language_array = Array(
   'servers'=>'Server',
   'server_name'=>'Server Name',
   'sort'=>'Sortierung',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_sort'=>'sortieren'
 );
 

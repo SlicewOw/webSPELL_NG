@@ -31,7 +31,6 @@ $language_array = Array(
 
   'access_denied'=>'Access denied',
   'history'=>'Clan-History',
-  'transaction_invalid'=>'Transaction ID invalid',
   'update'=>'update',
   'you_can_use_html'=>'You can use HTML-Tags'
 );

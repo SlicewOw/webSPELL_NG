@@ -47,7 +47,6 @@ $language_array = Array(
   'present_icon'=>'aktuelles Symbol',
   'really_delete'=>'Diesen Smiley wirklich löschen?',
   'smilies'=>'Smilies',
-  'smiley_name'=>'Smiley Name',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'smiley_name'=>'Smiley Name'
 );
 

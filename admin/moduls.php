@@ -41,16 +41,11 @@ if (isset($_GET[ 'delete' ])) {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else if (isset($_POST[ 'sortieren' ])) {
-    $CAPCLASS = new \webspell\Captcha;
-    if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        $sort = $_POST[ 'sort' ];
-        foreach ($sort as $sortstring) {
-            $sorter = explode("-", $sortstring);
-            safe_query("UPDATE " . PREFIX . "moduls SET sort='".$sorter[1]."' WHERE modulID='".$sorter[0]."' ");
-        }
-    } else {
-        echo $_language->module[ 'transaction_invalid' ];
-    }
+  try {
+      sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sort' ], 'moduls', 'modulID');
+  } catch (Exception $e) {
+      echo generateAlert($e->getMessage(), 'alert-danger');
+  }
 } else if (isset($_POST[ 'save' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {

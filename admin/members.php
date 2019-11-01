@@ -33,19 +33,10 @@ if (!isuseradmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
 }
 
 if (isset($_POST[ 'sortieren' ])) {
-    $CAPCLASS = new \webspell\Captcha;
-    if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        if (isset($_POST[ 'sort' ])) {
-            $sort = $_POST[ 'sort' ];
-            if (is_array($sort)) {
-                foreach ($sort as $sortstring) {
-                    $sorter = explode("-", $sortstring);
-                    safe_query("UPDATE " . PREFIX . "squads_members SET sort='$sorter[1]' WHERE sqmID='$sorter[0]' ");
-                }
-            }
-        }
-    } else {
-        echo $_language->module[ 'transaction_invalid' ];
+    try {
+        sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sort' ], 'squads_members', 'sqmID');
+    } catch (Exception $e) {
+        echo generateAlert($e->getMessage(), 'alert-danger');
     }
 }
 

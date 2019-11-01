@@ -42,7 +42,6 @@ $language_array = Array(
   'new_language'=>'new Language',
   'preview'=>'Preview',
   'really_delete'=>'Really delete this Language?',
-  'title'=>'Title',
-  'transaction_invalid'=>'Transaction ID invalid'
+  'title'=>'Title'
 );
 

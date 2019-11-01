@@ -42,7 +42,6 @@ $language_array = Array(
   'new_contact'=>'neuer Kontakt',
   'really_delete'=>'Diesen Kontakt wirklich löschen?',
   'sort'=>'Sortierung',
-  'to_sort'=>'sortieren',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'to_sort'=>'sortieren'
 );
 

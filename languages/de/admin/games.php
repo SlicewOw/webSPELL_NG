@@ -46,7 +46,6 @@ $language_array = Array(
   'new_game'=>'neues Spiel',
   'no_entries'=>'Keine Einträge',
   'present_icon'=>'aktuelles Symbol',
-  'really_delete'=>'Dieses Spiel wirklich löschen?',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'really_delete'=>'Dieses Spiel wirklich löschen?'
 );
 

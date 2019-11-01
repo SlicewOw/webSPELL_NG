@@ -39,7 +39,6 @@ $language_array = Array(
   'information_incomplete'=>'Some information is missing.',
   'link_categories'=>'Link Categories',
   'new_category'=>'new Category',
-  'really_delete'=>'Really delete this Category and the Category Links?',
-  'transaction_invalid'=>'Transaction ID invalid'
+  'really_delete'=>'Really delete this Category and the Category Links?'
 );
 

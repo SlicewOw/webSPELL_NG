@@ -77,7 +77,6 @@ $language_array = Array(
   'tooltip_11'=>'<strong>Zugriff:</strong><br>- Clan-Kasse',
   'tooltip_12'=>'<strong>Zugriff:</strong><br>- Galerie Kategorien<br>- Galerien<br>- Bilder',
   'tooltip_13'=>'<strong>Zugriff:</strong><br>- voller Administrations Zugriff',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'user_admin'=>'Benutzer-Admin',
   'yes'=>'ja',
   'na'=>'n/a'

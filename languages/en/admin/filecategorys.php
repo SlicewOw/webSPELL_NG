@@ -42,7 +42,6 @@ $language_array = Array(
   'main'=>'Main',
   'new_category'=>'new Category',
   'really_delete'=>'Really delete this Category?',
-  'sub_category'=>'Sub-Category of',
-  'transaction_invalid'=>'Transaction ID invalid'
+  'sub_category'=>'Sub-Category of'
 );
 

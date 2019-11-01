@@ -128,6 +128,7 @@ if (isset($_POST[ 'savemods' ])) {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else if (isset($_POST[ 'sortieren' ])) {
+
     $sortcat = $_POST[ 'sortcat' ];
     $sortboards = $_POST[ 'sortboards' ];
     if (isset($_POST[ "hideboards" ])) {

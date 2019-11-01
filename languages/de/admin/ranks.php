@@ -41,7 +41,6 @@ $language_array = Array(
   'rank_icon'=>'Rang Symbol',
   'rank_name'=>'Rang Name',
   'really_delete'=>'Diesen Rang wirklich löschen?',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'update'=>'aktualisieren',
   'user_ranks'=>'Benutzer Ränge'
 );

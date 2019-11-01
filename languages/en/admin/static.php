@@ -45,7 +45,6 @@ $language_array = Array(
   'really_delete'=>'Really delete this Static Page?',
   'registered_only'=>'registered Users only',
   'static_pages'=>'Static Pages',
-  'transaction_invalid'=>'Transaction ID invalid',
   'you_can_use_html'=>'You can use HTML-Tags',
   'tags'=>'Tags'
 );

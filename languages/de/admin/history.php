@@ -31,7 +31,6 @@ $language_array = Array(
 
   'access_denied'=>'Zugriff verweigert',
   'history'=>'Werdegang',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'update'=>'aktualisieren',
   'you_can_use_html'=>'Du kannst HTML-Tags benutzen'
 );

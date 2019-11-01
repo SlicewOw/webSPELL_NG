@@ -175,7 +175,6 @@ $language_array = Array(
   'tooltip_60'=>'Enable user guestbooks on the website?',
   'tooltip_61'=>'What should the SC Demos Module show?',
   'tooltip_62'=>'What should the SC Files Module show?',
-  'transaction_invalid'=>'Transaction ID invalid',
   'upcoming_actions'=>'upcoming actions',
   'update'=>'update',
   'user_guestbook'=>'User Guestbooks'

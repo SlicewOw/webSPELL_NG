@@ -62,7 +62,6 @@ $language_array = Array(
   'tooltip_7'=>'Send HTML or Plain-text eMail',
   'tooltip_8'=>'Security protocol for SMTP',
   'tooltip_9'=>'Which Debug level?',
-  'transaction_invalid'=>'Transaction ID invalid',
   'type'=>'eMail method',
   'type_phpmail'=>'PHP mail()',
   'type_smtp'=>'SMTP',

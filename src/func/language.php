@@ -27,13 +27,21 @@
 namespace webspell;
 class Language
 {
+
     public $language = 'en';
     public $module = array();
+
     private $language_path = 'languages/';
+    private $is_admin_language = "false";
+    private $module_array = array();
+
     public function setLanguage($to, $admin = false, $pluginpath=false)
     {
         if ($admin) {
             $this->language_path = '../'.$this->language_path;
+            $this->is_admin_language = "true";
+        } else {
+            $this->is_admin_language = "false";
         }
         if ($pluginpath) {
             $this->language_path = $pluginpath.$this->language_path;
@@ -59,26 +67,29 @@ class Language
     {
         return $this->language_path;
     }
-    public function readModule($module, $add = false, $admin = false, $pluginpath=false)
+    public function readModule($module, $add=false, $admin=false, $pluginpath=false)
     {
         global $default_language;
+
         if ($admin && !$pluginpath) {
-            $langFolder = '../'.$this->language_path;
+            $langFolder = '../' . $this->language_path;
             $folderPath = '%s%s/admin/%s.php';
         } else if ($admin && $pluginpath) {
-            $langFolder = '../'.$pluginpath.$this->language_path;
+            $langFolder = '../' . $pluginpath.$this->language_path;
             $folderPath = '%s%s/admin/%s.php';
         } else if ($pluginpath) {
-            $langFolder = $pluginpath.$this->language_path;
+            $langFolder = $pluginpath . $this->language_path;
+            $folderPath = '%s%s/%s.php';
+        } else if (!$admin && is_dir('../languages/')) {
+            $langFolder = '../' . $this->language_path;
             $folderPath = '%s%s/%s.php';
         } else {
             $langFolder = $this->language_path;
             $folderPath = '%s%s/%s.php';
         }
-        $languageFallbackTable = array(
-                            $this->language,
-                            $default_language,
-                            'en');
+
+        $languageFallbackTable = array($this->language, $default_language, 'en');
+
         $module = str_replace(array('\\', '/', '.'), '', $module);
         foreach ($languageFallbackTable as $folder) {
             $path = sprintf($folderPath, $langFolder, $folder, $module);
@@ -87,18 +98,28 @@ class Language
                 break;
             }
         }
+
         if (!isset($module_file)) {
             return false;
         }
-        if (isset($module_file)) {
-            include($module_file);
-            if (!$add) {
-                $this->module = array();
-            }
-            foreach ($language_array as $key => $val) {
-                $this->module[ $key ] = $val;
-            }
+
+        $this->module_array[] = $module_file;
+
+        include($module_file);
+
+        if (!$add) {
+            $this->module = array();
         }
+
+        foreach ($language_array as $key => $val) {
+            $this->module[ $key ] = $val;
+        }
+
+        $formvalidation = 'formvalidation';
+        if (!in_array($formvalidation, $this->module_array) && ($module != $formvalidation)) {
+            $this->readModule($formvalidation, true, false, false);
+        }
+
         return true;
     }
     public function replace($template)

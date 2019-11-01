@@ -51,7 +51,6 @@ $language_array = Array(
   'no_entries'=>'No entries',
   'present_banner'=>'Present Banner',
   'really_delete'=>'Really delete this Banner?',
-  'transaction_invalid'=>'Transaction ID invalid',
   'yes'=>'Yes'
 );
 

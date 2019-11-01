@@ -39,7 +39,6 @@ $language_array = Array(
   'information_incomplete'=>'Angaben unvollständig.',
   'link_categories'=>'Link Kategorien',
   'new_category'=>'neue Kategorie',
-  'really_delete'=>'Diese Kategorie inkl. aller Links wirklich löschen?',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'really_delete'=>'Diese Kategorie inkl. aller Links wirklich löschen?'
 );
 

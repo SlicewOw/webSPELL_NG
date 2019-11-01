@@ -46,7 +46,6 @@ $language_array = Array(
   'really_delete'=>'Are you sure you want to delete this module?',
   'sort'=>'Sorting',
   'styles' => 'Styles',
-  'transaction_invalid'=>'Invalid transaction ID',
   'to_sort'=>'sort',
   'yes'=>'yes'
 );

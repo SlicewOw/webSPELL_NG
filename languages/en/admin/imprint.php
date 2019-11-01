@@ -33,7 +33,6 @@ $language_array = Array(
   'automatic'=>'Automatically',
   'imprint'=>'Imprint',
   'manual'=>'Manually (use the Textfield below)',
-  'transaction_invalid'=>'Transaction ID invalid',
   'update'=>'update',
   'you_can_use_html'=>'You can use HTML-Tags'
 );

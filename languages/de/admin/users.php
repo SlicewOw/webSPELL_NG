@@ -111,7 +111,6 @@ $language_array = Array(
   'status'=>'Status',
   'superadmin'=>'Superadministrator',
   'town'=>'Wohnort',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_clan'=>'zum Clan',
   'to_sort'=>'sortieren',
   'undo_ban'=>'entbannen',

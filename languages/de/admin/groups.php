@@ -41,7 +41,6 @@ $language_array = Array(
   'group_name'=>'Benutzergruppenname',
   'groups'=>'Forum Benutzergruppen',
   'new_group'=>'neue Benutzergruppe',
-  'really_delete'=>'Diese Benutzergruppe wirklich löschen?',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'really_delete'=>'Diese Benutzergruppe wirklich löschen?'
 );
 

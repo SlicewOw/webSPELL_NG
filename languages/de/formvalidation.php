@@ -39,5 +39,7 @@ $language_array = Array(
     'broken_image'=>'Die Bilddatei scheint kaputt zu sein',
     'unsupported_image_type'=>'Nicht unterstützter Bildtyp',
     'errors_there'=>'Es gibt Fehler',
-    'file_already_exists'=>'Datei existiert bereits'
+    'file_already_exists'=>'Datei existiert bereits',
+    'sort_array_empty'=>'Keine Daten zum Sortieren gefunden!',
+    'transaction_invalid'=>'Transaktions ID ung&uuml;ltig',
 );

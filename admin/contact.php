@@ -40,17 +40,10 @@ if (isset($_GET[ 'delete' ])) {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else if (isset($_POST[ 'sortieren' ])) {
-    $sortcontact = $_POST[ 'sortcontact' ];
-    $CAPCLASS = new \webspell\Captcha;
-    if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        if (is_array($sortcontact)) {
-            foreach ($sortcontact as $sortstring) {
-                $sorter = explode("-", $sortstring);
-                safe_query("UPDATE " . PREFIX . "contact SET sort='$sorter[1]' WHERE contactID='$sorter[0]' ");
-            }
-        }
-    } else {
-        echo $_language->module[ 'transaction_invalid' ];
+    try {
+      sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sortcontact' ], 'contact', 'contactID');
+    } catch (Exception $e) {
+      echo generateAlert($e->getMessage(), 'alert-danger');
     }
 } else if (isset($_POST[ 'save' ])) {
     $name = $_POST[ 'name' ];

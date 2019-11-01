@@ -43,7 +43,6 @@ $language_array = Array(
   'new_category'=>'neue Kategorie',
   'really_delete'=>'Diese Kategorie inkl. aller FAQs wirklich löschen?',
   'sort'=>'Sortierung',
-  'to_sort'=>'sortieren',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'to_sort'=>'sortieren'
 );
 

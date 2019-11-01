@@ -290,18 +290,11 @@ echo'<div class="panel panel-default">
   </form></div>
   </div>';
 } else if (isset($_POST[ 'sortieren' ])) {
-    $CAPCLASS = new \webspell\Captcha;
-    if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        $sort = $_POST[ 'sort' ];
-        if (is_array($sort)) {
-            foreach ($sort as $sortstring) {
-                $sorter = explode("-", $sortstring);
-                safe_query("UPDATE " . PREFIX . "sponsors SET sort='$sorter[1]' WHERE sponsorID='$sorter[0]' ");
-                redirect("admincenter.php?site=sponsors", "", 0);
-            }
-        }
-    } else {
-        echo $_language->module[ 'transaction_invalid' ];
+    try {
+        sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sort' ], 'sponsors', 'sponsorID');
+        redirect("admincenter.php?site=sponsors", "", 0);
+    } catch (Exception $e) {
+        echo generateAlert($e->getMessage(), 'alert-danger');
     }
 } else if (isset($_POST[ "save" ])) {
     $name = $_POST[ "name" ];

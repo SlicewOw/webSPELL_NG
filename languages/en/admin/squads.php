@@ -55,7 +55,6 @@ $language_array = Array(
   'squad_name'=>'Squad Name',
   'squad_type'=>'Squad Type',
   'squads'=>'Squads',
-  'transaction_invalid'=>'Transaction ID invalid',
   'to_sort'=>'sort'
 );
 

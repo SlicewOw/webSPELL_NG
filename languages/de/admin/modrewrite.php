@@ -37,7 +37,6 @@ $language_array = Array(
 	'replace'=>'Ersetzen',
 	'save_rule'=>'Regel speichern',
 	'edit_rule'=>'Regel bearbeiten',
-	'transaction_invalid'=>'Transaktions ID ungültig',
 	'modrewrite_settings'=>'ModRewrite Einstellungen',
 	'modrewrite_rules'=>'ModRewrite Regeln',
 	'apache_with_module'=>'Apache mit PHP-Modul',

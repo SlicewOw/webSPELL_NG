@@ -53,7 +53,6 @@ $language_array = Array(
   'carousel_link'=>'Carousel link',
   'carousels'=>'Carousels',
   'title'=>'Titel',
-  'transaction_invalid'=>'Transaktions ID ung&uuml;ltig',
   'to_sort'=>'sortieren',
   'yes'=>'Ja'
 );

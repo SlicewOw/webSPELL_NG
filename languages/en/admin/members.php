@@ -77,7 +77,6 @@ $language_array = Array(
   'tooltip_11'=>'<strong>Access:</strong><br>- Cash-Box',
   'tooltip_12'=>'<strong>Access:</strong><br>- Gallery Categories<br>- Galleries<br>- Pictures',
   'tooltip_13'=>'<strong>Access:</strong><br>- full Administration Access',
-  'transaction_invalid'=>'Transaction ID invalid',
   'user_admin'=>'User-Admin',
   'yes'=>'yes',
   'na'=>'n/a'

@@ -69,7 +69,6 @@ $language_array = Array(
   'really_delete_category'=>'Really delete this Category?',
   'really_delete_link'=>'Really delete this Link?',
   'sort'=>'Sort',
-  'transaction_invalid'=>'Transaction ID invalid',
   'to_sort'=>'sort',
   'url'=>'Url',
   'no_additional_links_available'=>'no additional links available'

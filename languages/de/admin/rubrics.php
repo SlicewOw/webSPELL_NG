@@ -43,7 +43,6 @@ $language_array = Array(
   'picture'=>'Bild',
   'picture_upload'=>'Bild Upload',
   'really_delete'=>'Diese Rubrik wirklich löschen?',
-  'rubric_name'=>'Rubrik Name',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'rubric_name'=>'Rubrik Name'
 );
 

@@ -57,7 +57,6 @@ $language_array = Array(
   'styles'=>'Stile',
   'stylesheet'=>'Stylesheet',
   'stylesheet_info'=>'Lösche keine Klassen, wenn du nicht 100%ig sicher bist, was du damit tust!',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'update'=>'aktualisieren',
   'win_color'=>'Gewonnen Schriftfarbe'
 );

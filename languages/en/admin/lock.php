@@ -36,7 +36,6 @@ $language_array = Array(
   'page_locked'=>'<strong>Page locked!</strong><br>Only Admins can access the Page now.',
   'page_unlocked'=>'<strong>Page unlocked!</strong>',
   'settings'=>'Settings',
-  'transaction_invalid'=>'Transaction ID invalid',
   'unlock'=>'unlock',
   'unlock_page'=>'Do you want to unlock the Page?',
   'you_can_use_html'=>'You can use HTML-Tags'

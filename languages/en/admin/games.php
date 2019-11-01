@@ -46,7 +46,6 @@ $language_array = Array(
   'new_game'=>'new Game',
   'no_entries'=>'No entries',
   'present_icon'=>'present Icon',
-  'really_delete'=>'Really delete this Game?',
-  'transaction_invalid'=>'Transaction ID invalid'
+  'really_delete'=>'Really delete this Game?'
 );
 

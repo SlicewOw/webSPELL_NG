@@ -49,7 +49,6 @@ $language_array = Array(
   'no_entries'=>'Keine Einträge',
   'present_icon'=>'aktuelles Symbol',
   'really_delete'=>'Dieses Land wirklich löschen?',
-  'shorthandle'=>'Kürzel',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'shorthandle'=>'Kürzel'
 );
 

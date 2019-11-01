@@ -40,7 +40,6 @@ $language_array = Array(
   'submit'=>'Bestätigen',
   'sql_query'=>'SQL Abfrage',
   'syntax_not_allowed'=>'Syntax nicht erlaubt!',
-  'upload'=>'Upload',
-  'transaction_invalid'=>'Transaktions ID ungültig'
+  'upload'=>'Upload'
 );
 

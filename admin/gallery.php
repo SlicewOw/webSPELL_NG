@@ -70,21 +70,13 @@ if ($part == "groups") {
             echo $_language->module[ 'transaction_invalid' ];
         }
     } else if (isset($_POST[ 'sort' ])) {
-        $CAPCLASS = new \webspell\Captcha;
-        if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-            if (isset($_POST[ 'sortlist' ]) && is_array($_POST[ 'sortlist' ])) {
-                foreach ($_POST[ 'sortlist' ] as $sortstring) {
-                    $sorter = explode("-", $sortstring);
-                    safe_query(
-                        "UPDATE " . PREFIX . "gallery_groups
-                        SET sort='$sorter[1]'
-                        WHERE groupID='$sorter[0]' "
-                    );
-                }
-            }
-        } else {
-            echo $_language->module[ 'transaction_invalid' ];
+
+        try {
+            sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sortlist' ], 'gallery_groups', 'groupID');
+        } catch (Exception $e) {
+            echo generateAlert($e->getMessage(), 'alert-danger');
         }
+
     } else if (isset($_GET[ 'delete' ])) {
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {

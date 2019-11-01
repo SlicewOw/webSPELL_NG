@@ -39,5 +39,7 @@ $language_array = Array(
     'broken_image'=>'The image file seems to be broken',
     'unsupported_image_type'=>'Unsupported image type',
     'errors_there'=>'There are errors',
-    'file_already_exists'=>'file already exists'
+    'file_already_exists'=>'file already exists',
+    'sort_array_empty'=>'no data found, cannot sort anything!',
+    'transaction_invalid'=>'Transaction ID invalid',
 );

@@ -50,7 +50,6 @@ $language_array = Array(
   'partners'=>'Partners',
   'really_delete'=>'Really delete this Partner?',
   'sort'=>'Sort',
-  'transaction_invalid'=>'Transaction ID invalid',
   'to_sort'=>'sort',
   'yes'=>'Yes'
 );

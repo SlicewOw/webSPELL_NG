@@ -56,7 +56,6 @@ $language_array = Array(
   'right_info_category'=>'Diese Benutzergruppe(n) hat/haben das Recht, die Foren-Kategorien zu sehen.<br>Wenn keine Benutzergruppe ausgewählt ist, kann jeder die Foren-Kategorien sehen.<br>Benutze STRG um mehrere auszuwählen oder zu deselektieren.',
   'select_moderators'=>'Moderatoren auswählen',
   'sort'=>'Sortierung',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_sort'=>'sortieren',
   'unselect_all'=>'alle deselektieren',
   'write_right'=>'Schreibrecht',

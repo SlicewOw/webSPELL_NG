@@ -164,19 +164,16 @@ if ($action == "add") {
 </form>
 </div></div>';
 } else if (isset($_POST[ 'sortieren' ])) {
-    $CAPCLASS = new \webspell\Captcha;
-    if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        $sort = $_POST[ 'sort' ];
-        if (is_array($sort)) {
-            foreach ($sort as $sortstring) {
-                $sorter = explode("-", $sortstring);
-                safe_query("UPDATE " . PREFIX . "carousel SET sort='$sorter[1]' WHERE carouselID='$sorter[0]' ");
-                redirect("admincenter.php?site=carousel", "", 0);
-            }
-        }
-    } else {
-        echo $_language->module[ 'transaction_invalid' ];
+
+    try {
+
+        sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sort' ], 'carousel', 'carouselID');
+        redirect("admincenter.php?site=carousel", "", 0);
+
+    } catch (Exception $e) {
+        echo generateAlert($e->getMessage(), 'alert-danger');
     }
+
 } else if (isset($_POST[ "save" ])) {
     $title = $_POST[ 'title' ];
     $link = $_POST[ 'link' ];

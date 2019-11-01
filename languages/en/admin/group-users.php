@@ -47,7 +47,6 @@ $language_array = Array(
   'select_all'=>'select all',
   'show'=>'show',
   'user_filter'=>'User Filter',
-  'users_from_group'=>'Users from Group',
-  'transaction_invalid'=>'Transaction ID invalid'
+  'users_from_group'=>'Users from Group'
 );
 

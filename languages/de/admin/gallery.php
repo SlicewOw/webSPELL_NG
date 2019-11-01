@@ -65,7 +65,6 @@ $language_array = Array(
   'really_delete_group'=>'Diese Gruppe wirklich löschen?',
   'really_delete_gallery'=>'Diese Galerie wirklich löschen?',
   'sort'=>'Sortierung',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_sort'=>'sortieren',
   'upload'=>'Upload',
   'usergalleries'=>'Benutzer-Galerien',

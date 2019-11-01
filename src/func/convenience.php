@@ -55,3 +55,40 @@ function shortenText($text, $text_length=255) {
     return $string;
 
 }
+
+/**
+ * Sort stuff in database
+ */
+function sortContentByParameters($captcha_hash, $sort_array, $table, $unique_identifier) {
+
+    global $_language;
+
+    $CAPCLASS = new \webspell\Captcha;
+    if (!$CAPCLASS->checkCaptcha(0, $captcha_hash)) {
+        throw new \InvalidArgumentException($_language->module[ 'transaction_invalid' ]);
+    }
+
+    if (!is_array($sort_array) || count($sort_array) < 1) {
+        throw new \InvalidArgumentException($_language->module[ 'sort_array_empty' ]);
+    }
+
+    foreach ($sort_array as $sortString) {
+
+        $sortKeyValueArray = explode("-", $sortString);
+
+        if (count($sortKeyValueArray) != 2) {
+            return;
+        }
+
+        $sort_value = (int)$sortKeyValueArray[1];
+        $sort_id = $sortKeyValueArray[0];
+
+        safe_query(
+            "UPDATE `" . PREFIX . $table . "`
+                SET `sort` = " . $sort_value . "
+                WHERE `" . $unique_identifier . "` = '" . $sort_id . "'"
+        );
+
+    }
+
+}

@@ -47,7 +47,6 @@ $language_array = Array(
   'sponsor'=>'Info',
   'clan_rules_name'=>'Überschrift',
   'sponsors'=>'Info',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_sort'=>'sortieren',
   'yes'=>'Ja'
 );

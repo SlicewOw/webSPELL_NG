@@ -43,7 +43,6 @@ $language_array = Array(
   'picture'=>'Picture',
   'picture_upload'=>'Picture Upload',
   'really_delete'=>'Really delete this Rubric?',
-  'rubric_name'=>'Rubric Name',
-  'transaction_invalid'=>'Transaction ID invalid'
+  'rubric_name'=>'Rubric Name'
 );
 

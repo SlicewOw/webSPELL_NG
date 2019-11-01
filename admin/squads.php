@@ -85,17 +85,10 @@ if (isset($_GET['delete'])) {
 }
 
 if (isset($_POST['sortieren'])) {
-    $CAPCLASS = new \webspell\Captcha;
-    if ($CAPCLASS->checkCaptcha(0, $_POST['captcha_hash'])) {
-        $sort = $_POST['sort'];
-        if (is_array($sort)) {
-            foreach ($sort as $sortstring) {
-                $sorter = explode("-", $sortstring);
-                safe_query("UPDATE " . PREFIX . "squads SET sort='$sorter[1]' WHERE squadID='$sorter[0]' ");
-            }
-        }
-    } else {
-        echo $_language->module['transaction_invalid'];
+    try {
+        sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sort' ], 'squads', 'squadID');
+    } catch (Exception $e) {
+        echo generateAlert($e->getMessage(), 'alert-danger');
     }
 }
 

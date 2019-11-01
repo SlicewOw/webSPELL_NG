@@ -36,7 +36,6 @@ $language_array = Array(
   'page_locked'=>'<strong>Seite gesperrt!</strong><br>Nur Admins haben jetzt Zugriff zur Seite.',
   'page_unlocked'=>'<strong>Seite entriegelt!</strong>',
   'settings'=>'Einstellungen',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'unlock'=>'entriegeln',
   'unlock_page'=>'Möchtest du die Seite entriegeln?',
   'you_can_use_html'=>'Du kannst HTML-Tags benutzen'

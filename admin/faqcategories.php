@@ -41,17 +41,10 @@ if (isset($_GET[ 'delcat' ])) {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else if (isset($_POST[ 'sortieren' ])) {
-    $sortfaqcat = $_POST[ 'sortfaqcat' ];
-    $CAPCLASS = new \webspell\Captcha;
-    if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        if (is_array($sortfaqcat)) {
-            foreach ($sortfaqcat as $sortstring) {
-                $sorter = explode("-", $sortstring);
-                safe_query("UPDATE " . PREFIX . "faq_categories SET sort='$sorter[1]' WHERE faqcatID='$sorter[0]' ");
-            }
-        }
-    } else {
-        echo $_language->module[ 'transaction_invalid' ];
+    try {
+      sortContentByParameters($_POST[ 'captcha_hash' ], $_POST[ 'sortfaqcat' ], 'faq_categories', 'faqcatID');
+    } catch (Exception $e) {
+      echo generateAlert($e->getMessage(), 'alert-danger');
     }
 } else if (isset($_POST[ 'savecat' ])) {
     $faqcatname = $_POST[ 'faqcatname' ];

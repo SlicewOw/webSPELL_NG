@@ -58,7 +58,6 @@ $language_array = Array(
   'really_delete'=>'Really delete this Banner?',
   'save'=>'save',
   'settings'=>'Settings',
-  'transaction_invalid'=>'Transaction ID invalid',
   'width'=>'Width',
   'yes'=>'Yes'
 );

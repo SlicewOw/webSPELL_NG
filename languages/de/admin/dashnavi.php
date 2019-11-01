@@ -68,7 +68,6 @@ $language_array = Array(
   'really_delete_category'=>'Diese Kategorie wirklich löschen?',
   'really_delete_link'=>'Diesen Link wirklich löschen?',
   'sort'=>'Sortierung',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_sort'=>'sortieren',
   'url'=>'Url',
   'no_additional_links_available'=>'Es gibt keine zusätzlichen Links'

@@ -58,7 +58,6 @@ $language_array = Array(
   'sponsor_name'=>'Sponsor Name',
   'sponsor_url'=>'Sponsor URL',
   'sponsors'=>'Sponsoren',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_sort'=>'sortieren',
   'yes'=>'Ja'
 );

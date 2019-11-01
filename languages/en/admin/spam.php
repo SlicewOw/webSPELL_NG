@@ -43,7 +43,6 @@ $language_array = Array(
   'ban_user'=>'ban user',
   'userid_must_be_numeric'=>'UserID must be numeric',
   'cant_delete_team_members'=>'Can\'t delete team members',
-  'transaction_invalid'=>'transaction invalid',
   'nickname'=>'Nickname',
   'register_date'=>'Reg. Date',
   'last_login'=>'Last Login',

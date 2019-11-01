@@ -47,7 +47,6 @@ $language_array = Array(
   'really_delete'=>'Dieses Modul wirklich löschen?',
   'sort'=>'Sortierung',
   'styles' => 'Stile',
-  'transaction_invalid'=>'Transaktions ID ungültig',
   'to_sort'=>'sortieren',
   'yes'=>'Ja'
 );

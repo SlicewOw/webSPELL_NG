@@ -56,7 +56,6 @@ $language_array = Array(
   'right_info_category'=>'This/These user group(s) is/are able to see the category.<br>If no user group is selected, everybody can see the category.<br>Use CTRL for multi select and unselect.',
   'select_moderators'=>'select Moderators',
   'sort'=>'Sort',
-  'transaction_invalid'=>'Transaction ID invalid',
   'to_sort'=>'sort',
   'unselect_all'=>'unselect all',
   'write_right'=>'Write-Right',
