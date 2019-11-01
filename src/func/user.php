@@ -348,8 +348,7 @@ function generatePasswordHash($password)
 //@info		refreshed by Team NOR
 //@autor	Getschonnik
 function gen_token() {
-	$tk = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 20);
-	return $tk;
+	return substr(str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 20);
 }
 function verify_token($post, $sess) {
 	if ($post==$sess) { return 1; } else { return 0; }

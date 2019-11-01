@@ -56,19 +56,22 @@ function isStaticPage($staticID = null)
 
 function generateAlert($text, $class = 'alert-warning', $dismissible = false)
 {
+
     $classes = 'alert ' . $class;
     if ($dismissible) {
         $classes .= ' alert-dismissible';
     }
-    $return = '<div class="' . $classes . '" role="alert">';
+
+    $return = '';
     if ($dismissible) {
         $return .= '<button type="button" class="close" data-dismiss="alert">';
         $return .= '<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>';
         $return .= '</button>';
     }
     $return .= $text;
-    $return .= '</div>';
-    return $return;
+
+    return '<div class="' . $classes . '" role="alert">' . $return . '</div>';
+
 }
 
 function generateErrorBox($message, $dismissible = false)

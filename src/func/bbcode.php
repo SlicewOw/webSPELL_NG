@@ -30,9 +30,7 @@ function unhtmlspecialchars($input)
     $input = preg_replace("/&gt;/i", ">", $input);
     $input = preg_replace("/&lt;/i", "<", $input);
     $input = preg_replace("/&quot;/i", "\"", $input);
-    $input = preg_replace("/&amp;/i", "&", $input);
-
-    return $input;
+    return preg_replace("/&amp;/i", "&", $input);
 }
 
 function replace_smileys($text)
@@ -46,9 +44,7 @@ function replace_smileys($text)
         $replacements_2[] = '[SMILE=' . $ds['alt'] . ']  '. $ds['name']. ' [/SMILE]';
     }
 
-    $text = strtr($text, array_combine($replacements_1, $replacements_2));
-
-    return $text;
+    return strtr($text, array_combine($replacements_1, $replacements_2));
 }
 
 function smileys($text, $specialchars = 0, $calledfrom = 'root')
@@ -170,9 +166,7 @@ function flags($text, $calledfrom = 'root')
         $text
     );
     $text = str_ireplace("[flag]", '', $text);
-    $text = str_ireplace("[/flag]", '', $text);
-
-    return $text;
+    return str_ireplace("[/flag]", '', $text);
 }
 
 //replace [code]-tags
@@ -224,15 +218,13 @@ function codereplace($content)
             }
         }
     }
-    $content = implode($splits);
-    return $content;
+    return implode($splits);
 }
 
 //replace inside [code]-tags
 function insideCode($content)
 {
 
-    global $userID;
     $code_entities_match = array(
         '#"#',
         '#<#',
@@ -275,17 +267,14 @@ function insideCode($content)
             $i++;
         }
     }
-    $content = '<ol>' . $codecontent . '</ol>';
-
-    return $content;
+    return '<ol>' . $codecontent . '</ol>';
 }
 
 //replace [img]-tags
 
 function imgreplace_callback($match)
 {
-    return '<img src="'.fixJavaEvents($match[1].$match[2]).'" border="0"'.
-            'alt="'.fixJavaEvents($match[1].$match[2]).'" />';
+    return '<img src="'.fixJavaEvents($match[1].$match[2]).'" border="0"'. 'alt="'.fixJavaEvents($match[1].$match[2]).'" />';
 }
 
 function imgreplace($content)
@@ -342,46 +331,46 @@ function imgreplace($content)
                 } else {
                     $size_h = $picsize_h;
                 }
-				#if (!isset($err)) {
-					if ($picinfo[0] > $size_l || $picinfo[1] > $size_h) {
-						if (isset($err)) {
-							$nfo = $err;
-						} else {
-							$nfo = '[i]' . $_language->module['auto_resize'] .
-							': ' . $picinfo[1] . 'x' . $picinfo[0] . 'px, ' . $format . '[/i]';
-						}
-						$content = str_ireplace(
-							'[img]' . $teil[2] . '[/img]',
-							'[url=' . $teil[2] . ']' .
-							'<div style="width: 100%;"><img src="' . fixJavaEvents($teil[2]) . '" width="' . $picsize_l .
-							'" alt="' . $teil[2] . '" /><br />('.$nfo.')[/url]</div>',
-							$content
-						);
-					} else if ($picinfo[0] > (2 * $size_l) || $picinfo[1] > (2 * $size_h)) {
-						if (isset($err)) {
-							$nfo = $err;
-						} else {
-							$nfo = $picinfo[1] . 'x' . $picinfo[0] . 'px, ' . $format;
-						}
-						$content = str_ireplace(
-							'<div style="width: 100%;">[img]' . $teil[2] . '[/img]',
-							'[url=' . $teil[2] . '][b]' . $_language->module['large_picture'] .
-							'[/b]<br />(' . $nfo . ')[/url]</div>',
-							$content
-						);
-					} else {
-						$content = preg_replace(
-							'#\[img\]' . preg_quote($teil[2], "#") . '\[/img\]#si',
-							'<div style="width: 100%;"><img ' .
-							'class="img-responsive" '.
-							'src="' . fixJavaEvents($teil[2]) . '" ' .
-							'alt="' . $teil[2] . '" ' .
-							'/></div>',
-							$content,
-							1
-						);
-					}
-				#}
+
+                if ($picinfo[0] > $size_l || $picinfo[1] > $size_h) {
+                    if (isset($err)) {
+                        $nfo = $err;
+                    } else {
+                        $nfo = '[i]' . $_language->module['auto_resize'] .
+                        ': ' . $picinfo[1] . 'x' . $picinfo[0] . 'px, ' . $format . '[/i]';
+                    }
+                    $content = str_ireplace(
+                        '[img]' . $teil[2] . '[/img]',
+                        '[url=' . $teil[2] . ']' .
+                        '<div style="width: 100%;"><img src="' . fixJavaEvents($teil[2]) . '" width="' . $picsize_l .
+                        '" alt="' . $teil[2] . '" /><br />('.$nfo.')[/url]</div>',
+                        $content
+                    );
+                } else if ($picinfo[0] > (2 * $size_l) || $picinfo[1] > (2 * $size_h)) {
+                    if (isset($err)) {
+                        $nfo = $err;
+                    } else {
+                        $nfo = $picinfo[1] . 'x' . $picinfo[0] . 'px, ' . $format;
+                    }
+                    $content = str_ireplace(
+                        '<div style="width: 100%;">[img]' . $teil[2] . '[/img]',
+                        '[url=' . $teil[2] . '][b]' . $_language->module['large_picture'] .
+                        '[/b]<br />(' . $nfo . ')[/url]</div>',
+                        $content
+                    );
+                } else {
+                    $content = preg_replace(
+                        '#\[img\]' . preg_quote($teil[2], "#") . '\[/img\]#si',
+                        '<div style="width: 100%;"><img ' .
+                        'class="img-responsive" '.
+                        'src="' . fixJavaEvents($teil[2]) . '" ' .
+                        'alt="' . $teil[2] . '" ' .
+                        '/></div>',
+                        $content,
+                        1
+                    );
+                }
+
             } else {
                 $n = str_replace('.', '', microtime(1)) . '_' . $i;
                 $n = str_replace(' ', '', $n);
@@ -425,15 +414,11 @@ function imgreplace($content)
 
 function youtubereplace($content) {
 	$content = preg_replace("/\[youtube\](?:http?:\/\/)?(?:https?:\/\/)(?:www\.)?youtu(?:\.be\/|be\.com\/watch\?v=)([A-Z0-9\-_]+)(?:&(.*?))?\[\/youtube\]/si", "<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" src=\"//www.youtube.com/embed/\\1\" frameborder=\"0\" class=\"embed-responsive-item\"></iframe></div>", $content);
-	$content = preg_replace("/\[youtube\]([A-Z0-9\-_]+)(?:&(.*?))?\[\/youtube\]/si", "<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" src=\"//www.youtube.com/embed/\\1\" frameborder=\"0\" class=\"embed-responsive-item\"></iframe></div>" ,$content);
-	return $content;
-
+	return preg_replace("/\[youtube\]([A-Z0-9\-_]+)(?:&(.*?))?\[\/youtube\]/si", "<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" src=\"//www.youtube.com/embed/\\1\" frameborder=\"0\" class=\"embed-responsive-item\"></iframe></div>" ,$content);
 }
 
 function gistreplace($content) {
-	$content = preg_replace("/\[gist\](.*?)\[\/gist\]/si", "<script src=\"https://gist.github.com/\\1.js\"></script>", $content);
-	return $content;
-
+	return preg_replace("/\[gist\](.*?)\[\/gist\]/si", "<script src=\"https://gist.github.com/\\1.js\"></script>", $content);
 }
 
 //replace [quote]-tags
@@ -441,10 +426,8 @@ function gistreplace($content) {
 function quotereplace($content)
 {
 
-    global $_language, $picsize_l, $picsize_h;
+    global $_language, $picsize_l;
     $_language->readModule('bbcode', true);
-    #$border = BORDER;
-    #$bg1 = BG_1;
 
     $content = preg_replace("#\[/quote\]([\n\r]*)#si", "[/quote]", $content);
 
@@ -484,25 +467,24 @@ function quotereplace($content)
 
     $content = preg_replace("#\[quote=(.*?)\]#si", "", $content);
     $content = str_replace('[quote]', '', $content);
-    $content = str_replace('[/quote]', '', $content);
-
-    return $content;
+    return str_replace('[/quote]', '', $content);
 
 }
 
 function cut_middle($str, $max = 50)
 {
     $strlen = mb_strlen($str);
-    if ($strlen > $max) {
-        $part1 = mb_substr($str, 0, $strlen / 2);
-        $part2 = mb_substr($str, $strlen / 2);
-        $part1 = mb_substr($part1, 0, ($max / 2) - 3) . "...";
-        $part2 = mb_substr($part2, -($max / 2));
-        $str = $part1 . $part2;
+    if ($strlen < $max) {
+        return $str;
     }
-    return $str;
-}
 
+    $part1 = mb_substr($str, 0, $strlen / 2);
+    $part2 = mb_substr($str, $strlen / 2);
+    $part1 = mb_substr($part1, 0, ($max / 2) - 3) . "...";
+    $part2 = mb_substr($part2, -($max / 2));
+    return $part1 . $part2;
+
+}
 
 function urlreplace_callback($match)
 {
@@ -521,12 +503,10 @@ function urlreplace_callback($match)
     return '<a href="'.fixJavaEvents($url).'" target="_blank">'.$match[2].'</a>';
 }
 
-
 function urlreplace($content)
 {
     $content = preg_replace("#\[url\](.*?)\[/url\]#i", "[url=\\1]\\1[/url]", $content);
-    $content = preg_replace_callback("#\[url=([^\]]*?)\](.*?)\[/url\]#si", "urlreplace_callback", $content);
-    return $content;
+    return preg_replace_callback("#\[url=([^\]]*?)\](.*?)\[/url\]#si", "urlreplace_callback", $content);
 }
 
 function linkreplace($link)
@@ -657,19 +637,11 @@ function align_callback($match)
 
 function smiley_callback($match)
 {
-    return
-        '<i ' .
-            'class="em em-' . removeIllegalCharacerts($match[2]) . '" ' .
-            'alt="' . removeIllegalCharacerts($match[1]) . '" ></span>';
+    return '<i ' . 'class="em em-' . removeIllegalCharacerts($match[2]) . '" ' . 'alt="' . removeIllegalCharacerts($match[1]) . '" ></span>';
 }
 
 function replacement($content, $bbcode = true)
 {
-    #$pagebg = PAGEBG;
-    #$border = BORDER;
-    #$bg1 = BG_1;
-    #$bghead = BGHEAD;
-    #$bgcat = BGCAT;
 
     if ($bbcode) {
         $content = codereplace($content);
@@ -720,9 +692,9 @@ function replacement($content, $bbcode = true)
         $content = preg_replace("#\[/center]#si", "</p>", $content);
 
     }
-    $content = preg_replace_callback("#\[SMILE=(.*?)\](.*?)\[/SMILE\]#si", "smiley_callback", $content);
 
-    return $content;
+    return preg_replace_callback("#\[SMILE=(.*?)\](.*?)\[/SMILE\]#si", "smiley_callback", $content);
+
 }
 
 function toggle($content, $id)
@@ -756,7 +728,6 @@ function toggle($content, $id)
         }
     }
 
-    $content = str_ireplace("[/toggle]", "", $content);
+    return str_ireplace("[/toggle]", "", $content);
 
-    return $content;
 }

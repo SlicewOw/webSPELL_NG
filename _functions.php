@@ -39,16 +39,14 @@ function makepagelink($link, $page, $pages, $sub = '')
         return '';
     }
 
-    $page_link = '<nav>
-  <ul class="pagination pagination-sm">';
+    $pageLinkArray = array();
 
     if ($page != 1) {
-        $page_link .=
-        '<li><a href="' . $link . '&amp;' . $sub . 'page=1">&laquo;</a></li> <li><a href="' . $link . '&amp;' . $sub .
-        'page=' . ($page - 1) . '">&lsaquo;</a></li>';
+        $pageLinkArray[] = '<li><a href="' . $link . '&amp;' . $sub . 'page=1">&laquo;</a></li>';
+        $pageLinkArray[] = '<li><a href="' . $link . '&amp;' . $sub . 'page=' . ($page - 1) . '">&lsaquo;</a></li>';
     }
     if ($page >= 6) {
-        $page_link .= '<li><a href="' . $link . '&amp;' . $sub . 'page=' . ($page - 5) . '">...</a></li>';
+        $pageLinkArray[] = '<li><a href="' . $link . '&amp;' . $sub . 'page=' . ($page - 5) . '">...</a></li>';
     }
     if ($page + 4 >= $pages) {
         $pagex = $pages;
@@ -60,22 +58,21 @@ function makepagelink($link, $page, $pages, $sub = '')
             $i = 1;
         }
         if ($i == $page) {
-            $page_link .= '<li class="active"><a href="#" aria-label="Previous"><span aria-hidden="true">' . $i . '</span></a></li>';
+            $pageLinkArray[] = '<li class="active"><a href="#" aria-label="Previous"><span aria-hidden="true">' . $i . '</span></a></li>';
         } else {
-            $page_link .= '<li><a href="' . $link . '&amp;' . $sub . 'page=' . $i . '">' . $i . '</a></li>';
+            $pageLinkArray[] = '<li><a href="' . $link . '&amp;' . $sub . 'page=' . $i . '">' . $i . '</a></li>';
         }
     }
     if (($pages - $page) >= 5) {
-        $page_link .= '<li><a href="' . $link . '&amp;' . $sub . 'page=' . ($page + 5) . '">...</a></li>';
+        $pageLinkArray[] = '<li><a href="' . $link . '&amp;' . $sub . 'page=' . ($page + 5) . '">...</a></li>';
     }
     if ($page != $pages) {
-        $page_link .=
-        '<li><a href="' . $link . '&amp;' . $sub . 'page=' . ($page + 1) . '">&rsaquo;</a>&nbsp;<a href="' .
-        $link . '&amp;' . $sub . 'page=' . $pages . '">&raquo;</a></li>';
+        $pageLinkArray[] = '<li><a href="' . $link . '&amp;' . $sub . 'page=' . ($page + 1) . '">&rsaquo;</a></li>';
+        $pageLinkArray[] = '<li><a href="' . $link . '&amp;' . $sub . 'page=' . $pages . '">&raquo;</a></li>';
     }
-    $page_link .= '</ul></nav>';
 
-    return $page_link;
+    return '<nav><ul class="pagination pagination-sm">' . implode('', $pageLinkArray) . '</ul></nav>';
+
 }
 
 function str_break($str, $maxlen)
@@ -120,20 +117,18 @@ function substri_count_array($haystack, $needle)
 function js_replace($string)
 {
     $output = preg_replace("/(\\\)/si", '\\\\\1', $string);
-    $output = str_replace(
+    return str_replace(
         array("\r\n", "\n", "'", "<script>", "</script>", "<noscript>", "</noscript>"),
         array("\\n", "\\n", "\'", "\\x3Cscript\\x3E", "\\x3C/script\\x3E", "\\x3Cnoscript\\x3E", "\\x3C/noscript\\x3E"),
         $output
     );
-    return $output;
 }
 
 function percent($sub, $total, $dec)
 {
     if ($sub) {
         $perc = $sub / $total * 100;
-        $perc = round($perc, $dec);
-        return $perc;
+        return round($perc, $dec);
     } else {
         return 0;
     }
@@ -381,9 +376,7 @@ function cleartext($text, $bbcode = true, $calledfrom = 'root')
     $text = flags($text, $calledfrom);
     $text = replacement($text, $bbcode);
     $text = htmlnl($text);
-    $text = nl2br($text);
-
-    return $text;
+    return nl2br($text);
 }
 
 function htmloutput($text)
@@ -393,9 +386,7 @@ function htmloutput($text)
     $text = flags($text);
     $text = replacement($text);
     $text = htmlnl($text);
-    $text = nl2br($text);
-
-    return $text;
+    return nl2br($text);
 }
 
 function clearfromtags($text)
@@ -403,25 +394,19 @@ function clearfromtags($text)
     $text = getinput($text);
     $text = strip_tags($text);
     $text = htmlnl($text);
-    $text = nl2br($text);
-
-    return $text;
+    return nl2br($text);
 }
 
 function getinput($text)
 {
-    $text = htmlspecialchars($text);
-
-    return $text;
+    return htmlspecialchars($text);
 }
 
 function getforminput($text)
 {
     $text = str_replace(array('\r', '\n'), array("\r", "\n"), $text);
     $text = stripslashes($text);
-    $text = htmlspecialchars($text);
-
-    return $text;
+    return getinput($text);
 }
 
 // -- LOGIN -- //

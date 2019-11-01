@@ -46,12 +46,11 @@ class Captcha
     {
         $col = str_replace("#", "", $col);
         $int = hexdec($col);
-        $return = array(
+        return array(
             "r" => 0xFF & $int >> 0x10,
             "g" => 0xFF & ($int >> 0x8),
             "b" => 0xFF & $int
         );
-        return $return;
     }
 
     /* constructor: set captcha type */

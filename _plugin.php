@@ -59,8 +59,7 @@ class plugin_manager {
 		}
 		try {
 			if (mysqli_num_rows($query)) {
-				$row = mysqli_fetch_array($query);
-				return $row;
+				return mysqli_fetch_array($query);
 			}
 		} catch (EXCEPTION $e) {
 			return $e->message();
