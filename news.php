@@ -126,6 +126,7 @@ if ($action == "new") {
     $data_array = array();
     $data_array['$rewriteBase'] = $rewriteBase;
     $data_array['$componentsCss'] = $componentsCss;
+    $data_array['$homepage_url'] = $hp_url;
     $data_array['$addbbcode'] = $addbbcode;
     $data_array['$addflags'] = $addflags;
     $data_array['$rubrics'] = $rubrics;
@@ -156,6 +157,7 @@ if ($action == "new") {
     $data_array['$componentsJs'] = $componentsJs;
     $news_post = $GLOBALS["_template"]->replaceTemplate("news_post", $data_array);
     echo $news_post;
+
 } else if ($action == "save") {
     include("_mysql.php");
     include("_settings.php");
@@ -738,6 +740,7 @@ if ($action == "new") {
     $data_array = array();
     $data_array['$rewriteBase'] = $rewriteBase;
     $data_array['$componentsCss'] = $componentsCss;
+    $data_array['$homepage_url'] = $hp_url;
     $data_array['$addbbcode'] = $addbbcode;
     $data_array['$addflags'] = $addflags;
     $data_array['$rubrics'] = $rubrics;

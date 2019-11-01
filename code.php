@@ -25,15 +25,15 @@
 ##########################################################################
 */
 
-include("_mysql.php");
-include("_settings.php");
-include("_functions.php");
+include(__DIR__ . "/_mysql.php");
+include(__DIR__ . "/_settings.php");
+include(__DIR__ . "/_functions.php");
 
 $_language->readModule('code');
 
-$componentsCss = generateComponents($components['css'], 'css');
 $data_array = array();
+$data_array['$homepage_url'] = $hp_url;
 $data_array['$rewriteBase'] = $rewriteBase;
-$data_array['$componentsCss'] = $componentsCss;
+$data_array['$componentsCss'] = generateComponents($components['css'], 'css');
 $bbcode = $GLOBALS["_template"]->replaceTemplate("bbcode", $data_array);
 echo $bbcode;
