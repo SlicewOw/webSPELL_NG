@@ -141,6 +141,61 @@ function getLanguagesAsOptions($selected_language='') {
 
 }
 
+function uploadFile($post_name, $filename, $filepath, $is_image_upload=true, $mime_types=array('image/jpeg', 'image/png', 'image/gif')) {
+
+    try {
+
+        global $_language;
+
+        $upload = new \webspell\HttpUpload($post_name);
+
+        if (!$upload->hasFile()) {
+            throw new \InvalidArgumentException($_language->module['no_image']);
+        } else if ($upload->hasError() !== false) {
+            throw new \InvalidArgumentException($upload->translateError());
+        } else if (!$upload->supportedMimeType($mime_types)) {
+            throw new \InvalidArgumentException($_language->module['unsupported_image_type']);
+        }
+
+        if ($is_image_upload) {
+
+            $imageInformation = getimagesize($upload->getTempFile());
+            if (!is_array($imageInformation)) {
+                throw new \InvalidArgumentException($_language->module['broken_image']);
+            }
+
+            switch ($imageInformation[2]) {
+                case 1:
+                    $endung = '.gif';
+                    break;
+                case 3:
+                    $endung = '.png';
+                    break;
+                default:
+                    $endung = '.jpg';
+                    break;
+            }
+
+            $file = $filename . $endung;
+
+        } else {
+            $file = $upload->getFileName();
+        }
+
+        if (!$upload->saveAs($filepath . $file, true)) {
+            throw new \InvalidArgumentException($_language->module['cannot_save_upload']);
+        }
+
+        @chmod($filepath . $file, 755);
+
+        return $file;
+
+    } catch (Exception $e) {
+        return false;
+    }
+
+}
+
 /**
  * Sort stuff in database
  */

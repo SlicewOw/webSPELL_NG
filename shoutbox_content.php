@@ -25,7 +25,7 @@
 ##########################################################################
 */
 
-$action = getAction();
+$action = (isset($_GET['action'])) ? $_GET['action'] : '';
 
 if ($action == "save") {
     $message = trim($_POST[ 'message' ]);

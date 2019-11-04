@@ -197,14 +197,11 @@ if ($action == "add") {
         $displayed = 0;
     }
 
-    //TODO: should be loaded from root language folder
-    $_language->readModule('formvalidation', true);
-
-    $upload = new \webspell\HttpUpload('banner');
-
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST['captcha_hash'])) {
+
         if ($bannername && $bannerurl) {
+
             if (!isWebURLorProtocolRelative($bannerurl)) {
                 $bannerurl = 'http://' . $bannerurl;
             }
@@ -231,53 +228,19 @@ if ($action == "add") {
 
             $errors = array();
 
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg', 'image/png', 'image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[2]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE
-                                        `" . PREFIX . "bannerrotation`
-                                    SET
-                                        `banner` = '" . $file . "'
-                                    WHERE
-                                        `bannerID` = '" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('banner', $id, $filepath)) {
+                safe_query(
+                    "UPDATE
+                        `" . PREFIX . "bannerrotation`
+                    SET
+                        `banner` = '" . $file . "'
+                    WHERE
+                        `bannerID` = '" . $id . "'"
+                );
             }
 
-            if (count($errors)) {
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            } else {
-                redirect("admincenter.php?site=bannerrotation", "", 0);
-            }
+            redirect("admincenter.php?site=bannerrotation", "", 0);
+
         } else {
             echo generateErrorBox($_language->module['fill_correctly']);
         }
@@ -298,6 +261,9 @@ if ($action == "add") {
             if (!isWebURLorProtocolRelative($bannerurl)) {
                 $bannerurl = 'http://' . $bannerurl;
             }
+
+            $id = (int) $_POST["bannerID"];
+
             safe_query(
                 "UPDATE
                             `" . PREFIX . "bannerrotation`
@@ -306,62 +272,22 @@ if ($action == "add") {
                             `bannerurl` = '" . $bannerurl . "',
                             `displayed` = '" . $displayed . "'
                         WHERE
-                            `bannerID` = '" . (int) $_POST["bannerID"] . "'"
+                            `bannerID` = '" . $id . "'"
             );
 
-            $errors = array();
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
-
-            $upload = new \webspell\HttpUpload('banner');
-
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg', 'image/png', 'image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[2]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = (int) $_POST["bannerID"] . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE
-                                        `" . PREFIX . "bannerrotation`
-                                    SET
-                                        `banner` = '" . $file . "'
-                                    WHERE
-                                        `bannerID` = '" . (int) $_POST["bannerID"] . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('banner', $id, $filepath)) {
+                safe_query(
+                    "UPDATE
+                        `" . PREFIX . "bannerrotation`
+                    SET
+                        `banner` = '" . $file . "'
+                    WHERE
+                        `bannerID` = '" . $id . "'"
+                );
             }
 
-            if (count($errors)) {
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            } else {
-                redirect("admincenter.php?site=bannerrotation", "", 0);
-            }
+            redirect("admincenter.php?site=bannerrotation", "", 0);
+
         } else {
             echo generateErrorBox($_language->module['fill_correctly']);
         }
