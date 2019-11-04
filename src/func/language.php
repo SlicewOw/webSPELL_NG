@@ -67,18 +67,23 @@ class Language
     {
         return $this->language_path;
     }
-    public function readModule($module, $add=false, $admin=false, $pluginpath=false)
+    public function readModule($module, $add=false, $admin=false, $pluginpath=false, $installpath=false)
     {
         global $default_language;
+
+        $module = str_replace(array('\\', '/', '.'), '', $module);
 
         if ($admin && !$pluginpath) {
             $langFolder = '../' . $this->language_path;
             $folderPath = '%s%s/admin/%s.php';
         } else if ($admin && $pluginpath) {
-            $langFolder = '../' . $pluginpath.$this->language_path;
+            $langFolder = '../' . $pluginpath . $this->language_path;
             $folderPath = '%s%s/admin/%s.php';
         } else if ($pluginpath) {
             $langFolder = $pluginpath . $this->language_path;
+            $folderPath = '%s%s/%s.php';
+        } else if ($installpath) {
+            $langFolder = '../install/' . $this->language_path;
             $folderPath = '%s%s/%s.php';
         } else if (!$admin && is_dir('../languages/')) {
             $langFolder = '../' . $this->language_path;
@@ -88,15 +93,29 @@ class Language
             $folderPath = '%s%s/%s.php';
         }
 
-        $languageFallbackTable = array($this->language, $default_language, 'en');
+        $languageFallbackTable = array();
+        if (!empty($this->language)) {
+            $languageFallbackTable[] = $this->language;
+        }
+        if (!empty($default_language)) {
+            $languageFallbackTable[] = $default_language;
+        }
+        if (!in_array('en', $languageFallbackTable)) {
+            $languageFallbackTable[] = 'en';
+        }
 
-        $module = str_replace(array('\\', '/', '.'), '', $module);
         foreach ($languageFallbackTable as $folder) {
+
+            if (empty($folder)) {
+                continue;
+            }
+
             $path = sprintf($folderPath, $langFolder, $folder, $module);
             if (file_exists($path)) {
                 $module_file = $path;
                 break;
             }
+
         }
 
         if (!isset($module_file)) {

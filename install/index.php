@@ -27,7 +27,9 @@
 
 session_name("ws_session");
 session_start();
+
 header('content-type: text/html; charset=utf-8');
+
 include("../src/func/language.php");
 include("../src/func/user.php");
 include("../version.php");
@@ -50,14 +52,14 @@ if (isset($_GET['lang'])) {
 }
 
 $_language->setLanguage($_SESSION['language']);
-$_language->readModule('index');
+$_language->readModule('index', false, false, false, true);
 
 $step = isset($_GET['step']) ? (int)$_GET['step'] : 0;
 if ($step < 1) {
     $step = 0;
 }
 
-$_language->readModule('step' . $step, true);
+$_language->readModule('step' . $step, true, false, false, true);
 
 ?>
 
