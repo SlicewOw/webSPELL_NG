@@ -632,52 +632,12 @@ if (!$userID) {
             $icq = getinput($ds['icq']);
             $homepage = getinput($ds['homepage']);
 
-            // Select all possible languages
-            $langdirs = '';
-            $filepath = "./languages/";
+            $default_language = (isset($ds['language']) && !empty($ds['language'])) ?
+                $ds['language'] : $_language->language;
 
-            $mysql_langs = array();
-            $query = safe_query("SELECT lang, language FROM " . PREFIX . "news_languages");
-            while ($sql_lang = mysqli_fetch_assoc($query)) {
-                $mysql_langs[$sql_lang['lang']] = $sql_lang['language'];
-            }
-            $langs = array();
-            if ($dh = opendir($filepath)) {
-                while ($file = mb_substr(readdir($dh), 0, 2)) {
-                    if ($file != "." && $file != ".." && is_dir($filepath . $file)) {
-                        if (isset($mysql_langs[$file])) {
-                            $name = $mysql_langs[$file];
-                            $name = ucfirst($name);
-                            $langs[$name] = $file;
-                        } else {
-                            $langs[$file] = $file;
-                        }
-                    }
-                }
-                closedir($dh);
-            }
-            ksort($langs, SORT_NATURAL);
-            foreach ($langs as $lang => $flag) {
-                $langdirs .= '<option value="' . $flag . '">' . $lang . '</option>';
-            }
+            $langdirs = getLanguagesAsOptions($default_language);
 
-            if ($ds['language']) {
-                $langdirs =
-                    str_replace(
-                        '"' . $ds['language'] . '"',
-                        '"' . $ds['language'] . '" selected="selected"',
-                        $langdirs
-                    );
-            } else {
-                $langdirs =
-                    str_replace(
-                        '"' . $_language->language . '"',
-                        '"' . $_language->language . '" selected="selected"',
-                        $langdirs
-                    );
-            }
-
-            $lang_flag = '[flag]' . $ds['language'] . '[/flag]';
+            $lang_flag = '[flag]' . $default_language . '[/flag]';
             $lang_country = flags($lang_flag);
             $lang_country = str_replace("<img", "<img id='lang_county'", $lang_country);
 

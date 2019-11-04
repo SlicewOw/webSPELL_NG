@@ -378,7 +378,7 @@ if ($action == "new") {
     echo $awards_info;
 } else {
     $page = getPage();
-    $sort = (isset($_GET[ 'sort' ]) && $_GET[ 'sort' ] == 'squadID') ? "squadID" : "date";
+    $sort = getSortOrderValue('date', array('date', 'squadID'));
     $type = getSortOrderType("DESC");
 
     if (isclanwaradmin($userID) || isnewsadmin($userID)) {

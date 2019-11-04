@@ -44,17 +44,7 @@ $gesamt = mysqli_num_rows($alle);
 $pages = ceil($gesamt / $maxusers);
 
 $page = getPage();
-$sort = "nickname";
-if (isset($_GET[ 'sort' ])) {
-    if ($_GET[ 'sort' ] === 'country' ||
-        $_GET[ 'sort' ] === 'nickname' ||
-        $_GET[ 'sort' ] === 'lastlogin' ||
-        $_GET[ 'sort' ] === 'registerdate'
-    ) {
-        $sort = $_GET[ 'sort' ];
-    }
-}
-
+$sort = getSortOrderValue('nickname', array('nickname', 'country', 'lastlogin', 'registerdate'));
 $type = getSortOrderType();
 
 $page_link = makepagelink("index.php?site=registered_users&amp;sort=$sort&amp;type=$type", $page, $pages);

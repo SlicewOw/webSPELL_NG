@@ -876,13 +876,7 @@ if ($action == "new") {
     echo $title_news;
 
     $page = getPage();
-    $sort = "date";
-    if (isset($_GET[ 'sort' ])) {
-        if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'poster') || ($_GET[ 'sort' ] == 'rubric')) {
-            $sort = $_GET[ 'sort' ];
-        }
-    }
-
+    $sort = getSortOrderValue('date', array('date', 'poster', 'rubric'));
     $type = getSortOrderType("DESC");
 
     $post = '';

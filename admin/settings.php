@@ -159,36 +159,6 @@ if (isset($_POST[ 'submit' ])) {
         $spamapiblockerror = '<input type="checkbox" name="spamapiblockerror" value="1" />';
     }
 
-    $langdirs = '';
-    $filepath = "../languages/";
-
-    $mysql_langs = array();
-    $query = safe_query("SELECT lang, language FROM " . PREFIX . "news_languages");
-    while ($sql_lang = mysqli_fetch_assoc($query)) {
-        $mysql_langs[ $sql_lang[ 'lang' ] ] = $sql_lang[ 'language' ];
-    }
-    $langs = array();
-    if ($dh = opendir($filepath)) {
-        while ($file = mb_substr(readdir($dh), 0, 2)) {
-            if ($file != "." && $file != ".." && is_dir($filepath . $file)) {
-                if (isset($mysql_langs[ $file ])) {
-                    $name = $mysql_langs[ $file ];
-                    $name = ucfirst($name);
-                    $langs[ $name ] = $file;
-                } else {
-                    $langs[ $file ] = $file;
-                }
-            }
-        }
-        closedir($dh);
-    }
-    ksort($langs, SORT_NATURAL);
-    foreach ($langs as $lang => $flag) {
-        $langdirs .= '<option value="' . $flag . '">' . $lang . '</option>';
-    }
-    $lang = $default_language;
-    $langdirs = str_replace('value="' . $lang . '"', 'value="' . $lang . '" selected="selected"', $langdirs);
-
     if ($ds[ 'insertlinks' ]) {
         $insertlinks = '<input type="checkbox" name="insertlinks" value="1" checked="checked"
         />';
@@ -968,7 +938,7 @@ if (isset($_POST[ 'submit' ])) {
 
                                         <div class="col-md-6">
                                             <span class="pull-right text-muted small"><em data-toggle="tooltip" title="<?php echo $_language->module[ 'tooltip_40' ]; ?>"><select class="form-control" name="language">
-                                                <?php echo $langdirs; ?>
+                                                <?php echo getLanguagesAsOptions($default_language); ?>
                                             </select></em></span>
                                         </div>
                                     </div>

@@ -65,6 +65,23 @@ function getSortOrderType($default_sort_order="ASC") {
 
 }
 
+function getSortOrderValue($default_sort_value, $allowed_sort_value_array) {
+
+    $value = $default_sort_value;
+
+    if (isset($_GET[ 'sort' ])) {
+
+        $tmp_value = $_GET[ 'sort' ];
+        if (in_array($tmp_value, $allowed_sort_value_array)) {
+            $value = $tmp_value;
+        }
+
+    }
+
+    return $value;
+
+}
+
 function shortenText($text, $text_length=255) {
 
     if (mb_strlen($text) > $text_length) {
@@ -75,6 +92,52 @@ function shortenText($text, $text_length=255) {
     }
 
     return $string;
+
+}
+
+function getLanguagesAsOptions($selected_language='') {
+
+    $filepath = __DIR__ . '/../../languages/';
+
+    $query = safe_query("SELECT lang, language FROM " . PREFIX . "news_languages");
+
+    $mysql_langs = array();
+    while ($sql_lang = mysqli_fetch_assoc($query)) {
+        $mysql_langs[ $sql_lang[ 'lang' ] ] = $sql_lang[ 'language' ];
+    }
+
+    $langs = array();
+    if ($dh = opendir($filepath)) {
+        while ($file = mb_substr(readdir($dh), 0, 2)) {
+            if ($file != "." && $file != ".." && is_dir($filepath . $file)) {
+                if (isset($mysql_langs[ $file ])) {
+                    $name = $mysql_langs[ $file ];
+                    $name = ucfirst($name);
+                    $langs[ $name ] = $file;
+                } else {
+                    $langs[ $file ] = $file;
+                }
+            }
+        }
+        closedir($dh);
+    }
+
+    ksort($langs, SORT_NATURAL);
+
+    $langdirs = '';
+    foreach ($langs as $lang => $flag) {
+        $langdirs .= '<option value="' . $flag . '">' . $lang . '</option>';
+    }
+
+    if (!empty($selected_language)) {
+        $langdirs = str_replace(
+            'value="' . $selected_language . '"',
+            'value="' . $selected_language . '" selected="selected"',
+            $langdirs
+        );
+    }
+
+    return $langdirs;
 
 }
 

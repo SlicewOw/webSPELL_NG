@@ -80,13 +80,13 @@ if (isset($_GET[ 'new_lang' ])) {
     $querystring = '';
     if ($modRewrite === true) {
         $path = rawurlencode(str_replace($GLOBALS[ 'rewriteBase' ], '', $_SERVER[ getConstNameRequestUri() ]));
-
     } else {
         $path = rawurlencode($_SERVER[ 'QUERY_STRING' ]);
         if (!empty($path)) {
             $path = "?".$path;
         }
     }
+
     if (!empty($path)) {
         $querystring = "&amp;query=" . $path;
     }

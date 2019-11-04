@@ -569,14 +569,7 @@ if ($action == "new") {
     $_language->readModule('articles');
 
     $page = getPage();
-    $sort = "date";
-    if (isset($_GET[ 'sort' ])) {
-        if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'poster') || ($_GET[ 'sort' ] == 'rating')
-            || ($_GET[ 'sort' ] == 'viewed')
-        ) {
-            $sort = $_GET[ 'sort' ];
-        }
-    }
+    $sort = getSortOrderValue('date', array('date', 'poster', 'rating', 'viewed'));
     $type = getSortOrderType("DESC");
 
     $title_articles = $GLOBALS["_template"]->replaceTemplate("title_articles", array());

@@ -167,18 +167,8 @@ if (isset($_POST['delete'])) {
         $gesamt = mysqli_num_rows($alle);
         $pages = 1;
         $page = getPage();
-        $sort = "date";
-        if (isset($_GET['sort'])) {
-            if (($_GET['sort'] == 'date') || ($_GET['sort'] == 'fromuser') || ($_GET['sort'] == 'title')) {
-                $sort = $_GET['sort'];
-            }
-        }
-        $type = 'DESC';
-        if (isset($_GET['type'])) {
-            if ($_GET['type'] == 'ASC') {
-                $type = 'ASC';
-            }
-        }
+        $sort = getSortOrderValue('date', array('date', 'fromuser', 'title'));
+        $type = getSortOrderType("DESC");
 
         if (isset($entries) && $entries > 0) {
             $max = (int)$entries;
@@ -314,12 +304,8 @@ if (isset($_POST['delete'])) {
         $pages = 1;
         $page = getPage();
         $sort = 'date';
-        $type = 'DESC';
-        if (isset($_GET['type'])) {
-            if ($_GET['type'] == 'ASC') {
-                $type = 'ASC';
-            }
-        }
+        $type = getSortOrderType("DESC");
+
         if (isset($entries) && $entries > 0) {
             $max = (int)$entries;
         } else {

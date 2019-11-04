@@ -47,11 +47,9 @@ if (isset($_REQUEST['addreply'])) {
 } else {
     $addreply = '';
 }
-if (isset($_GET['type'])) {
-    $type = (($_GET['type'] == 'ASC') || ($_GET['type'] == 'DESC')) ? $_GET['type'] : '';
-} else {
-    $type = '';
-}
+
+$type = getSortOrderType("DESC");
+
 if (isset($_GET['quoteID'])) {
     $quoteID = (int)$_GET['quoteID'];
 } else {

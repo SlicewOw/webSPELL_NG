@@ -168,7 +168,8 @@ if ($action == "save" && isset($_POST['post'])) {
         redirect('index.php?site=challenge', $_language->module['no_access'], 3);
     }
 }
-$type = (isset($_GET['type']) && $_GET['type'] == 'ASC') ? "ASC" : "DESC";
+
+$type = getSortOrderType("DESC");
 
 if ($show === true) {
     $squads = getgamesquads();

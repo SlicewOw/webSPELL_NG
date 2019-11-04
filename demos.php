@@ -427,15 +427,7 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
     $game = $_GET[ 'game' ];
 
     $page = getPage();
-    $sort = "date";
-    if (isset($_GET[ 'sort' ])) {
-        if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'game') || ($_GET[ 'sort' ] == 'league') ||
-            ($_GET[ 'sort' ] == 'rating') || ($_GET[ 'sort' ] == 'downloads')
-        ) {
-            $sort = $_GET[ 'sort' ];
-        }
-    }
-
+    $sort = getSortOrderValue('date', array('date', 'game', 'league', 'rating', 'downloads'));
     $type = getSortOrderType("DESC");
 
     if (isfileadmin($userID)) {
@@ -613,24 +605,11 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
     }
 } else {
     $page = getPage();
-    $sort = "date";
-    if (isset($_GET[ 'sort' ])) {
-        if ($_GET[ 'sort' ] == 'date'
-            || $_GET[ 'sort' ] == 'game'
-            || $_GET[ 'sort' ] == 'league'
-            || $_GET[ 'sort' ] == 'rating'
-            || $_GET[ 'sort' ] == 'downloads'
-        ) {
-            $sort = $_GET[ 'sort' ];
-        }
-    }
-
+    $sort = getSortOrderValue('date', array('date', 'game', 'league', 'rating', 'downloads'));
     $type = getSortOrderType("DESC");
 
     if (isfileadmin($userID)) {
-        echo
-            '<a href="index.php?site=demos&amp;action=new" class="btn btn-primary">' . $_language->module[ 'new_demo' ] .
-            '</a><br><br>';
+        echo '<a href="index.php?site=demos&amp;action=new" class="btn btn-primary">' . $_language->module[ 'new_demo' ] . '</a><br><br>';
     }
     $alle = safe_query("SELECT `demoID` FROM `" . PREFIX . "demos`");
     $gesamt = mysqli_num_rows($alle);

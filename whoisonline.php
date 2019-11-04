@@ -50,12 +50,7 @@ if ($guests == 1) {
 }
 
 $online = $_language->module[ 'now_online' ] . ' ' . $user_on . ' ' . $_language->module[ 'and' ] . ' ' . $guests_on;
-$sort = 'time';
-if (isset($_GET[ 'sort' ])) {
-    if ($_GET[ 'sort' ] == 'nickname') {
-        $sort = 'nickname';
-    }
-}
+$sort = getSortOrderValue('time', array('time', 'nickname'));
 $type = getSortOrderType("DESC");
 
 if ($type == "ASC") {

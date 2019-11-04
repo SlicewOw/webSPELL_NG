@@ -1160,15 +1160,7 @@ if ($action == "new") {
         }
     }
     $page = getPage();
-    $sort = "date";
-    if (isset($_GET[ 'sort' ])) {
-        if (($_GET[ 'sort' ] == 'date') || ($_GET[ 'sort' ] == 'game') || ($_GET[ 'sort' ] == 'squad')
-            || ($_GET[ 'sort' ] == 'oppcountry') || ($_GET[ 'sort' ] == 'league')
-        ) {
-            $sort = $_GET[ 'sort' ];
-        }
-    }
-
+    $sort = getSortOrderValue('date', array('date', 'game', 'squad', 'oppcountry', 'league'));
     $type = getSortOrderType("DESC");
 
     $squads = getgamesquads();
@@ -1375,20 +1367,11 @@ if ($action == "new") {
         echo $_language->module[ 'no_entries' ];
     }
 } else if (empty($action)) {
-    $page = getPage();
-    $sort = "date";
-    if (isset($_GET[ 'sort' ])) {
-        if ($_GET[ 'sort' ] == 'date'
-            || $_GET[ 'sort' ] == 'game'
-            || $_GET[ 'sort' ] == 'squad'
-            || $_GET[ 'sort' ] == 'oppcountry'
-            || $_GET[ 'sort' ] == 'league'
-        ) {
-            $sort = $_GET[ 'sort' ];
-        }
-    }
 
+    $page = getPage();
+    $sort = getSortOrderValue('date', array('date', 'game', 'squad', 'oppcountry', 'league'));
     $type = getSortOrderType("DESC");
+
     $squads = getgamesquads();
     $jumpsquads =
         str_replace('value="', 'value="index.php?site=clanwars&amp;action=showonly&amp;only=squad&amp;id=', $squads);

@@ -879,27 +879,27 @@ if ($action == "activate") {
     } else {
         $search = '';
     }
+
     $page = getPage();
     $type = getSortOrderType();
-    $sort = "nickname";
-    $status = false;
-    if (isset($_GET[ 'sort' ])) {
-        if (($_GET[ 'sort' ] == 'nickname') || ($_GET[ 'sort' ] == 'registerdate')) {
-            $sort = "u." . $_GET[ 'sort' ];
-        } else if ($_GET[ 'sort' ] == 'status') {
-            $sort = "if (	(SELECT super FROM " . PREFIX . "user_groups WHERE userID=u.userID LIMIT 0,1) = 1,'1',
-	  				if ( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND (page='1' OR
-	  				            forum='1' OR user='1' OR news='1' OR clanwars='1' OR feedback='1' OR super='1' OR
-	  				            gallery='1' OR cash='1' OR files='1') LIMIT 0,1) =u.userID,2,
-	  					if ( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND
-	  					    moderator='1' LIMIT 0,1) = u.userID, 3,
-	  						if ( 	(SELECT userID FROM " . PREFIX . "squads_members WHERE
-	  						userID=u.userID LIMIT 0,1) = u.userID,4,5 )
-	  					)
-	  				)
-	  			)";
-            $status = true;
-        }
+    $sort = getSortOrderValue('nickname', array('nickname', 'registerdate', 'status'));
+
+    if ($sort == 'status') {
+        $sort = "if (	(SELECT super FROM " . PREFIX . "user_groups WHERE userID=u.userID LIMIT 0,1) = 1,'1',
+                if ( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND (page='1' OR
+                            forum='1' OR user='1' OR news='1' OR clanwars='1' OR feedback='1' OR super='1' OR
+                            gallery='1' OR cash='1' OR files='1') LIMIT 0,1) =u.userID,2,
+                    if ( 	(SELECT userID FROM " . PREFIX . "user_groups WHERE userID=u.userID AND
+                        moderator='1' LIMIT 0,1) = u.userID, 3,
+                        if ( 	(SELECT userID FROM " . PREFIX . "squads_members WHERE
+                        userID=u.userID LIMIT 0,1) = u.userID,4,5 )
+                    )
+                )
+            )";
+        $status = true;
+    } else {
+        $sort = "u." . $sort;
+        $status = false;
     }
 
     if ($search != '') {
@@ -937,14 +937,9 @@ if ($action == "activate") {
         $CAPCLASS = new \webspell\Captcha;
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
-        if (!isset($_GET[ 'sort' ])) {
-            $_GET[ 'sort' ] = '';
-        }
-        if ($status === true) {
-            $sort = "status";
-        } else if (($_GET[ 'sort' ] == 'nickname') || ($_GET[ 'sort' ] == 'registerdate')) {
-            $sort = $_GET[ 'sort' ];
-        }
+
+        $sort = getSortOrderValue('nickname', array('nickname', 'registerdate', 'status'));
+
         if ($type == "ASC") {
             $sorter = '<a href="admincenter.php?site=users&amp;page=' . $page . '&amp;sort=' . $sort .
                 '&amp;type=DESC&amp;search=' . $search . '">' . $_language->module[ 'to_sort' ] .
