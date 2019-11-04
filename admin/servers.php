@@ -328,7 +328,9 @@ else {
     </table>
     </form>';
 	}
-	else echo $_language->module['no_server'];
+	else {
+    echo $_language->module['no_server'];
+  }
 }
 echo '</div></div>';
 ?>

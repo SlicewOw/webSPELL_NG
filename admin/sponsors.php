@@ -633,8 +633,9 @@ echo'<div class="panel panel-default">
       $i++;
 		}
 	}
-  else echo'<tr><td class="td1" colspan="6">'.$_language->module['no_entries'].'</td></tr>';
-
+  else {
+      echo'<tr><td class="td1" colspan="6">'.$_language->module['no_entries'].'</td></tr>';
+  }
   echo'<tr>
       <td class="td_head" colspan="6" align="right"><input type="hidden" name="captcha_hash" value="'.$hash.'" /><input class="btn btn-primary btn-xs" type="submit" name="sortieren" value="'.$_language->module['to_sort'].'" /></td>
     </tr>

@@ -49,15 +49,27 @@ header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');
 if ($function != null) {
-    if (isset($_SESSION['adminname'])) $adminname = $_SESSION['adminname'];
-    if (isset($_SESSION['adminpassword'])) $adminpassword = $_SESSION['adminpassword'];
-    if (isset($_SESSION['adminmail'])) $adminmail = $_SESSION['adminmail'];
-    if (isset($_SESSION['url'])) $url = $_SESSION['url'];
+
+    if (isset($_SESSION['adminname'])) {
+        $adminname = $_SESSION['adminname'];
+    }
+    if (isset($_SESSION['adminpassword'])) {
+        $adminpassword = $_SESSION['adminpassword'];
+    }
+    if (isset($_SESSION['adminmail'])) {
+        $adminmail = $_SESSION['adminmail'];
+    }
+    if (isset($_SESSION['url'])) {
+        $url = $_SESSION['url'];
+    }
+
     include('../_mysql.php');
+
     $_database = new mysqli($host, $user, $pwd, $db);
     $_database->autocommit(false);
     echo json_encode($function($_database));
     $_database->autocommit(true);
+
 } else {
     echo json_encode(array('status' => 'failed', 'message' => 'Unknown Method'));
 }

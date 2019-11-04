@@ -598,15 +598,9 @@ if ($action == "new") {
 
     $alle = safe_query("SELECT `articlesID` FROM `" . PREFIX . "articles` WHERE `saved`='1'");
     $gesamt = mysqli_num_rows($alle);
-    $pages = 1;
 
     $max = $maxarticles;
-
-    for ($n = $max; $n <= $gesamt; $n += $max) {
-        if ($gesamt > $n) {
-            $pages++;
-        }
-    }
+    $pages = getCountOfPages($gesamt, $max);
 
     $page_link = makepagelink("index.php?site=articles&amp;sort=" . $sort . "&amp;type=" . $type, $page, $pages);
 

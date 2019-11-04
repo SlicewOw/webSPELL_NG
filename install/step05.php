@@ -119,7 +119,8 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
         <input type="hidden" name="url" value="<?php echo $_POST['hp_url']; ?>">
 
         <?php
-        } else echo '<div class="row marketing">
+        } else {
+			echo '<div class="row marketing">
 						<div class="col-xs-12">
 							<ol class="breadcrumb">
 							  <li>' . $_language->module['step0'] . '</li>
@@ -143,5 +144,6 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
                 <div class="pull-right"><a class="btn btn-primary" href="javascript:document.ws_install.submit()">continue</a></div>
 			</div>
 		</div>
-    </div>';
+	</div>';
+		}
 ?>

@@ -296,15 +296,9 @@ if ($action == "add") {
 
     $alle=safe_query("SELECT countryID FROM ".PREFIX."countries");
   $gesamt = mysqli_num_rows($alle);
-  $pages=1;
 
-  $max='15';
-
-  for ($n=$max; $n<=$gesamt; $n+=$max) {
-    if ($gesamt>$n) {
-      $pages++;
-    }
-  }
+  $max = 15;
+  $pages = getCountOfPages($gesamt, $max);
 
   $page_link = makepagelink("admincenter.php?site=countries", $page, $pages);
 

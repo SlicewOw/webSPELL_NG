@@ -43,6 +43,16 @@ function getPage() {
 
 }
 
+function getCountOfPages($gesamt, $max) {
+    $pages = 1;
+    for ($n=$max; $n<=$gesamt; $n+=$max) {
+        if ($gesamt>$n) {
+            $pages++;
+        }
+    }
+    return $pages;
+}
+
 function shortenText($text, $text_length=255) {
 
     if (mb_strlen($text) > $text_length) {

@@ -195,25 +195,14 @@ else {
 
   $alle=safe_query("SELECT langID FROM ".PREFIX."news_languages");
   $gesamt = mysqli_num_rows($alle);
-  $pages=1;
 
-  $max='15';
-
-  for ($n=$max; $n<=$gesamt; $n+=$max) {
-    if ($gesamt>$n) $pages++;
-  }
+  $max = 15;
+  $pages = getCountOfPages($gesamt, $max);
 
   $page_link = makepagelink("admincenter.php?site=newslanguages", $page, $pages);
 
-  if ($page == "1") {
-    $ergebnis = safe_query("SELECT * FROM ".PREFIX."news_languages ORDER BY lang ASC LIMIT 0,$max");
-    $n=1;
-  }
-  else {
-    $start=$page*$max-$max;
-    $ergebnis = safe_query("SELECT * FROM ".PREFIX."news_languages ORDER BY lang ASC LIMIT $start,$max");
-    $n = ($gesamt+1)-$page*$max+$max;
-  }
+  $start = getStartValue($page, $max);
+  $ergebnis = safe_query("SELECT * FROM ".PREFIX."news_languages ORDER BY lang ASC LIMIT $start,$max");
 
    echo'<table class="table table-striped">
     <thead>

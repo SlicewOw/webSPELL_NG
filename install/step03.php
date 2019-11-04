@@ -102,18 +102,27 @@ if (function_exists('mb_substr')) {
 		sort($chmodfiles);
 		$error = array();
 		foreach ($chmodfiles as $file) {
-	if (!is_writable('../' . $file)) {
-		echo '-> ' . $file . '';
-	if (!@chmod('../' . $file, 0777)) $error[] = $file . '';
+			if (!is_writable('../' . $file)) {
+				echo '-> ' . $file;
+			}
+			if (!@chmod('../' . $file, 0777)) {
+				$error[] = $file;
+			}
 		}
-	}
+
 	?><?php
+
 		if (count($error)) {
+
 			sort($error);
 			echo '<span class="label label-danger">' . $_language->module['chmod_error'] . '</span>:';
-			foreach ($error as $value)
+			foreach ($error as $value) {
 				echo '<span class="label label-danger">' . $value . '</span>';
-			} else echo '<span class="label label-success">' . $_language->module['successful'] . '</span>';
+			}
+
+		} else {
+			echo '<span class="label label-success">' . $_language->module['successful'] . '</span>';
+		}
 		?></td>
 </tr>
 </table>
