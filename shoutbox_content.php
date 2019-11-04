@@ -98,12 +98,7 @@ if ($action == "save") {
     $pages = ceil($gesamt / $maxsball);
     $max = $maxsball;
     $page = getPage();
-    $type = 'DESC';
-    if (isset($_GET[ 'type' ])) {
-        if ($_GET[ 'type' ] == 'ASC') {
-            $type = 'ASC';
-        }
-    }
+    $type = getSortOrderType("DESC");
 
     $page_link = makepagelink("index.php?site=shoutbox_content&amp;action=showall&amp;type=$type", $page, $pages);
 

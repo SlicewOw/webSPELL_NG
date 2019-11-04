@@ -457,12 +457,7 @@ if (isset($id) && getnickname($id) != '') {
                         );
 
                     $page = getPage();
-                    $type = "DESC";
-                    if (isset($_GET[ 'type' ])) {
-                        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-                            $type = $_GET[ 'type' ];
-                        }
-                    }
+                    $type = getSortOrderType("DESC");
 
                     $pages = 1;
 

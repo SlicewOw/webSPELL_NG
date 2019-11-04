@@ -883,12 +883,7 @@ if ($action == "new") {
         }
     }
 
-    $type = "DESC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType("DESC");
 
     $post = '';
     $publish = '';

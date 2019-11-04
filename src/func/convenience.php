@@ -53,6 +53,18 @@ function getCountOfPages($gesamt, $max) {
     return $pages;
 }
 
+function getSortOrderType($default_sort_order="ASC") {
+
+    $type = $default_sort_order;
+
+    if (isset($_GET[ 'type' ]) && (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC'))) {
+        $type = $_GET[ 'type' ];
+    }
+
+    return $type;
+
+}
+
 function shortenText($text, $text_length=255) {
 
     if (mb_strlen($text) > $text_length) {

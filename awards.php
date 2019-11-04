@@ -221,7 +221,7 @@ if ($action == "new") {
     $squadID = $_GET[ 'squadID' ];
     $page = getPage();
     $sort = (isset($_GET[ 'page' ])) ? $_GET[ 'page' ] : "date";
-    $type = (isset($_GET[ 'type' ])) ? $_GET[ 'type' ] : "DESC";
+    $type = getSortOrderType("DESC");
 
     if (isclanwaradmin($userID) || isnewsadmin($userID)) {
         echo
@@ -379,7 +379,7 @@ if ($action == "new") {
 } else {
     $page = getPage();
     $sort = (isset($_GET[ 'sort' ]) && $_GET[ 'sort' ] == 'squadID') ? "squadID" : "date";
-    $type = (isset($_GET[ 'type' ]) && $_GET[ 'type' ] == 'ASC') ? "ASC" : "DESC";
+    $type = getSortOrderType("DESC");
 
     if (isclanwaradmin($userID) || isnewsadmin($userID)) {
         echo '<a href="index.php?site=awards&amp;action=new" class="btn btn-primary">' .

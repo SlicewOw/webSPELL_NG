@@ -880,12 +880,7 @@ if ($action == "activate") {
         $search = '';
     }
     $page = getPage();
-    $type = "ASC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType();
     $sort = "nickname";
     $status = false;
     if (isset($_GET[ 'sort' ])) {

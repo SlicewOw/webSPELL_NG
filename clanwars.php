@@ -1169,12 +1169,7 @@ if ($action == "new") {
         }
     }
 
-    $type = "DESC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType("DESC");
 
     $squads = getgamesquads();
 
@@ -1393,12 +1388,7 @@ if ($action == "new") {
         }
     }
 
-    $type = "DESC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType("DESC");
     $squads = getgamesquads();
     $jumpsquads =
         str_replace('value="', 'value="index.php?site=clanwars&amp;action=showonly&amp;only=squad&amp;id=', $squads);

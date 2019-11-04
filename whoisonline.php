@@ -56,12 +56,7 @@ if (isset($_GET[ 'sort' ])) {
         $sort = 'nickname';
     }
 }
-$type = 'DESC';
-if (isset($_GET[ 'type' ])) {
-    if ($_GET[ 'type' ] == 'ASC') {
-        $type = 'ASC';
-    }
-}
+$type = getSortOrderType("DESC");
 
 if ($type == "ASC") {
     $sorter =

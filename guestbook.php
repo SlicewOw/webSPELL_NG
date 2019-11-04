@@ -208,12 +208,7 @@ if (isset($_POST[ 'save' ])) {
     $gesamt = mysqli_num_rows(safe_query("SELECT gbID FROM " . PREFIX . "guestbook"));
 
     $page = getPage();
-    $type = "DESC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType("DESC");
     $pages = ceil($gesamt / $maxguestbook);
 
     $page_link = makepagelink("index.php?site=guestbook&amp;type=$type", $page, $pages);

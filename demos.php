@@ -436,12 +436,7 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
         }
     }
 
-    $type = "DESC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType("DESC");
 
     if (isfileadmin($userID)) {
         echo
@@ -630,12 +625,7 @@ value="' . $_language->module[ 'rate' ] . '" class="btn btn-default">
         }
     }
 
-    $type = "DESC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType("DESC");
 
     if (isfileadmin($userID)) {
         echo

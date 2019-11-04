@@ -55,12 +55,7 @@ if (isset($_GET[ 'sort' ])) {
     }
 }
 
-$type = "ASC";
-if (isset($_GET[ 'type' ])) {
-    if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-        $type = $_GET[ 'type' ];
-    }
-}
+$type = getSortOrderType();
 
 $page_link = makepagelink("index.php?site=registered_users&amp;sort=$sort&amp;type=$type", $page, $pages);
 

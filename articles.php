@@ -577,12 +577,7 @@ if ($action == "new") {
             $sort = $_GET[ 'sort' ];
         }
     }
-    $type = "DESC";
-    if (isset($_GET[ 'type' ])) {
-        if (($_GET[ 'type' ] == 'ASC') || ($_GET[ 'type' ] == 'DESC')) {
-            $type = $_GET[ 'type' ];
-        }
-    }
+    $type = getSortOrderType("DESC");
 
     $title_articles = $GLOBALS["_template"]->replaceTemplate("title_articles", array());
     echo $title_articles;
