@@ -138,8 +138,7 @@ if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
 
         // add this topic to unread
         safe_query(
-            "UPDATE " . PREFIX . "user SET topics=CONCAT(topics, '" . $topic . "|') WHERE topics NOT LIKE '%|" .
-            $topic . "|%'"
+            "UPDATE " . PREFIX . "user SET topics=CONCAT(topics, '" . $topic . "|') WHERE topics NOT LIKE '%|" . $topic . "|%'"
         ); // update unread topics, format: |oldstring| => |oldstring|topicID|
 
         $emails = array();

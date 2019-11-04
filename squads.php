@@ -60,8 +60,6 @@ if ($action == "show") {
         $challenge = '';
         $games = '';
 
-        #$border = BORDER;
-
         if ($ds[ 'gamesquad' ]) {
             $results = '<a href="index.php?site=clanwars&amp;action=showonly&amp;id=' . $squadID .
                 '&amp;sort=date&amp;only=squad" class="btn btn-primary">' . $_language->module[ 'results' ] . '</a>';

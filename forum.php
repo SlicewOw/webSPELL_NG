@@ -1215,13 +1215,13 @@ if (isset($_POST[ 'submit' ]) || isset($_POST[ 'movetopic' ]) || isset($_GET[ 'a
                 unset($array);
 
                 safe_query(
-                    "UPDATE " . PREFIX . "user SET topics=CONCAT(topics, '" . $id .
-                    "|')"
+                    "UPDATE " . PREFIX . "user SET topics=CONCAT(topics, '" . $id . "|')"
                 ); // update unread topics, format: |oldstring| => |oldstring|topicID|
 
                 if ($notify) {
                     safe_query("INSERT INTO " . PREFIX . "forum_notify (topicID, userID) VALUES ('$id', '$userID') ");
                 }
+
             } else {
                 safe_query(
                     "INSERT INTO " . PREFIX .
