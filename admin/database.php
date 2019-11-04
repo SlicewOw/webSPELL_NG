@@ -39,7 +39,7 @@ if (isset($_POST[ 'upload' ])) {
             $ret = mysqli_fetch_array($get);
             $db = $ret[ 0 ];
             //drop all tables from webSPELL DB
-            $result = mysqli_query($_database, "SHOW TABLES FROM " . $db);
+            $result = safe_query("SHOW TABLES FROM " . $db);
             while ($table = mysqli_fetch_array($result)) {
                 safe_query("DROP TABLE `" . $table[ 0 ] . "`");
             }
@@ -48,7 +48,7 @@ if (isset($_POST[ 'upload' ])) {
             move_uploaded_file($upload[ 'tmp_name' ], $tmpFile);
             $new_query = file($tmpFile);
             foreach ($new_query as $query) {
-                @mysqli_query($_database, $query);
+                safe_query($query);
             }
             @unlink($tmpFile);
         }
@@ -78,7 +78,7 @@ if ($action == "optimize") {
     $ret = mysqli_fetch_array($get);
     $db = $ret[ 0 ];
 
-    $result = mysqli_query($_database, "SHOW TABLES FROM " . $db);
+    $result = safe_query("SHOW TABLES FROM " . $db);
     while ($table = mysqli_fetch_array($result)) {
         safe_query("OPTIMIZE TABLE `" . $table[ 0 ] . "`");
     }
@@ -100,10 +100,10 @@ if ($action == "optimize") {
         $final .= "--   MySQL version: " . mysqli_get_server_info($_database) . "\n";
         $final .= "--   Date: " . date("r") . "\n";
 
-        $result = mysqli_query($_database, "SHOW TABLE STATUS");
+        $result = safe_query("SHOW TABLE STATUS");
         while ($table = mysqli_fetch_array($result, MYSQLI_BOTH)) {
             $i = 0;
-            $result2 = mysqli_query($_database, "SHOW COLUMNS FROM $table[0]");
+            $result2 = safe_query("SHOW COLUMNS FROM $table[0]");
             $z = mysqli_num_rows($result2);
             $final .=
                 "\n--\n-- webSPELL DB Export - Table structure for table `" . $table[ 0 ] . "`\n--\n\nCREATE TABLE `" .
@@ -147,7 +147,7 @@ if ($action == "optimize") {
             $final .= ") ENGINE=" . $table[ 1 ] . " DEFAULT CHARSET=" . $charset[ 0 ] . " COLLATE=" . $table[ 14 ] .
                 $auto_inc . ";\n\n--\n-- webSPELL DB Export - Dumping data for table `" . $table[ 0 ] . "`\n--\n";
 
-            $inhaltq = mysqli_query($_database, "SELECT * FROM $table[0]");
+            $inhaltq = safe_query("SELECT * FROM $table[0]");
             while ($inhalt = mysqli_fetch_array($inhaltq, MYSQLI_BOTH)) {
                 $final .= "\nINSERT INTO `$table[0]` (";
                 $final .= $insert_keys;

@@ -39,8 +39,7 @@ if (basename($_SERVER[ 'SCRIPT_FILENAME' ]) == basename("_rewrite.php")) {
     if (isset($_GET[ 'url' ])) {
         $url_parts = preg_split("/[\._\/-]/", $_GET[ 'url' ]);
         $first = $url_parts[ 0 ];
-        $get = mysqli_query(
-            $_database,
+        $get = safe_query(
             "SELECT * FROM " . PREFIX . "modrewrite WHERE ".
             "regex LIKE '%" . mysqli_real_escape_string($_database, $first) . "%' ORDER BY LENGTH(regex) ASC"
         );
