@@ -59,88 +59,23 @@ if (mysqli_num_rows($get) == 0) {
     if (!$closed_tmp && !isset($_SESSION[ 'ws_sessiontest' ])) {
         $error = $_language->module[ 'session_error' ];
     } else {
-        if ($anz) {
+
+        if (!$anz) {
+
+            $return->message = str_replace('%username%', htmlspecialchars($ws_email), $_language->module[ 'no_user' ]);
+            $return->code = 'no_user';
+            $reenter = true;
+
+        } else {
+
             $check = safe_query("SELECT * FROM " . PREFIX . "user WHERE email='" . $ws_email . "' AND activated='1'");
-            if (mysqli_num_rows($check)) {
+            if (mysqli_num_rows($check) != 1) {
+                $return->message = $_language->module[ 'not_activated' ];
+                $return->code = 'not_activated';
+            } else {
+
                 $ds = mysqli_fetch_array($check);
                 $login = 0;
-
-            // /!\ check (old) password
-            $ws_pwd = generatePasswordHash(stripslashes($_POST[ 'password' ]));
-            if (!empty($ds['password']) && !empty($_POST[ 'password' ])) {
-                if (hash_equals($ws_pwd, $ds[ 'password' ])) {
-                    $new_pepper = Gen_PasswordPepper();
-                    Set_PasswordPepper($new_pepper, $ds['userID']);
-                    $pass = Gen_PasswordHash($_POST['password'], $ds['userID']);
-                    safe_query("UPDATE " . PREFIX . "user SET password='', password_hash='" . $pass . "' WHERE userID='" . intval($ds['userID']) . "' LIMIT 1");
-                } else {
-
-                    $get = safe_query(
-                        "SELECT
-                            `wrong`
-                        FROM
-                            `" . PREFIX . "failed_login_attempts`
-                        WHERE
-                            `ip` = '" . $GLOBALS[ 'ip' ]."'"
-                    );
-                    if (mysqli_num_rows($get)) {
-                        safe_query(
-                            "UPDATE
-                                `" . PREFIX . "failed_login_attempts`
-                            SET
-                                `wrong` = wrong+1 WHERE ip = '" . $GLOBALS[ 'ip' ]."'"
-                        );
-                    } else {
-                        safe_query(
-                            "INSERT INTO
-                                `" . PREFIX . "failed_login_attempts` (
-                                    `ip`,
-                                    `wrong`
-                                )
-                                VALUES (
-                                    '" . $GLOBALS[ 'ip' ] . "',
-                                    1
-                                )"
-                        );
-                    }
-                    $get = safe_query(
-                        "SELECT
-                            `wrong`
-                        FROM
-                            `" . PREFIX . "failed_login_attempts`
-                        WHERE
-                            `ip` = '" . $GLOBALS[ 'ip' ]."'"
-                    );
-                    if (mysqli_num_rows($get)) {
-                        $ban = mysqli_fetch_assoc($get);
-                        if ($ban[ 'wrong' ] == $max_wrong_pw) {
-                            $bantime = time() + (60 * 60 * 3); // 3 hours
-                            safe_query(
-                                "INSERT INTO
-                                    `" . PREFIX . "banned_ips` (
-                                        `ip`,
-                                        `deltime`,
-                                        `reason`
-                                    )
-                                    VALUES (
-                                        '" . $GLOBALS[ 'ip' ] . "',
-                                        " . $bantime . ",
-                                        'Possible brute force attack'
-                                    )"
-                            );
-                            safe_query(
-                                "DELETE FROM
-                                    `" . PREFIX . "failed_login_attempts`
-                                WHERE
-                                    `ip` = '" . $GLOBALS[ 'ip' ]."'"
-                            );
-                        }
-                    }
-                    $reenter = true;
-                    $return->message = $_language->module[ 'invalid_password' ];
-                    $return->code = 'invalid_password';
-                }
-            }   // END OF OLD PASSWORD
 
                 // check new password
                 $ws_pwd = stripslashes($_POST[ 'password' ]).$ds['password_pepper'];
@@ -229,15 +164,10 @@ if (mysqli_num_rows($get) == 0) {
                     $return->code = 'invalid_password';
                 }
 
-            } else {
-                $return->message = $_language->module[ 'not_activated' ];
-                $return->code = 'not_activated';
             }
-        } else {
-            $return->message = str_replace('%username%', htmlspecialchars($ws_email), $_language->module[ 'no_user' ]);
-            $return->code = 'no_user';
-            $reenter = true;
+
         }
+
     }
 } else {
     $data = mysqli_fetch_assoc($get);
