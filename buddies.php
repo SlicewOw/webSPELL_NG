@@ -25,18 +25,26 @@
 ##########################################################################
 */
 
-$action = getAction();
+$action = (isset($_GET['action'])) ? $_GET['action'] : '';
 
-if ($action == "add") {
+if (!empty($action)) {
+
     include("_mysql.php");
     include("_settings.php");
     include("_functions.php");
+
+    $action = getAction();
+
     $_language->readModule('buddys');
+
     if (!$userID) {
         redirect('index.php?site=buddies', $_language->module[ 'not_logged' ], 3);
     } else if (!isset($_GET[ 'id' ]) || !is_numeric($_GET[ 'id' ])) {
         redirect('index.php?site=buddies', $_language->module[ 'add_nouserid' ], 3);
-    } else {
+    }
+
+    if ($action == "add") {
+
         if ($_GET[ 'id' ] == $userID) {
             redirect('index.php?site=buddies', $_language->module[ 'add_yourself' ], 3);
             die();
@@ -62,17 +70,9 @@ if ($action == "add") {
         } else {
             redirect('index.php?site=buddies', $_language->module[ 'add_notexists' ], 3);
         }
-    }
-} else if ($action == "ignore") {
-    include("_mysql.php");
-    include("_settings.php");
-    include("_functions.php");
-    $_language->readModule('buddys');
-    if (!$userID) {
-        redirect('index.php?site=buddies', $_language->module[ 'not_logged' ], 3);
-    } else if (!isset($_GET[ 'id' ]) || !is_numeric($_GET[ 'id' ])) {
-        redirect('index.php?site=buddies', $_language->module[ 'add_nouserid' ], 3);
-    } else {
+
+    } else if ($action == "ignore") {
+
         if ($_GET[ 'id' ] == $userID) {
             redirect('index.php?site=buddies', $_language->module[ 'add_yourself' ], 3);
             die();
@@ -101,38 +101,24 @@ if ($action == "add") {
         } else {
             redirect('index.php?site=buddies', $_language->module[ 'add_notexists' ], 3);
         }
-    }
-} else if ($action == "readd") {
-    include("_mysql.php");
-    include("_settings.php");
-    include("_functions.php");
-    $_language->readModule('buddys');
-    if (!$userID) {
-        redirect('index.php?site=buddies', $_language->module[ 'not_logged' ], 3);
-    } else if (!isset($_GET[ 'id' ]) || !is_numeric($_GET[ 'id' ])) {
-        redirect('index.php?site=buddies', $_language->module[ 'add_nouserid' ], 3);
-    } else {
+
+    } else if ($action == "readd") {
+
         safe_query(
             "UPDATE " . PREFIX . "buddys SET banned='0' WHERE userID='$userID' AND buddy='" . (int)$_GET[ 'id' ] . "'"
         );
         header("Location: index.php?site=buddies");
-    }
-} else if ($action == "delete") {
-    include("_mysql.php");
-    include("_settings.php");
-    include("_functions.php");
-    $_language->readModule('buddys');
-    if (!$userID) {
-        redirect('index.php?site=buddies', $_language->module[ 'not_logged' ], 3);
-    } else if (!isset($_GET[ 'id' ]) || !is_numeric($_GET[ 'id' ])) {
-        redirect('index.php?site=buddies', $_language->module[ 'add_nouserid' ], 3);
-    } else {
+
+    } else if ($action == "delete") {
+
         safe_query(
             "DELETE FROM " . PREFIX . "buddys WHERE userID='$userID' AND buddy='" . (int)$_GET[ 'id' ] . "'"
         );
         header("Location: index.php?site=buddies");
+
     }
-} else if ($userID) {
+
+} else  if ($userID) {
     $_language->readModule('buddys');
 
     $title_buddys = $GLOBALS["_template"]->replaceTemplate("title_buddys", array());

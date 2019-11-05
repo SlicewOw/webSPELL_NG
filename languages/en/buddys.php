@@ -36,6 +36,8 @@ $language_array = array(
     'buddys' => 'buddys',
     'ignore_nousers' => 'You have no users in your ignore list',
     'not_logged' => 'To manage your friends you have to be registered and logged in.<br><a href="index.php?site=register">Register</a> | <a href="index.php?site=login">Login</a>',
+    'offline'=>'offline',
+    'online'=>'online',
     'your_buddylist' => 'Your friends list',
     'your_ignorelist' => 'Your ignore list'
 );
