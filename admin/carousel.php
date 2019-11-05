@@ -189,56 +189,19 @@ if ($action == "add") {
 
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-    safe_query("INSERT INTO `".PREFIX."carousel` (title, link, description, displayed, sort) values ('".$title."', '".$link."', '".$description."', '".intval($displayed)."','1')");
+
+        safe_query("INSERT INTO `".PREFIX."carousel` (title, link, description, displayed, sort) values ('".$title."', '".$link."', '".$description."', '".intval($displayed)."','1')");
 
         $id = mysqli_insert_id($_database);
 
-        $errors = array();
-
-        $upload = new \webspell\HttpUpload('carousel_pic');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        switch ($imageInformation[ 2 ]) {
-                            case 1:
-                                $endung = '.gif';
-                                break;
-                            case 3:
-                                $endung = '.png';
-                                break;
-                            default:
-                                $endung = '.jpg';
-                                break;
-                        }
-                        $file = $id.$endung;
-
-                        if ($upload->saveAs($filepath.$file, true)) {
-                            @chmod($file, $new_chmod);
-                            safe_query(
-                                "UPDATE " . PREFIX . "carousel SET carousel_pic='" . $file . "' WHERE carouselID='" . $id . "'"
-                            );
-                        }
-                    } else {
-                        $errors[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $errors[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $errors[] = $upload->translateError();
-            }
+        if ($file = uploadFile('carousel_pic', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "carousel SET carousel_pic='" . $file . "' WHERE carouselID='" . $id . "'"
+            );
         }
-        if (count($errors)) {
-            $errors = array_unique($errors);
-            echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-        } else {
-            redirect("admincenter.php?site=carousel", "", 0);
-        }
+
+        redirect("admincenter.php?site=carousel", "", 0);
+
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
@@ -264,52 +227,14 @@ if ($action == "add") {
 
         $id = $_POST[ 'carouselID' ];
 
-        $errors = array();
-
-        $upload = new \webspell\HttpUpload('carousel_pic');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        switch ($imageInformation[ 2 ]) {
-                            case 1:
-                                $endung = '.gif';
-                                break;
-                            case 3:
-                                $endung = '.png';
-                                break;
-                            default:
-                                $endung = '.jpg';
-                                break;
-                        }
-                        $file = $id.$endung;
-
-                        if ($upload->saveAs($filepath.$file, true)) {
-                            @chmod($file, $new_chmod);
-                            safe_query(
-                                "UPDATE " . PREFIX . "carousel SET carousel_pic='" . $file . "' WHERE carouselID='" . $id . "'"
-                            );
-                        }
-                    } else {
-                        $errors[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $errors[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $errors[] = $upload->translateError();
-            }
+        if ($file = uploadFile('carousel_pic', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "carousel SET carousel_pic='" . $file . "' WHERE carouselID='" . $id . "'"
+            );
         }
-        if (count($errors)) {
-            $errors = array_unique($errors);
-            echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-        } else {
-            redirect("admincenter.php?site=carousel", "", 0);
-        }
+
+        redirect("admincenter.php?site=carousel", "", 0);
+
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }

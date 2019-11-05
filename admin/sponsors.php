@@ -316,104 +316,30 @@ echo'<div class="panel panel-default">
 
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
+
         safe_query(
-            "INSERT INTO " . PREFIX .
-            "sponsors (sponsorID, name, url, info, displayed, mainsponsor, date, sort) values('', '" . $name . "', '" .
-            $url . "', '" . $info . "', '" . $displayed . "', '" . $mainsponsor . "', '" . time() . "', '1')"
+            "INSERT INTO " . PREFIX . "sponsors
+                (sponsorID, name, url, info, displayed, mainsponsor, date, sort)
+                VALUES
+                ('', '" . $name . "', '" . $url . "', '" . $info . "', '" . $displayed . "', '" . $mainsponsor . "', '" . time() . "', '1')"
         );
 
         $id = mysqli_insert_id($_database);
 
-        $errors = array();
-
-        //TODO: should be loaded from root language folder
-        $_language->readModule('formvalidation', true);
-
-        $upload = new \webspell\HttpUpload('banner');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        switch ($imageInformation[ 2 ]) {
-                            case 1:
-                                $endung = '.gif';
-                                break;
-                            case 3:
-                                $endung = '.png';
-                                break;
-                            default:
-                                $endung = '.jpg';
-                                break;
-                        }
-                        $file = $id.$endung;
-
-                        if ($upload->saveAs($filepath.$file, true)) {
-                            @chmod($file, $new_chmod);
-                            safe_query(
-                                "UPDATE " . PREFIX . "sponsors SET banner='" . $file . "' WHERE sponsorID='" . $id . "'"
-                            );
-                        }
-                    } else {
-                        $errors[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $errors[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $errors[] = $upload->translateError();
-            }
+        if ($file = uploadFile('banner', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "sponsors SET banner='" . $file . "' WHERE sponsorID='" . $id . "'"
+            );
         }
 
-        $upload = new \webspell\HttpUpload('banner_small');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        switch ($imageInformation[ 2 ]) {
-                            case 1:
-                                $endung = '.gif';
-                                break;
-                            case 3:
-                                $endung = '.png';
-                                break;
-                            default:
-                                $endung = '.jpg';
-                                break;
-                        }
-                        $file = $id.'_small'.$endung;
-
-                        if ($upload->saveAs($filepath.$file, true)) {
-                            @chmod($file, $new_chmod);
-                            safe_query(
-                                "UPDATE " . PREFIX . "sponsors SET banner_small='" . $file . "'
-                                WHERE sponsorID='" . $id . "'"
-                            );
-                        }
-                    } else {
-                        $errors[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $errors[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $errors[] = $upload->translateError();
-            }
+        if ($file = uploadFile('banner_small', $id . '_small', $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "sponsors SET banner_small='" . $file . "' WHERE sponsorID='" . $id . "'"
+            );
         }
 
-        if (count($errors)) {
-            $errors = array_unique($errors);
-            echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-        } else {
-            redirect("admincenter.php?site=sponsors", "", 0);
-        }
+        redirect("admincenter.php?site=sponsors", "", 0);
+
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }
@@ -444,96 +370,20 @@ echo'<div class="panel panel-default">
 
         $id = $_POST[ 'sponsorID' ];
 
-        $errors = array();
-
-        //TODO: should be loaded from root language folder
-        $_language->readModule('formvalidation', true);
-
-        $upload = new \webspell\HttpUpload('banner');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        switch ($imageInformation[ 2 ]) {
-                            case 1:
-                                $endung = '.gif';
-                                break;
-                            case 3:
-                                $endung = '.png';
-                                break;
-                            default:
-                                $endung = '.jpg';
-                                break;
-                        }
-                        $file = $id.$endung;
-
-                        if ($upload->saveAs($filepath.$file, true)) {
-                            @chmod($file, $new_chmod);
-                            safe_query(
-                                "UPDATE " . PREFIX . "sponsors SET banner='" . $file . "' WHERE sponsorID='" . $id . "'"
-                            );
-                        }
-                    } else {
-                        $errors[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $errors[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $errors[] = $upload->translateError();
-            }
+        if ($file = uploadFile('banner', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "sponsors SET banner='" . $file . "' WHERE sponsorID='" . $id . "'"
+            );
         }
 
-        $upload = new \webspell\HttpUpload('banner_small');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        switch ($imageInformation[ 2 ]) {
-                            case 1:
-                                $endung = '.gif';
-                                break;
-                            case 3:
-                                $endung = '.png';
-                                break;
-                            default:
-                                $endung = '.jpg';
-                                break;
-                        }
-                        $file = $id.'_small'.$endung;
-
-                        if ($upload->saveAs($filepath.$file, true)) {
-                            @chmod($file, $new_chmod);
-                            safe_query(
-                                "UPDATE " . PREFIX . "sponsors SET banner_small='" . $file . "' ".
-                                "WHERE sponsorID='" . $id . "'"
-                            );
-                        }
-                    } else {
-                        $errors[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $errors[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $errors[] = $upload->translateError();
-            }
+        if ($file = uploadFile('banner_small', $id . '_small', $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "sponsors SET banner_small='" . $file . "' WHERE sponsorID='" . $id . "'"
+            );
         }
 
-        if (count($errors)) {
-            $errors = array_unique($errors);
-            echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-        } else {
-            redirect("admincenter.php?site=sponsors", "", 0);
-        }
+        redirect("admincenter.php?site=sponsors", "", 0);
+
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }

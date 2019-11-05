@@ -57,6 +57,7 @@ if ($userID) {
                 userID='" . (int)$userID."'"
         );
     } else if (isset($_POST[ 'saveform' ])) {
+
         $dir = 'images/gallery/';
 
         $_language->readModule('formvalidation', true);

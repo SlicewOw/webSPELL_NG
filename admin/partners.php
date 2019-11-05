@@ -31,12 +31,13 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
     die($_language->module[ 'access_denied' ]);
 }
 
+$filepath = "../images/partners/";
+
 if (isset($_GET[ 'delete' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
         $partnerID = (int)$_GET[ 'partnerID' ];
         safe_query("DELETE FROM " . PREFIX . "partners WHERE partnerID='" . $partnerID . "' ");
-        $filepath = "../images/partners/";
         if (file_exists($filepath . $partnerID . '.gif')) {
             unlink($filepath . $partnerID . '.gif');
         }
@@ -85,64 +86,14 @@ if (isset($_GET[ 'delete' ])) {
         );
         $id = mysqli_insert_id($_database);
 
-        $filepath = "../images/partners/";
-
-        //TODO: should be loaded from root language folder
-        $_language->readModule('formvalidation',true, true);
-
-        $upload = new \webspell\HttpUpload('banner');
-
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 89 && $imageInformation[1] < 34) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id.$endung;
-
-                            if (file_exists($filepath . $id . '.gif')) {
-                                unlink($filepath . $id . '.gif');
-                            }
-                            if (file_exists($filepath . $id . '.jpg')) {
-                                unlink($filepath . $id . '.jpg');
-                            }
-                            if (file_exists($filepath . $id . '.png')) {
-                                unlink($filepath . $id . '.png');
-                            }
-
-                            if ($upload->saveAs($filepath.$file)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "partners
-                                    SET banner='" . $file . "' WHERE partnerID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            echo generateErrorBox(sprintf($_language->module[ 'image_too_big' ], 88, 33));
-						}
-                    } else {
-                        echo generateErrorBox($_language->module[ 'broken_image' ]);
-                    }
-                } else {
-                    echo generateErrorBox($_language->module[ 'unsupported_image_type' ]);
-                }
-            } else {
-                echo  generateErrorBox($upload->translateError());
-            }
+        if ($file = uploadFile('banner', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "partners
+                    SET banner='" . $file . "'
+                    WHERE partnerID='" . $id . "'"
+            );
         }
+
     } else {
         echo  $_language->module[ 'transaction_invalid' ];
     }
@@ -171,64 +122,14 @@ if (isset($_GET[ 'delete' ])) {
                 `partnerID` = '" . $partnerID . "'"
         );
 
-        $filepath = "../images/partners/";
-
-        //TODO: should be loaded from root language folder
-        $_language->readModule('formvalidation', true, true);
-
-        $upload = new \webspell\HttpUpload('banner');
-
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 89 && $imageInformation[1] < 34) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id.$endung;
-
-                            if (file_exists($filepath . $id . '.gif')) {
-                                unlink($filepath . $id . '.gif');
-                            }
-                            if (file_exists($filepath . $id . '.jpg')) {
-                                unlink($filepath . $id . '.jpg');
-                            }
-                            if (file_exists($filepath . $id . '.png')) {
-                                unlink($filepath . $id . '.png');
-                            }
-
-                            if ($upload->saveAs($filepath.$file)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "partners
-                                    SET banner='" . $file . "' WHERE partnerID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            echo generateErrorBox(sprintf($_language->module[ 'image_too_big' ], 88, 33));
-                        }
-                    } else {
-                        echo generateErrorBox($_language->module[ 'broken_image' ]);
-                    }
-                } else {
-                    echo generateErrorBox($_language->module[ 'unsupported_image_type' ]);
-                }
-            } else {
-                echo generateErrorBox($upload->translateError());
-            }
+        if ($file = uploadFile('banner', $partnerID, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "partners
+                    SET banner='" . $file . "'
+                    WHERE partnerID='" . $partnerID . "'"
+            );
         }
+
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }

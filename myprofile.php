@@ -126,107 +126,21 @@ if (!$userID) {
         //avatar
         $filepath = "./images/avatars/";
 
-        $_language->readModule('formvalidation', true);
-
-        $upload = new \webspell\HttpUpload('avatar');
-        if (!$upload->hasFile()) {
-            $upload = new \webspell\UrlUpload($_POST['avatar_url']);
+        #TODO: Add url upload
+        if ($file = uploadFile('avatar', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "user SET avatar='" . $file . "' WHERE userID='" . $id . "'"
+            );
         }
-
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 91 && $imageInformation[1] < 91) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id.$endung;
-                            if ($upload->saveAs($filepath.$file, true)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE "
-                                    . PREFIX . "user
-                                    SET
-                                        avatar='" . $file .
-                                    "' WHERE
-                                        userID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $error_array[] = sprintf($_language->module[ 'image_too_big' ], 90, 90);
-                        }
-                    } else {
-                        $error_array[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $error_array[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $error_array[] = $upload->translateError();
-            }
-        }
-
 
         //userpic
         $filepath = "./images/userpics/";
 
-        $upload = new \webspell\HttpUpload('userpic');
-        if (!$upload->hasFile()) {
-            $upload = new \webspell\UrlUpload($_POST['userpic_url']);
-        }
-
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 231 && $imageInformation[1] < 211) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id.$endung;
-                            if ($upload->saveAs($filepath.$file, true)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE "
-                                    . PREFIX . "user
-                                    SET
-                                        userpic='" . $file .
-                                    "' WHERE userID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $error_array[] = sprintf($_language->module[ 'image_too_big' ], 230, 210);
-                        }
-                    } else {
-                        $error_array[] = $_language->module[ 'broken_image' ];
-                    }
-                } else {
-                    $error_array[] = $_language->module[ 'unsupported_image_type' ];
-                }
-            } else {
-                $error_array[] = $upload->translateError();
-            }
+        #TODO: Add url upload
+        if ($file = uploadFile('userpic', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "user SET userpic='" . $file . "' WHERE userID='" . $id . "'"
+            );
         }
 
         if (empty($nickname)) {

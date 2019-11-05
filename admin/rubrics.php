@@ -31,6 +31,8 @@ if (!isnewsadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
     die($_language->module[ 'access_denied' ]);
 }
 
+$filepath = "../images/news-rubrics/";
+
 if (isset($_POST[ 'save' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -38,56 +40,13 @@ if (isset($_POST[ 'save' ])) {
             safe_query("INSERT INTO " . PREFIX . "news_rubrics ( rubric ) values( '" . $_POST[ 'name' ] . "' ) ");
             $id = mysqli_insert_id($_database);
 
-            $filepath = "../images/news-rubrics/";
-
-            $errors = array();
-
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
-
-            $upload = new \webspell\HttpUpload('pic');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg','image/png','image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "news_rubrics
-                                    SET pic='" . $file . "' WHERE rubricID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('pic', $id, $filepath)) {
+                safe_query(
+                    "UPDATE " . PREFIX . "news_rubrics
+                    SET pic='" . $file . "' WHERE rubricID='" . $id . "'"
+                );
             }
-            if (count($errors)) {
-                $errors = array_unique($errors);
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            }
+
         } else {
             echo $_language->module[ 'information_incomplete' ];
         }
@@ -108,56 +67,14 @@ if (isset($_POST[ 'save' ])) {
             );
 
             $id = $_POST[ 'rubricID' ];
-            $filepath = "../images/news-rubrics/";
 
-            $errors = array();
-
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
-
-            $upload = new \webspell\HttpUpload('pic');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg','image/png','image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "news_rubrics
-                                    SET pic='" . $file . "' WHERE rubricID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('pic', $id, $filepath)) {
+                safe_query(
+                    "UPDATE " . PREFIX . "news_rubrics
+                    SET pic='" . $file . "' WHERE rubricID='" . $id . "'"
+                );
             }
-            if (count($errors)) {
-                $errors = array_unique($errors);
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            }
+
         } else {
             echo $_language->module[ 'information_incomplete' ];
         }
@@ -167,9 +84,11 @@ if (isset($_POST[ 'save' ])) {
 } else if (isset($_GET[ 'delete' ])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET[ 'captcha_hash' ])) {
+
         $rubricID = (int)$_GET[ 'rubricID' ];
-        $filepath = "../images/news-rubrics/";
+
         safe_query("DELETE FROM " . PREFIX . "news_rubrics WHERE rubricID='$rubricID'");
+
         if (file_exists($filepath . $rubricID . '.gif')) {
             @unlink($filepath . $rubricID . '.gif');
         }
@@ -179,6 +98,7 @@ if (isset($_POST[ 'save' ])) {
         if (file_exists($filepath . $rubricID . '.png')) {
             @unlink($filepath . $rubricID . '.png');
         }
+
     } else {
         echo $_language->module[ 'transaction_invalid' ];
     }

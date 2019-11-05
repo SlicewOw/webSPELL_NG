@@ -27,60 +27,23 @@
 
 $action = getAction();
 
+$filepath = "./images/linkus/";
+
 if (isset($_POST['save'])) {
     $_language->readModule('linkus');
     if (!ispageadmin($userID)) {
         echo generateAlert($_language->module['no_access'], 'alert-danger');
     } else {
-        $filepath = "./images/linkus/";
 
-        $_language->readModule('formvalidation', true);
+        safe_query("INSERT INTO " . PREFIX . "linkus ( name ) VALUES( '" . $_POST['name'] . "' ) ");
+        $id = mysqli_insert_id($_database);
 
-        $upload = new \webspell\HttpUpload('banner');
-
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 801 && $imageInformation[1] < 601) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-
-                            safe_query("INSERT INTO " . PREFIX . "linkus ( name ) VALUES( '" . $_POST['name'] . "' ) ");
-                            $id = mysqli_insert_id($_database);
-                            $file = $id.$endung;
-
-                            if ($upload->saveAs($filepath.$file)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "linkus SET file='" . $file . "' WHERE bannerID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            echo generateErrorBox(sprintf($_language->module[ 'image_too_big' ], 800, 600));
-                        }
-                    } else {
-                        echo generateErrorBox($_language->module[ 'broken_image' ]);
-                    }
-                } else {
-                    echo generateErrorBox($_language->module[ 'unsupported_image_type' ]);
-                }
-            } else {
-                echo generateErrorBox($upload->translateError());
-            }
+        if ($file = uploadFile('banner', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "linkus SET file='" . $file . "' WHERE bannerID='" . $id . "'"
+            );
         }
+
     }
 } else if (isset($_POST['saveedit'])) {
     $_language->readModule('linkus');
@@ -96,53 +59,14 @@ if (isset($_POST['save'])) {
                 bannerID='" . $_POST['bannerID'] . "'"
         );
 
-        $filepath = "./images/linkus/";
         $id = $_POST['bannerID'];
 
-        $_language->readModule('formvalidation', true);
-
-        $upload = new \webspell\HttpUpload('banner');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 801 && $imageInformation[1] < 601) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-
-                            $file = $id.$endung;
-
-                            if ($upload->saveAs($filepath.$file)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "linkus SET file='" . $file . "' WHERE bannerID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            echo generateErrorBox(sprintf($_language->module[ 'image_too_big' ], 800, 600));
-                        }
-                    } else {
-                        echo generateErrorBox($_language->module[ 'broken_image' ]);
-                    }
-                } else {
-                    echo generateErrorBox($_language->module[ 'unsupported_image_type' ]);
-                }
-            } else {
-                echo generateErrorBox($upload->translateError());
-            }
+        if ($file = uploadFile('banner', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "linkus SET file='" . $file . "' WHERE bannerID='" . $id . "'"
+            );
         }
+
     }
 } else if (isset($_GET['delete'])) {
     include("_mysql.php");
@@ -153,7 +77,7 @@ if (isset($_POST['save'])) {
         echo generateAlert($_language->module['no_access'], 'alert-danger');
     } else {
         $bannerID = $_GET['bannerID'];
-        $filepath = "./images/linkus/";
+
         safe_query("DELETE FROM " . PREFIX . "linkus WHERE bannerID='" . $bannerID . "'");
         if (file_exists($filepath . $bannerID . '.gif')) {
             @unlink($filepath . $bannerID . '.gif');
@@ -211,8 +135,9 @@ if ($action == "new") {
         );
     }
 } else {
-    $filepath = "./images/linkus/";
+
     $filepath2 = "/images/linkus/";
+
     if (ispageadmin($userID)) {
         echo
             '<div class="form-group">

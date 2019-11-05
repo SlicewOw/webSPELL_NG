@@ -31,6 +31,8 @@ if (!isuseradmin($userID) || mb_substr(basename($_SERVER[getConstNameRequestUri(
     die($_language->module['access_denied']);
 }
 
+$filepath = "../images/squadicons/";
+
 if (isset($_GET['delete'])) {
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_GET['captcha_hash'])) {
@@ -60,7 +62,7 @@ if (isset($_GET['delete'])) {
             safe_query("DELETE FROM " . PREFIX . "comments WHERE type='cw' AND parentID='$ds[cwID]'");
         }
         safe_query("DELETE FROM " . PREFIX . "clanwars WHERE squad='$squadID' ");
-        $filepath = "../images/squadicons/";
+
         if (file_exists($filepath . $squadID . '.gif')) {
             unlink($filepath . $squadID . '.gif');
         }
@@ -104,96 +106,19 @@ if (isset($_POST['save'])) {
             );
 
             $id = mysqli_insert_id($_database);
-            $filepath = "../images/squadicons/";
 
-            $errors = array();
-
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
-
-            $upload = new \webspell\HttpUpload('icon');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg', 'image/png', 'image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[2]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "squads SET icon='" . $file . "' WHERE squadID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('icon', $id, $filepath)) {
+                safe_query(
+                    "UPDATE " . PREFIX . "squads SET icon='" . $file . "' WHERE squadID='" . $id . "'"
+                );
             }
 
-            $upload = new \webspell\HttpUpload('icon_small');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg', 'image/png', 'image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[2]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id . '_small' . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "squads SET icon_small='" . $file .
-                                    "' WHERE squadID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('icon_small', $id . '_small', $filepath)) {
+                safe_query(
+                    "UPDATE " . PREFIX . "squads SET icon_small='" . $file . "' WHERE squadID='" . $id . "'"
+                );
             }
 
-            if (count($errors)) {
-                $errors = array_unique($errors);
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            }
         } else {
             echo $_language->module['information_incomplete'];
         }
@@ -212,97 +137,21 @@ if (isset($_POST['saveedit'])) {
                 "', name='" . $_POST['name'] . "', info='" . $_POST['message'] . "' WHERE squadID='" .
                 $_POST['squadID'] . "' "
             );
-            $filepath = "../images/squadicons/";
+
             $id = $_POST['squadID'];
 
-            $errors = array();
-
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
-
-            $upload = new \webspell\HttpUpload('icon');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg', 'image/png', 'image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[2]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "squads SET icon='" . $file . "' WHERE squadID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('icon', $id, $filepath)) {
+                safe_query(
+                    "UPDATE " . PREFIX . "squads SET icon='" . $file . "' WHERE squadID='" . $id . "'"
+                );
             }
 
-            $upload = new \webspell\HttpUpload('icon_small');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg', 'image/png', 'image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[2]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-                            $file = $id . '_small' . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "squads SET icon_small='" . $file .
-                                    "' WHERE squadID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            if ($file = uploadFile('icon_small', $id . '_small', $filepath)) {
+                safe_query(
+                    "UPDATE " . PREFIX . "squads SET icon_small='" . $file . "' WHERE squadID='" . $id . "'"
+                );
             }
 
-            if (count($errors)) {
-                $errors = array_unique($errors);
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            }
         } else {
             echo $_language->module['information_incomplete'];
         }

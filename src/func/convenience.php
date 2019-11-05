@@ -141,7 +141,7 @@ function getLanguagesAsOptions($selected_language='') {
 
 }
 
-function uploadFile($post_name, $filename, $filepath, $is_image_upload=true, $mime_types=array('image/jpeg', 'image/png', 'image/gif')) {
+function uploadFile($post_name, $filename, $filepath, $fail_if_no_file=true, $is_image_upload=true, $mime_types=array('image/jpeg', 'image/png', 'image/gif')) {
 
     try {
 
@@ -150,7 +150,11 @@ function uploadFile($post_name, $filename, $filepath, $is_image_upload=true, $mi
         $upload = new \webspell\HttpUpload($post_name);
 
         if (!$upload->hasFile()) {
-            throw new \InvalidArgumentException($_language->module['no_image']);
+            if ($fail_if_no_file) {
+                return false;
+            } else {
+                throw new \InvalidArgumentException($_language->module['no_image']);
+            }
         } else if ($upload->hasError() !== false) {
             throw new \InvalidArgumentException($upload->translateError());
         } else if (!$upload->supportedMimeType($mime_types)) {

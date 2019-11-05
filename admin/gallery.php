@@ -300,73 +300,28 @@ if ($part == "groups") {
         $picture = $_FILES[ 'picture' ];
         $CAPCLASS = new \webspell\Captcha;
         if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
 
-            $upload = new \webspell\HttpUpload('picture');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/jpeg', 'image/png', 'image/gif');
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-                        if (is_array($imageInformation)) {
-                            switch ($imageInformation[2]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
+            safe_query(
+                "INSERT INTO " . PREFIX ."gallery_pictures (
+                    galleryID,
+                    name,
+                    comment,
+                    comments
+                ) VALUES (
+                    '" . $_POST[ 'galleryID' ] ."',
+                    '" . $_POST[ 'name' ] . "',
+                    '" . $_POST[ 'comment' ] . "',
+                    '" . $_POST[ 'comments' ] . "'
+                )"
+            );
 
-                            if ($_POST[ 'name' ]) {
-                                $insertname = $_POST[ 'name' ];
-                            } else {
-                                $insertname = $picture[ 'name' ];
-                            }
+            $insertid = mysqli_insert_id($_database);
 
-                            safe_query(
-                                "INSERT INTO " . PREFIX ."gallery_pictures (
-                                    galleryID,
-                                    name,
-                                    comment,
-                                    comments
-                                ) VALUES (
-                                    '" . $_POST[ 'galleryID' ] ."',
-                                    '" . $insertname . "',
-                                    '" . $_POST[ 'comment' ] . "',
-                                    '" . $_POST[ 'comments' ] . "'
-                                )"
-                            );
-
-                            $insertid = mysqli_insert_id($_database);
-
-                            $filepath = $dir . 'large/';
-                            $file = $insertid . $endung;
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                                $galclass->saveThumb($filepath . $file, $dir . 'thumb/' . $insertid . '.jpg');
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
+            $filepath = $dir . 'large/';
+            if ($file = uploadFile('picture', $insertid, $filepath)) {
+                $galclass->saveThumb($filepath . $file, $dir . 'thumb/' . $insertid . '.jpg');
             }
-            if (isset($error)) {
-                if (count($errors)) {
-                    $errors = array_unique($errors);
-                    echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-                }
-            }
+
         } else {
             echo $_language->module[ 'transaction_invalid' ];
         }

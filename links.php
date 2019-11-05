@@ -48,54 +48,16 @@ if (isset($_POST[ 'save' ])) {
             ) "
         );
 
+        $id = mysqli_insert_id($_database);
+
         $filepath = "./images/links/";
 
-        $_language->readModule('formvalidation', true);
-
-        $upload = new \webspell\HttpUpload('banner');
-
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 801 && $imageInformation[1] < 601) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-
-                            $id = mysqli_insert_id($_database);
-                            $file = $id.$endung;
-
-                            if ($upload->saveAs($filepath.$file)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "links SET banner='" . $file . "' WHERE linkID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            echo generateErrorBox(sprintf($_language->module[ 'image_too_big' ], 800, 600));
-                        }
-                    } else {
-                        echo generateErrorBox($_language->module[ 'broken_image' ]);
-                    }
-                } else {
-                    echo generateErrorBox($_language->module[ 'unsupported_image_type' ]);
-                }
-            } else {
-                echo generateErrorBox($upload->translateError());
-            }
+        if ($file = uploadFile('banner', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "links SET banner='" . $file . "' WHERE linkID='" . $id . "'"
+            );
         }
+
     }
 } else if (isset($_POST[ 'saveedit' ])) {
     $_language->readModule('links');
@@ -117,50 +79,12 @@ if (isset($_POST[ 'save' ])) {
         $filepath = "./images/links/";
         $id = $_POST[ 'linkID' ];
 
-        $_language->readModule('formvalidation', true);
-
-        $upload = new \webspell\HttpUpload('banner');
-        if ($upload->hasFile()) {
-            if ($upload->hasError() === false) {
-                $mime_types = array('image/jpeg','image/png','image/gif');
-                if ($upload->supportedMimeType($mime_types)) {
-                    $imageInformation =  getimagesize($upload->getTempFile());
-
-                    if (is_array($imageInformation)) {
-                        if ($imageInformation[0] < 801 && $imageInformation[1] < 601) {
-                            switch ($imageInformation[ 2 ]) {
-                                case 1:
-                                    $endung = '.gif';
-                                    break;
-                                case 3:
-                                    $endung = '.png';
-                                    break;
-                                default:
-                                    $endung = '.jpg';
-                                    break;
-                            }
-
-                            $file = $id.$endung;
-
-                            if ($upload->saveAs($filepath.$file)) {
-                                @chmod($filepath.$file, $new_chmod);
-                                safe_query(
-                                    "UPDATE " . PREFIX . "links SET banner='" . $file . "' WHERE linkID='" . $id . "'"
-                                );
-                            }
-                        } else {
-                            echo generateErrorBox(sprintf($_language->module[ 'image_too_big' ], 800, 600));
-                        }
-                    } else {
-                        echo generateErrorBox($_language->module[ 'broken_image' ]);
-                    }
-                } else {
-                    echo generateErrorBox($_language->module[ 'unsupported_image_type' ]);
-                }
-            } else {
-                echo generateErrorBox($upload->translateError());
-            }
+        if ($file = uploadFile('banner', $id, $filepath)) {
+            safe_query(
+                "UPDATE " . PREFIX . "links SET banner='" . $file . "' WHERE linkID='" . $id . "'"
+            );
         }
+
     }
 } else if ($action == "delete") {
     include("_mysql.php");

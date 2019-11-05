@@ -148,59 +148,32 @@ if ($action == "add") {
     }
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        if (checkforempty(array('shorthandle','country'))) {
-            $errors = array();
 
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
+      if (checkforempty(array('shorthandle','country'))) {
 
-            $upload = new \webspell\HttpUpload('icon');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            safe_query(
-                                "INSERT INTO
-                                    `" . PREFIX . "countries` (
-                                        `country`,
-                                        `short`,
-                                        `fav`
-                                    ) VALUES (
-                                        '" . $country . "',
-                                        '" . $short . "',
-                                        '" . $fav . "'
-                                    )"
-                            );
-
-                            $file = $short . ".gif";
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
-            }
-            if (count($errors)) {
-                $errors = array_unique($errors);
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            }
-        } else {
-            echo $_language->module['information_incomplete'];
+        if ($file = uploadFile('icon', $short, $filepath)) {
+          safe_query(
+              "INSERT INTO
+                  `" . PREFIX . "countries` (
+                      `country`,
+                      `short`,
+                      `fav`
+                  ) VALUES (
+                      '" . $country . "',
+                      '" . $short . "',
+                      '" . $fav . "'
+                  )"
+          );
         }
+
+      } else {
+        echo $_language->module['information_incomplete'];
+      }
+
     } else {
-        echo $_language->module[ 'transaction_invalid' ];
+      echo $_language->module[ 'transaction_invalid' ];
     }
+
 } else if (isset($_POST[ "saveedit" ])) {
     $icon = $_FILES[ "icon" ];
     $country = $_POST[ "country" ];
@@ -223,39 +196,7 @@ if ($action == "add") {
                 WHERE `countryID` = '" . $_POST[ "countryID" ] . "'"
             );
 
-            $errors = array();
-
-            //TODO: should be loaded from root language folder
-            $_language->readModule('formvalidation', true);
-
-            $upload = new \webspell\HttpUpload('icon');
-            if ($upload->hasFile()) {
-                if ($upload->hasError() === false) {
-                    $mime_types = array('image/gif');
-
-                    if ($upload->supportedMimeType($mime_types)) {
-                        $imageInformation = getimagesize($upload->getTempFile());
-
-                        if (is_array($imageInformation)) {
-                            $file = $short . ".gif";
-
-                            if ($upload->saveAs($filepath . $file, true)) {
-                                @chmod($filepath . $file, $new_chmod);
-                            }
-                        } else {
-                            $errors[] = $_language->module['broken_image'];
-                        }
-                    } else {
-                        $errors[] = $_language->module['unsupported_image_type'];
-                    }
-                } else {
-                    $errors[] = $upload->translateError();
-                }
-            }
-            if (count($errors)) {
-                $errors = array_unique($errors);
-                echo generateErrorBoxFromArray($_language->module['errors_there'], $errors);
-            }
+            uploadFile('icon', $short, $filepath, false);
 
         } else {
             echo $_language->module['information_incomplete'];
