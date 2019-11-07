@@ -123,16 +123,8 @@ if ($action == "show") {
                 $userdescription = $_language->module[ 'no_description' ];
             }
 
-            if (file_exists("images/userpics/" . $profilid . ".jpg")) {
-                $userpic = $profilid . ".jpg";
-                $pic_info = $dm[ 'nickname' ] . " userpicture";
-            } else if (file_exists("images/userpics/" . $profilid . ".gif")) {
-                $userpic = $profilid . ".gif";
-                $pic_info = $dm[ 'nickname' ] . " userpicture";
-            } else {
-                $userpic = "nouserpic.gif";
-                $pic_info = "no userpic available!";
-            }
+            $userpic = getuserpic($profilid);
+            $pic_info = $dm[ 'nickname' ] . " userpicture";
 
             $icq = $dm[ 'icq' ];
             if (getemailhide($dm[ 'userID' ])) {

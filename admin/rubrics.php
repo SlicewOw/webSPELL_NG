@@ -89,15 +89,7 @@ if (isset($_POST[ 'save' ])) {
 
         safe_query("DELETE FROM " . PREFIX . "news_rubrics WHERE rubricID='$rubricID'");
 
-        if (file_exists($filepath . $rubricID . '.gif')) {
-            @unlink($filepath . $rubricID . '.gif');
-        }
-        if (file_exists($filepath . $rubricID . '.jpg')) {
-            @unlink($filepath . $rubricID . '.jpg');
-        }
-        if (file_exists($filepath . $rubricID . '.png')) {
-            @unlink($filepath . $rubricID . '.png');
-        }
+        deleteAllImagesByFilePath($filepath, $rubricID);
 
     } else {
         echo $_language->module[ 'transaction_invalid' ];

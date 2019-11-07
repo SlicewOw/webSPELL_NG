@@ -137,29 +137,26 @@ if (isset($_POST[ 'saveedit' ])) {
     );
 
     if ((isgalleryadmin($userID) || $galclass->isGalleryOwner($ds[ 'galleryID' ], $userID)) && $_GET[ 'id' ]) {
+
+        $picture_id = (int)$_GET[ 'id' ];
+
         $ds = mysqli_fetch_array(
             safe_query(
                 "SELECT
                     `galleryID`
                 FROM
                     `" . PREFIX . "gallery_pictures`
-                WHERE `picID` = '" . (int)$_GET[ 'id' ] . "'"
+                WHERE `picID` = '" . $picture_id . "'"
             )
         );
 
         $dir = 'images/gallery/';
 
         //delete thumb
-
-        @unlink($dir . 'thumb/' . $_GET[ 'id' ] . '.jpg');
+        deleteAllImagesByFilePath($dir . 'thumb/', $picture_id);
 
         //delete original
-
-        if (file_exists($dir . 'large/' . $_GET[ 'id' ] . '.jpg')) {
-            @unlink($dir . 'large/' . $_GET[ 'id' ] . '.jpg');
-        } else {
-            @unlink($dir . 'large/' . $_GET[ 'id' ] . '.gif');
-        }
+        deleteAllImagesByFilePath($dir . 'large/', $picture_id);
 
         //delete database entry
 
@@ -167,13 +164,13 @@ if (isset($_POST[ 'saveedit' ])) {
             "DELETE FROM
                 `" . PREFIX . "gallery_pictures`
             WHERE
-                `picID` = '" . (int)$_GET[ 'id' ] . "'"
+                `picID` = '" . $picture_id . "'"
         );
         safe_query(
             "DELETE FROM
                 `" . PREFIX . "comments`
             WHERE
-                `parentID` = '" . (int)$_GET[ 'id' ] . "'
+                `parentID` = '" . $picture_id . "'
             AND
                 `type` = 'ga'"
         );

@@ -336,16 +336,8 @@ if ($part == "groups") {
                     $_GET[ 'galleryID' ] . "'"
                 );
                 while ($ds = mysqli_fetch_array($ergebnis)) {
-                    @unlink('../images/gallery/thumb/' . $ds[ 'picID' ] . '.jpg'); //thumbnails
-                    $path = '../images/gallery/large/';
-                    if (file_exists($path . $ds[ 'picID' ] . '.jpg')) {
-                        $path = $path . $ds[ 'picID' ] . '.jpg';
-                    } else if (file_exists($path . $ds[ 'picID' ] . '.png')) {
-                        $path = $path . $ds[ 'picID' ] . '.png';
-                    } else {
-                        $path = $path . $ds[ 'picID' ] . '.gif';
-                    }
-                    @unlink($path); //large
+                    deleteAllImagesByFilePath('images/gallery/thumb/', $ds[ 'picID' ]);
+                    deleteAllImagesByFilePath('images/gallery/large/', $ds[ 'picID' ]);
                     safe_query(
                         "DELETE FROM " . PREFIX . "comments WHERE parentID='" . $ds[ 'picID' ] .
                         "' AND type='ga'"

@@ -127,15 +127,11 @@ if (isset($_POST[ 'add' ])) {
 
             if (isset($_POST[ 'avatar' ])) {
                 safe_query("UPDATE " . PREFIX . "user SET avatar='' WHERE userID='" . $id . "'");
-                @unlink('../images/avatars/' . $id . '.gif');
-                @unlink('../images/avatars/' . $id . '.jpg');
-                @unlink('../images/avatars/' . $id . '.png');
+                deleteAllImagesByFilePath('images/avatars/', $id);
             }
             if (isset($_POST[ 'userpic' ])) {
                 safe_query("UPDATE " . PREFIX . "user SET userpic='' WHERE userID='" . $id . "'");
-                @unlink('../images/userpics/' . $id . '.gif');
-                @unlink('../images/userpics/' . $id . '.jpg');
-                @unlink('../images/userpics/' . $id . '.png');
+                deleteAllImagesByFilePath('images/userpics/', $id);
             }
         }
     } else {

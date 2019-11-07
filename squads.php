@@ -112,21 +112,14 @@ if ($action == "show") {
                 $userdescription = $_language->module[ 'no_description' ];
             }
 
-            if ($dm[ 'userpic' ] != "" && file_exists("images/userpics/" . $dm[ 'userpic' ])) {
-                $userpic = $dm[ 'userpic' ];
-                $pic_info = $dm[ 'nickname' ] . ' ' . $_language->module[ 'userpicture' ];
-            } else {
-                $userpic = "nouserpic.gif";
-                $pic_info = $_language->module[ 'no_userpic' ];
-            }
+            $userpic = getuserpic($dm[ 'userID' ]);
+            $pic_info = $dm[ 'nickname' ] . ' ' . $_language->module[ 'userpicture' ];
 
             $icq = $dm[ 'icq' ];
             if (getemailhide($dm[ 'userID' ])) {
                 $email = '';
             } else {
-                $email =
-                    '<a href="mailto:' . mail_protect($dm[ 'email' ]) . '"><span class="fa fa-envelope"
-                    title="' . $_language->module[ 'email' ] . '"></span></a>';
+                $email = '<a href="mailto:' . mail_protect($dm[ 'email' ]) . '"><span class="fa fa-envelope" title="' . $_language->module[ 'email' ] . '"></span></a>';
             }
 
             $pm = '';

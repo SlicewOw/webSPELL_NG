@@ -20,3 +20,29 @@ function getUserImage($user_id, $category) {
     return (!empty($ds[$category])) ? $ds[$category] : $default_image;
 
 }
+
+/**
+ * Delete images
+ */
+function deleteAllImagesByFilePath($filepath, $file_name_without_extension) {
+
+    $filepath = str_replace(
+        array('../', './'),
+        array('', ''),
+        $filepath
+    );
+
+    $imageTypeArray = array(
+        '.gif',
+        '.jpg',
+        '.png'
+    );
+
+    foreach ($imageTypeArray as $image_extension) {
+        $complete_file_path = __DIR__ . '/../../' . $filepath . $file_name_without_extension . $image_extension;
+        if (file_exists($complete_file_path)) {
+            @unlink($complete_file_path);
+        }
+    }
+
+}

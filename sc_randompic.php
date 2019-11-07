@@ -41,18 +41,8 @@ if ($anz) {
 	$registerdate = getregistered($the_user);
 	$rex = safe_query("SELECT * FROM `".PREFIX."user` WHERE `userID`='".intval($the_user)."'");
 	$rox = mysqli_fetch_array($rex);
-	if (isset($rox[ 'userpic' ])) {
-		if ($rox[ 'userpic' ]=="") {
-			$upic = "nouserpic.png";
-		}
-		else {
-			$upic = $rox[ 'userpic' ];
-		}
-	}
-	else {
-		$upic = "nouserpic.png";
-	}
-	$picurl = $picpath . $upic;
+
+	$picurl = $picpath . getuserpic($the_user);
 
 	$data_array = array();
 	$data_array['$picID'] = $the_user;

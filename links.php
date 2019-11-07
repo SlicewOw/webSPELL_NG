@@ -96,16 +96,7 @@ if (isset($_POST[ 'save' ])) {
     }
     $linkID = $_GET[ 'linkID' ];
     safe_query("DELETE FROM " . PREFIX . "links WHERE linkID='$linkID'");
-    $filepath = "./images/links/";
-    if (file_exists($filepath . $linkID . '.gif')) {
-        @unlink($filepath . $linkID . '.gif');
-    }
-    if (file_exists($filepath . $linkID . '.jpg')) {
-        @unlink($filepath . $linkID . '.jpg');
-    }
-    if (file_exists($filepath . $linkID . '.png')) {
-        @unlink($filepath . $linkID . '.png');
-    }
+    deleteAllImagesByFilePath('images/links/', $linkID);
     header("Location: index.php?site=links");
 }
 

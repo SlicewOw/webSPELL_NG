@@ -96,30 +96,19 @@ if (!$userID) {
             die($_language->module['not_logged_in']);
         }
 
+        $imageTypeArray = array(
+            '.gif',
+            '.jpg',
+            '.png'
+        );
+
         if (isset($_POST['delavatar'])) {
-            $filepath = "./images/avatars/";
-            if (file_exists($filepath . $id . '.gif')) {
-                @unlink($filepath . $id . '.gif');
-            }
-            if (file_exists($filepath . $id . '.jpg')) {
-                @unlink($filepath . $id . '.jpg');
-            }
-            if (file_exists($filepath . $id . '.png')) {
-                @unlink($filepath . $id . '.png');
-            }
+            deleteAllImagesByFilePath("images/avatars/", $id);
             safe_query("UPDATE " . PREFIX . "user SET avatar='' WHERE userID='" . $id . "'");
         }
+
         if (isset($_POST['deluserpic'])) {
-            $filepath = "./images/userpics/";
-            if (file_exists($filepath . $id . '.gif')) {
-                @unlink($filepath . $id . '.gif');
-            }
-            if (file_exists($filepath . $id . '.jpg')) {
-                @unlink($filepath . $id . '.jpg');
-            }
-            if (file_exists($filepath . $id . '.png')) {
-                @unlink($filepath . $id . '.png');
-            }
+            deleteAllImagesByFilePath("images/userpics/", $id);
             safe_query("UPDATE " . PREFIX . "user SET userpic='' WHERE userID='" . $id . "'");
         }
 

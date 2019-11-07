@@ -708,13 +708,11 @@ if (isset($id) && getnickname($id) != '') {
             }
         }
         $anzvisits = $ds[ 'visits' ];
-        if ($ds[ 'userpic' ]) {
-            $userpic = '<img class="image-responsive img-circle userpic-wh" src="images/userpics/' . $ds[ 'userpic' ] . '" alt="">';
-			$profile_bg = '<img class="card-bkimg" src="images/userpics/' . $ds[ 'userpic' ] . '" alt="">';
-        } else {
-            $userpic = '<img class="image-responsive" src="images/userpics/nouserpic.png" alt="">';
-			$profile_bg = '<img class="card-bkimg" src="images/userpics/nouserpic.png" alt="">';
-        }
+
+        $userpic_img = getuserpic($ds[ 'userID' ]);
+        $userpic = '<img class="image-responsive img-circle userpic-wh" src="images/userpics/' . $userpic_img . '" alt="">';
+        $profile_bg = '<img class="card-bkimg" src="images/userpics/' . $userpic_img . '" alt="">';
+
         $nickname = $ds[ 'nickname' ];
         if (isclanmember($id)) {
             $member = '<span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';

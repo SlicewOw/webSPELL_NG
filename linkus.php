@@ -76,19 +76,14 @@ if (isset($_POST['save'])) {
     if (!ispageadmin($userID)) {
         echo generateAlert($_language->module['no_access'], 'alert-danger');
     } else {
+
         $bannerID = $_GET['bannerID'];
 
         safe_query("DELETE FROM " . PREFIX . "linkus WHERE bannerID='" . $bannerID . "'");
-        if (file_exists($filepath . $bannerID . '.gif')) {
-            @unlink($filepath . $bannerID . '.gif');
-        }
-        if (file_exists($filepath . $bannerID . '.jpg')) {
-            @unlink($filepath . $bannerID . '.jpg');
-        }
-        if (file_exists($filepath . $bannerID . '.png')) {
-            @unlink($filepath . $bannerID . '.png');
-        }
+        deleteAllImagesByFilePath($filepath, $bannerID);
+
         header("Location: index.php?site=linkus");
+
     }
 }
 
