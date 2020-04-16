@@ -25,17 +25,22 @@
 ##########################################################################
 */
 
-if (isset($_GET[ 'new_lang' ])) {
-    if (file_exists('languages/' . $_GET[ 'new_lang' ])) {
+if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+
+    $new_language = (isset($_GET[ 'new_lang' ]) && !empty($_GET[ 'new_lang' ])) ? getinput($_GET[ 'new_lang' ]) : null;
+
+    if (!is_null($new_language) && file_exists('languages/' . $new_language)) {
+
         include("_mysql.php");
         include("_settings.php");
         include("_functions.php");
 
-        $lang = preg_replace("[^a-z]", "", $_GET[ 'new_lang' ]);
+        $lang = preg_replace("[^a-z]", "", $new_language);
         $_SESSION[ 'language' ] = $lang;
         if ($userID) {
             safe_query("UPDATE " . PREFIX . "user SET language='" . $lang . "' WHERE userID='" . $userID . "'");
         }
+
     }
 
     if (isset($_GET[ 'query' ])) {
@@ -44,6 +49,7 @@ if (isset($_GET[ 'new_lang' ])) {
     } else {
         header("Location: index.php");
     }
+
 } else {
     $_language->readModule('sc_language');
 
