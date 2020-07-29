@@ -55,9 +55,7 @@ if (!in_array($searchtemp, $allowed_searchtemps)) {
 $search = $_GET[ 'search' ];
 $searchtype = $_GET[ 'searchtype' ];
 
-if (get_magic_quotes_gpc()) {
-    $search = stripslashes($search);
-}
+$search = stripslashes($search);
 
 if ($searchtype == 'ac_usersearch') {
     $search = $_database->escape_string(htmlspecialchars(rawurldecode($search)));

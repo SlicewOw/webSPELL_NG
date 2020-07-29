@@ -2639,9 +2639,7 @@ function update_40101_420_1($_database)
         $file = "../html/" . $ds['name'];
         if (file_exists($file)) {
             $content = file_get_contents($file);
-            if (get_magic_quotes_gpc()) {
-                $content = stripslashes($content);
-            }
+            $content = stripslashes($content);
             if (function_exists("mysqli_real_escape_string")) {
                 $content = mysqli_real_escape_string($_database, $content);
             } else {
@@ -2754,19 +2752,11 @@ function update_40101_420_3($_database)
     $q = mysqli_query($_database, "SELECT newsID, lang1, lang2, headline1, headline2, content1, content2 FROM `" . PREFIX . "news`");
     while ($ds = mysqli_fetch_array($q)) {
         if ($ds['headline1'] != "" || $ds['content1'] != "") {
-            if (get_magic_quotes_gpc()) {
-              $content1 = str_replace('\r\n', "\n", $ds['content1']);
-            } else {
-              $content1 = str_replace('\r\n', "\n", mysqli_real_escape_string($_database, $ds['content1']));
-            }
+            $content1 = str_replace('\r\n', "\n", mysqli_real_escape_string($_database, $ds['content1']));
             $transaction->addQuery("INSERT INTO " . PREFIX . "news_contents (newsID, language, headline, content) VALUES ('" . $ds['newsID'] . "', '" . mysqli_real_escape_string($_database, $ds['lang1']) . "', '" . mysqli_real_escape_string($_database, $ds['headline1']) . "', '" . $content1 . "')");
         }
         if ($ds['headline2'] != "" || $ds['content2'] != "") {
-            if (get_magic_quotes_gpc()) {
-              $content2 = str_replace('\r\n', "\n", $ds['content2']);
-            } else {
-              $content2 = str_replace('\r\n', "\n", mysqli_real_escape_string($_database, $ds['content2']));
-            }
+            $content2 = str_replace('\r\n', "\n", mysqli_real_escape_string($_database, $ds['content2']));
             $transaction->addQuery("INSERT INTO " . PREFIX . "news_contents (newsID, language, headline, content) VALUES ('" . $ds['newsID'] . "', '" . mysqli_real_escape_string($_database, $ds['lang2']) . "', '" . mysqli_real_escape_string($_database, $ds['headline2']) . "', '" . $content2 . "')");
         }
     }
@@ -2798,11 +2788,7 @@ function update_40101_420_4($_database)
     //article converter
     $sql = mysqli_query($_database, "SELECT articlesID, content FROM " . PREFIX . "articles");
     while ($ds = mysqli_fetch_array($sql)) {
-        if (get_magic_quotes_gpc()) {
-            $content = str_replace('\r\n', "\n", $ds['content']);
-        } else {
-            $content = str_replace('\r\n', "\n", mysqli_real_escape_string($_database, $ds['content']));
-        }
+        $content = str_replace('\r\n', "\n", mysqli_real_escape_string($_database, $ds['content']));
         $transaction->addQuery("INSERT INTO " . PREFIX . "articles_contents (articlesID, content, page) VALUES ('" . $ds['articlesID'] . "', '" . $content . "', '0')");
     }
 
@@ -3244,35 +3230,34 @@ function update_40101_420_6($_database)
 function update_40101_420_7($_database)
 {
     $transaction = new Transaction($_database);
-    //Reverter of wrong escapes
-    if (get_magic_quotes_gpc()) {
-        @ini_set("max_execution_time", "300");
-        @set_time_limit(300);
 
-        // Fix About Us
-        $get = mysqli_query($_database, "SELECT about FROM " . PREFIX . "about");
-        if (mysqli_num_rows($get)) {
-            $ds = mysqli_fetch_assoc($get);
-            $transaction->addQuery("UPDATE " . PREFIX . "about SET about='" . $ds['about'] . "'");
-        }
+    @ini_set("max_execution_time", "300");
+    @set_time_limit(300);
 
-        // Fix History
-        $get = mysqli_query($_database, "SELECT history FROM " . PREFIX . "history");
-        if (mysqli_num_rows($get)) {
-            $ds = mysqli_fetch_assoc($get);
-            $transaction->addQuery("UPDATE " . PREFIX . "history SET history='" . $ds['history'] . "'");
-        }
-
-        // Fix Comments
-        $get = mysqli_query($_database, "SELECT commentID, nickname, comment, url, email FROM " . PREFIX . "comments");
-        while ($ds = mysqli_fetch_assoc($get)) {
-            $transaction->addQuery("UPDATE " . PREFIX . "comments SET 	nickname='" . $ds['nickname'] . "',
-															comment='" . $ds['comment'] . "',
-															url='" . $ds['url'] . "',
-															email='" . $ds['email'] . "'
-															WHERE commentID='" . $ds['commentID'] . "'");
-        }
+    // Fix About Us
+    $get = mysqli_query($_database, "SELECT about FROM " . PREFIX . "about");
+    if (mysqli_num_rows($get)) {
+        $ds = mysqli_fetch_assoc($get);
+        $transaction->addQuery("UPDATE " . PREFIX . "about SET about='" . $ds['about'] . "'");
     }
+
+    // Fix History
+    $get = mysqli_query($_database, "SELECT history FROM " . PREFIX . "history");
+    if (mysqli_num_rows($get)) {
+        $ds = mysqli_fetch_assoc($get);
+        $transaction->addQuery("UPDATE " . PREFIX . "history SET history='" . $ds['history'] . "'");
+    }
+
+    // Fix Comments
+    $get = mysqli_query($_database, "SELECT commentID, nickname, comment, url, email FROM " . PREFIX . "comments");
+    while ($ds = mysqli_fetch_assoc($get)) {
+        $transaction->addQuery("UPDATE " . PREFIX . "comments SET 	nickname='" . $ds['nickname'] . "',
+                          comment='" . $ds['comment'] . "',
+                          url='" . $ds['url'] . "',
+                          email='" . $ds['email'] . "'
+                          WHERE commentID='" . $ds['commentID'] . "'");
+    }
+
     if ($transaction->successful()) {
         return array('status' => 'success', 'message' => 'Updated to webSPELL 4.2 Part 7');
     } else {
