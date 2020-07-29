@@ -38,14 +38,14 @@ $us = $us[ 0 ];
 
 $total = $ds[ 'hits' ];
 $dt = mysqli_fetch_array(safe_query("SELECT count FROM " . PREFIX . "counter_stats WHERE dates='$date'"));
-if ($dt[ 'count' ]) {
+if (isset($dt[ 'count' ])) {
     $today = $dt[ 'count' ];
 } else {
     $today = 0;
 }
 
 $dy = mysqli_fetch_array(safe_query("SELECT count FROM " . PREFIX . "counter_stats WHERE dates='$dateyesterday'"));
-if ($dy[ 'count' ]) {
+if (isset($dy[ 'count' ])) {
     $yesterday = $dy[ 'count' ];
 } else {
     $yesterday = 0;

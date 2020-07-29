@@ -25,16 +25,20 @@
 ##########################################################################
 */
 
+function getUserDetailByColumnName(string $column_name, int $user_id)
+{
+    $ds = mysqli_fetch_array(safe_query("SELECT `" . $column_name . "` FROM " . PREFIX . "user WHERE `userID` = " . $user_id));
+    return (isset($ds[$column_name])) ? $ds[$column_name] : null;
+}
+
 function getuserformatdate($userID)
 {
-    $ds = mysqli_fetch_array(safe_query("SELECT date_format FROM " . PREFIX . "user WHERE `userID` = " . (int)$userID));
-    return $ds['date_format'];
+    return getUserDetailByColumnName('date_format', $userID);
 }
 
 function getuserformattime($userID)
 {
-    $ds = mysqli_fetch_array(safe_query("SELECT time_format FROM " . PREFIX . "user WHERE `userID` = " . (int)$userID));
-    return $ds['time_format'];
+    return getUserDetailByColumnName('time_format', $userID);
 }
 
 function getformatdate($date)

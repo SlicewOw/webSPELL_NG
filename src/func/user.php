@@ -95,7 +95,7 @@ function gettown($userID)
 function getemail($userID)
 {
     $ds = mysqli_fetch_array(safe_query("SELECT email FROM " . PREFIX . "user WHERE `userID` = " . (int)$userID));
-    return getinput($ds['email']);
+    return (isset($ds['email'])) ? getinput($ds['email']) : null;
 }
 
 function getemailhide($userID)

@@ -146,23 +146,26 @@ class Gallery
         }
     }
 
-    public function randomPic($galleryID = 0)
+    public function randomPic(int $galleryID = 0)
     {
 
-        if ($galleryID) {
+        if ($galleryID > 0) {
             $only = "WHERE `galleryID` = " . (int)$galleryID;
         } else {
             $only = '';
         }
 
+        $anz = mysqli_num_rows(safe_query("SELECT picID FROM `" . PREFIX . "gallery_pictures` $only"));
+        if ($anz < 1) {
+            return null;
+        }
 
-    	$anz = mysqli_num_rows(safe_query("SELECT picID FROM `" . PREFIX . "gallery_pictures` $only"));
-		$selected = mt_rand(0, $anz);
-    	$pic = mysqli_fetch_array(
-			safe_query(
-				"SELECT `picID` FROM `" . PREFIX . "gallery_pictures` $only LIMIT $selected, 1"
-			)
-    	);
+        $selected = mt_rand(0, $anz);
+        $pic = mysqli_fetch_array(
+            safe_query(
+                "SELECT `picID` FROM `" . PREFIX . "gallery_pictures` $only LIMIT $selected, 1"
+            )
+        );
         return $pic['picID'];
     }
 
