@@ -596,10 +596,6 @@ if (stristr($_SERVER[ 'PHP_SELF' ], "/admin/") === false) {
 
 systeminc('func/feeds');
 
-// -- Email -- //
-
-systeminc('func/email');
-
 function recursiveRemoveDirectory($directory)
 {
     foreach (glob("{$directory}/*") as $file) {
