@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 $_language->readModule('lostpassword');
 
 $title_lostpassword = $GLOBALS["_template"]->replaceTemplate("title_lostpassword", array());
@@ -45,10 +47,10 @@ if (isset($_POST[ 'submit' ])) {
 
         if ($anz) {
             $ds = mysqli_fetch_array($ergebnis);
-	
+
 			$newpass_random = Gen_PasswordPepper();
 			$newpass_hash = Gen_PasswordHash($newpass_random, $ds['userID']);
-	
+
             safe_query(
                 "UPDATE
                     " . PREFIX . "user
@@ -64,7 +66,7 @@ if (isset($_POST[ 'submit' ])) {
             $header = str_replace($vars, $repl, $_language->module[ 'email_subject' ]);
             $Message = str_replace($vars, $repl, $_language->module[ 'email_text' ]);
 
-            $sendmail = \webspell\Email::sendEmail($admin_email, 'Lost Password', $ToEmail, $header, $Message);
+            $sendmail = Email::sendEmail($admin_email, 'Lost Password', $ToEmail, $header, $Message);
 
             if ($sendmail['result'] == 'fail') {
                 if (isset($sendmail['debug'])) {
@@ -86,7 +88,7 @@ if (isset($_POST[ 'submit' ])) {
                 } else {
                     echo  redirect("index.php?site=login", str_replace($vars, $repl, $_language->module[ 'successful' ]), 3);
                 }
-                
+
             }
         } else {
             echo $_language->module[ 'no_user_found' ];

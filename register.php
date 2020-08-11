@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 // by ZENITH-Developments.de # read database entries (?)
 $_admin_minpasslen = "6";
 $_admin_maxpasslen = ""; #empty = no max
@@ -184,7 +186,7 @@ if (isset($_POST['save'])) {
                 array(stripslashes($username), stripslashes($activationlink), $hp_title, $hp_url),
                 $_language->module['mail_text']
             );
-            $sendmail = \webspell\Email::sendEmail($admin_email, 'Register', $ToEmail, $header, $Message);
+            $sendmail = Email::sendEmail($admin_email, 'Register', $ToEmail, $header, $Message);
 
             if ($sendmail['result'] == 'fail') {
                 if (isset($sendmail['debug'])) {

@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 $_language->readModule('myprofile');
 $title_myprofile = $GLOBALS["_template"]->replaceTemplate("title_myprofile", array());
 echo $title_myprofile;
@@ -333,7 +335,7 @@ if (!$userID) {
                 $_language->module['mail_text']
             );
 
-            $sendmail = \webspell\Email::sendEmail($admin_email, 'Profile', $ToEmail, $header, $Message);
+            $sendmail = Email::sendEmail($admin_email, 'Profile', $ToEmail, $header, $Message);
 
             if ($sendmail['result'] == 'fail') {
                 if (isset($sendmail['debug'])) {

@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 $page = getPage();
 
 if (isset($_GET['delete'])) {
@@ -169,7 +171,7 @@ if (isset($_POST['newreply']) && !isset($_POST['preview'])) {
                     $maillanguage->module['notify_mail']
                 );
                 $subject = $maillanguage->module['new_reply'] . ' (' . $hp_title . ')';
-                $sendmail = \webspell\Email::sendEmail(
+                $sendmail = Email::sendEmail(
                     $admin_email,
                     'Forum',
                     $email['mail'],

@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 $_language->readModule('newsletter', false, true);
 
 if (!isuseradmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
@@ -135,7 +137,7 @@ hr { margin: 0px; }
         $bcc = array_unique($bcc);
         $subject = $hp_title . " Newsletter";
         foreach ($bcc as $mailto) {
-            $sendmail = \webspell\Email::sendEmail($admin_email, 'Newsletter', $mailto, $subject, $emailbody);
+            $sendmail = Email::sendEmail($admin_email, 'Newsletter', $mailto, $subject, $emailbody);
             if ($sendmail['result'] == 'fail') {
                 $success = false;
             }

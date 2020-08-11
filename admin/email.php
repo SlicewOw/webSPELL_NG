@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 $_language->readModule('email', false, true);
 
 if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri() ]), 0, 15) != "admincenter.php") {
@@ -61,7 +63,7 @@ if (isset($_POST[ 'submit' ])) {
 
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
-        $sendmail = \webspell\Email::sendEmail($admin_email, 'Test eMail', $to, $subject, $message);
+        $sendmail = Email::sendEmail($admin_email, 'Test eMail', $to, $subject, $message);
         if ($sendmail['result'] == 'fail') {
             if (isset($sendmail['debug'])) {
                 echo '<strong>' . $_language->module[ 'test_fail' ] . '</strong>';

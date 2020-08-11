@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 $_language->readModule('contact');
 $_language->readModule('formvalidation', true);
 
@@ -82,7 +84,7 @@ if ($action == "send") {
             'This mail was send over your webSPELL - Website (IP ' . $GLOBALS['ip'] . '): ' . $hp_url .
             '<br><br><strong>' . getinput($name) . ' writes:</strong><br>' . clearfromtags($text)
         );
-        $sendmail = \webspell\Email::sendEmail($from, 'Contact', $getemail, stripslashes($subject), $message);
+        $sendmail = Email::sendEmail($from, 'Contact', $getemail, stripslashes($subject), $message);
 
         if ($sendmail['result'] == 'fail') {
             if (isset($sendmail['debug'])) {

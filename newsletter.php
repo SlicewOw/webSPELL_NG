@@ -25,6 +25,8 @@
 ##########################################################################
 */
 
+use webspell_ng\Email;
+
 $_language->readModule('newsletter');
 $_language->readModule('formvalidation', true);
 
@@ -64,7 +66,7 @@ if ($action == "save") {
                 $repl,
                 $_language->module['success_mail']
             );
-            $sendmail = \webspell\Email::sendEmail($admin_email, 'Newsletter', $email, $subject, $message);
+            $sendmail = Email::sendEmail($admin_email, 'Newsletter', $email, $subject, $message);
 
             if ($sendmail['result'] == 'fail') {
                 if (isset($sendmail['debug'])) {
@@ -157,7 +159,7 @@ if ($action == "save") {
             $repl,
             $_language->module['request_mail']
         );
-        $sendmail = \webspell\Email::sendEmail($admin_email, 'Newsletter', $email, $subject, $message);
+        $sendmail = Email::sendEmail($admin_email, 'Newsletter', $email, $subject, $message);
 
         if ($sendmail['result'] == 'fail') {
             if (isset($sendmail['debug'])) {
