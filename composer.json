@@ -1,12 +1,12 @@
 {
-    "name": "webspell/webspell",
-    "description": "webSPELL CMS",
+    "name": "webspell_ng/webspell_ng",
+    "description": "webSPELL NG, a fork of webSPELL NOR",
     "keywords": ["cms", "gaming"],
     "license": "GPL-3.0",
     "type": "project",
     "require": {
-        "squizlabs/php_codesniffer": "2.5.0",
-        "codeclimate/php-test-reporter": "dev-master",
-        "phpunit/phpunit": "4.8.21"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
     }
 }
