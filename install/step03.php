@@ -46,6 +46,11 @@ if (function_exists('mb_substr')) {
     $fatal_error = true;
 }
 
+$path_to_mysql_file = __DIR__ . '/../_mysql.php';
+if (!file_exists($path_to_mysql_file)) {
+	fopen($path_to_mysql_file, "w");
+}
+
 ?>
 <div class="row marketing">
     <div class="col-xs-12">
@@ -74,7 +79,7 @@ if (function_exists('mb_substr')) {
 <tr>
   <td>_mysql.php</td>
   <td><?php
-		if (@file_exists('../_mysql.php') && @is_writable('../_mysql.php')) {
+		if (@file_exists($path_to_mysql_file) && @is_writable($path_to_mysql_file)) {
 			echo '<span class="label label-success">' . $_language->module['writeable'] . '</span>';
 		} else if (is_writable('..')) {
 			echo '<span class="label label-success">' . $_language->module['writeable'] . '</span>';
