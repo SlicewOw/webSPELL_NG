@@ -1083,7 +1083,7 @@ function update_base_13($_database)
 
 
     $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "user` (`userID`, `registerdate`, `lastlogin`, `username`, `password_hash`, `nickname`, `email`, `firstname`, `lastname`, `sex`, `country`, `town`, `birthday`, `icq`, `avatar`, `usertext`, `userpic`, `clantag`, `clanname`, `clanhp`, `clanirc`, `clanhistory`, `cpu`, `mainboard`, `ram`, `monitor`, `graphiccard`, `soundcard`, `connection`, `keyboard`, `mouse`, `mousepad`, `newsletter`, `about`, `pmgot`, `pmsent`, `visits`, `banned`, `ip`, `topics`, `articles`, `demos`)
-      VALUES (1, '" . time() . "', '" . time() . "', '" . $adminname . "', '" . $adminhash . "', '" . $adminname . "', '" . $adminmail . "', '', '', 'u', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '', 0, 0, 0, '', '', '', '', '')");
+      VALUES (1, " . time() . ", " . time() . ", '" . $adminname . "', '" . $adminhash . "', '" . $adminname . "', '" . $adminmail . "', '', '', 'm', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, '', 0, 0, 0, '', '', '', '', '')");
 
 	$transaction->addQuery("UPDATE `".PREFIX."user` SET password_pepper = '".$new_pepper."' WHERE userID = '1'");
 
@@ -2556,7 +2556,7 @@ function update_40000_40100($_database)
 
     // birthday converter
     $transaction->addQuery("ALTER TABLE `" . PREFIX . "user` DROP `birthday`");
-    $transaction->addQuery("ALTER TABLE `" . PREFIX . "user` ADD `birthday` DATETIME NOT NULL");
+    $transaction->addQuery("ALTER TABLE `" . PREFIX . "user` ADD `birthday` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP");
 
     if ($transaction->successful()) {
         return array('status' => 'success', 'message' => 'Updated to webSPELL 4.1');
