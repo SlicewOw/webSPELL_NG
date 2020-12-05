@@ -491,19 +491,20 @@ function update_base_6($_database)
     $transaction->addQuery("DROP TABLE IF EXISTS `" . PREFIX . "games`");
     $transaction->addQuery("CREATE TABLE `" . PREFIX . "games` (
   `gameID` int(3) NOT NULL AUTO_INCREMENT,
-  `tag` varchar(10) NOT NULL default '',
-  `name` varchar(20) NOT NULL default '',
+  `name` varchar(255) NOT NULL,
+  `tag` varchar(10) NOT NULL,
+  `short` varchar(50) NULL,
   PRIMARY KEY  (`gameID`)
 ) PACK_KEYS=0 AUTO_INCREMENT=8
   DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
 
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (1, 'cs', 'Counter-Strike')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (2, 'ut', 'Unreal Tournament')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (3, 'to', 'Tactical Ops')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (4, 'hl2', 'Halflife 2')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (5, 'wc3', 'Warcraft 3')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (6, 'hl', 'Halflife')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (7, 'bf', 'Battlefield')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (1, 'Counter-Strike', 'cs', 'CS1.6')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (2, 'Unreal Tournament', 'ut', 'UT')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (3, 'Tactical Ops', 'to', 'TO')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (4, 'Half-Life 2', 'hl2', 'HL2')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (5, 'Warcraft 3', 'wc3', 'WC3)");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (6, 'Half-Life', 'hl', 'HL')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (7, 'Battlefield', 'bf', 'BF')");
 
     $transaction->addQuery("DROP TABLE IF EXISTS `" . PREFIX . "guestbook`");
     $transaction->addQuery("CREATE TABLE `" . PREFIX . "guestbook` (
@@ -1198,19 +1199,20 @@ function update_31_4beta4($_database)
     $transaction->addQuery("DROP TABLE IF EXISTS `" . PREFIX . "games`");
     $transaction->addQuery("CREATE TABLE `" . PREFIX . "games` (
   `gameID` int(3) NOT NULL AUTO_INCREMENT,
-  `tag` varchar(10) NOT NULL default '',
-  `name` varchar(20) NOT NULL default '',
+  `name` varchar(255) NOT NULL,
+  `tag` varchar(10) NOT NULL,
+  `short` varchar(50) NULL,
   PRIMARY KEY  (`gameID`)
- ) AUTO_INCREMENT=8
-   DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
+) PACK_KEYS=0 AUTO_INCREMENT=8
+  DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
 
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (1, 'cs', 'Counter-Strike')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (2, 'ut', 'Unreal Tournament')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (3, 'to', 'Tactical Ops')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (4, 'hl2', 'Halflife 2')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (7, 'bf', 'Battlefield')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (5, 'wc3', 'Warcraft 3')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (6, 'hl', 'Halflife')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (1, 'Counter-Strike', 'cs', 'CS1.6')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (2, 'Unreal Tournament', 'ut', 'UT')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (3, 'Tactical Ops', 'to', 'TO')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (4, 'Half-Life 2', 'hl2', 'HL2')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (5, 'Warcraft 3', 'wc3', 'WC3)");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (6, 'Half-Life', 'hl', 'HL')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (7, 'Battlefield', 'bf', 'BF')");
 
     $transaction->addQuery("DROP TABLE IF EXISTS `" . PREFIX . "linkus`");
     $transaction->addQuery("CREATE TABLE `" . PREFIX . "linkus` (
@@ -2895,61 +2897,64 @@ function update_40101_420_6($_database)
     $transaction->addQuery("ALTER TABLE `" . PREFIX . "scrolltext` ADD `color` VARCHAR(7) NOT NULL DEFAULT '#000000'");
 
     //add new games
-    $transaction->addQuery("UPDATE `" . PREFIX . "games` SET `name` = 'Battlefield 1942' WHERE `name` = 'Battlefield'");
-    $transaction->addQuery("INSERT INTO `" . PREFIX . "games` ( `gameID` , `tag` , `name` )
+    $transaction->addQuery("UPDATE `" . PREFIX . "games` SET `name` = 'Battlefield 1942', WHERE `name` = 'Battlefield'");
+    $transaction->addQuery("INSERT INTO `" . PREFIX . "games` ( `gameID` , `tag` , `name`, `short` )
 		VALUES
-			('', 'aa', 'Americas Army'),
-			('', 'aoe', 'Age of Empires 3'),
-			('', 'b21', 'Battlefield 2142'),
-			('', 'bf2', 'Battlefield 2'),
-			('', 'bfv', 'Battlefield Vietnam'),
-			('', 'c3d', 'Carom 3D'),
-			('', 'cc3', 'Command &amp; Conquer'),
-			('', 'cd2', 'Call of Duty 2'),
-			('', 'cd4', 'Call of Duty 4'),
-			('', 'cod', 'Call of Duty'),
-			('', 'coh', 'Company of Heroes'),
-			('', 'crw', 'Crysis Wars'),
-			('', 'cry', 'Crysis'),
-			('', 'css', 'Counter-Strike: Source'),
-			('', 'cz', 'Counter-Strike: Condition Zero'),
-			('', 'dds', 'Day of Defeat: Source'),
-			('', 'dod', 'Day of Defeat'),
-			('', 'dow', 'Dawn of War'),
-			('', 'dta', 'DotA'),
-			('', 'et', 'Enemy Territory'),
-			('', 'fc', 'FarCry'),
-			('', 'fer', 'F.E.A.R.'),
-			('', 'fif', 'FIFA'),
-			('', 'fl', 'Frontlines: Fuel of War'),
-			('', 'hal', 'HALO'),
-			('', 'jk2', 'Jedi Knight 2'),
-			('', 'jk3', 'Jedi Knight 3'),
-			('', 'lfs', 'Live for Speed'),
-			('', 'lr2', 'LotR: Battle for Middle Earth 2'),
-			('', 'lr', 'LotR: Battle for Middle Earth'),
-			('', 'moh', 'Medal of Hornor'),
-			('', 'nfs', 'Need for Speed'),
-			('', 'pes', 'Pro Evolution Soccer'),
-			('', 'q3', 'Quake 3'),
-			('', 'q4', 'Quake 4'),
-			('', 'ql', 'Quakelive'),
-			('', 'rdg', 'Race Driver Grid'),
-			('', 'sc2', 'Starcraft 2'),
-			('', 'sc', 'Starcraft'),
-			('', 'sof', 'Soldier of Fortune 2'),
-			('', 'sw2', 'Star Wars: Battlefront 2'),
-			('', 'sw', 'Star Wars: Battlefront'),
-			('', 'swa', 'SWAT 4'),
-			('', 'tf2', 'Team Fortress 2'),
-			('', 'tf', 'Team Fortress'),
-			('', 'tm', 'TrackMania'),
-			('', 'ut3', 'Unreal Tournament 3'),
-			('', 'ut4', 'Unreal Tournament 2004'),
-			('', 'war', 'War Rock'),
-			('', 'wic', 'World in Conflict'),
-			('', 'wow', 'World of Warcraft'),
-			('', 'wrs', 'Warsow')");
+			('', 'aa', 'Americas Army', 'AA'),
+			('', 'aoe', 'Age of Empires 3', 'AoE 3'),
+			('', 'b21', 'Battlefield 2142', 'BF 2142'),
+			('', 'bf2', 'Battlefield 2', 'BF 2'),
+			('', 'bfv', 'Battlefield Vietnam', 'BF Vietnam'),
+			('', 'c3d', 'Carom 3D', 'C3D'),
+			('', 'cc3', 'Command &amp; Conquer', 'C&amp;C'),
+			('', 'cd2', 'Call of Duty 2', 'CoD 2'),
+			('', 'cd4', 'Call of Duty 4', 'CoD 4'),
+			('', 'cod', 'Call of Duty', 'CoD'),
+			('', 'coh', 'Company of Heroes', 'CoH'),
+			('', 'crw', 'Crysis Wars', 'CW'),
+			('', 'cry', 'Crysis', 'Crysis'),
+			('', 'css', 'Counter-Strike: Global Offensive', 'CS:GO'),
+			('', 'css', 'Counter-Strike: Source', 'CS:S'),
+			('', 'cz', 'Counter-Strike: Condition Zero', 'CS:CZ'),
+			('', 'dds', 'Day of Defeat: Source', 'DoD:S'),
+			('', 'dod', 'Day of Defeat', 'DoD'),
+			('', 'dow', 'Dawn of War', 'DoW'),
+			('', 'dta', 'DotA', 'DotA'),
+			('', 'dt2', 'DotA 2', 'DotA 2'),
+			('', 'et', 'Enemy Territory', 'ET'),
+			('', 'fc', 'FarCry', 'FC'),
+			('', 'fer', 'F.E.A.R.', 'F.E.A.R.'),
+			('', 'fif', 'FIFA', 'FIFA'),
+			('', 'fl', 'Frontlines: Fuel of War', 'F: FoW'),
+			('', 'hal', 'HALO', 'HALO'),
+			('', 'jk2', 'Jedi Knight 2', 'JK 2'),
+			('', 'jk3', 'Jedi Knight 3', 'JK 3'),
+      ('', 'lol', 'League of Legends', 'LoL'),
+      ('', 'lfs', 'Live for Speed', 'LfS'),
+			('', 'lr2', 'LotR: Battle for Middle Earth 2', 'LotR: BfME 2'),
+			('', 'lr', 'LotR: Battle for Middle Earth', 'LotR: BfME'),
+			('', 'moh', 'Medal of Hornor', 'MoH'),
+			('', 'nfs', 'Need for Speed', 'NfS'),
+			('', 'pes', 'Pro Evolution Soccer', 'PES'),
+			('', 'q3', 'Quake 3', 'Q3'),
+			('', 'q4', 'Quake 4', 'Q4'),
+			('', 'ql', 'Quake Live', 'QL'),
+			('', 'rdg', 'Race Driver Grid', 'RDG'),
+			('', 'sc2', 'StarCraft 2', 'SC2'),
+			('', 'sc', 'StarCraft', 'SC'),
+			('', 'sof', 'Soldier of Fortune 2', 'SoF 2'),
+			('', 'sw2', 'Star Wars: Battlefront 2', 'SW:B2'),
+			('', 'sw', 'Star Wars: Battlefront', 'SW:B'),
+			('', 'swa', 'SWAT 4', 'SWAT 4'),
+			('', 'tf2', 'Team Fortress 2', 'TF2'),
+			('', 'tf', 'Team Fortress', 'TF'),
+			('', 'tm', 'TrackMania', 'TM'),
+			('', 'ut3', 'Unreal Tournament 3', 'UT3'),
+			('', 'ut4', 'Unreal Tournament 2004', 'UT2004'),
+			('', 'war', 'War Rock', 'WR'),
+			('', 'wic', 'World in Conflict', 'WoC'),
+			('', 'wow', 'World of Warcraft', 'WoW'),
+			('', 'wrs', 'Warsow', 'Warsow')");
 
     //add new countries
     $transaction->addQuery("INSERT INTO `" . PREFIX . "countries` ( `countryID` , `country` , `short` )
