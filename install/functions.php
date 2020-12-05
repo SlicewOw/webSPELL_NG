@@ -2913,7 +2913,7 @@ function update_40101_420_6($_database)
 			('', 'coh', 'Company of Heroes', 'CoH'),
 			('', 'crw', 'Crysis Wars', 'CW'),
 			('', 'cry', 'Crysis', 'Crysis'),
-			('', 'css', 'Counter-Strike: Global Offensive', 'CS:GO'),
+			('', 'csg', 'Counter-Strike: Global Offensive', 'CS:GO'),
 			('', 'css', 'Counter-Strike: Source', 'CS:S'),
 			('', 'cz', 'Counter-Strike: Condition Zero', 'CS:CZ'),
 			('', 'dds', 'Day of Defeat: Source', 'DoD:S'),
