@@ -294,6 +294,7 @@ if (is_dir("development")) {
         ),
         'js' => array(
             'node_modules/jquery/dist/jquery.js',
+            'node_modules/popper.js/dist/umd/popper.js',
             'node_modules/bootstrap/dist/js/bootstrap.js',
             'node_modules/webshim/js-webshim/dev/polyfiller.js',
             'components/scrolltotop/js/scrolltotop.js'
@@ -310,6 +311,7 @@ if (is_dir("development")) {
         ),
         'js' => array(
             'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/popper.js/dist/umd/popper.min.js',
             'node_modules/bootstrap/dist/js/bootstrap.min.js',
             'node_modules/webshim/js-webshim/minified/polyfiller.js',
             'components/scrolltotop/js/scrolltotop.js'

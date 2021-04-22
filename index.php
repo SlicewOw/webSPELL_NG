@@ -86,8 +86,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="description" content="Website using webSPELL-NOR CMS">
-    <meta name="author" content="webspell-nor.de">
+    <meta name="description" content="Website using webSPELL-NG CMS">
+    <meta name="author" content="webspell-ng.de">
 
     <!-- Head & Title include -->
     <title><?php

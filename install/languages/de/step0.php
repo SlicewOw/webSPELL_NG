@@ -39,4 +39,3 @@ $language_array = Array(
     'welcome_to' => 'Willkommen zu Deiner webSPELL Installation!',
 	'installerlocked'=>'Die Installation konnte nicht gestartet werden, bitte entferne die "locked.txt" im install-Ordner um die Installation zu starten.'
 );
-?>

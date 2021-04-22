@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <img src="../components/admin/images/setting.png" alt="Settings" class="img-circle hidden-xs"> <a class="navbar-brand" href="admincenter.php">WebSPELL NOR</a>
+        <img src="../components/admin/images/setting.png" alt="Settings" class="img-circle hidden-xs"> <a class="navbar-brand" href="admincenter.php">webSPELL NG</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -232,7 +232,7 @@
 
         <!-- Copy -->
         <div class="copy">
-            <em>&nbsp;&copy; 2016 webspell-nor.de&nbsp;Admin Template by <a href="http://designperformance.de/" target="_blank">T-Seven</a></em>
+            <em>&nbsp;&copy; 2016 webspell-ng.de&nbsp;Admin Template by <a href="http://designperformance.de/" target="_blank">T-Seven</a></em>
         </div>
 
     </div>

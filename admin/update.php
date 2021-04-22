@@ -38,7 +38,7 @@ echo '<div class="panel panel-default">
          <div class="panel-body">';
 
 //Where to get the newest WebSPELL from? (standard: http://update.webspell.org/)
-$updateserver = "https://update.webspell-nor.de/";
+$updateserver = "https://update.webspell-ng.de/";
 
 // reading version
 include('../version.php');

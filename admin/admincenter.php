@@ -135,7 +135,7 @@ if ($getavatar = getavatar($userID)) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Webspell NOR - Bootstrap Admin Theme</title>
+    <title>webSPELL NG - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -245,6 +245,7 @@ if ($getavatar = getavatar($userID)) {
         });
     </script>
 
+    <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../components/admin/js/menu.min.js"></script>
     <script src="../components/admin/js/page.js"></script>

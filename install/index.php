@@ -72,7 +72,7 @@ $_language->readModule('step' . $step, true, false, false, true);
     <meta name="copyright" content="Copyright 2005-2014 by webspell.org">
     <meta name="generator" content="webSPELL">
 
-    <title>webSPELL NOR Installation</title>
+    <title>webSPELL NG Installation</title>
 
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
@@ -85,42 +85,47 @@ $_language->readModule('step' . $step, true, false, false, true);
 </head>
 <body>
    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="http://webspell-nor.de/">Support</a></li>
-            <li role="presentation"><a href="http://www.webspell.org/index.php?site=license">License</a></li>
-            <li role="presentation"><a href="http://webspell-nor.de/index.php?site=about">About</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">WebSpell Installation</h3>
-      </div>
 
-      <div class="jumbotron bg">
-        <h1>WebSpell NOR</h1>
-        <p>super powerful, responsive features, easy to adjust
-        one of the easiest content management systems on earth
-        wonderful bootstrap or photoshop templates
-        lots of Add-ons and modifications for all types of websites
-        a community behind you for all issues and problems
-        </p>
-      </div>
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://webspell-ng.de/">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://www.webspell.org/index.php?site=license">License</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://webspell-ng.de/index.php?site=about">About</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">webSPELL Installation</h3>
+        </div>
 
-      <div class="row marketing">
-        <div class="col-xs-12">
+        <div class="jumbotron bg">
+            <h1>webSPELL NG</h1>
+                <p>super powerful, responsive features, easy to adjust one of the easiest content management systems on earth wonderful bootstrap or photoshop templates lots of Add-ons and modifications for all types of websites a community behind you for all issues and problems
+            </p>
+        </div>
+
+        <div class="container">
+
             <?php
                 echo '<form action="index.php?step=' . ($step + 1) . '" method="post" name="ws_install">';
                 include('step0' . $step . '.php');
             ?>
-		</div>
-    <footer class="footer">
-		<div class="container">
-        	<hr />
-			<p class="text-muted"><small>&copy; <?php echo date("Y"); ?> by <a href="https://webspell-nor.de/" target="_blank">WebSpell NOR</a> & <a href="http://www.webspell.org" target="_blank">Webspell.org</a></small></p>
-		</div>
-    </footer>
-	</div>
-    </div> <!-- /container -->
+
+        </div>
+
+        <footer class="footer">
+            <hr />
+            <p class="text-muted"><small>&copy; <?php echo date("Y"); ?> by <a href="https://webspell-ng.de/" target="_blank">webSPELL NG</a> &amp; <a href="http://www.webspell.org" target="_blank">webspell.org</a></small></p>
+        </footer>
+
+    </div>
+
+    <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $("body").tooltip({
@@ -128,5 +133,6 @@ $_language->readModule('step' . $step, true, false, false, true);
         container: "body"
     })
     </script>
+
 </body>
 </html>

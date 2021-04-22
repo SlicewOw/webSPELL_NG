@@ -33,6 +33,5 @@ $language_array = Array(
     'step4' => 'Step4',
     'step5' => 'Step5',
     'step6' => 'Step6',
-	'progress' => 'Fortschritt'
+    'progress' => 'Fortschritt'
 );
-?>
