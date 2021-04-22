@@ -1349,11 +1349,6 @@ function update_4beta6_4final_1($_database)
   PRIMARY KEY ( `carouselID` )
   ) DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
 
-  $transaction->addQuery("INSERT INTO `".PREFIX."carousel` (`title`, `link`, `description`, `carousel_pic`, `sort`, `displayed`) VALUES
-('Carousel Entry #1', 'https://webspell-ng.de/', 'The Bootstrap Carousel in webSPELL? No way?! Yes we did it!', '1.jpg', '1', '1'),
-('Carousel Entry #2', 'https://webspell-ng.de/', 'The Bootstrap Carousel in webSPELL? No way?! Yes we did it!', '2.jpg', '1', '1'),
-('Carousel Entry #3', 'https://webspell-ng.de/', 'The Bootstrap Carousel in webSPELL? No way?! Yes we did it!', '3.jpg', '1', '1')");
-
 	// Navigation
 	$transaction->addQuery("CREATE TABLE `" . PREFIX . "navigation_main` (
   `mnavID` int(11) NOT NULL AUTO_INCREMENT,
@@ -4867,11 +4862,6 @@ function update_420_125($_database) {
   `displayed` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
   PRIMARY KEY ( `carouselID` )
   ) DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
-
-  $transaction->addQuery("INSERT INTO `".PREFIX."carousel` (`title`, `link`, `description`, `carousel_pic`, `sort`, `displayed`) VALUES
-('Carousel Entry #1', 'https://webspell-ng.de/', 'The Bootstrap Carousel in webSPELL? No way?! Yes we did it!', '1.jpg', '1', '1'),
-('Carousel Entry #2', 'https://webspell-ng.de/', 'The Bootstrap Carousel in webSPELL? No way?! Yes we did it!', '2.jpg', '1', '1'),
-('Carousel Entry #3', 'https://webspell-ng.de/', 'The Bootstrap Carousel in webSPELL? No way?! Yes we did it!', '3.jpg', '1', '1')");
 
 	// Navigation
 	$transaction->addQuery("CREATE TABLE `" . PREFIX . "navigation_main` (

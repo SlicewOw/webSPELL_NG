@@ -169,10 +169,10 @@ if ($action == "add") {
                         <div class="panel panel-default">
 
             <ul class="nav nav-tabs-primary">
-    <li role="presentation"><a href="admincenter.php?site=styles">Style</a></li>
-    <li role="presentation"><a href="admincenter.php?site=buttons">Buttons</a></li>
-    <li role="presentation" class="active"><a href="admincenter.php?site=moduls">Module</a></li>
-    <li role="presentation"><a href="admincenter.php?site=css">.css</a></li>
+    <li class="nav-item"><a href="admincenter.php?site=styles">Style</a></li>
+    <li class="nav-item"><a href="admincenter.php?site=buttons">Buttons</a></li>
+    <li class="nav-item" class="active"><a href="admincenter.php?site=moduls">Module</a></li>
+    <li class="nav-item"><a href="admincenter.php?site=css">.css</a></li>
 </ul>
 <ol class="breadcrumb-primary"> </ol>
 	&nbsp;&nbsp;<a href="admincenter.php?site=moduls" class="white">'.$_language->module['module'].'</a> &raquo; '.$_language->module['add_modul'].'<br><br>';
@@ -243,10 +243,10 @@ if ($action == "add") {
                         <div class="panel panel-default">
 
             <ul class="nav nav-tabs-primary">
-    <li role="presentation"><a href="admincenter.php?site=styles">Style</a></li>
-    <li role="presentation"><a href="admincenter.php?site=buttons">Buttons</a></li>
-    <li role="presentation" class="active"><a href="admincenter.php?site=moduls">Module</a></li>
-    <li role="presentation"><a href="admincenter.php?site=css">.css</a></li>
+    <li class="nav-item"><a href="admincenter.php?site=styles">Style</a></li>
+    <li class="nav-item"><a href="admincenter.php?site=buttons">Buttons</a></li>
+    <li class="nav-item" class="active"><a href="admincenter.php?site=moduls">Module</a></li>
+    <li class="nav-item"><a href="admincenter.php?site=css">.css</a></li>
 </ul>
 <ol class="breadcrumb-primary"> </ol>
   &nbsp;&nbsp;<a href="admincenter.php?site=moduls" class="white">'.$_language->module['module'].'</a> &raquo; '.$_language->module['edit_modul'].'<br><br>';
@@ -348,10 +348,10 @@ else {
                         <div class="panel panel-default">
 
             <ul class="nav nav-tabs-primary">
-    <li role="presentation"><a href="admincenter.php?site=styles">Style</a></li>
-    <li role="presentation"><a href="admincenter.php?site=buttons">Buttons</a></li>
-    <li role="presentation" class="active"><a href="admincenter.php?site=moduls">Module</a></li>
-    <li role="presentation"><a href="admincenter.php?site=css">.css</a></li>
+    <li class="nav-item"><a class="nav-link" href="admincenter.php?site=styles">Style</a></li>
+    <li class="nav-item"><a class="nav-link" href="admincenter.php?site=buttons">Buttons</a></li>
+    <li class="nav-item"><a class="nav-link active" href="admincenter.php?site=moduls">Module</a></li>
+    <li class="nav-item"><a class="nav-link" href="admincenter.php?site=css">.css</a></li>
 </ul>
 <ol class="breadcrumb-primary"> </ol>
 <div class="panel-body">';

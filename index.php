@@ -130,11 +130,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </head>
 <body>
 <div class="wrapper">
-<!-- Fixed navbar -->
 
-
-         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
+
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -147,20 +147,23 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav visible-xs">
-                <li class="dropdown">
-                    <?php if ($loggedin) {
-                        echo
-                            '<a href="index.php?site=loginoverview">' . getnickname($userID) . '</a>';
-                    } else {
-                        echo '<a href="index.php?site=login">' . ucfirst($index_language[ 'login' ]) . '</a>';
-                    } ?>
-                </li>
-            </ul>
-			<?php include("navigation.php"); ?>
-        </div>
-    </div> <!-- /container -->
+                <ul class="nav navbar-nav visible-xs">
+                    <li class="dropdown">
+                        <?php if ($loggedin) {
+                            echo
+                                '<a href="index.php?site=loginoverview">' . getnickname($userID) . '</a>';
+                        } else {
+                            echo '<a href="index.php?site=login">' . ucfirst($index_language[ 'login' ]) . '</a>';
+                        } ?>
+                    </li>
+                </ul>
+                <?php include("navigation.php"); ?>
+            </div>
+
+        </div> <!-- /container -->
+
     </nav> <!-- nav end -->
+
       <?php include ('sc_carousel.php'); ?>   <br><br>
     <div class="container">
 
