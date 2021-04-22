@@ -186,7 +186,7 @@ if ($do=="edit") {
   <div class="form-group">
  	<label class="col-sm-4 control-label" for="path">Folder Path: (end with slash / )</label>
  	<div class="col-sm-8"><span class="text-muted small"><em>
- 	 <input type="name" class="form-control" placeholder="_plugins/myaddon/"  value="'.$row['path'].'" rows="5" name="path"></em></span>
+ 	 <input type="name" class="form-control" placeholder="php/_plugins/myaddon/"  value="'.$row['path'].'" rows="5" name="path"></em></span>
   </div>
   </div>
 
@@ -285,7 +285,7 @@ if ($do=="new") {
   <div class="form-group">
  	<label class="col-sm-4 control-label" for="path">Folder Path: (end with slash / )</label>
  	<div class="col-sm-8"><span class="text-muted small"><em>
- 	 <input type="name" class="form-control" placeholder="_plugins/myaddon/" rows="5" name="path"></em></span>
+ 	 <input type="name" class="form-control" placeholder="php/_plugins/myaddon/" rows="5" name="path"></em></span>
   </div>
   </div>
 

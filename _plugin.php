@@ -27,8 +27,8 @@ class PluginManager {
 			} else {
 				return 0;
 			}
-		} catch (EXCPETION $e) {
-			return $e->message();
+		} catch (Exception $e) {
+			return $e->getMessage();
 		}
 	}
 
@@ -61,8 +61,8 @@ class PluginManager {
 			if (mysqli_num_rows($query)) {
 				return mysqli_fetch_array($query);
 			}
-		} catch (EXCEPTION $e) {
-			return $e->message();
+		} catch (Exception $e) {
+			return $e->getMessage();
 		}
 	}
 
@@ -257,7 +257,7 @@ class PluginManager {
 			$res = safe_query("SELECT `default_language` FROM `".PREFIX."settings` WHERE 1");
 			$row = mysqli_fetch_array($res);
 			$lng = $this->get_plugin_language($row['default_language']);
-			$p = "_plugins/".$plugin."";
+			$p = __DIR__ . "/php/_plugins/" . $plugin;
 			if (isset($admin)) {
 				$admin = "admin";
 			} else {
@@ -269,8 +269,8 @@ class PluginManager {
 				$arr[ $key ] = $val;
 			}
 			return $arr;
-		} catch (EXCEPTION $ex) {
-			return $ex->message();
+		} catch (Exception $ex) {
+			return $ex->getMessage();
 		}
 	}
 
@@ -297,9 +297,9 @@ class PluginManager {
 					return settitle($arr['name']);
 				}
 			}
-		} catch (EXCEPTION $x) {
+		} catch (Exception $x) {
 			if ($this->_debug === "ON") {
-				return ('<span class="label label-danger">'.$x->message().'</span>');
+				return ('<span class="label label-danger">'.$x->getMessage().'</span>');
 			}
 		}
 	}
