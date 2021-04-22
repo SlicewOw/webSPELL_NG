@@ -146,7 +146,7 @@ if (!empty($action)) {
 
         echo '<div class="panel panel-default">
          <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['faq'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['faq'].'
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=faq" class="white">' . $_language->module[ 'faq' ] .
@@ -237,7 +237,7 @@ if (!empty($action)) {
 
         echo '<div class="panel panel-default">
         <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['faq'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['faq'].'
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=faq" class="white">' . $_language->module[ 'faq' ] .
@@ -307,7 +307,7 @@ else {
 
   echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['faq'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['faq'].'
                         </div>
                         <div class="panel-body">';
 
@@ -358,8 +358,8 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faq&amp;delete=true&amp;faqID='.$db['faqID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=faq&amp;action=edit&amp;faqID='.$db['faqID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faq&amp;delete=true&amp;faqID='.$db['faqID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+	  <a href="admincenter.php?site=faq&amp;action=edit&amp;faqID='.$db['faqID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faq&amp;delete=true&amp;faqID='.$db['faqID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
         </td>
         <td><select name="sortfaq[]">';
             for ($j = 1; $j <= $anzfaq; $j++) {

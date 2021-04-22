@@ -327,20 +327,19 @@ header('X-UA-Compatible: IE=edge,chrome=1');
             	Copyright&copy; by <?php echo $myclanname ?> 2016 - <small>Template by <a href="http://www.2one-designs.de" target="_blank">Argu</a></small>
                 <!-- if you want, you can use this network-items by your own -->
                 <div class="pull-right">
-                	<a class="btn btn-default btn-circle" href="#"><span class="fa fa-facebook"></span></a>
-                    <a class="btn btn-default btn-circle" href="#"><span class="fa fa-google-plus"></span></a>
-                    <a class="btn btn-default btn-circle" href="#"><span class="fa fa-twitter"></span></a>
-                    <a class="btn btn-default btn-circle" href="#"><span class="fa fa-twitch"></span></a>
+                	<a class="btn btn-default btn-circle" href="#"><span class="bi bi-facebook"></span></a>
+                    <a class="btn btn-default btn-circle" href="#"><span class="bi bi-twitter"></span></a>
+                    <a class="btn btn-default btn-circle" href="#"><span class="bi bi-twitch"></span></a>
                     </div>
 
             </div>
-		</div>
+        </div>
     </footer>
 </div>  <!-- wrapper-end -->
 <div class="scroll-top-wrapper">  <!-- scroll to top feature -->
-	<span class="scroll-top-inner">
-		<span class="fa fa-2x fa-arrow-circle-up"></span>
-	</span>
+    <span class="scroll-top-inner">
+        <span class="bi bi-arrow-up-circle-fill"></span>
+    </span>
 </div>
 
 <script>
@@ -354,10 +353,10 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     webshim.polyfill('forms forms-ext');
 </script>
 <script>
-	  $("body").tooltip({
-		selector: "[data-toggle='tooltip']",
-		container: "body"
-	})
+    $("body").tooltip({
+        selector: "[data-toggle='tooltip']",
+        container: "body"
+    })
 </script>
 
 </body>

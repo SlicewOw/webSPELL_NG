@@ -33,7 +33,7 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
 
 echo '<div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-upload"></span> ' . $_language->module[ 'webspell_update' ] . '
+                            <span class="bi bi-upload"></span> ' . $_language->module[ 'webspell_update' ] . '
                         </div>
          <div class="panel-body">';
 

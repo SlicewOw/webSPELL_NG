@@ -104,6 +104,10 @@ _mysql.php
 ehthumbs.db
 Thumbs.db
 
+# NPM #
+######################
+node_modules/
+
 # Composer #
 ######################
 vendor/

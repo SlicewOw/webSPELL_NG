@@ -205,7 +205,7 @@ if ($action == "optimize") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-database"></span> '.$_language->module['database'].'
+                            <span class="bi bi-server"></span> '.$_language->module['database'].'
                         </div>
                         <div class="panel-body">
 
@@ -256,7 +256,7 @@ if ($action == "optimize") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-database"></span> '.$_language->module['sql_query'].'
+                            <span class="bi bi-server"></span> '.$_language->module['sql_query'].'
                         </div>
             <div class="panel-body">';
 

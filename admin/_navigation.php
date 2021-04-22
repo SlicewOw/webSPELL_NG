@@ -16,14 +16,14 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="fa fa-times"></span> Logout <span class="fa fa-caret-down"></span>
+                <span class="bi bi-trash-fill"></span> Logout <span class="bi bi-caret-down-fill"></span>
             </a>
             <ul class="dropdown-menu dropdown-user">
 
-                <li><a href="../index.php"><span class="fa fa-undo"></span> Back to Website</a>
+                <li><a href="../index.php"><span class="bi bi-arrow-return-left"></span> Back to Website</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="../logout.php"><span class="fa fa-sign-out"></span> Logout</a>
+                <li><a href="../logout.php"><span class="bi bi-box-arrow-right"></span> Logout</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -60,7 +60,7 @@
                 </li>
 
                 <li>
-                    <a href="#"><span class="fa fa-area-chart"></span> <?php echo $_language->module['main_panel']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-graph-up"></span> <?php echo $_language->module['main_panel']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                             <li><a href="admincenter.php"><?php echo $_language->module['overview']; ?></a></li>
                             <li><a href="admincenter.php?site=page_statistic"><?php echo $_language->module['page_statistics']; ?></a></li>
@@ -76,7 +76,7 @@
                 if (isuseradmin($userID)) {
                 ?>
                 <li>
-                    <a href="#"><span class="fa fa-user"></span> <?php echo $_language->module['user_administration']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-person-fill"></span> <?php echo $_language->module['user_administration']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                             <li><a href="admincenter.php?site=users"><?php echo $_language->module['registered_users']; ?></a></li>
                             <li><a href="admincenter.php?site=squads"><?php echo $_language->module['squads']; ?></a></li>
@@ -94,7 +94,7 @@
                 if (ispageadmin($userID)) {
                 ?>
                 <li>
-                    <a href="#"><span class="fa fa-warning"></span> <?php echo $_language->module['spam']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-exclamation-triangle-fill"></span> <?php echo $_language->module['spam']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                             <li><a href="admincenter.php?site=spam&amp;action=forum_spam"><?php echo $_language->module['blocked_content']; ?></a></li>
                             <li><a href="admincenter.php?site=spam&amp;action=user"><?php echo $_language->module['spam_user']; ?></a></li>
@@ -110,7 +110,7 @@
                 if (isnewsadmin($userID) || isfileadmin($userID) || ispageadmin($userID)) {
                 ?>
                 <li>
-                    <a href="#"><span class="fa fa-indent"></span> <?php echo $_language->module['rubrics']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-text-indent-left"></span> <?php echo $_language->module['rubrics']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <?php
                         }
@@ -140,7 +140,7 @@
                 if (ispageadmin($userID)) {
                 ?>
                 <li>
-                    <a href="#"><span class="fa fa-pencil-square"></span> <?php echo $_language->module['settings']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-pencil-square"></span> <?php echo $_language->module['settings']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="admincenter.php?site=settings"><?php echo $_language->module['settings']; ?></a></li>
                         <li><a href="admincenter.php?site=styles"><?php echo $_language->module['styles']; ?></a></li>
@@ -158,7 +158,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-font"></span> <?php echo $_language->module['content']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-fonts"></span> <?php echo $_language->module['content']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="admincenter.php?site=carousel"><?php echo $_language->module['carousel']; ?></a></li>
                         <li><a href="admincenter.php?site=static"><?php echo $_language->module['static_pages']; ?></a></li>
@@ -181,7 +181,7 @@
                 ?>
 
                 <li>
-                    <a href="#"><span class="fa fa-list"></span> <?php echo $_language->module['forum']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-list-ul"></span> <?php echo $_language->module['forum']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="admincenter.php?site=boards"><?php echo $_language->module['boards']; ?></a></li>
                         <li><a href="admincenter.php?site=groups"><?php echo $_language->module['manage_user_groups']; ?></a></li>
@@ -197,7 +197,7 @@
                 if (isgalleryadmin($userID)) {
                 ?>
                 <li>
-                    <a href="#"><span class="fa fa-file-image-o"></span> <?php echo $_language->module['gallery']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-file-image-fill"></span> <?php echo $_language->module['gallery']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="admincenter.php?site=gallery&amp;part=groups"><?php echo $_language->module['manage_groups']; ?></a></li>
                         <li><a href="admincenter.php?site=gallery&amp;part=gallerys"><?php echo $_language->module['manage_galleries']; ?></a></li>
@@ -211,7 +211,7 @@
                 if (ispageadmin($userID)) {
                 ?>
                 <li>
-                    <a href="#"><span class="fa fa-arrow-right"></span> <?php echo $_language->module['plugin_base']; ?><span class="fa arrow"></span></a>
+                    <a href="#"><span class="bi bi-arrow-right"></span> <?php echo $_language->module['plugin_base']; ?><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                     <li><a href="admincenter.php?site=plugin-manager"><?php echo $_language->module['plugin_manages']; ?></a></li>
 

@@ -58,7 +58,7 @@ if ($action == "add") {
 
 echo'<div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['sponsors'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['sponsors'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=sponsors" class="white">' . $_language->module['sponsors'] . '</a> &raquo; ' . $_language->module['add_sponsor'] . '<br><br>';
@@ -187,7 +187,7 @@ echo'<div class="panel panel-default">
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['sponsors'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['sponsors'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=sponsors" class="white">' . $_language->module['sponsors'] . '</a> &raquo; ' . $_language->module['edit_sponsor'] . '<br><br>';
@@ -407,7 +407,7 @@ echo'<div class="panel panel-default">
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['sponsors'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['sponsors'].'
                         </div>
                         <div class="panel-body">';
 
@@ -465,8 +465,8 @@ echo'<div class="panel panel-default">
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=sponsors&amp;delete=true&amp;sponsorID='.$ds['sponsorID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=sponsors&amp;action=edit&amp;sponsorID='.$ds['sponsorID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=sponsors&amp;delete=true&amp;sponsorID='.$ds['sponsorID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
+	  <a href="admincenter.php?site=sponsors&amp;action=edit&amp;sponsorID='.$ds['sponsorID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=sponsors&amp;delete=true&amp;sponsorID='.$ds['sponsorID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a></td>
         <td><select name="sort[]">';
             for ($j = 1; $j <= $anz; $j++) {
                 if ($ds[ 'sort' ] == $j) {

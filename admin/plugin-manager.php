@@ -119,7 +119,7 @@ if ($do=="edit") {
 	<div class="panel panel-default">
   <div class="panel-heading">
 
-                              <span class="fa fa-cogs"></span> '.$_language->module['plugin_manager'].'
+                              <span class="bi bi-gear-wide-connected"></span> '.$_language->module['plugin_manager'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=plugin-manager" class="white">' . $_language->module['plugin_manager'] . '</a> &raquo; Plugin edit<br><br>';
@@ -218,7 +218,7 @@ if ($do=="new") {
 	<div class="panel panel-default">
   <div class="panel-heading">
 
-                              <span class="fa fa-cogs"></span> '.$_language->module['plugin_manager'].'
+                              <span class="bi bi-gear-wide-connected"></span> '.$_language->module['plugin_manager'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=plugin-manager" class="white">' . $_language->module['plugin_manager'] . '</a> &raquo; Plugin hinzufügen<br><br>';
@@ -314,7 +314,7 @@ return false;
 echo'<div class="panel panel-default">
   <div class="panel-heading">
 
-                              <span class="fa fa-cogs"></span> '.$_language->module['plugin_manager'].'
+                              <span class="bi bi-gear-wide-connected"></span> '.$_language->module['plugin_manager'].'
                         </div>
                         <div class="panel-body">';
 
@@ -326,7 +326,7 @@ echo'<div class="panel panel-default">
 
 <div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> <?php echo $_language->module[ 'activated' ]; ?>
+                            <span class="bi bi-credit-card-fill"></span> <?php echo $_language->module[ 'activated' ]; ?>
                         </div>
                         <div class="panel-body">
 <div class="row">
@@ -354,17 +354,17 @@ $CAPCLASS = new \webspell\Captcha;
  				 <div class="col-sm-3">
 
 <a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=dea" class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button">' . $_language->module[ 'deactivate' ] . '</a>
-<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=dea" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-eye-slash"></span></a>
+<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=dea" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-eye-slash-fill"></span></a>
 
 &nbsp;
 
 <a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
-<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
 
 &nbsp;
 
 <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
-<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 </div>
 				</div><hr>';
 		}
@@ -376,7 +376,7 @@ echo'</div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['deactivated'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['deactivated'].'
                         </div>
                         <div class="panel-body">';
 ?>
@@ -404,17 +404,17 @@ $CAPCLASS = new \webspell\Captcha;
  				 <div class="col-sm-5">'.$row['description'].'</strong></div>
  				 <div class="col-sm-3">
  				 <a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=act" class="hidden-xs hidden-sm btn btn-success btn-xs" type="button">' . $_language->module[ 'activate' ] . '</a>
-<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=act" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-eye-slash"></span></a>
+<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=act" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-eye-slash-fill"></span></a>
 
 &nbsp;
 
 <a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">' . $_language->module[ 'edit' ] . '</a>
-<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+<a href="admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=edit" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
 
 &nbsp;
 
 <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
-<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=plugin-manager&id='.$row['pluginID'].'&do=del&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 </div>
 </div><hr>
 				';

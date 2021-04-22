@@ -393,10 +393,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 Copyright&copy; by <?php echo $myclanname ?> <?php date("Y"); ?> - <small>Template by <a href="http://www.2one-designs.de" target="_blank">Argu</a> and <a href="http://www.designperformance.de" target="_blank">T-Seven</a></small>
                 <!-- if you want, you can use this network-items by your own -->
                     <div class="pull-right">
-                        <a href="https://www.facebook.com/"><span id="social-fb" class="fa fa-facebook-square fa-3x social"></span></a>
-                        <a href="https://twitter.com"><span id="social-tw" class="fa fa-twitter-square fa-3x social"></span></a>
-                        <a href="https://plus.google.com/"><span id="social-gp" class="fa fa-google-plus-square fa-3x social"></span></a>
-                        <a href="mailto://admin@yoursite.com"><span id="social-em" class="fa fa-envelope-square fa-3x social"></span></a>
+                        <a href="https://www.facebook.com/"><span id="social-fb" class="bi bi-facebook social"></span></a>
+                        <a href="https://twitter.com"><span id="social-tw" class="bi bi-twitter social"></span></a>
+                        <a href="mailto://admin@yoursite.com"><span id="social-em" class="bi bi-envelope-fill-square social"></span></a>
                     </div>
 
             </div>
@@ -404,9 +403,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     </footer>
 </div>  <!-- wrapper-end -->
 <div class="scroll-top-wrapper">  <!-- scroll to top feature -->
-	<span class="scroll-top-inner">
-		<span class="fa fa-2x fa-arrow-circle-up"></span>
-	</span>
+    <span class="scroll-top-inner">
+        <span class="bi bi-arrow-up-circle-fill"></span>
+    </span>
 </div>
 
 <script>

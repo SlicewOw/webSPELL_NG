@@ -65,19 +65,23 @@ $_language->readModule('step' . $step, true, false, false, true);
 
 <!DOCTYPE html>
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Clanpage using webSPELL 4 CMS">
     <meta name="author" content="webspell.org">
     <meta name="copyright" content="Copyright 2005-2014 by webspell.org">
     <meta name="generator" content="webSPELL">
+
     <title>webSPELL NOR Installation</title>
+
     <link href="../components/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome Include -->
-    <link href="../components/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
     <link href="../_stylesheet.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+
     <script src="../components/jquery/jquery.min.js"></script>
     <script src="install.js"></script>
+
 </head>
 <body>
    <div class="container">
@@ -112,7 +116,7 @@ $_language->readModule('step' . $step, true, false, false, true);
     <footer class="footer">
 		<div class="container">
         	<hr />
-			<p class="text-muted"><small><span class="fa fa-copyright"></span> <?php echo date("Y"); ?> by <a href="https://webspell-nor.de/" target="_blank">WebSpell NOR</a> & <a href="http://www.webspell.org" target="_blank">Webspell.org</a></small></p>
+			<p class="text-muted"><small>&copy; <?php echo date("Y"); ?> by <a href="https://webspell-nor.de/" target="_blank">WebSpell NOR</a> & <a href="http://www.webspell.org" target="_blank">Webspell.org</a></small></p>
 		</div>
     </footer>
 	</div>

@@ -391,10 +391,10 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
     if ($type == "ASC") {
         $sorter =
             '<a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;page=' . $page . '&amp;type=DESC">' .
-            $_language->module['sort'] . ' <span class="fa fa-chevron-down"></span></a>';
+            $_language->module['sort'] . ' <span class="bi bi-arrow-down-circle"></span></a>';
     } else {
         $sorter = '<a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;page=' . $page . '&amp;type=ASC">' .
-            $_language->module['sort'] . ' <span class="fa fa-chevron-up"></span></a>';
+            $_language->module['sort'] . ' <span class="bi bi-arrow-up-circle"></span></a>';
     }
 
     $start = getStartValue($page, $max);
@@ -428,13 +428,13 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
     $boardname = $db['name'];
 
     $topicactions = '<a href="printview.php?board=' . $dt['boardID'] . '&amp;topic=' . $topic .
-        '" target="_blank" class="btn btn-default"><span class="fa fa-print"></span></a>';
+        '" target="_blank" class="btn btn-default"><span class="bi bi-printer-fill"></span></a>';
     if ($loggedin && $writer) {
         $topicactions .=
             '<a href="index.php?site=forum&amp;addtopic=true&amp;action=newtopic&amp;board=' . $dt['boardID'] .
             '" class="btn btn-primary hidden">' . $_language->module['new_topic'] .
             '</a> <a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;addreply=true&amp;page=' . $pages .
-            '&amp;type=' . $type . '" class="btn btn-primary"><span class="fa fa-share"></span> ' . $_language->module['new_reply'] . '</a>';
+            '&amp;type=' . $type . '" class="btn btn-primary"><span class="bi bi-share-fill"></span> ' . $_language->module['new_reply'] . '</a>';
     }
 
     $kathname = getcategoryname($db['category']);
@@ -597,7 +597,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                     $signatur = '';
                 }
                 if (getemail($userID) && !getemailhide($userID)) {
-                    $email = '<a href="mailto:' . mail_protect(getemail($userID)) . '"><span class="fa fa-envelope" title="email"></span></a>';
+                    $email = '<a href="mailto:' . mail_protect(getemail($userID)) . '"><span class="bi bi-envelope-fill" title="email"></span></a>';
                 } else {
                     $email = '';
                 }
@@ -609,7 +609,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
                     $hp = '';
                 } else {
                     $hp =
-                        '<a href="' . gethomepage($userID) . '" target="_blank" data-toggle="tooltip" data-placement="top" title="' . $_language->module['homepage'] . '"><span class="fa fa-home"></span></a>';
+                        '<a href="' . gethomepage($userID) . '" target="_blank" data-toggle="tooltip" data-placement="top" title="' . $_language->module['homepage'] . '"><span class="bi bi-house-fill"></span></a>';
                 }
                 $registered = getregistered($userID);
                 $posts = getuserforumposts($userID);
@@ -789,7 +789,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
 
         if (getemail($dr['poster']) && !getemailhide($dr['poster'])) {
             $email =
-                '<a href="mailto:' . mail_protect(getemail($dr['poster'])) .'"><span class="fa fa-envelope"></span></a>';
+                '<a href="mailto:' . mail_protect(getemail($dr['poster'])) .'"><span class="bi bi-envelope-fill"></span></a>';
         } else {
             $email = '';
         }
@@ -797,37 +797,37 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         $pm = '';
         $buddy = '';
         if ($loggedin && $dr['poster'] != $userID) {
-            $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $dr['poster'] .'" data-toggle="tooltip" data-placement="top" title="' . $_language->module['message'] . '"><span class="fa fa-envelope"></span></a>';
+            $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $dr['poster'] .'" data-toggle="tooltip" data-placement="top" title="' . $_language->module['message'] . '"><span class="bi bi-envelope-fill"></span></a>';
             if (isignored($userID, $dr['poster'])) {
                 $buddy = '<a href="buddies.php?action=readd&amp;id=' . $dr['poster'] . '&amp;userID=' . $userID .
-                    '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['back_buddy'] . '"><span class="fa fa-user-plus"></span></a>';
+                    '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['back_buddy'] . '"><span class="bi bi-person-plus-fill"></span></a>';
             } else if (isbuddy($userID, $dr['poster'])) {
                 $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $dr['poster'] . '&amp;userID=' . $userID .
-                    '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['ignore'] . '"><span class="fa fa-user-times"></span></a></a>';
+                    '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['ignore'] . '"><span class="bi bi-person-dash-fill"></span></a></a>';
             } else {
                 $buddy = '<a href="buddies.php?action=add&amp;id=' . $dr['poster'] . '&amp;userID=' . $userID .
-                    '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['add_buddy'] . '"><span class="fa fa-user-plus"></span></a>';
+                    '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['add_buddy'] . '"><span class="bi bi-person-plus-fill"></span></a>';
             }
         }
 
         if (isonline($dr['poster']) == "offline") {
-            $statuspic = '<span class="fa fa-circle text-danger" aria-hidden="true"></span>';
+            $statuspic = '<span class="bi bi-circle-fill text-danger" aria-hidden="true"></span>';
         } else {
-            $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
+            $statuspic = '<span class="bi bi-circle-fill text-success" aria-hidden="true"></span>';
         }
 
         if (!validate_url(gethomepage($dr['poster']))) {
             $hp = '';
         } else {
             $hp =
-                '<a href="' . gethomepage($dr['poster']) . '" target="_blank" title="'.$_language->module['homepage'] .'""><span class="fa fa-home"></span></a>';
+                '<a href="' . gethomepage($dr['poster']) . '" target="_blank" title="'.$_language->module['homepage'] .'""><span class="bi bi-house-fill"></span></a>';
         }
 
         if (!$dt['closed']) {
             $quote =
                 '<a href="index.php?site=forum_topic&amp;addreply=true&amp;board=' . $dt['boardID'] . '&amp;topic=' .
                 $topic . '&amp;quoteID=' . $postID . '&amp;page=' . $page . '&amp;type=' . $type .
-                '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['quote'] . '"><span class="fa fa-quote-left"></span></a>';
+                '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['quote'] . '"><span class="bi bi-chat-left-quote-fill"></span></a>';
         } else {
             $quote = "";
         }
@@ -876,7 +876,7 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type)
         if (($userID == $dr['poster'] || isforumadmin($userID) || ismoderator($userID, $dt['boardID']))
             && !$dt['closed']
         ) {
-            $actions = ' <a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;edit=true&amp;id=' . $postID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['edit'] . '"><span class="fa fa-pencil"></span></a> ';
+            $actions = ' <a href="index.php?site=forum_topic&amp;topic=' . $topic . '&amp;edit=true&amp;id=' . $postID . '" data-toggle="tooltip" data-placement="top" title="' . $_language->module['edit'] . '"><span class="bi bi-pencil-square"></span></a> ';
         }
         if (isforumadmin($userID) || ismoderator($userID, $dt['boardID'])) {
             $actions .= '<input class="input" type="checkbox" name="postID[]" value="' . $postID . '">';

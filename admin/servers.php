@@ -98,7 +98,7 @@ if ($action == "add") {
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-gamepad"></span> '.$_language->module['servers'].'
+                            <span class="bi bi-controller"></span> '.$_language->module['servers'].'
                         </div>
                         <div class="panel-body">
 
@@ -170,7 +170,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-gamepad"></span> '.$_language->module['servers'].'
+                            <span class="bi bi-controller"></span> '.$_language->module['servers'].'
                         </div>
                         <div class="panel-body">
 
@@ -265,7 +265,7 @@ else {
 
   echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-gamepad"></span> '.$_language->module['servers'].'
+                            <span class="bi bi-controller"></span> '.$_language->module['servers'].'
                         </div>
                         <div class="panel-body">';
 
@@ -315,8 +315,8 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=servers&amp;delete=true&amp;serverID='.$ds['serverID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-    <a href="admincenter.php?site=servers&amp;action=edit&amp;serverID='.$ds['serverID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=servers&amp;delete=true&amp;serverID='.$ds['serverID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
+    <a href="admincenter.php?site=servers&amp;action=edit&amp;serverID='.$ds['serverID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=servers&amp;delete=true&amp;serverID='.$ds['serverID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a></td>
         <td>'.$list.'</td>
       </tr>';
 

@@ -345,11 +345,11 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
 
         if ($sorttype == "ASC") {
             $sorter = '<a href="' . $referer . '&amp;commentspage=' . $commentspage . '&amp;sorttype=DESC">' .
-                $_language->module[ 'sort' ] . '</a> <span class="fa fa-chevron-down" title="' .
+                $_language->module[ 'sort' ] . '</a> <span class="bi bi-arrow-down-circle" title="' .
                 $_language->module[ 'sort_desc' ] . '"></span>&nbsp;&nbsp;&nbsp;';
         } else {
             $sorter = '<a href="' . $referer . '&amp;commentspage=' . $commentspage . '&amp;sorttype=ASC">' .
-                $_language->module[ 'sort' ] . '</a> <span class="fa fa-chevron-up" title="' .
+                $_language->module[ 'sort' ] . '</a> <span class="bi bi-arrow-up-circle" title="' .
                 $_language->module[ 'sort_asc' ] . '"></span>&nbsp;&nbsp;&nbsp;';
         }
 
@@ -394,7 +394,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                     && $gethomepage != "n/a"
                 ) {
                     $hp = '<a href="http://' . $gethomepage .
-                        '" target="_blank"><span class="fa fa-home" title="' .
+                        '" target="_blank"><span class="bi bi-house-fill" title="' .
                         $_language->module[ 'homepage' ] . '"></span></a>';
                 } else {
                     $hp = '';
@@ -411,24 +411,24 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
 
                 if ($loggedin && $ds[ 'userID' ] != $userID) {
                     $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $ds[ 'userID' ] .
-                        '"><span class="fa fa-envelope" title="' .
+                        '"><span class="bi bi-envelope-fill" title="' .
                         $_language->module[ 'send_message' ] . '"></span></a>';
                     if (isignored($userID, $ds[ 'userID' ])) {
                         $buddy =
                             '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><span class="fa fa-user-plus" title="' .
+                            '"><span class="bi bi-person-plus-fill" title="' .
                             $_language->module[ 'readd_buddy' ] . '"></span></a>';
                     } else if (isbuddy($userID, $ds[ 'userID' ])) {
                         $buddy =
                             '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><span class="fa fa-user-times" title="' .
+                            '"><span class="bi bi-person-dash-fill" title="' .
                             $_language->module[ 'ignore_user' ] . '"></span></a>';
                     } else if ($userID == $ds[ 'userID' ]) {
                         $buddy = '';
                     } else {
                         $buddy =
                             '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><span class="fa fa-user-plus" title="' .
+                            '"><span class="bi bi-person-plus-fill" title="' .
                             $_language->module[ 'add_buddy' ] . '"></span></a>';
                     }
                 } else {
@@ -458,7 +458,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 $ds[ 'url' ] = htmlspecialchars($ds[ 'url' ]);
                 $url = getDefaultUrlStr($ds[ 'url' ]);
                 if ($url != "http://" && $url != "") {
-                    $hp = '<a href="' . $url . '" target="_blank"><span class="fa fa-home" title="' . $_language->module[ 'homepage' ] . '"></span></a>';
+                    $hp = '<a href="' . $url . '" target="_blank"><span class="bi bi-house-fill" title="' . $_language->module[ 'homepage' ] . '"></span></a>';
                 } else {
                     $hp = '';
                 }
@@ -485,7 +485,7 @@ if (isset($_POST[ 'savevisitorcomment' ])) {
                 $edit =
                     '<a href="index.php?site=comments&amp;editcomment=true&amp;id=' . $ds[ 'commentID' ] . '&amp;ref=' .
                     urlencode($referer) . '" title="' . $_language->module[ 'edit_comment' ] .
-                    '"><span class="fa fa-pencil"></span></a>';
+                    '"><span class="bi bi-pencil-square"></span></a>';
             } else {
                 $edit = '';
             }

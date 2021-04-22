@@ -199,7 +199,7 @@ $action = getAction();
 if ($action == "edit") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-users"></span> '.$_language->module['members'].'
+                            <span class="bi bi-people-fill"></span> '.$_language->module['members'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=members" class="white">' . $_language->module[ 'members' ] .
@@ -649,7 +649,7 @@ onmouseout="hideWMTT()" />';
     while ($ds = mysqli_fetch_array($squads)) {
         echo'<div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="fa fa-users"></span> '.$_language->module['members'].'
+                    <span class="bi bi-people-fill"></span> '.$_language->module['members'].'
                 </div>
             <div class="panel-body">';
         echo '<table class="table table-striped">
@@ -712,9 +712,9 @@ onmouseout="hideWMTT()" />';
                 $dm[ 'squadID' ] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
 
-            <a href="admincenter.php?site=members&amp;action=edit&amp;id=' . $dm[ 'userID' ] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+            <a href="admincenter.php?site=members&amp;action=edit&amp;id=' . $dm[ 'userID' ] . '"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
       <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=members&amp;delete=true&amp;id=' . $dm[ 'userID' ] . '&amp;squadID=' .
-                $dm[ 'squadID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
+                $dm[ 'squadID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="bi bi-trash-fill"></span></a>
 
 
 

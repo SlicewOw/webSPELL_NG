@@ -165,7 +165,7 @@ if (isset($_POST[ 'submit' ])) {
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-envelope"></span> ' . $_language->module[ 'email' ] . '
+                            <span class="bi bi-envelope-fill"></span> ' . $_language->module[ 'email' ] . '
                         </div>
         <div class="panel-body">';
 

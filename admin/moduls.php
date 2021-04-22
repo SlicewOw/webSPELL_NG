@@ -163,7 +163,7 @@ if ($action == "add") {
 
 	echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-thumbs-up"></span> '.$_language->module['styles'].'
+                            <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
                         <div class="panel panel-default">
@@ -237,7 +237,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-thumbs-up"></span> '.$_language->module['styles'].'
+                            <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
                         <div class="panel panel-default">
@@ -342,7 +342,7 @@ else {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-thumbs-up"></span> '.$_language->module['styles'].'
+                            <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
                         <div class="panel panel-default">
@@ -409,8 +409,8 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=moduls&amp;delete=true&amp;modulID='.$db['modulID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=moduls&amp;action=edit&amp;modulID='.$db['modulID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=moduls&amp;delete=true&amp;modulID='.$db['modulID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+	  <a href="admincenter.php?site=moduls&amp;action=edit&amp;modulID='.$db['modulID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=moduls&amp;delete=true&amp;modulID='.$db['modulID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 
 
       </td>

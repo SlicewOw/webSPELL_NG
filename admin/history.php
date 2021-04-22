@@ -57,7 +57,7 @@ $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
 echo'<div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-history"></span> ' . $_language->module[ 'history' ] . '
+                            <span class="bi bi-hourglass-split"></span> ' . $_language->module[ 'history' ] . '
                         </div>
                   <div class="panel-body">
 

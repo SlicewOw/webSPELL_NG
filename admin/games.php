@@ -41,7 +41,7 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-gamepad"></span> ' . $_language->module['games'] . '
+                            <span class="bi bi-controller"></span> ' . $_language->module['games'] . '
                         </div>
       <div class="panel-body">
   <a href="admincenter.php?site=games" class="white">' . $_language->module['games'] . '</a> &raquo; ' . $_language->module['add_game'] . '<br><br>';
@@ -85,7 +85,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-gamepad"></span> ' . $_language->module['games'] . '
+                            <span class="bi bi-controller"></span> ' . $_language->module['games'] . '
                         </div>
       <div class="panel-body">
   <a href="admincenter.php?site=games" class="white">' . $_language->module['games'] . '</a> &raquo; ' . $_language->module['edit_game'] . '<br><br>';
@@ -201,7 +201,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
    <div class="panel-heading">
-                            <span class="fa fa-gamepad"></span> ' . $_language->module['games'] . '
+                            <span class="bi bi-controller"></span> ' . $_language->module['games'] . '
                         </div>
   <div class="panel-body">';
 
@@ -256,8 +256,8 @@ if ($action == "add") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=games&amp;delete=true&amp;gameID=' . $ds['gameID'] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
-    <a href="admincenter.php?site=games&amp;action=edit&amp;gameID=' . $ds['gameID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-        <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=games&amp;delete=true&amp;gameID=' . $ds['gameID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a></td>
+    <a href="admincenter.php?site=games&amp;action=edit&amp;gameID=' . $ds['gameID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+        <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=games&amp;delete=true&amp;gameID=' . $ds['gameID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="bi bi-trash-fill"></span></a></td>
       </tr>';
 
       $n++;

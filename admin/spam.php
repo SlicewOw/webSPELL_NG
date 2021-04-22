@@ -177,7 +177,7 @@ $action = getAction();
 
 if ($action == "user") {
     echo '<div class="panel panel-default">
-    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Spam</div>
+    <div class="panel-heading"><span class="bi bi-exclamation-triangle-fill"></span> Spam</div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -208,7 +208,7 @@ if ($action == "user") {
   echo '</div></div>';
 } else if ($action == "user_ban") {
     echo '<div class="panel panel-default">
-    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Spam</div>
+    <div class="panel-heading"><span class="bi bi-exclamation-triangle-fill"></span> Spam</div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
     if ($CAPCLASS->checkCaptcha(0, $_POST[ 'captcha_hash' ])) {
@@ -227,7 +227,7 @@ if ($action == "user") {
     echo '</div></div>';
 } else if ($action == "multi") {
     echo '<div class="panel panel-default">
-    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Multiple Accounts</div>
+    <div class="panel-heading"><span class="bi bi-exclamation-triangle-fill"></span> Multiple Accounts</div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
@@ -318,7 +318,7 @@ if ($action == "user") {
 } else if ($action == "multi_ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <<span class="fa fa-exclamation-triangle"></span> Multiple Accounts
+                            <<span class="bi bi-exclamation-triangle-fill"></span> Multiple Accounts
 </div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -340,7 +340,7 @@ if ($action == "user") {
 } else if ($action == "multi_just_block") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Multiple Accounts
+                            <span class="bi bi-exclamation-triangle-fill"></span> Multiple Accounts
 </div>
 <div class="panel-body">';
     $CAPCLASS = new \webspell\Captcha;
@@ -381,7 +381,7 @@ if ($action == "user") {
 } else if ($action == "api_log") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Api-Log
+                            <span class="bi bi-exclamation-triangle-fill"></span> Api-Log
 </div>
 <div class="panel-body">';
 
@@ -424,7 +424,7 @@ if ($action == "user") {
 } else if ($action == "forum_spam") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Forum Spam
+                            <span class="bi bi-exclamation-triangle-fill"></span> Forum Spam
 </div>
 <div class="panel-body">';
 
@@ -462,7 +462,7 @@ if ($action == "user") {
 echo '</div></div>';
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-exclamation-triangle"></span> Topics
+                            <span class="bi bi-exclamation-triangle-fill"></span> Topics
 </div>
 <div class="panel-body">';
 
@@ -510,7 +510,7 @@ echo '</div></div>';
     echo '</div></div>';
 
     echo '<div class="panel panel-default">
-    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Posts</div>
+    <div class="panel-heading"><span class="bi bi-exclamation-triangle-fill"></span> Posts</div>
 <div class="panel-body">';
 
     $get = safe_query("SELECT * FROM " . PREFIX . "forum_posts_spam ORDER BY date DESC");
@@ -554,7 +554,7 @@ echo '</div></div>';
     echo '</div></div>';
 
     echo '<div class="panel panel-default">
-    <div class="panel-heading"><span class="fa fa-exclamation-triangle"></span> Comments</div>
+    <div class="panel-heading"><span class="bi bi-exclamation-triangle-fill"></span> Comments</div>
 <div class="panel-body">';
 
     $get = safe_query("SELECT * FROM " . PREFIX . "comments_spam ORDER BY date DESC");

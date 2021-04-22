@@ -48,7 +48,7 @@ if ($do=="new" && $op=="main") {
 	if (isset($main_sort)) { $main_sort .= '<option value="'.$x.'" selected>'.$x.'</option>'; } else { $main_sort = '<option value="'.$x.'" selected>'.$x.'</option>'; }
 	echo '<div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-indent"></span> Navigation
+                            <span class="bi bi-text-indent-left"></span> Navigation
                         </div>
                         <div class="panel-body">
 
@@ -127,7 +127,7 @@ if ($do=="new" && $op=="sub") {
 	$x = $x +1;
 	echo '<div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-indent"></span> Navigation
+                            <span class="bi bi-text-indent-left"></span> Navigation
                         </div>
                         <div class="panel-body">
 
@@ -170,7 +170,7 @@ function edit_sub(id,name,link,sort) {
 </script>
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-indent"></span> Navigation
+                            <span class="bi bi-text-indent-left"></span> Navigation
                         </div>
                         <div class="panel-body">
 <a href="admincenter.php?site=navigation&do=new&op=main" class="btn btn-primary btn-xs" type="button">New Main-Navigation</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="admincenter.php?site=navigation&do=new&op=sub" class="btn btn-primary btn-xs" type="button">New Sub-Navigation</a><br />
@@ -190,7 +190,7 @@ while($row=mysqli_fetch_array($res)) {
 
 
 <a href="javascript: edit_main('.$row['mnavID'].', \''.$row['name'].'\', \''.$row['link'].'\')" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">Edit</a>
-<a href="javascript: edit_main('.$row['mnavID'].', \''.$row['name'].'\', \''.$row['link'].'\')" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+<a href="javascript: edit_main('.$row['mnavID'].', \''.$row['name'].'\', \''.$row['link'].'\')" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
 
 
 		   &nbsp;&nbsp;
@@ -201,7 +201,7 @@ while($row=mysqli_fetch_array($res)) {
 
 
 <a href="admincenter.php?site=navigation&do=del&mnav='.$row['mnavID'].'" class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button">Delete</a>
-<a href="admincenter.php?site=navigation&do=del&mnav='.$row['mnavID'].'" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-times"></span></a>
+<a href="admincenter.php?site=navigation&do=del&mnav='.$row['mnavID'].'" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-trash-fill"></span></a>
 
 
 
@@ -220,14 +220,14 @@ while($row=mysqli_fetch_array($res)) {
 
 
 <a href="javascript: edit_sub('.$rox['snavID'].', \''.$rox['name'].'\', \''.$rox['link'].'\', \''.$rox['sort'].'\')" class="hidden-xs hidden-sm btn btn-warning btn-xs" type="button">Edit</a>
-<a href="javascript: edit_sub('.$rox['snavID'].', \''.$rox['name'].'\', \''.$rox['link'].'\', \''.$rox['sort'].'\')" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+<a href="javascript: edit_sub('.$rox['snavID'].', \''.$rox['name'].'\', \''.$rox['link'].'\', \''.$rox['sort'].'\')" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
 
 		   &nbsp;&nbsp;
 
 
 
 <a href="admincenter.php?site=navigation&do=del&snav='.$rox['snavID'].'" class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button">Delete</a>
-<a href="admincenter.php?site=navigation&do=del&snav='.$rox['snavID'].'" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-times"></span></a>
+<a href="admincenter.php?site=navigation&do=del&snav='.$rox['snavID'].'" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-trash-fill"></span></a>
 
 
 

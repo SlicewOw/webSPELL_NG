@@ -131,7 +131,7 @@ if ($action == "show") {
                 $email = '';
             } else {
                 $email = '<a href="mailto:' . mail_protect($dm[ 'email' ]) .
-                    '"><span class="fa fa-envelope" title="email"></span></a>';
+                    '"><span class="bi bi-envelope-fill" title="email"></span></a>';
             }
             $emaill = $dm[ 'email' ];
 
@@ -139,31 +139,31 @@ if ($action == "show") {
             $buddy = '';
             if ($loggedin && $dm[ 'userID' ] != $userID) {
                 $pm = '<a title="messenger" href="index.php?site=messenger&amp;action=touser&amp;touser=' . $dm[ 'userID' ] .
-                    '"><span class="fa fa-envelope"></span></a>';
+                    '"><span class="bi bi-envelope-fill"></span></a>';
 
                 if (isignored($userID, $dm[ 'userID' ])) {
                     $buddy =
                         '<a href="buddies.php?action=readd&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                        '" title="back to buddylist"><span class="fa fa-user-plus"></span>
+                        '" title="back to buddylist"><span class="bi bi-person-plus-fill"></span>
                         </a>';
                 } else if (isbuddy($userID, $dm[ 'userID' ])) {
                     $buddy =
                         '<a title="ignore user" href="buddies.php?action=ignore&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                        '"><span class="fa fa-user-times"></span></a>';
+                        '"><span class="bi bi-person-dash-fill"></span></a>';
                 } else if ($userID == $dm[ 'userID' ]) {
                     $buddy = "";
                 } else {
                     $buddy =
                         '<a title="add to buddylist" href="buddies.php?action=add&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                        '"><span class="fa fa-user-plus"></span>
+                        '"><span class="bi bi-person-plus-fill"></span>
                         </a>';
                 }
             }
 
             if (isonline($dm[ 'userID' ]) == "offline") {
-                $statuspic = '<span class="fa fa-circle text-danger" aria-hidden="true"></span>';
+                $statuspic = '<span class="bi bi-circle-fill text-danger" aria-hidden="true"></span>';
             } else {
-                $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
+                $statuspic = '<span class="bi bi-circle-fill text-success" aria-hidden="true"></span>';
             }
 
             $position = $dm[ 'position' ];
@@ -299,7 +299,7 @@ if ($action == "show") {
                     $email = '';
                 } else {
                     $email = '<a href="mailto:' . mail_protect($dm[ 'email' ]) .
-                        '"><span class="fa fa-envelope" title="email"></span></a>';
+                        '"><span class="bi bi-envelope-fill" title="email"></span></a>';
                 }
                 $emaill = $dm[ 'email' ];
 
@@ -307,31 +307,31 @@ if ($action == "show") {
                 $buddy = '';
                 if ($loggedin && $dm[ 'userID' ] != $userID) {
                     $pm = '<a title="messenger" href="index.php?site=messenger&amp;action=touser&amp;touser=' . $dm[ 'userID' ] .
-                    '"><span class="fa fa-envelope"></span></a>';
+                    '"><span class="bi bi-envelope-fill"></span></a>';
 
                     if (isignored($userID, $dm[ 'userID' ])) {
                         $buddy =
                             '<a href="buddies.php?action=readd&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                            '" title="back to buddylist"><span class="fa fa-user-plus"></span>
+                            '" title="back to buddylist"><span class="bi bi-person-plus-fill"></span>
                             </a>';
                     } else if (isbuddy($userID, $dm[ 'userID' ])) {
                         $buddy =
                             '<a title="ignore user" href="buddies.php?action=ignore&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><span class="fa fa-user-times"></span></a>';
+                            '"><span class="bi bi-person-dash-fill"></span></a>';
                     } else if ($userID == $dm[ 'userID' ]) {
                         $buddy = "";
                     } else {
                         $buddy =
                             '<a title="add to buddylist" href="buddies.php?action=add&amp;id=' . $dm[ 'userID' ] . '&amp;userID=' . $userID .
-                            '"><span class="fa fa-user-plus"></span>
+                            '"><span class="bi bi-person-plus-fill"></span>
                             </a>';
                     }
                 }
 
                 if (isonline($dm[ 'userID' ]) == "offline") {
-                    $statuspic = '<span class="fa fa-circle text-danger" aria-hidden="true"></span>';
+                    $statuspic = '<span class="bi bi-circle-fill text-danger" aria-hidden="true"></span>';
                 } else {
-                    $statuspic = '<span class="fa fa-circle text-success" aria-hidden="true"></span>';
+                    $statuspic = '<span class="bi bi-circle-fill text-success" aria-hidden="true"></span>';
                 }
 
                 $position = $dm[ 'position' ];

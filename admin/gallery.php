@@ -99,7 +99,7 @@ if ($part == "groups") {
 
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
 <a href="admincenter.php?site=gallery&amp;part=groups" class="white">'.$_language->module['groups'].'</a> &raquo; '.$_language->module['add_group'].'<br><br>';
@@ -128,7 +128,7 @@ if ($part == "groups") {
 
         echo'<div class="panel panel-default">
         <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=gallery&amp;part=groups" class="white">'.$_language->module['groups'].'</a> &raquo; '.$_language->module['edit_group'].'<br><br>';
@@ -152,7 +152,7 @@ if ($part == "groups") {
     else {
         echo'<div class="panel panel-default">
         <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
         <h4>'.$_language->module['groups'].'</h4>';
@@ -192,8 +192,8 @@ if ($part == "groups") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_group'] . '\', \'admincenter.php?site=gallery&amp;part=groups&amp;delete=true&amp;groupID='.$ds['groupID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-    <a href="admincenter.php?site=gallery&amp;part=groups&amp;action=edit&amp;groupID='.$ds['groupID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-    <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_group'] . '\', \'admincenter.php?site=gallery&amp;part=groups&amp;delete=true&amp;groupID='.$ds['groupID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+    <a href="admincenter.php?site=gallery&amp;part=groups&amp;action=edit&amp;groupID='.$ds['groupID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+    <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_group'] . '\', \'admincenter.php?site=gallery&amp;part=groups&amp;delete=true&amp;groupID='.$ds['groupID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 
 
         </td>
@@ -365,7 +365,7 @@ if ($part == "groups") {
 
             echo'<div class="panel panel-default">
             <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
             <a href="admincenter.php?site=gallery&amp;part=gallerys" class="white">'.$_language->module['galleries'].'</a> &raquo; '.$_language->module['add_gallery'].'<br><br>';
@@ -425,7 +425,7 @@ if ($part == "groups") {
 
         echo'<div class="panel panel-default">
         <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=gallery&amp;part=gallerys" class="white">'.$_language->module['galleries'].'</a> &raquo; '.$_language->module['edit_gallery'].'<br><br>';
@@ -467,7 +467,7 @@ if ($ds['userID'] != 0) {
     } else if ($action == "upload") {
         echo '<div class="panel panel-default">
         <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
 
                 <div class="panel-body">
@@ -610,7 +610,7 @@ if ($ds['userID'] != 0) {
     else {
         echo'<div class="panel panel-default">
         <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
 
@@ -656,8 +656,8 @@ if ($ds['userID'] != 0) {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$db['galleryID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-    <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$db['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-    <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$db['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+    <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$db['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+    <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$db['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 
 
 
@@ -671,7 +671,7 @@ if ($ds['userID'] != 0) {
 
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> '.$_language->module['gallery'].'
+                            <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
                         <div class="panel-body">
     '.$_language->module['usergalleries'].'</br><br>';
@@ -703,8 +703,8 @@ if ($ds['userID'] != 0) {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$ds['galleryID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-    <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$ds['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-    <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$ds['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+    <a href="admincenter.php?site=gallery&amp;part=gallerys&amp;action=edit&amp;galleryID='.$ds['galleryID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+    <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_gallery'] . '\', \'admincenter.php?site=gallery&amp;part=gallerys&amp;delete=true&amp;galleryID='.$ds['galleryID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
         </td>
     </tr>';
 

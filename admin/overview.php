@@ -132,7 +132,7 @@ $ret = mysqli_fetch_array($get);
 $db = $ret[ 0 ];
 
 echo '<div class="panel panel-default">
-<div class="panel-heading"><span class="fa fa-smile-o"></span> '.$_language->module['welcome'].'</div>
+<div class="panel-heading"><span class="bi bi-emoji-smile"></span> '.$_language->module['welcome'].'</div>
 <div class="panel-body">';
 
 echo $_language->module['hello'].'&nbsp;'.$username.',&nbsp;'.$_language->module['last_login'].'&nbsp;'.$lastlogin.'.<br /><br />';
@@ -147,7 +147,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-database"></span> <?php echo $_language->module['serverinfo']; ?>
+                            <span class="bi bi-server"></span> <?php echo $_language->module['serverinfo']; ?>
 </div>
 
 <div class="panel-body">
@@ -174,7 +174,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-file-image-o"></span> GD Graphics Library
+                            <span class="bi bi-file-image-fill"></span> GD Graphics Library
 </div>
 
 <div class="panel-body">
@@ -194,7 +194,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-database"></span> <?php echo $_language->module['interface']; ?>
+                            <span class="bi bi-server"></span> <?php echo $_language->module['interface']; ?>
 </div>
 
 <div class="panel-body">
@@ -216,7 +216,7 @@ echo $_language->module['welcome_message'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-th-list"></span> <?php echo $_language->module['php_settings']; ?>
+                            <span class="bi bi-list-task"></span> <?php echo $_language->module['php_settings']; ?>
 </div>
 <div class="panel-body">
 <div class="row bt">

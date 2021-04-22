@@ -292,10 +292,10 @@ if (isclanwaradmin($userID)) {
         echo '<p>';
         if ($type == "ASC") {
             echo '<a class="btn btn-default btn-xs" href="index.php?site=challenge&amp;type=DESC">' .
-                $_language->module['sort'] . ' <span class="fa fa-chevron-down"></span></a>';
+                $_language->module['sort'] . ' <span class="bi bi-arrow-down-circle"></span></a>';
         } else {
             echo '<a class="btn btn-default btn-xs" href="index.php?site=challenge&amp;type=ASC">' .
-                $_language->module['sort'] . ' <span class="fa fa-chevron-up"></span></a>';
+                $_language->module['sort'] . ' <span class="bi bi-arrow-up-circle"></span></a>';
         }
         echo '</p>';
 

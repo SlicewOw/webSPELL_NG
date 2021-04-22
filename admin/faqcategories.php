@@ -105,7 +105,7 @@ if (!empty($action)) {
 
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-info"></span> '.$_language->module['faq_categories'].'
+                            <span class="bi bi-info-circle-fill"></span> '.$_language->module['faq_categories'].'
                         </div>
             <div class="panel-body">
     <a href="admincenter.php?site=faqcategories" class="white">'.$_language->module['faq_categories'].'</a> &raquo; '.$_language->module['add_category'].'<br><br>';
@@ -157,7 +157,7 @@ if (!empty($action)) {
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
     echo'<div class="panel panel-default"><div class="panel-heading">
-                            <span class="fa fa-info"></span> '.$_language->module['faq_categories'].'
+                            <span class="bi bi-info-circle-fill"></span> '.$_language->module['faq_categories'].'
                         </div>
             <div class="panel-body">
     <a href="admincenter.php?site=faqcategories" class="white">'.$_language->module['faq_categories'].'</a> &raquo; '.$_language->module['edit_category'].'<br><br>';
@@ -199,7 +199,7 @@ if (!empty($action)) {
 else {
 
   echo '<div class="panel panel-default"><div class="panel-heading">
-                            <span class="fa fa-info"></span> '.$_language->module['faq_categories'].'
+                            <span class="bi bi-info-circle-fill"></span> '.$_language->module['faq_categories'].'
                         </div>
         <div class="panel-body">';
 
@@ -236,8 +236,8 @@ else {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faqcategories&amp;delcat=true&amp;faqcatID='.$ds['faqcatID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-      <a href="admincenter.php?site=faqcategories&amp;action=editcat&amp;faqcatID='.$ds['faqcatID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-     <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faqcategories&amp;delcat=true&amp;faqcatID='.$ds['faqcatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
+      <a href="admincenter.php?site=faqcategories&amp;action=editcat&amp;faqcatID='.$ds['faqcatID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+     <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=faqcategories&amp;delcat=true&amp;faqcatID='.$ds['faqcatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a></td>
       <td><select name="sortfaqcat[]">';
 
     for ($n = 1; $n <= $anz; $n++) {

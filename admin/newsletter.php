@@ -183,7 +183,7 @@ hr { margin: 0px; }
 
 <div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-newspaper-o"></span> <?php echo $_language->module['newsletter']; ?>
+                            <span class="bi bi-newspaper"></span> <?php echo $_language->module['newsletter']; ?>
                         </div>
 
 

@@ -50,8 +50,8 @@ function generate_overview($filecats = '', $offset = '', $subcatID = 0)
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=filecategories&amp;delete=true&amp;filecatID='.$ds['filecatID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-		<a href="admincenter.php?site=filecategories&amp;action=edit&amp;filecatID='.$ds['filecatID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      	<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=filecategories&amp;delete=true&amp;filecatID='.$ds['filecatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+		<a href="admincenter.php?site=filecategories&amp;action=edit&amp;filecatID='.$ds['filecatID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      	<a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=filecategories&amp;delete=true&amp;filecatID='.$ds['filecatID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
         </td>
     	</tr>';
 
@@ -141,7 +141,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-download"></span> '.$_language->module['file_categories'].'
+                            <span class="bi bi-download"></span> '.$_language->module['file_categories'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=filecategories" class="white">'.$_language->module['file_categories'].'</a> &raquo; '.$_language->module['add_category'].'<br><br>';
@@ -184,7 +184,7 @@ if ($action == "add") {
 
 	echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-download"></span> '.$_language->module['file_categories'].'
+                            <span class="bi bi-download"></span> '.$_language->module['file_categories'].'
                         </div>
         <div class="panel-body">
 	<a href="admincenter.php?site=filecategories" class="white">'.$_language->module['file_categories'].'</a> &raquo; '.$_language->module['edit_category'].'<br><br>';
@@ -215,7 +215,7 @@ else {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-download"></span> '.$_language->module['file_categories'].'
+                            <span class="bi bi-download"></span> '.$_language->module['file_categories'].'
                         </div>
                         <div class="panel-body">';
 

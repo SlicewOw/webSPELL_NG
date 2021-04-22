@@ -104,7 +104,7 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-indent"></span> ' . $_language->module[ 'news_rubrics' ] . '
+                            <span class="bi bi-text-indent-left"></span> ' . $_language->module[ 'news_rubrics' ] . '
                         </div>
             <div class="panel-body">
 
@@ -135,7 +135,7 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
     echo '<div class="panel panel-default"><div class="panel-heading">
-                            <span class="fa fa-indent"></span> ' . $_language->module[ 'news_rubrics' ] . '
+                            <span class="bi bi-text-indent-left"></span> ' . $_language->module[ 'news_rubrics' ] . '
                         </div>
                 <div class="panel-body">
 
@@ -177,7 +177,7 @@ else {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-indent"></span> ' . $_language->module[ 'news_rubrics' ] . '
+                            <span class="bi bi-text-indent-left"></span> ' . $_language->module[ 'news_rubrics' ] . '
                         </div>
     <div class="panel-body">
 
@@ -214,8 +214,8 @@ else {
 
       <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\''.$_language->module['really_delete'].'\', \'admincenter.php?site=rubrics&amp;delete=true&amp;rubricID='.$ds['rubricID'].'&amp;captcha_hash='.$hash.'\')" value="'.$_language->module['delete'].'" />
 
-      <a href="admincenter.php?site=rubrics&amp;action=edit&amp;rubricID='.$ds['rubricID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=rubrics&amp;delete=true&amp;rubricID='.$ds['rubricID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
+      <a href="admincenter.php?site=rubrics&amp;action=edit&amp;rubricID='.$ds['rubricID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=rubrics&amp;delete=true&amp;rubricID='.$ds['rubricID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a></td>
     </tr>';
 
       $i++;

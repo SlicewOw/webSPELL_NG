@@ -291,7 +291,7 @@ $action = getAction();
 if ($action == "mods") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
-                            <span class="fa fa-list"></span> '.$_language->module['boards'].'
+                            <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
@@ -342,7 +342,7 @@ if ($action == "mods") {
 } else if ($action == "add") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
-                            <span class="fa fa-list"></span> '.$_language->module['boards'].'
+                            <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
@@ -427,7 +427,7 @@ if ($action == "mods") {
 } else if ($action == "edit") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
-                            <span class="fa fa-list"></span> '.$_language->module['boards'].'
+                            <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
@@ -550,7 +550,7 @@ if ($action == "mods") {
 } else if ($action == "addcat") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
-                            <span class="fa fa-list"></span> '.$_language->module['boards'].'
+                            <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
@@ -609,7 +609,7 @@ if ($action == "mods") {
 } else if ($action == "editcat") {
     echo '<div class="panel panel-default">
      <div class="panel-heading">
-                            <span class="fa fa-list"></span> '.$_language->module['boards'].'
+                            <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
@@ -686,7 +686,7 @@ else {
 
 	echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-list"></span> '.$_language->module['boards'].'
+                            <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
 
                         <div class="panel-body">';
@@ -721,8 +721,8 @@ else {
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_category'] . '\', \'admincenter.php?site=boards&amp;delcat=true&amp;catID='.$ds['catID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
 
-	  <a href="admincenter.php?site=boards&amp;action=editcat&amp;catID='.$ds['catID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_category'] . '\', \'admincenter.php?site=boards&amp;delcat=true&amp;catID='.$ds['catID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+	  <a href="admincenter.php?site=boards&amp;action=editcat&amp;catID='.$ds['catID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_category'] . '\', \'admincenter.php?site=boards&amp;delcat=true&amp;catID='.$ds['catID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 
 
 	      </td>
@@ -765,7 +765,7 @@ else {
 	        <td class="'.$td.'">
 
 <a href="admincenter.php?site=boards&amp;action=mods&amp;boardID='.$db['boardID'].'" class="hidden-xs hidden-sm btn btn-primary btn-xs" type="button">' . $_language->module[ 'mods' ] . '</a>
-<a href="admincenter.php?site=boards&amp;action=mods&amp;boardID='.$db['boardID'].'" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+<a href="admincenter.php?site=boards&amp;action=mods&amp;boardID='.$db['boardID'].'" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
 
 			</td>
 	        <td class="'.$td.'">
@@ -775,8 +775,8 @@ else {
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_board'] . '\', \'admincenter.php?site=boards&amp;delete=true&amp;boardID='.$db['boardID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
 
-	  <a href="admincenter.php?site=boards&amp;action=edit&amp;boardID='.$db['boardID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_board'] . '\', \'admincenter.php?site=boards&amp;delete=true&amp;boardID='.$db['boardID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+	  <a href="admincenter.php?site=boards&amp;action=edit&amp;boardID='.$db['boardID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete_board'] . '\', \'admincenter.php?site=boards&amp;delete=true&amp;boardID='.$db['boardID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 
 
 	        </td>
@@ -816,7 +816,7 @@ else {
 
 
       <a href="admincenter.php?site=boards&amp;action=mods&amp;boardID='.$db['boardID'].'" class="hidden-xs hidden-sm btn btn-primary btn-xs" type="button">' . $_language->module[ 'mods' ] . '</a>
-<a href="admincenter.php?site=boards&amp;action=mods&amp;boardID='.$db['boardID'].'" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
+<a href="admincenter.php?site=boards&amp;action=mods&amp;boardID='.$db['boardID'].'" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
       </td>
       <td bgcolor="#FFFFFF">
 
@@ -825,8 +825,8 @@ else {
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=boards&amp;delete=true&amp;boardID='.$db['boardID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
 
-	  <a href="admincenter.php?site=boards&amp;action=edit&amp;boardID='.$db['boardID'].'" class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=boards&amp;delete=true&amp;boardID='.$db['boardID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a></td>
+	  <a href="admincenter.php?site=boards&amp;action=edit&amp;boardID='.$db['boardID'].'" class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=boards&amp;delete=true&amp;boardID='.$db['boardID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a></td>
       <td bgcolor="#FFFFFF"><select name="sort[]">';
 
         for ($n = 1; $n <= $anzboards; $n++) {

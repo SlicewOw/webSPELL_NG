@@ -287,10 +287,10 @@ if (is_dir("development")) {
     $components = array(
         'css' => array(
             'components/bootstrap/dist/css/bootstrap.css',
-            'components/font-awesome.min.css',
+            'node_modules/bootstrap-icons/font/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
-			'components/profile.css',
-			'components/emoji.css'
+            'components/profile.css',
+            'components/emoji.css'
         ),
         'js' => array(
             'components/jquery/dist/jquery.js',
@@ -303,10 +303,10 @@ if (is_dir("development")) {
     $components = array(
         'css' => array(
             'components/bootstrap/bootstrap.min.css',
-            'components/font-awesome/font-awesome.min.css',
+            'node_modules/bootstrap-icons/font/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
-			'components/profile/profile.css',
-			'components/emoji/emoji.css'
+            'components/profile/profile.css',
+            'components/emoji/emoji.css'
         ),
         'js' => array(
             'components/jquery/jquery.min.js',

@@ -66,11 +66,11 @@ if ($anz) {
     if ($type == "ASC") {
         $sorter =
             '<a href="index.php?site=registered_users&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=DESC">' .
-            $_language->module[ 'sort' ] . ' <span class="fa fa-chevron-down"></span></a>';
+            $_language->module[ 'sort' ] . ' <span class="bi bi-arrow-down-circle"></span></a>';
     } else {
         $sorter =
             '<a href="index.php?site=registered_users&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=ASC">' .
-            $_language->module[ 'sort' ] . ' <span class="fa fa-chevron-up"></span></a>';
+            $_language->module[ 'sort' ] . ' <span class="bi bi-arrow-up-circle"></span></a>';
     }
     $data_array = array();
     $data_array['$sorter'] = $sorter;
@@ -89,7 +89,7 @@ if ($anz) {
             '<a href="index.php?site=profile&amp;id=' . $ds[ 'userID' ] . '"><strong>' . strip_tags($ds[ 'nickname' ]) .
             '</strong></a>';
         if (isclanmember($ds[ 'userID' ])) {
-            $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
+            $member = ' <span class="bi bi-person-fill" aria-hidden="true" title="Clanmember"></span>';
         } else {
             $member = '';
         }
@@ -97,32 +97,32 @@ if ($anz) {
             $email = '';
         } else {
             $email = '<a href="mailto:' . mail_protect($ds[ 'email' ]) .
-                '"><span class="fa fa-envelope" title="email"></span></a>';
+                '"><span class="bi bi-envelope-fill" title="email"></span></a>';
         }
 
         if (!validate_url($ds[ 'homepage' ])) {
             $homepage = '';
         } else {
             $homepage = '<a href="' . $ds[ 'homepage' ] .
-                '" target="_blank"><span class="fa fa-home" aria-hidden="true" title="Homepage"></span></a>';
+                '" target="_blank"><span class="bi bi-house-fill" aria-hidden="true" title="Homepage"></span></a>';
         }
 
         $pm = '';
         $buddy = '';
         if ($loggedin && $ds[ 'userID' ] != $userID) {
             $pm = '<a href="index.php?site=messenger&amp;action=touser&amp;touser=' . $ds[ 'userID' ] .
-                '"><span class="fa fa-envelope" title="Messenger"></span></a>';
+                '"><span class="bi bi-envelope-fill" title="Messenger"></span></a>';
             if (isignored($userID, $ds[ 'userID' ])) {
                 $buddy = '<a href="buddies.php?action=readd&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                    '"><span class="fa fa-user-plus" title="back to buddylist"></span></a>';
+                    '"><span class="bi bi-person-plus-fill" title="back to buddylist"></span></a>';
             } else if (isbuddy($userID, $ds[ 'userID' ])) {
                 $buddy = '<a href="buddies.php?action=ignore&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                    '"><span class="fa fa-user-times" title="ignore user"></span></a></a>';
+                    '"><span class="bi bi-person-dash-fill" title="ignore user"></span></a></a>';
             } else if ($userID == $ds[ 'userID' ]) {
                 $buddy = '';
             } else {
                 $buddy = '<a href="buddies.php?action=add&amp;id=' . $ds[ 'userID' ] . '&amp;userID=' . $userID .
-                    '"><span class="fa fa-user-plus" title="add to buddylist"></span></a>';
+                    '"><span class="bi bi-person-plus-fill" title="add to buddylist"></span></a>';
             }
         }
         $lastlogindate = getformatdate($ds[ 'lastlogin' ]);
@@ -133,7 +133,7 @@ if ($anz) {
         if ($status == "offline") {
             $login = $lastlogindate . ' - ' . $lastlogintime;
         } else {
-            $login = '<span class="fa fa-circle text-success" aria-hidden="true"></span>' .
+            $login = '<span class="bi bi-circle-fill text-success" aria-hidden="true"></span>' .
                 $_language->module[ 'now_on' ];
         }
 

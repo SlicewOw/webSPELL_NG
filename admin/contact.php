@@ -84,7 +84,7 @@ if (!empty($action)) {
 
     echo'<div class="panel panel-default">
 <div class="panel-heading">
-                            <span class="fa fa-envelope"></span> ' . $_language->module['contact'] . '
+                            <span class="bi bi-envelope-fill"></span> ' . $_language->module['contact'] . '
                         </div>
      <div class="panel-body">
     <a href="admincenter.php?site=contact" class="white">' . $_language->module['contact'] . '</a> &raquo; ' . $_language->module['add_contact'] . '<br><br>';
@@ -123,7 +123,7 @@ if (!empty($action)) {
 
     echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-envelope"></span> ' . $_language->module['contact'] . '
+                            <span class="bi bi-envelope-fill"></span> ' . $_language->module['contact'] . '
                         </div>
      <div class="panel-body">
     <a href="admincenter.php?site=contact" class="white">' . $_language->module['contact'] . '</a> &raquo; ' . $_language->module['edit_contact'] . '<br></br>';
@@ -156,7 +156,7 @@ else {
 
   echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-envelope"></span> ' . $_language->module['contact'] . '
+                            <span class="bi bi-envelope-fill"></span> ' . $_language->module['contact'] . '
                         </div>
   <div class="panel-body">
 
@@ -202,8 +202,8 @@ else {
 
 
 
-    <a href="admincenter.php?site=contact&amp;action=edit&amp;contactID=' . $ds['contactID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-    <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=contact&amp;delete=true&amp;contactID=' . $ds['contactID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
+    <a href="admincenter.php?site=contact&amp;action=edit&amp;contactID=' . $ds['contactID'] . '"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+    <a class="mobile visible-xs visible-sm" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=contact&amp;delete=true&amp;contactID=' . $ds['contactID'] . '&amp;captcha_hash=' . $hash . '\')" /><span class="bi bi-trash-fill"></span></a>
 
 
 

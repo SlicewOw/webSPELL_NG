@@ -99,8 +99,8 @@ html {
 }
 .carousel-control .icon-prev,
 .carousel-control .icon-next,
-.carousel-control .fa-chevron-left,
-.carousel-control .fa-chevron-right {
+.carousel-control .bi-chevron-left,
+.carousel-control .bi-chevron-right {
   position: absolute;
   top: 50%;
   z-index: 5;
@@ -108,12 +108,12 @@ html {
   margin-top: -10px;
 }
 .carousel-control .icon-prev,
-.carousel-control .fa-chevron-left {
+.carousel-control .bi-chevron-left {
   left: 50%;
   margin-left: -10px;
 }
 .carousel-control .icon-next,
-.carousel-control .fa-chevron-right {
+.carousel-control .bi-chevron-right {
   right: 50%;
   margin-right: -10px;
 }

@@ -78,7 +78,7 @@ if (isset($_POST[ 'submit' ])) {
 
 	echo'<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-product-hunt"></span> ' . $_language->module['imprint'] . '
+                            <span class="bi bi-info-circle-fill"></span> ' . $_language->module['imprint'] . '
                         </div>
 <div class="panel-body">
 

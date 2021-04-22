@@ -676,11 +676,11 @@ if ($action == "new") {
         if ($type == "ASC") {
             echo '<a href="index.php?site=articles&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=DESC">' .
                 $_language->module[ 'sort' ] .
-                '</a> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="bi bi-arrow-down-circle"></span>&nbsp;&nbsp;&nbsp;';
         } else {
             echo '<a href="index.php?site=articles&amp;page=' . $page . '&amp;sort=' . $sort . '&amp;type=ASC">' .
                 $_language->module[ 'sort' ] .
-                '</a> <span class="fa fa-chevron-up"></span>&nbsp;&nbsp;&nbsp;';
+                '</a> <span class="bi bi-arrow-up-circle"></span>&nbsp;&nbsp;&nbsp;';
         }
 
         if ($pages > 1) {

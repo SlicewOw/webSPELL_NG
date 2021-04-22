@@ -253,7 +253,7 @@ if ($action == "activate") {
 } else if ($action == "ban") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
+                            <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
         <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
@@ -405,7 +405,7 @@ if ($action == "activate") {
 } else if ($action == "addtoclan") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
+                            <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
@@ -459,7 +459,7 @@ if ($action == "activate") {
 
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
+                            <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
 
@@ -496,7 +496,7 @@ if ($action == "activate") {
 } else if ($action == "profile") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
+                            <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
@@ -786,7 +786,7 @@ if ($action == "activate") {
 } else {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-users"></span> ' . $_language->module[ 'users' ] . '
+                            <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
                         <div class="panel-body">';
 
@@ -981,7 +981,7 @@ if ($action == "activate") {
 
  <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=users&amp;page=' . $page .
                 '&amp;type=' . $type . '&amp;sort=' . $sort . '&amp;search=' . $search . '&amp;delete=true&amp;id=' .
-                $ds[ 'userID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
+                $ds[ 'userID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="bi bi-trash-fill"></span></a>
 
 
 

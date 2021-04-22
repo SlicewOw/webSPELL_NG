@@ -33,7 +33,7 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
 
 echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-thumbs-up"></span> '.$_language->module['styles'].'
+                            <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
                         <div class="panel panel-default">

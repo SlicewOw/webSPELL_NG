@@ -220,11 +220,11 @@ if (isset($_POST[ 'save' ])) {
     if ($type == "ASC") {
         $sorter =
             '<a href="index.php?site=guestbook&amp;page=' . $page . '&amp;type=DESC">' . $_language->module[ 'sort' ] .
-            ' <span class="fa fa-chevron-down"></span></a>';
+            ' <span class="bi bi-arrow-down-circle"></span></a>';
     } else {
         $sorter =
             '<a href="index.php?site=guestbook&amp;page=' . $page . '&amp;type=ASC">' . $_language->module[ 'sort' ] .
-            ' <span class="fa fa-chevron-up"></span></a>';
+            ' <span class="bi bi-arrow-up-circle"></span></a>';
     }
 
     $data_array = array();
@@ -239,7 +239,7 @@ if (isset($_POST[ 'save' ])) {
 
         if (validate_email($ds[ 'email' ])) {
             $email = '<a href="mailto:' . mail_protect($ds[ 'email' ]) .
-                '"><span class="fa fa-envelope" title="email"></span></a>';
+                '"><span class="bi bi-envelope-fill" title="email"></span></a>';
         } else {
             $email = '';
         }

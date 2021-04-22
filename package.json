@@ -55,5 +55,8 @@
   },
   "scripts": {
     "test": "grunt codecheck --verbose"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.4.1"
   }
 }

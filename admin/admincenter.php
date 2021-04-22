@@ -80,7 +80,7 @@ function addonnav()
     $ergebnis = safe_query("SELECT * FROM ".PREFIX."dashnavi_categories WHERE sort>'9' ORDER BY sort");
     while ($ds=mysqli_fetch_array($ergebnis)) {
         $links .= '<li>
-        <a href="#"><span class="fa fa-plus"></span> '.$ds['name'].'<span class="fa arrow"></span></a>';
+        <a href="#"><span class="bi bi-plus-circle-fill"></span> '.$ds['name'].'<span class="fa arrow"></span></a>';
         $catlinks = safe_query("SELECT * FROM ".PREFIX."dashnavi_links WHERE catID='".$ds['catID']."' ORDER BY sort");
         while ($db=mysqli_fetch_array($catlinks)) {
             $accesslevel = 'is'.$db['accesslevel'].getConstNameAdmin();

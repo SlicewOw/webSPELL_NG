@@ -38,7 +38,7 @@ $action = getAction();
 if ($action == "add") {
     echo '<div class="panel panel-default">
     <div class="panel-heading">
-                            <span class="fa fa-repeat"></span> '.$_language->module['bannerrotation'].'
+                            <span class="bi bi-arrow-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
                         <div class="panel-body">
     <a href="admincenter.php?site=bannerrotation" class="white">' .
@@ -99,7 +99,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-repeat"></span> '.$_language->module['bannerrotation'].'
+                            <span class="bi bi-arrow-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=bannerrotation" class="white">'.$_language->module['bannerrotation'].'</a> &raquo; '.$_language->module['edit_banner'].'<br><br>';
@@ -324,7 +324,7 @@ if ($action == "add") {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-repeat"></span> '.$_language->module['bannerrotation'].'
+                            <span class="bi bi-arrow-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
         <div class="panel-body">';
 
@@ -385,8 +385,8 @@ if ($action == "add") {
 
         <input class="hidden-xs hidden-sm btn btn-danger btn-xs" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=bannerrotation&amp;delete=true&amp;bannerID='.$ds['bannerID'].'&amp;captcha_hash='.$hash.'\')" value="' . $_language->module['delete'] . '" />
 
-	  <a href="admincenter.php?site=bannerrotation&amp;action=edit&amp;bannerID='.$ds['bannerID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="fa fa-pencil"></span></a>
-      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=bannerrotation&amp;delete=true&amp;bannerID='.$ds['bannerID'].'&amp;captcha_hash='.$hash.'\')" /><span class="fa fa-times"></span></a>
+	  <a href="admincenter.php?site=bannerrotation&amp;action=edit&amp;bannerID='.$ds['bannerID'].'"  class="mobile visible-xs visible-sm" type="button"><span class="bi bi-pencil-square"></span></a>
+      <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=bannerrotation&amp;delete=true&amp;bannerID='.$ds['bannerID'].'&amp;captcha_hash='.$hash.'\')" /><span class="bi bi-trash-fill"></span></a>
 
 
         </td>

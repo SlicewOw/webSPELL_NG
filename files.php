@@ -606,7 +606,7 @@ if ($action == "save") {
                 $link = '(R)';
             } else {
                 $link = '<a href="download.php?fileID=' . $fileid . '">
-                <span class="fa fa-download"></span>
+                <span class="bi bi-download"></span>
                 </a>';
             }
 
@@ -828,7 +828,7 @@ if ($action == "save") {
 
     if ($file[ 'accesslevel' ] <= $accesslevel) {
         $link = '<a href="download.php?fileID=' . $fileID .
-            '" class="btn btn-lg btn-success"><span class="fa fa-download"></span> ' .
+            '" class="btn btn-lg btn-success"><span class="bi bi-download"></span> ' .
             str_replace('%filename%', $filename, $_language->module[ 'download_now' ]) . '</a>';
     } else {
         $link = $_language->module[ 'download_registered_only' ] . '<br><a href="index.php?site=login">' .

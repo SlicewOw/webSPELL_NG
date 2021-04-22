@@ -140,7 +140,7 @@ if ($action == "add") {
 
     echo'<div class="panel panel-default">
      <div class="panel-heading">
-                            <span class="fa fa-line-chart"></span> '.$_language->module['user_ranks'].'
+                            <span class="bi bi-graph-up"></span> '.$_language->module['user_ranks'].'
                         </div>
                         <div class="panel-body">
   <a href="admincenter.php?site=ranks" class="white">'.$_language->module['user_ranks'].'</a> &raquo; '.$_language->module['add_rank'].'<br><br>';
@@ -219,7 +219,7 @@ else {
 
   echo'<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-line-chart"></span> '.$_language->module['user_ranks'].'
+                            <span class="bi bi-graph-up"></span> '.$_language->module['user_ranks'].'
                         </div>
             <div class="panel-body">';
 
@@ -298,7 +298,7 @@ else {
                 $ds[ 'rankID' ] . '&amp;captcha_hash=' . $hash . '\')" value="' . $_language->module['delete'] . '" />
 
                 <a class="mobile visible-xs visible-sm" type="button" onclick="MM_confirm(\'' . $_language->module['really_delete'] . '\', \'admincenter.php?site=ranks&amp;delete=true&amp;rankID=' .
-                $ds[ 'rankID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="fa fa-times"></span></a>
+                $ds[ 'rankID' ] . '&amp;captcha_hash=' . $hash . '\')" /><span class="bi bi-trash-fill"></span></a>
 
                 </td>
 	      </tr>';

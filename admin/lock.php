@@ -33,7 +33,7 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
 
 echo '<div class="panel panel-default">
   <div class="panel-heading">
-                            <span class="fa fa-credit-card"></span> '.$_language->module['settings'].'
+                            <span class="bi bi-credit-card-fill"></span> '.$_language->module['settings'].'
                         </div>
                         <div class="panel-body">
                         <a href="admincenter.php?site=settings" class="white">' . $_language->module[ 'settings' ] .

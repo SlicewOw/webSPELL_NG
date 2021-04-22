@@ -40,7 +40,7 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						<label for="hostname" class="col-sm-4 control-label"><?php echo $_language->module['host_name']; ?>:</label>
 						<div class="input-group col-sm-5">
 							<input type="text" class="form-control" name="host" value="localhost">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_1']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_1']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
 
@@ -48,7 +48,7 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						<label for="mysql" class="col-sm-4 control-label"><?php echo $_language->module['mysql_username']; ?>:</label>
 						<div class="input-group col-sm-5">
 							<input type="text" class="form-control" name="user">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_2']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_2']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
 
@@ -56,7 +56,7 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						<label for="mysqlpw" class="col-sm-4 control-label"><?php echo $_language->module['mysql_password']; ?>:</label>
 						<div class="input-group col-sm-5">
 							<input type="password" class="form-control" name="pwd">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_3']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_3']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
 
@@ -64,14 +64,14 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						<label for="mysqldb" class="col-sm-4 control-label"><?php echo $_language->module['mysql_database']; ?>:</label>
 						<div class="input-group col-sm-5">
 							<input type="text" class="form-control" name="db">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_4']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_4']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
 					<div class="form-group">
 						<label for="mysqlprefix" class="col-sm-4 control-label"><?php echo $_language->module['mysql_prefix']; ?>:</label>
 						<div class="input-group col-sm-2">
 							<input type="text" class="form-control" name="prefix" value="<?php echo 'ws_' . RandPass(3) . '_'; ?>">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_5']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_5']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
 
@@ -89,7 +89,7 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						<label for="adminname" class="col-sm-4 control-label"><?php echo $_language->module['admin_username']; ?>:</label>
 						<div class="input-group col-sm-5">
 							<input type="text" class="form-control" name="adminname">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_6']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_6']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
 
@@ -97,7 +97,7 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						<label for="adminpwd" class="col-sm-4 control-label"><?php echo $_language->module['admin_password']; ?>:</label>
 						<div class="input-group col-sm-5">
 							<input type="password" class="form-control" name="adminpwd">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_7']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_7']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
 
@@ -105,7 +105,7 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						<label for="adminemail" class="col-sm-4 control-label"><?php echo $_language->module['admin_email']; ?>:</label>
 						<div class="input-group col-sm-5">
 							<input type="text" class="form-control" name="adminmail">
-                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_8']; ?>"><span class="fa fa-question-circle"></span></a></div>
+                            <div class="input-group-addon"><a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $_language->module['tooltip_8']; ?>"><span class="bi bi-question-circle-fill"></span></a></div>
 						</div>
 					</div> <!-- form-group-end -->
                     <input type="hidden" name="installtype" value="<?php echo $_POST['installtype']; ?>">

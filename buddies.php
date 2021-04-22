@@ -135,7 +135,7 @@ if (!empty($action)) {
             $country = flags($flag);
             $nickname = getnickname($ds[ 'buddy' ]);
             if (isclanmember($ds[ 'buddy' ])) {
-                $member = '<span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
+                $member = '<span class="bi bi-person-fill" aria-hidden="true" title="Clanmember"></span>';
             } else {
                 $member = '';
             }
@@ -173,7 +173,7 @@ if (!empty($action)) {
             $country = flags($flag);
             $nickname = getnickname($ds[ 'buddy' ]);
             if (isclanmember($ds[ 'buddy' ])) {
-                $member = ' <span class="fa fa-user" aria-hidden="true" title="Clanmember"></span>';
+                $member = ' <span class="bi bi-person-fill" aria-hidden="true" title="Clanmember"></span>';
             } else {
                 $member = '';
             }

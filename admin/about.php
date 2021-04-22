@@ -55,9 +55,7 @@ if (isset($_POST[ 'submit' ]) != "") {
     $_language->readModule('bbcode', true, true);
 
     echo'<div class="panel panel-default">
-    <div class="panel-heading">
-                            <span class="fa fa-arrows"></span> ' . $_language->module[ 'about' ] . '
-                        </div>
+    <div class="panel-heading">' . $_language->module[ 'about' ] . '</div>
 <div class="panel-body">
 
 <div class="row">
