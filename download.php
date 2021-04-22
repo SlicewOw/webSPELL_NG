@@ -93,7 +93,7 @@ if (isset($fileID)) {
         if (isFileURL($dd[ 'file' ])) {
             download($dd[ 'file' ], 1);
         } else {
-            download('downloads/' . $dd[ 'file' ]);
+            download('static/downloads/' . $dd[ 'file' ]);
         }
     }
 } else if (isset($demoID)) {
@@ -124,7 +124,7 @@ if (isset($fileID)) {
         if (isFileURL($dd[ 'file' ])) {
             download($dd[ 'file' ], 1);
         } else {
-            download('demos/' . $dd[ 'file' ]);
+            download('static/demos/' . $dd[ 'file' ]);
         }
     }
 }

@@ -151,7 +151,7 @@ if ($getavatar = getavatar($userID)) {
 
     <!-- Style CSS -->
     <link href="../components/admin/css/style.css" rel="stylesheet">
-    <link href="../css/button.css.php" rel="styleSheet" type="text/css">
+    <link href="../static/css/button.css.php" rel="styleSheet" type="text/css">
     <link href="../components/admin/css/bootstrap-switch.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -253,7 +253,7 @@ if ($getavatar = getavatar($userID)) {
     <script>
         var calledfrom='admin';
     </script>
-    <script src="../js/bbcode.js"></script>
+    <script src="../static/js/bbcode.js"></script>
 
     <script src="../components/admin/js/bootstrap-switch.js"></script>
 

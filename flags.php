@@ -75,5 +75,5 @@ if (is_array($files)) {
     }
 }
 echo $componentsJs;
-echo '<script src="js/bbcode.js"></script>';
+echo '<script src="static/js/bbcode.js"></script>';
 echo '</table></body></html>';

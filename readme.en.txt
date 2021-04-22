@@ -69,8 +69,8 @@ webSPELL is a free Content Management System (CMS), which is available for free 
 		program. For doing this make a right click in the FTP program on the desired files or folders, look for
 		Properties/CHMOD (might be named different according to the used ftp program) and click it. There you have to set the permissions for all following files and folders to 777:
 
-	    * demos/
-	    * downloads/
+	    * static/demos/
+	    * static/downloads/
 	    * images/articles-pics
 	    * images/avatars
 	    * images/banner

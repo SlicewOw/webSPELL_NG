@@ -44,7 +44,7 @@ echo '<!DOCTYPE html>
 
     echo '
     <link href="_stylesheet.css" rel="stylesheet">
-    <script src="js/bbcode.js"></script>
+    <script src="static/js/bbcode.js"></script>
 </head>
 
 <body>

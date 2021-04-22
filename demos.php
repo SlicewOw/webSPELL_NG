@@ -55,7 +55,7 @@ if (isset($_POST[ 'save' ])) {
         $date = strtotime($_POST[ 'date' ]);
         $link = $_POST[ 'link' ];
 
-        $filepath = "./demos/";
+        $filepath = "./static/demos/";
 
         $error = array();
 
@@ -154,7 +154,7 @@ if (isset($_POST[ 'save' ])) {
         $link = $_POST[ 'link' ];
         $date = strtotime($_POST[ 'date' ]);
 
-        $filepath = "./demos/";
+        $filepath = "./static/demos/";
 
         $error = array();
 
@@ -219,7 +219,7 @@ if (isset($_POST[ 'save' ])) {
 } else if ($action == "delete") {
     if (isfileadmin($userID)) {
         $demoID = (int)$_GET[ 'demoID' ];
-        $filepath = "./demos/";
+        $filepath = "./static/demos/";
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "demos WHERE demoID = '" . $demoID . "'");
         $ds = mysqli_fetch_array($ergebnis);
         if (file_exists($filepath . $ds[ 'file' ])) {

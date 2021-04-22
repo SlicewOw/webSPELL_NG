@@ -81,7 +81,7 @@ function delete_category($filecat)
     $files = safe_query("SELECT * FROM " . PREFIX . "files WHERE filecatID='" . $filecat . "'");
     while ($ds = mysqli_fetch_array($files)) {
         if (stristr($ds[ 'file' ], "http://") || stristr($ds[ 'file' ], "ftp://")) {
-            @unlink('../downloads/' . $ds[ 'file' ]);
+            @unlink('../static/downloads/' . $ds[ 'file' ]);
         }
     }
     safe_query("DELETE FROM " . PREFIX . "files WHERE filecatID='" . $filecat . "'");

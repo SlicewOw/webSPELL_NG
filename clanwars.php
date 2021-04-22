@@ -499,7 +499,7 @@ if ($action == "new") {
         echo $news_post;
 
     } else {
-        echo '<script src="js/bbcode.js"></script>
+        echo '<script src="static/js/bbcode.js"></script>
     <link href="_stylesheet.css" rel="stylesheet" type="text/css">
     <p class="text-center"><br><br><br><br>
     <strong>' . $_language->module[ 'clanwar_saved' ] . '.</strong><br><br>
@@ -732,7 +732,7 @@ if ($action == "new") {
     $theHomeScore = serialize($theHomeScore);
     $theOppScore = serialize($theOppScore);
 
-    echo '<script src="js/bbcode.js"></script><link href="_stylesheet.css" rel="stylesheet" type="text/css">';
+    echo '<script src="static/js/bbcode.js"></script><link href="_stylesheet.css" rel="stylesheet" type="text/css">';
 
     $team = array();
     if (is_array($hometeam)) {

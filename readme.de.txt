@@ -63,8 +63,8 @@ webSPELL ist ein freies Content Management System (CMS), welches kostenlos auf w
 
 		webSPELL benötigt spezielle Zugriffsrechte für einige Dateien und Ordner. Diese Rechte können mit dem FTP-Programm vergeben werden. Um dies umzusetzen, klicke in dem FTP-Programm rechts auf die gewünschten Dateien und Ordner und suche nach etwas namens "Eigenschaften", "chmod", "Properties" etc. (die bezeichnung variiert von FTP-Programm zu FTP-Programm). Folgende Dateien und Ordner nun auf chmod 777 setzen:
 
-		* demos/
-		* downloads/
+		* static/demos/
+		* static/downloads/
 		* images/articles-pics
 		* images/avatars
 		* images/banner

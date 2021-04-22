@@ -99,15 +99,15 @@ header('X-UA-Compatible: IE=edge,chrome=1');
      }
      ?></title>
     <!--<base href="<?php echo $rewriteBase; ?>">-->
-    <link href="css/page.css" rel="stylesheet">
+    <link href="static/css/page.css" rel="stylesheet">
     <?php foreach ($components['css'] as $component) {
         echo '<link href="' . $component . '" rel="stylesheet">';
 	}
     ?>
 
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/styles.css.php" rel="styleSheet" type="text/css">
-    <link href="css/button.css.php" rel="styleSheet" type="text/css">
+    <link href="static/css/scrolling-nav.css" rel="stylesheet">
+    <link href="static/css/styles.css.php" rel="styleSheet" type="text/css">
+    <link href="static/css/button.css.php" rel="styleSheet" type="text/css">
 
 
     <link href="_stylesheet.css" rel="stylesheet">
@@ -124,7 +124,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 		$load = new PluginManager();
 		echo $load->plugin_loadheadfile();
 	?>
-	<script src="js/bbcode.js" type="text/javascript"></script>
+	<script src="static/js/bbcode.js" type="text/javascript"></script>
     <!-- end Head & Title include -->
 
 </head>
@@ -425,8 +425,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 	})
 </script>
 <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/scrolling-nav.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
+    <script src="static/js/scrolling-nav.js"></script>
 
 
 </body>

@@ -73,9 +73,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 	}
     ?>
     <link href="../node_modules/bootstrap-icons/font/boostrap-icons.css" rel="stylesheet">
-    <link href="css/page.css" rel="stylesheet">
+    <link href="static/css/page.css" rel="stylesheet">
     <link href="_stylesheet.css" rel="stylesheet">
-    <link href="css/test.css.php" rel="styleSheet" type="text/css">
+    <link href="static/css/test.css.php" rel="styleSheet" type="text/css">
     <link href="tmp/rss.xml" rel="alternate" type="application/rss+xml" title="<?php echo $myclanname; ?> - RSS Feed">
     <!-- bbcode.js include -->
 	<?php foreach ($components['js'] as $component) {
@@ -88,7 +88,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 		$load = new PluginManager();
 		echo $load->plugin_loadheadfile();
 	?>
-	<script src="js/bbcode.js" type="text/javascript"></script>
+	<script src="static/js/bbcode.js" type="text/javascript"></script>
     <!-- end Head & Title include -->
     <?php
     $plugin = new PluginManager();

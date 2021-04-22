@@ -113,14 +113,14 @@ if (isset($_POST[ 'submit' ])) {
     <meta name="description" content="Website using webSPELL-NOR CMS">
     <meta name="author" content="webspell-nor.de">
     <title>' . $_language->module[ 'file_upload' ] . '</title>
-    <link href="css/page.css" rel="stylesheet">';
+    <link href="static/css/page.css" rel="stylesheet">';
     foreach ($components['css'] as $component) {
         echo '<link href="' . $component . '" rel="stylesheet">';
 	}
 	foreach ($components['js'] as $component) {
     echo '<script src="' . $component . '"></script>';
 	}
-    echo '<script src="js/bbcode.js"></script>
+    echo '<script src="static/js/bbcode.js"></script>
 	</head>
 <body>
 <div class="panel panel-default">

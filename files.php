@@ -124,7 +124,7 @@ if ($action == "save") {
 
         $upload = new \webspell\HttpUpload('upfile');
 
-        $filepath = "./downloads/";
+        $filepath = "./static/downloads/";
 
         if ($upload->hasFile()) {
             if ($upload->hasError() === false) {
@@ -231,7 +231,7 @@ if ($action == "save") {
 
         $upload = new \webspell\HttpUpload('upfile');
 
-        $filepath = "./downloads/";
+        $filepath = "./static/downloads/";
 
         if ($upload->hasFile()) {
             if ($upload->hasError() === false) {
@@ -292,7 +292,7 @@ if ($action == "save") {
                 $ds = mysqli_fetch_array($ergebnis);
 
                 if (isFileURL($ds[ 'file' ]) === false) {
-                    @unlink('./downloads/' . $ds[ 'file' ]);
+                    @unlink('./static/downloads/' . $ds[ 'file' ]);
                 }
 
                 safe_query("DELETE FROM `" . PREFIX . "files` WHERE `fileID` = '" . (int)$file."'");

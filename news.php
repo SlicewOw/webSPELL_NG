@@ -335,12 +335,12 @@ if ($action == "new") {
     <!-- Head & Title include -->
     <title>' . PAGETITLE . '</title>
     <link href="_stylesheet.css" rel="stylesheet" type="text/css">
-    <link href="css/page.css" rel="stylesheet">
+    <link href="static/css/page.css" rel="stylesheet">
 
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/styles.css.php" rel="styleSheet" type="text/css">
-    <link href="css/button.css.php" rel="styleSheet" type="text/css">
-    <script src="js/bbcode.js"></script>
+    <link href="static/css/scrolling-nav.css" rel="stylesheet">
+    <link href="static/css/styles.css.php" rel="styleSheet" type="text/css">
+    <link href="static/css/button.css.php" rel="styleSheet" type="text/css">
+    <script src="static/js/bbcode.js"></script>
     <!-- end Head & Title include -->
 </head>
 <body>';

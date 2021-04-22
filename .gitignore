@@ -1,9 +1,9 @@
 # webSPELL #
 ############
-demos/
-!demos/index.php
-downloads/
-!downloads/index.php
+static/demos/
+!static/demos/index.php
+static/downloads/
+!static/downloads/index.php
 images/articles-pics/
 !images/articles-pics/index.php
 images/avatars/
