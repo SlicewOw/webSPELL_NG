@@ -289,8 +289,7 @@ if (is_dir("development")) {
             'node_modules/bootstrap/dist/css/bootstrap.css',
             'node_modules/bootstrap-icons/font/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
-            'components/profile.css',
-            'components/emoji.css'
+            'components/profile.css'
         ),
         'js' => array(
             'node_modules/jquery/dist/jquery.js',
@@ -306,8 +305,7 @@ if (is_dir("development")) {
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap-icons/font/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
-            'components/profile/profile.css',
-            'components/emoji/emoji.css'
+            'components/profile/profile.css'
         ),
         'js' => array(
             'node_modules/jquery/dist/jquery.min.js',

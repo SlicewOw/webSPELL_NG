@@ -41,7 +41,7 @@ if ($handle = opendir('./languages/')) {
 		<div class="card">
 			<div class="card-header">
 				<h3 class="card-title">
-                	<div class="pull-left panel-line"><?php echo $_language->module['welcome_to']; ?></div>
+                	<div class="pull-left"><?php echo $_language->module['welcome_to']; ?></div>
                     <div class="pull-right"><small><?php echo $_language->module['select_a_language']; ?>: <?php echo $languages; ?></small></div>
                     <div class="clearfix"></div>
                 </h3>
