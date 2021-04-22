@@ -161,12 +161,12 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-	echo'<div class="panel panel-default">
-  <div class="panel-heading">
+	echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="card">
 
             <ul class="nav nav-tabs-primary">
     <li class="nav-item"><a href="admincenter.php?site=styles">Style</a></li>
@@ -235,12 +235,12 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="card">
 
             <ul class="nav nav-tabs-primary">
     <li class="nav-item"><a href="admincenter.php?site=styles">Style</a></li>
@@ -340,12 +340,12 @@ if ($action == "add") {
 
 else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['styles'].'
                         </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="card">
 
             <ul class="nav nav-tabs-primary">
     <li class="nav-item"><a class="nav-link" href="admincenter.php?site=styles">Style</a></li>
@@ -354,7 +354,7 @@ else {
     <li class="nav-item"><a class="nav-link" href="admincenter.php?site=css">.css</a></li>
 </ul>
 <ol class="breadcrumb-primary"> </ol>
-<div class="panel-body">';
+<div class="card-body">';
 
   echo'<a href="admincenter.php?site=moduls&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_modul' ] . '</a><br /><br />';
 

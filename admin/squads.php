@@ -164,10 +164,10 @@ $action = getAction();
 
 if ($action == "add") {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['squads'].'
-                        </div><div class="panel-body">
+                        </div><div class="card-body">
   <a href="admincenter.php?site=squads" class="white">'.$_language->module['squads'].'</a> &raquo; '.$_language->module['add_squad'].'<br><br>';
 
 	$filepath = "../images/squadicons/";
@@ -268,11 +268,11 @@ onsubmit="return chkFormular();">
     </form></div>
   </div>';
 } else if ($action == "edit") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['squads'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=squads" class="white">' . $_language->module['squads'] .
     '</a> &raquo; ' . $_language->module['edit_squad'] . '<br><br>';
 
@@ -429,13 +429,13 @@ type="radio" name="gamesquad" value="1" checked="checked" /> ' . $_language->mod
 
 else {
 
-  echo'<div class="panel panel-default">
+  echo'<div class="card">
 
-<div class="panel-heading">
+<div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['squads'].'
                         </div>
 
-<div class="panel-body">';
+<div class="card-body">';
 
 	echo'<a href="admincenter.php?site=squads&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_squad' ] . '</a><br /><br />';
 

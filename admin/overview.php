@@ -131,9 +131,9 @@ $get = safe_query("SELECT DATABASE()");
 $ret = mysqli_fetch_array($get);
 $db = $ret[ 0 ];
 
-echo '<div class="panel panel-default">
-<div class="panel-heading"><span class="bi bi-emoji-smile"></span> '.$_language->module['welcome'].'</div>
-<div class="panel-body">';
+echo '<div class="card">
+<div class="card-header"><span class="bi bi-emoji-smile"></span> '.$_language->module['welcome'].'</div>
+<div class="card-body">';
 
 echo $_language->module['hello'].'&nbsp;'.$username.',&nbsp;'.$_language->module['last_login'].'&nbsp;'.$lastlogin.'.<br /><br />';
 echo $_language->module['welcome_message'];
@@ -145,12 +145,12 @@ echo $_language->module['welcome_message'];
 <div class="row">
 <div class="col-md-6">
 
-<div class="panel panel-default">
-<div class="panel-heading">
+<div class="card">
+<div class="card-header">
                             <span class="bi bi-server"></span> <?php echo $_language->module['serverinfo']; ?>
 </div>
 
-<div class="panel-body">
+<div class="card-body">
 
 
 	<div class="row bt"><div class="col-md-6"><?php echo $_language->module['webspell_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><span style="color: #008000"><?php echo $version; ?></span></em></span></div></div>
@@ -172,12 +172,12 @@ echo $_language->module['welcome_message'];
 
 <div class="col-md-6">
 
-<div class="panel panel-default">
-<div class="panel-heading">
+<div class="card">
+<div class="card-header">
                             <span class="bi bi-file-image-fill"></span> GD Graphics Library
 </div>
 
-<div class="panel-body">
+<div class="card-body">
 
 
     <div class="row bt"><div class="col-md-4">GD Graphics Library:</div><div class="col-md-8"><span class="pull-right text-muted small"><em><?php echo $get_gd_info; ?></em></span></div></div>
@@ -192,12 +192,12 @@ echo $_language->module['welcome_message'];
 
 <div class="col-md-6">
 
-<div class="panel panel-default">
-<div class="panel-heading">
+<div class="card">
+<div class="card-header">
                             <span class="bi bi-server"></span> <?php echo $_language->module['interface']; ?>
 </div>
 
-<div class="panel-body">
+<div class="card-body">
 
 <div class="row">
 <div class="col-md-12">
@@ -214,11 +214,11 @@ echo $_language->module['welcome_message'];
 
 </div>
 
-<div class="panel panel-default">
-<div class="panel-heading">
+<div class="card">
+<div class="card-header">
                             <span class="bi bi-list-task"></span> <?php echo $_language->module['php_settings']; ?>
 </div>
-<div class="panel-body">
+<div class="card-body">
 <div class="row bt">
 <div class="col-md-12"><?php echo $_language->module['legend']; ?>::&nbsp; &nbsp;<span style="color: #008000"><?php echo $_language->module['green']; ?>:</span> <?php echo $_language->module['setting_ok']; ?>&nbsp; - &nbsp;<span style="color: #FFA500"><?php echo $_language->module['orange']; ?>:</span> <?php echo $_language->module['setting_notice']; ?>&nbsp; - &nbsp;<span style="color: #FF0000"><?php echo $_language->module['red']; ?>:</span> <?php echo $_language->module['setting_error']; ?></div>
 </div><div class="row bt"></div>

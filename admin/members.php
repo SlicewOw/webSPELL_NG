@@ -197,11 +197,11 @@ if (isset($_POST[ 'saveedit' ])) {
 $action = getAction();
 
 if ($action == "edit") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['members'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
   <a href="admincenter.php?site=members" class="white">' . $_language->module[ 'members' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_member' ] . '<br><br>';
 
@@ -647,11 +647,11 @@ onmouseout="hideWMTT()" />';
     $squads = safe_query("SELECT * FROM " . PREFIX . "squads ORDER BY sort");
     echo '<form method="post" action="admincenter.php?site=members">';
     while ($ds = mysqli_fetch_array($squads)) {
-        echo'<div class="panel panel-default">
-                <div class="panel-heading">
+        echo'<div class="card">
+                <div class="card-header">
                     <span class="bi bi-people-fill"></span> '.$_language->module['members'].'
                 </div>
-            <div class="panel-body">';
+            <div class="card-body">';
         echo '<table class="table table-striped">
 
         <thead>

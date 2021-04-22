@@ -47,11 +47,11 @@ if ($action == "delete") {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else if ($action == "add") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['groups'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=groups" class="white">' . $_language->module[ 'groups' ] .
         '</a> &raquo; ' . $_language->module[ 'add_group' ] . '<br><br>';
 
@@ -107,11 +107,11 @@ if ($action == "delete") {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else if ($action == "edit") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['groups'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=groups" class="white">' . $_language->module[ 'groups' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_group' ] . '<br><br>';
 
@@ -146,11 +146,11 @@ if ($action == "delete") {
 
 else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['groups'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=groups&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_group' ] . '</a><br /><br />';
 

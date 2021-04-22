@@ -31,11 +31,11 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
     die($_language->module[ 'access_denied' ]);
 }
 
-echo '<div class="panel panel-default">
-  <div class="panel-heading">
+echo '<div class="card">
+  <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['settings'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                         <a href="admincenter.php?site=settings" class="white">' . $_language->module[ 'settings' ] .
     '</a> &raquo; ' . $_language->module[ 'pagelock' ] . '<br><br>';
 

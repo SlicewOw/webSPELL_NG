@@ -42,11 +42,11 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-geo-alt-fill"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
-        <div class="panel-body">
+        <div class="card-body">
     <a href="admincenter.php?site=modrewrite" class="white">' . $_language->module['modrewrite'] .
         '</a> &raquo; ' . $_language->module['add_rule'] . '<br><br>';
     echo '<script type="text/javascript">
@@ -100,11 +100,11 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-geo-alt-fill"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
-            <div class="panel-body">
+            <div class="card-body">
     <a href="admincenter.php?site=modrewrite" class="white">' . $_language->module['modrewrite'] .
         '</a> &raquo; ' . $_language->module['edit_rule'] . '<br><br>';
 
@@ -266,11 +266,11 @@ if ($action == "add") {
         echo $_language->module['transaction_invalid'];
     }
 } else if (isset($_POST['test'])) {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-geo-alt-fill"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
-            <div class="panel-body">';
+            <div class="card-body">';
     $do_test = false;
     if (function_exists("apache_get_modules")) {
         $info = $_language->module['apache_with_module'] . '<br>';
@@ -415,10 +415,10 @@ if ($action == "add") {
     safe_query("UPDATE " . PREFIX . "settings SET modRewrite='0'");
     redirect("admincenter.php?site=modrewrite", $_language->module['successful'], 2);
 } else {
-    echo '<div class="panel panel-default"><div class="panel-heading">
+    echo '<div class="card"><div class="card-header">
                             <span class="bi bi-geo-alt-fill"></span> ' . $_language->module['modrewrite_settings'] . '
                         </div>
-            <div class="panel-body">';
+            <div class="card-body">';
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
@@ -471,11 +471,11 @@ if ($action == "add") {
         </div></div>';
     }
 
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-geo-alt-fill"></span> ' . $_language->module['modrewrite_rules'] . '
                         </div>
-            <div class="panel-body">';
+            <div class="card-body">';
 
     echo
         '<a class="btn btn-primary btn-xs" type="button" href="admincenter.php?site=modrewrite&amp;action=add" class="input">' . $_language->module['new_rule'] .

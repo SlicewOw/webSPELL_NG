@@ -38,15 +38,15 @@ if ($handle = opendir('./languages/')) {
 ?>
 <div class="row marketing">
     <div class="col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">
                 	<div class="pull-left panel-line"><?php echo $_language->module['welcome_to']; ?></div>
                     <div class="pull-right"><small><?php echo $_language->module['select_a_language']; ?>: <?php echo $languages; ?></small></div>
                     <div class="clearfix"></div>
                 </h3>
 			</div>
-			<div class="panel-body">
+			<div class="card-body">
 				<?php
 
 				if (file_exists("locked.txt")) {

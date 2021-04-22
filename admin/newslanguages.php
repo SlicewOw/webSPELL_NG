@@ -99,10 +99,10 @@ if ($action == "add") {
     $country = flags($flag, getConstNameAdmin());
     $country = str_replace("<img", "<img id='getcountry'", $country);
 
-  echo'<div class="panel panel-default"><div class="panel-heading">
+  echo'<div class="card"><div class="card-header">
                             <span class="bi bi-file-earmark"></span> '.$_language->module['news_languages'].'
                         </div>
-      <div class="panel-body">
+      <div class="card-body">
   <a href="admincenter.php?site=newslanguages" class="white">'.$_language->module['news_languages'].'</a> &raquo; '.$_language->module['add_language'].'<br><br>';
 
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=newslanguages">
@@ -137,11 +137,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-file-earmark"></span> '.$_language->module['news_languages'].'
                         </div>
-            <div class="panel-body">
+            <div class="card-body">
   <a href="admincenter.php?site=newslanguages" class="white">'.$_language->module['news_languages'].'</a> &raquo; '.$_language->module['edit_language'].'<br><br>';
 
 	 $ergebnis = safe_query("SELECT * FROM " . PREFIX . "news_languages WHERE langID='" . $_GET[ 'langID' ] . "'");
@@ -184,11 +184,11 @@ else {
 
   $page = getPage();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-file-earmark"></span> '.$_language->module['news_languages'].'
                         </div>
-            <div class="panel-body">';
+            <div class="card-body">';
 
   echo'<a href="admincenter.php?site=newslanguages&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_language' ] . '</a><br /><br />';
 

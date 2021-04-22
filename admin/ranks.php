@@ -138,11 +138,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-    echo'<div class="panel panel-default">
-     <div class="panel-heading">
+    echo'<div class="card">
+     <div class="card-header">
                             <span class="bi bi-graph-up"></span> '.$_language->module['user_ranks'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
   <a href="admincenter.php?site=ranks" class="white">'.$_language->module['user_ranks'].'</a> &raquo; '.$_language->module['add_rank'].'<br><br>';
 
     echo '<script type="text/javascript">
@@ -217,11 +217,11 @@ if ($action == "add") {
 
 else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-graph-up"></span> '.$_language->module['user_ranks'].'
                         </div>
-            <div class="panel-body">';
+            <div class="card-body">';
 
   echo'<a href="admincenter.php?site=ranks&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_rank' ] . '</a><br /><br />';
 

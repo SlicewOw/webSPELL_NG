@@ -36,11 +36,11 @@ $filepath = "../images/carousel/";
 $action = getAction();
 
 if ($action == "add") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-collection-fill"></span> ' . $_language->module[ 'carousel' ] . '
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=carousel" class="white">' . $_language->module[ 'carousel' ] .
     '</a> &raquo; ' . $_language->module[ 'add_carousel' ] . '<br><br>';
 
@@ -88,11 +88,11 @@ if ($action == "add") {
 </form>
 </div></div>';
 } else if ($action == "edit") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-collection-fill"></span> ' . $_language->module[ 'carousel' ] . '
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=carousel" class="white">' . $_language->module[ 'carousel' ] .
     '</a> &raquo; ' . $_language->module[ 'edit_carousel' ] . '<br><br>';
 
@@ -254,11 +254,11 @@ if ($action == "add") {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-collection-fill"></span> ' . $_language->module[ 'carousel' ] . '
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
     echo '<a href="admincenter.php?site=carousel&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_carousel' ] . '</a><br /><br />';
 

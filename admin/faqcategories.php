@@ -103,11 +103,11 @@ if (!empty($action)) {
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
-    echo'<div class="panel panel-default">
-    <div class="panel-heading">
+    echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-info-circle-fill"></span> '.$_language->module['faq_categories'].'
                         </div>
-            <div class="panel-body">
+            <div class="card-body">
     <a href="admincenter.php?site=faqcategories" class="white">'.$_language->module['faq_categories'].'</a> &raquo; '.$_language->module['add_category'].'<br><br>';
 
     echo '<script language="JavaScript" type="text/javascript">
@@ -156,10 +156,10 @@ if (!empty($action)) {
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
-    echo'<div class="panel panel-default"><div class="panel-heading">
+    echo'<div class="card"><div class="card-header">
                             <span class="bi bi-info-circle-fill"></span> '.$_language->module['faq_categories'].'
                         </div>
-            <div class="panel-body">
+            <div class="card-body">
     <a href="admincenter.php?site=faqcategories" class="white">'.$_language->module['faq_categories'].'</a> &raquo; '.$_language->module['edit_category'].'<br><br>';
 
     echo '<script language="JavaScript" type="text/javascript">
@@ -198,10 +198,10 @@ if (!empty($action)) {
 
 else {
 
-  echo '<div class="panel panel-default"><div class="panel-heading">
+  echo '<div class="card"><div class="card-header">
                             <span class="bi bi-info-circle-fill"></span> '.$_language->module['faq_categories'].'
                         </div>
-        <div class="panel-body">';
+        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=faqcategories&amp;action=addcat" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_category' ] . '</a><br /><br />';
 

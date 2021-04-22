@@ -38,8 +38,8 @@ a:focus,a:hover{
   color: #fff;
 }
 
-/* Panel-Heading */
-.panel-default > .panel-heading {
+/* card-header */
+.card > .card-header {
   height: 50px;
   color: #fff;
   background-color: #0095db;

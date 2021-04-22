@@ -46,9 +46,9 @@ if ($_POST['agree'] == "1") {
 ?>
 <div class="row marketing">
     <div class="col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">
 					<?php if ($versionerror) {
                     echo $_language->module['error'];
                 } else {
@@ -56,7 +56,7 @@ if ($_POST['agree'] == "1") {
                 } ?>
             	</h3>
 			</div>
-			<div class="panel-body">
+			<div class="card-body">
 				<?php if ($versionerror) {
                 echo '<p style="color: #FF0000; font-weight: bold;">' . $_language->module['php_version'] . ':</p>
 		<p>' . $_language->module['php_info'] . '</p><br><br>';

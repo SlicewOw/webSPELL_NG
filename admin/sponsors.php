@@ -56,11 +56,11 @@ if ($action == "add") {
 -->
 </script>';
 
-echo'<div class="panel panel-default">
-<div class="panel-heading">
+echo'<div class="card">
+<div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['sponsors'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
   <a href="admincenter.php?site=sponsors" class="white">' . $_language->module['sponsors'] . '</a> &raquo; ' . $_language->module['add_sponsor'] . '<br><br>';
 
   echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=sponsors" enctype="multipart/form-data" onsubmit="return chkFormular();">
@@ -185,11 +185,11 @@ echo'<div class="panel panel-default">
 -->
 </script>';
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['sponsors'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
   <a href="admincenter.php?site=sponsors" class="white">' . $_language->module['sponsors'] . '</a> &raquo; ' . $_language->module['edit_sponsor'] . '<br><br>';
 
   echo'<form class="form-horizontal" method="post" id="post" name="post" action="admincenter.php?site=sponsors" enctype="multipart/form-data" onsubmit="return chkFormular();">
@@ -405,11 +405,11 @@ echo'<div class="panel panel-default">
     }
 } else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['sponsors'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=sponsors&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_sponsor' ] . '</a><br /><br />';
 

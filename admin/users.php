@@ -251,11 +251,11 @@ if ($action == "activate") {
         echo $_language->module[ 'transaction_invalid' ];
     }
 } else if ($action == "ban") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
         <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
         '</a> &raquo; ' . $_language->module[ 'ban_user' ] . '<br><br>';
 
@@ -403,11 +403,11 @@ if ($action == "activate") {
             $_language->module[ 'back' ] . '</a>';
     }
 } else if ($action == "addtoclan") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
         '</a> &raquo; ' . $_language->module[ 'add_to_clan' ] . '<br><br>';
 
@@ -457,11 +457,11 @@ if ($action == "activate") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 
                         <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
         '</a> &raquo; ' . $_language->module[ 'add_new_user' ] . '<br><br>';
@@ -494,11 +494,11 @@ if ($action == "activate") {
   </form>
   </div></div>';
 } else if ($action == "profile") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=users" class="white">' . $_language->module[ 'users' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_profile' ] . '<br><br>';
 
@@ -784,11 +784,11 @@ if ($action == "activate") {
   </div>
     </form>';
 } else {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-people-fill"></span> ' . $_language->module[ 'users' ] . '
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
     if (isset($_GET[ 'search' ])) {
         $search = (int)$_GET[ 'search' ];

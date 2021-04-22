@@ -80,11 +80,11 @@ if ($action == "add") {
     $hash = $CAPCLASS->getHash();
     $_language->readModule('bbcode', true, true);
 
-  echo '<div class="panel panel-default">
-  <div class="panel-heading">
+  echo '<div class="card">
+  <div class="card-header">
                             <span class="bi bi-pencil-square"></span> ' . $_language->module[ 'static_pages' ] . '
                         </div>
-                    <div class="panel-body">';
+                    <div class="card-body">';
 
   echo'<a href="admincenter.php?site=static" class="white">' . $_language->module['static_pages'] . '</a> &raquo; ' . $_language->module['add_static_page'] . '<br><br>';
 
@@ -192,11 +192,11 @@ if ($action == "add") {
 
     $tags = \webspell\Tags::getTags('static', $staticID);
 
-     echo '<div class="panel panel-default">
-  <div class="panel-heading">
+     echo '<div class="card">
+  <div class="card-header">
                             <span class="bi bi-pencil-square"></span> ' . $_language->module[ 'static_pages' ] . '
                         </div>
-                    <div class="panel-body">';
+                    <div class="card-body">';
 
 	echo'<a href="admincenter.php?site=static" class="white">' . $_language->module['static_pages'] . '</a> &raquo; ' . $_language->module['edit_static_page'] . '<br><br>';
 
@@ -281,11 +281,11 @@ if ($action == "add") {
 	</form></div></div>';
 } else {
 
-    echo '<div class="panel panel-default">
-  <div class="panel-heading">
+    echo '<div class="card">
+  <div class="card-header">
                             <span class="bi bi-pencil-square"></span> ' . $_language->module[ 'static_pages' ] . '
                         </div>
-                    <div class="panel-body">';
+                    <div class="card-body">';
 
     echo '<a href="admincenter.php?site=static&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_static_page' ] . '</a>
 <br><br>';

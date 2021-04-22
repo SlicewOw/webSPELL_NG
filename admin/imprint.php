@@ -76,11 +76,11 @@ if (isset($_POST[ 'submit' ])) {
 					-->
 				</script>';
 
-	echo'<div class="panel panel-default">
-    <div class="panel-heading">
+	echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-info-circle-fill"></span> ' . $_language->module['imprint'] . '
                         </div>
-<div class="panel-body">
+<div class="card-body">
 
 <div class="row">
 <div class="col-md-12">

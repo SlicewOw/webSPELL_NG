@@ -39,11 +39,11 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-globe"></span> ' . $_language->module['countries'] . '
                         </div>
-    <div class="panel-body">
+    <div class="card-body">
   <a href="admincenter.php?site=countries" class="white">'.$_language->module['countries'].':</a> &raquo; '.$_language->module['add_country'].'<br><br>';
 
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=countries" enctype="multipart/form-data">
@@ -93,11 +93,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-globe"></span> ' . $_language->module['countries'] . '
                         </div>
-    <div class="panel-body">
+    <div class="card-body">
   <a href="admincenter.php?site=countries" class="white">'.$_language->module['countries'].'</a> &raquo; '.$_language->module['edit_country'].'<br><br>';
 
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=countries" enctype="multipart/form-data">
@@ -226,11 +226,11 @@ if ($action == "add") {
 
   $page = getPage();
 
-    echo'<div class="panel panel-default">
-    <div class="panel-heading">
+    echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-globe"></span> ' . $_language->module['countries'] . '
                         </div>
-    <div class="panel-body">';
+    <div class="card-body">';
 
     echo'<a href="admincenter.php?site=countries&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_country' ] . '</a><br><br>';
 

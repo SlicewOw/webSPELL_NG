@@ -144,11 +144,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-	echo'<div class="panel panel-default">
-    <div class="panel-heading">
+	echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['partners'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 	<a href="admincenter.php?site=partners" class="white">'.$_language->module['partners'].'</a> &raquo; '.$_language->module['add_partner'].'<br><br>';
 
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=partners" enctype="multipart/form-data">
@@ -208,11 +208,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['partners'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
   <a href="admincenter.php?site=partners" class="white">'.$_language->module['partners'].'</a> &raquo; '.$_language->module['edit_partner'].'<br><br>';
 
   $partnerID = $_GET[ 'partnerID' ];
@@ -287,11 +287,11 @@ if ($action == "add") {
 
 else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-hand-thumbs-up-fill"></span> '.$_language->module['partners'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=partners&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_partner' ] . '</a><br /><br />';
 

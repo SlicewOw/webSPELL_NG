@@ -97,11 +97,11 @@ if ($part == "groups") {
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
 
-    echo'<div class="panel panel-default">
-    <div class="panel-heading">
+    echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 <a href="admincenter.php?site=gallery&amp;part=groups" class="white">'.$_language->module['groups'].'</a> &raquo; '.$_language->module['add_group'].'<br><br>';
 
     echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=groups">
@@ -126,11 +126,11 @@ if ($part == "groups") {
         $ergebnis = safe_query("SELECT * FROM " . PREFIX . "gallery_groups WHERE groupID='" . $_GET[ 'groupID' ] . "'");
         $ds = mysqli_fetch_array($ergebnis);
 
-        echo'<div class="panel panel-default">
-        <div class="panel-heading">
+        echo'<div class="card">
+        <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
         <a href="admincenter.php?site=gallery&amp;part=groups" class="white">'.$_language->module['groups'].'</a> &raquo; '.$_language->module['edit_group'].'<br><br>';
 
     echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=groups">
@@ -150,11 +150,11 @@ if ($part == "groups") {
     }
 
     else {
-        echo'<div class="panel panel-default">
-        <div class="panel-heading">
+        echo'<div class="card">
+        <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
         <h4>'.$_language->module['groups'].'</h4>';
 
     echo'<a href="admincenter.php?site=gallery&amp;part=groups&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_group' ] . '</a><br /><br />';
@@ -363,11 +363,11 @@ if ($part == "groups") {
             $CAPCLASS->createTransaction();
             $hash = $CAPCLASS->getHash();
 
-            echo'<div class="panel panel-default">
-            <div class="panel-heading">
+            echo'<div class="card">
+            <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
             <a href="admincenter.php?site=gallery&amp;part=gallerys" class="white">'.$_language->module['galleries'].'</a> &raquo; '.$_language->module['add_gallery'].'<br><br>';
 
         echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=gallerys&amp;action=upload">
@@ -423,11 +423,11 @@ if ($part == "groups") {
             $groups
         );
 
-        echo'<div class="panel panel-default">
-        <div class="panel-heading">
+        echo'<div class="card">
+        <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
         <a href="admincenter.php?site=gallery&amp;part=gallerys" class="white">'.$_language->module['galleries'].'</a> &raquo; '.$_language->module['edit_gallery'].'<br><br>';
 
     echo'<form class="form-horizontal" method="post" action="admincenter.php?site=gallery&amp;part=gallerys">
@@ -465,12 +465,12 @@ if ($ds['userID'] != 0) {
 
     </form></div></div>';
     } else if ($action == "upload") {
-        echo '<div class="panel panel-default">
-        <div class="panel-heading">
+        echo '<div class="card">
+        <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
 
-                <div class="panel-body">
+                <div class="card-body">
         <a href="admincenter.php?site=gallery&amp;part=gallerys" class="white">' .
             $_language->module[ 'galleries' ] . '</a> &raquo; ' . $_language->module[ 'upload' ] . '<br><br>';
         $dir = '../images/gallery/';
@@ -608,11 +608,11 @@ if ($ds['userID'] != 0) {
     }
 
     else {
-        echo'<div class="panel panel-default">
-        <div class="panel-heading">
+        echo'<div class="card">
+        <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 
         '.$_language->module['galleries'].'<br><br>';
 
@@ -669,11 +669,11 @@ if ($ds['userID'] != 0) {
     }
         echo'</table></form></div></div><br />';
 
-    echo'<div class="panel panel-default">
-    <div class="panel-heading">
+    echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-file-image-fill"></span> '.$_language->module['gallery'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     '.$_language->module['usergalleries'].'</br><br>';
 
         $ergebnis=safe_query("SELECT * FROM ".PREFIX."gallery WHERE userID!='0'");

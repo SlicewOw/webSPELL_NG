@@ -46,11 +46,11 @@ if ($do=="del" && $mnav!="") {
 if ($do=="new" && $op=="main") {
 	$x = $x +1;
 	if (isset($main_sort)) { $main_sort .= '<option value="'.$x.'" selected>'.$x.'</option>'; } else { $main_sort = '<option value="'.$x.'" selected>'.$x.'</option>'; }
-	echo '<div class="panel panel-default">
-<div class="panel-heading">
+	echo '<div class="card">
+<div class="card-header">
                             <span class="bi bi-text-indent-left"></span> Navigation
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 
                         <a href="admincenter.php?site=navigation" class="white">Navigation</a>
                          &raquo; New Main-Navigation<br><br>';
@@ -125,11 +125,11 @@ if (isset($_POST['sve_subedit'])) {
 # new sub navi
 if ($do=="new" && $op=="sub") {
 	$x = $x +1;
-	echo '<div class="panel panel-default">
-<div class="panel-heading">
+	echo '<div class="card">
+<div class="card-header">
                             <span class="bi bi-text-indent-left"></span> Navigation
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 
                         <a href="admincenter.php?site=navigation" class="white">Navigation</a>
                          &raquo; New Sub-Navigation<br><br>';
@@ -168,11 +168,11 @@ function edit_sub(id,name,link,sort) {
 	obj.innerHTML = '<form role="form" action="admincenter.php?site=navigation" method="POST"><div class="form-group" style="padding: 8px;"><input type="hidden" value="'+ id +'" name="sID" /><label>Name</label><input type="text" class="form-control" id="name" name="name" value="'+name+'"><label>Link</label><input type="text" class="form-control" id="link" name="link" value="'+link+'"><label for="sort">Sort</label><select class="form-control" name="sort" id="sort"><?php echo $main_sort; ?></select><label>Dropdown?</label><select class="form-control" name="dropdown" id="dropdown"><option value="0">0</option><option value="1" selected>1</option></select><label for="mnav">MainNav</label><select class="form-control" name="mnav" id="mnav"><?php echo $main_nav; ?></select><br /><button type="submit" name="sve_subedit" class="btn btn-default">Save / Speichern</button></div></form>';
 }
 </script>
-<div class="panel panel-default">
-<div class="panel-heading">
+<div class="card">
+<div class="card-header">
                             <span class="bi bi-text-indent-left"></span> Navigation
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 <a href="admincenter.php?site=navigation&do=new&op=main" class="btn btn-primary btn-xs" type="button">New Main-Navigation</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="admincenter.php?site=navigation&do=new&op=sub" class="btn btn-primary btn-xs" type="button">New Sub-Navigation</a><br />
 <br />
 <?php
@@ -180,8 +180,8 @@ echo $msg_order_sort;
 $res = safe_query("SELECT * FROM `".PREFIX."navigation_main` ORDER BY `sort` ");
 while($row=mysqli_fetch_array($res)) {
 	echo '
-<div class="panel panel-default">
-	<div class="panel-heading">
+<div class="card">
+	<div class="card-header">
 
 		  <div class="col-sm-8">&nbsp;&nbsp;<span id="'.$row['mnavID'].'">('.$row['sort'].') '.$row['name'].'</span></div>
 		  <div class="col-sm-4 text-right">
@@ -212,7 +212,7 @@ while($row=mysqli_fetch_array($res)) {
 	$rex = safe_query("SELECT * FROM `".PREFIX."navigation_sub` WHERE `mnav_ID`='".$row['mnavID']."' ORDER BY `sort` ");
 	while($rox=mysqli_fetch_array($rex)) {
 		echo '
-	<div class="panel-body">
+	<div class="card-body">
 
 
 		  <div class="col-sm-8">&nbsp;&nbsp;<span id="'.$rox['snavID'].'">('.$rox['sort'].') MN: '.$rox['mnav_ID'].' Name: '.$rox['name'].' Link: '.$rox['link'].'</span></div>

@@ -163,11 +163,11 @@ if (isset($_POST[ 'submit' ])) {
     $debug =
         str_replace("value='" . $ds[ 'debug' ] . "'", "value='" . $ds[ 'debug' ] . "' selected='selected'", $debug);
 
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-envelope-fill"></span> ' . $_language->module[ 'email' ] . '
                         </div>
-        <div class="panel-body">';
+        <div class="card-body">';
 
     echo
         '<a class="btn btn-primary btn-xs" type="button" href="admincenter.php?site=email&amp;action=test" class="input">' .

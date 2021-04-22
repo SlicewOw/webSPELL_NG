@@ -39,11 +39,11 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-controller"></span> ' . $_language->module['games'] . '
                         </div>
-      <div class="panel-body">
+      <div class="card-body">
   <a href="admincenter.php?site=games" class="white">' . $_language->module['games'] . '</a> &raquo; ' . $_language->module['add_game'] . '<br><br>';
 
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=games" enctype="multipart/form-data">
@@ -83,11 +83,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-controller"></span> ' . $_language->module['games'] . '
                         </div>
-      <div class="panel-body">
+      <div class="card-body">
   <a href="admincenter.php?site=games" class="white">' . $_language->module['games'] . '</a> &raquo; ' . $_language->module['edit_game'] . '<br><br>';
 
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=games" enctype="multipart/form-data">
@@ -199,11 +199,11 @@ if ($action == "add") {
 
   $page = getPage();
 
-  echo'<div class="panel panel-default">
-   <div class="panel-heading">
+  echo'<div class="card">
+   <div class="card-header">
                             <span class="bi bi-controller"></span> ' . $_language->module['games'] . '
                         </div>
-  <div class="panel-body">';
+  <div class="card-body">';
 
   echo'<a href="admincenter.php?site=games&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_game' ] . '</a><br /><br />';
 

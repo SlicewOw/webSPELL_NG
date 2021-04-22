@@ -31,11 +31,11 @@ if (!ispageadmin($userID) || mb_substr(basename($_SERVER[ getConstNameRequestUri
     die($_language->module[ 'access_denied' ]);
 }
 
-echo '<div class="panel panel-default">
-<div class="panel-heading">
+echo '<div class="card">
+<div class="card-header">
                             <span class="bi bi-upload"></span> ' . $_language->module[ 'webspell_update' ] . '
                         </div>
-         <div class="panel-body">';
+         <div class="card-body">';
 
 //Where to get the newest WebSPELL from? (standard: http://update.webspell.org/)
 $updateserver = "https://update.webspell-ng.de/";

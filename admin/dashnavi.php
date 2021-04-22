@@ -124,11 +124,11 @@ if (isset($_GET[ 'delete' ])) {
 $action = getAction();
 
 if ($action == "add") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-list"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
-    <div class="panel-body">
+    <div class="card-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
         '</a> &raquo; ' . $_language->module[ 'add_link' ] . '<br><br>';
 
@@ -195,11 +195,11 @@ if ($action == "add") {
 
           </form></div></div>';
 } else if ($action == "edit") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-list"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
-                <div class="panel-body">
+                <div class="card-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_link' ] . '<br><br>';
 
@@ -284,11 +284,11 @@ if ($action == "add") {
     </form>
     </div></div>';
 } else if ($action == "addcat") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-list"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
-            <div class="panel-body">
+            <div class="card-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
         '</a> &raquo; ' . $_language->module[ 'add_category' ] . '<br><br>';
 
@@ -314,11 +314,11 @@ if ($action == "add") {
     </form>
     </div></div>';
 } else if ($action == "editcat") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-list"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
-            <div class="panel-body">
+            <div class="card-body">
     <a href="admincenter.php?site=dashnavi" class="white">' . $_language->module[ 'dashnavi' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_category' ] . '<br><br>';
 
@@ -346,11 +346,11 @@ if ($action == "add") {
   </div>
     </form></div></div>';
 } else {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-list"></span> ' . $_language->module[ 'dashnavi' ] . '
                         </div>
-        <div class="panel-body">';
+        <div class="card-body">';
 
     echo
         '<a class="btn btn-primary btn-xs" href="admincenter.php?site=dashnavi&amp;action=addcat" class="input">' .

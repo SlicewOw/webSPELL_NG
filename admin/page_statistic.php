@@ -106,11 +106,11 @@ foreach ($tables_array as $table) {
     $count_array[ ] = array($table_name, $data[ 'Rows' ]);
 }
 ?>
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card">
+    <div class="card-header">
         <span class="bi bi-server"></span> <?php echo $_language->module['database']; ?>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="row">
             <div class="col-md-6">
                 <div class="row bt"><div class="col-md-6"><?php echo $_language->module['mysql_version']; ?>:</div><div class="col-md-6"><span class="pull-right text-muted small"><em><?php echo mysqli_get_server_info($_database); ?></em></span></div></div>
@@ -129,11 +129,11 @@ foreach ($tables_array as $table) {
     </div>
 </div>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card">
+    <div class="card-header">
         <span class="bi bi-pie-chart-fill"></span> <?php echo $_language->module['page_stats']; ?>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="row">
 <?php
 for ($i = 0; $i < count($count_array); $i += 2) {

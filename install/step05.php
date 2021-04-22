@@ -29,11 +29,11 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 ?>
 <div class="row marketing">
     <div class="col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo $_language->module['data_config']; ?></h3>
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title"><?php echo $_language->module['data_config']; ?></h3>
 			</div>
-			<div class="panel-body">
+			<div class="card-body">
                 <div class="form-horizontal">
 
 					<div class="form-group">
@@ -78,11 +78,11 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
                 </div> <!-- form-horizontal-end -->
 			</div>
 		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo $_language->module['webspell_config']; ?></h3>
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title"><?php echo $_language->module['webspell_config']; ?></h3>
 			</div>
-			<div class="panel-body">
+			<div class="card-body">
                 <div class="form-horizontal">
 
 					<div class="form-group">
@@ -134,11 +134,11 @@ if ($_POST['installtype']=="full" && $_POST['hp_url']) {
 						</div>
 
     <div class="col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">' . $_language->module['finish_install'] . '</h3>
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">' . $_language->module['finish_install'] . '</h3>
 			</div>
-			<div class="panel-body">
+			<div class="card-body">
 				' . $_language->module['finish_next'] . '
 				<input type="hidden" name="installtype" value="'.$_POST['installtype'].'">
                 <div class="pull-right"><a class="btn btn-primary" href="javascript:document.ws_install.submit()">continue</a></div>

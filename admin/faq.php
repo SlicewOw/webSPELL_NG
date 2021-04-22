@@ -144,11 +144,11 @@ if (!empty($action)) {
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
-        echo '<div class="panel panel-default">
-         <div class="panel-heading">
+        echo '<div class="card">
+         <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['faq'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
         <a href="admincenter.php?site=faq" class="white">' . $_language->module[ 'faq' ] .
             '</a> &raquo; ' . $_language->module[ 'add_faq' ] . '<br><br>';
 
@@ -235,11 +235,11 @@ if (!empty($action)) {
         $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
         $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
-        echo '<div class="panel panel-default">
-        <div class="panel-heading">
+        echo '<div class="card">
+        <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['faq'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
         <a href="admincenter.php?site=faq" class="white">' . $_language->module[ 'faq' ] .
             '</a> &raquo; ' . $_language->module[ 'edit_faq' ] . '<br><br>';
 
@@ -305,11 +305,11 @@ if (!empty($action)) {
 
 else {
 
-  echo '<div class="panel panel-default">
-  <div class="panel-heading">
+  echo '<div class="card">
+  <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['faq'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=faq&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_faq' ] . '</a><br /><br />';
 

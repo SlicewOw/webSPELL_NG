@@ -289,11 +289,11 @@ if (isset($_POST[ 'savemods' ])) {
 $action = getAction();
 
 if ($action == "mods") {
-    echo '<div class="panel panel-default">
-     <div class="panel-heading">
+    echo '<div class="card">
+     <div class="card-header">
                             <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
         '</a> &raquo; ' . $_language->module[ 'moderators' ] . '<br><br>';
 
@@ -340,11 +340,11 @@ if ($action == "mods") {
 	</div>
   </div>';
 } else if ($action == "add") {
-    echo '<div class="panel panel-default">
-     <div class="panel-heading">
+    echo '<div class="card">
+     <div class="card-header">
                             <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
         '</a> &raquo; ' . $_language->module[ 'add_board' ] . '<br><br>';
 
@@ -425,11 +425,11 @@ if ($action == "mods") {
   </div>
   </div>';
 } else if ($action == "edit") {
-    echo '<div class="panel panel-default">
-     <div class="panel-heading">
+    echo '<div class="card">
+     <div class="card-header">
                             <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_board' ] . '</h4';
 
@@ -548,11 +548,11 @@ if ($action == "mods") {
   </div>
   </div>';
 } else if ($action == "addcat") {
-    echo '<div class="panel panel-default">
-     <div class="panel-heading">
+    echo '<div class="card">
+     <div class="card-header">
                             <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
         '</a> &raquo; ' . $_language->module[ 'add_category' ] . '<br><br>';
 
@@ -607,11 +607,11 @@ if ($action == "mods") {
   </div>
   </div>';
 } else if ($action == "editcat") {
-    echo '<div class="panel panel-default">
-     <div class="panel-heading">
+    echo '<div class="card">
+     <div class="card-header">
                             <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=boards" class="white">' . $_language->module[ 'boards' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_category' ] . '<br><br>';
 
@@ -684,12 +684,12 @@ if ($action == "mods") {
 
 else {
 
-	echo'<div class="panel panel-default">
-    <div class="panel-heading">
+	echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-list-ul"></span> '.$_language->module['boards'].'
                         </div>
 
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
 	echo'
 	<a href="admincenter.php?site=boards&amp;action=addcat" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_category' ] . '</a>

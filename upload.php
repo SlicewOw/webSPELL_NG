@@ -123,8 +123,8 @@ if (isset($_POST[ 'submit' ])) {
     echo '<script src="static/js/bbcode.js"></script>
 	</head>
 <body>
-<div class="panel panel-default">
-<div class="panel-heading">' . $_language->module[ 'file_upload' ] . '</div>
+<div class="card">
+<div class="card-header">' . $_language->module[ 'file_upload' ] . '</div>
 <form method="post" action="upload.php?' . $tableid . '=' . $id . '" enctype="multipart/form-data">
 <div class="col-md-12">
 	<div class="row">
@@ -179,7 +179,7 @@ if (isset($_POST[ 'submit' ])) {
     </tr>
     </table>
     </form>
-    <div class="panel-footer">
+    <div class="card-footer">
 		<input type="button" onclick="javascript:self.close()" value="' . $_language->module[ 'close_window' ] . '" class="btn btn-default">
 	</div>
 	<div class="clearfix"></div>

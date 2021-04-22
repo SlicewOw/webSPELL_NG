@@ -196,7 +196,7 @@ function codereplace($content)
                 }
             }
             if ($match) {
-                $splits[$i] = '<div style="max-width:auto;" class="panel panel-default code">' . '<div class="panel-heading">' . $_language->module['code'] . ':</div><div class="panel-body" style="overflow:auto;">';
+                $splits[$i] = '<div style="max-width:auto;" class="card code">' . '<div class="card-header">' . $_language->module['code'] . ':</div><div class="card-body" style="overflow:auto;">';
 
                 /* concat pieces until arriving closing tag ($z) and save to $i+1 */
                 for ($x = ($i + 2); $x < $z; $x++) {

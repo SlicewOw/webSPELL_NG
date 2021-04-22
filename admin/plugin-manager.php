@@ -116,12 +116,12 @@ if ($do=="edit") {
 		return false;
 	}
 	echo '
-	<div class="panel panel-default">
-  <div class="panel-heading">
+	<div class="card">
+  <div class="card-header">
 
                               <span class="bi bi-gear-wide-connected"></span> '.$_language->module['plugin_manager'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=plugin-manager" class="white">' . $_language->module['plugin_manager'] . '</a> &raquo; Plugin edit<br><br>';
 
   echo'
@@ -215,12 +215,12 @@ return false;
 }
 if ($do=="new") {
 	echo '
-	<div class="panel panel-default">
-  <div class="panel-heading">
+	<div class="card">
+  <div class="card-header">
 
                               <span class="bi bi-gear-wide-connected"></span> '.$_language->module['plugin_manager'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=plugin-manager" class="white">' . $_language->module['plugin_manager'] . '</a> &raquo; Plugin hinzufügen<br><br>';
 
   echo'
@@ -311,12 +311,12 @@ if ($do=="new") {
 return false;
 
 }
-echo'<div class="panel panel-default">
-  <div class="panel-heading">
+echo'<div class="card">
+  <div class="card-header">
 
                               <span class="bi bi-gear-wide-connected"></span> '.$_language->module['plugin_manager'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
 ?>
 
@@ -324,11 +324,11 @@ echo'<div class="panel panel-default">
 <br /><br />
 
 
-<div class="panel panel-default">
-  <div class="panel-heading">
+<div class="card">
+  <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> <?php echo $_language->module[ 'activated' ]; ?>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 <div class="row">
   <div class="col-sm-1"><strong><?php echo $_language->module[ 'plugin' ]; ?> <?php echo $_language->module[ 'id' ]; ?></strong></div>
   <div class="col-sm-3"><strong><?php echo $_language->module[ 'plugin' ]; ?> <?php echo $_language->module[ 'name' ]; ?></strong></div>
@@ -374,11 +374,11 @@ $CAPCLASS = new \webspell\Captcha;
 echo'</div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
+<div class="card">
+  <div class="card-header">
                             <span class="bi bi-credit-card-fill"></span> '.$_language->module['deactivated'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 ?>
 
 <br /><br />

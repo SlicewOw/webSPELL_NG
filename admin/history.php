@@ -55,11 +55,11 @@ $_language->readModule('bbcode', true, true);
 $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
 $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
-echo'<div class="panel panel-default">
-<div class="panel-heading">
+echo'<div class="card">
+<div class="card-header">
                             <span class="bi bi-hourglass-split"></span> ' . $_language->module[ 'history' ] . '
                         </div>
-                  <div class="panel-body">
+                  <div class="card-body">
 
 <div class="row">
 <div class="col-md-12">';

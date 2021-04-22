@@ -27,11 +27,11 @@
 ?>
 <div class="row marketing">
     <div class="col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo $_language->module['licence']; ?></h3>
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title"><?php echo $_language->module['licence']; ?></h3>
 			</div>
-			<div class="panel-body">
+			<div class="card-body">
                 <div class="alert alert-info" role="alert"><strong><?php echo $_language->module['version']; ?>: <?php echo $version; ?></strong></div>
 				<p><?php echo $_language->module['gpl_info']; ?> &nbsp; <?php echo $_language->module['more_info']; ?></p>
                <div class="form-group">

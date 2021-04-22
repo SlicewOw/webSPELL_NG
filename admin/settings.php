@@ -256,12 +256,12 @@ if (isset($_POST[ 'submit' ])) {
     $hash = $CAPCLASS->getHash();
     ?>
     <form method="post" action="admincenter.php?site=settings">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="card">
+            <div class="card-header">
                 <?php echo $_language->module[ 'settings' ]; ?>
             </div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row bt">
@@ -330,12 +330,12 @@ if (isset($_POST[ 'submit' ])) {
             </div>
         </div><br>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="card">
+            <div class="card-header">
                 <?php echo $_language->module['additional_options']; ?>
             </div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
                         <a class="btn btn-danger" href="admincenter.php?site=lock"><?php echo $_language->module['pagelock']; ?></a>
@@ -346,12 +346,12 @@ if (isset($_POST[ 'submit' ])) {
 
         <div class="row">
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['news']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module['news']; ?>:
@@ -406,12 +406,12 @@ if (isset($_POST[ 'submit' ])) {
             </div>
 
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['gallery']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module['pictures']; ?>:
@@ -468,12 +468,12 @@ if (isset($_POST[ 'submit' ])) {
 
         <div class="row">
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['forum']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module['forum_topics']; ?>:
@@ -518,12 +518,12 @@ if (isset($_POST[ 'submit' ])) {
             </div>
 
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['captcha']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module['captcha_type']; ?>:
@@ -594,12 +594,12 @@ if (isset($_POST[ 'submit' ])) {
 
         <div class="row">
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['articles']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module['articles']; ?>:
@@ -634,12 +634,12 @@ if (isset($_POST[ 'submit' ])) {
             </div>
 
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['clanwars']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module['clanwars']; ?>:
@@ -676,12 +676,12 @@ if (isset($_POST[ 'submit' ])) {
 
         <div class="row">
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['shoutbox']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module['shoutbox']; ?>:
@@ -714,12 +714,12 @@ if (isset($_POST[ 'submit' ])) {
                     </div>
                 </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module[ 'sc_modules' ]; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module[ 'demos' ]; ?>:
@@ -748,12 +748,12 @@ if (isset($_POST[ 'submit' ])) {
             </div>
 
             <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module[ 'spamfilter' ]; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="row bt">
                             <div class="col-md-6">
                                 <?php echo $_language->module[ 'spamapikey' ]; ?>:
@@ -810,15 +810,15 @@ if (isset($_POST[ 'submit' ])) {
 
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card">
+                    <div class="card-header">
                         <?php echo $_language->module['other']; ?>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
+                            <div class="card">
+                                <div class="card-body">
                                     <div class="row bt">
                                         <div class="col-md-6">
                                             <?php echo $_language->module['awards']; ?>:
@@ -929,8 +929,8 @@ if (isset($_POST[ 'submit' ])) {
                         </div>
 
                         <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
+                            <div class="card">
+                                <div class="card-body">
                                     <div class="row bt">
                                         <div class="col-md-6">
                                             <?php echo $_language->module['default_language']; ?>:

@@ -30,11 +30,11 @@ if ($_POST['hp_url']) {
 <div class="row marketing">
 
     <div class="col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo $_language->module['select_install']; ?></h3>
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title"><?php echo $_language->module['select_install']; ?></h3>
 			</div>
-			<div class="panel-body">
+			<div class="card-body">
             <?php echo $_language->module['what_to_do']; ?>
 				<div class="radio">
 					<label>
@@ -72,7 +72,7 @@ if ($_POST['hp_url']) {
                         <input type="hidden" name="hp_url" value="<?php echo $_POST['hp_url']; ?>">
                         <?php echo $_language->module['new_install']; ?>
 					</label>
-				</div>        
+				</div>
                 <div class="pull-right"><a class="btn btn-primary" href="javascript:document.ws_install.submit()">continue</a></div>
 			</div>
 		</div>

@@ -82,11 +82,11 @@ if (!empty($action)) {
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
 
-    echo'<div class="panel panel-default">
-<div class="panel-heading">
+    echo'<div class="card">
+<div class="card-header">
                             <span class="bi bi-envelope-fill"></span> ' . $_language->module['contact'] . '
                         </div>
-     <div class="panel-body">
+     <div class="card-body">
     <a href="admincenter.php?site=contact" class="white">' . $_language->module['contact'] . '</a> &raquo; ' . $_language->module['add_contact'] . '<br><br>';
 
     echo '<form class="form-horizontal" method="post" action="admincenter.php?site=contact" name="post">
@@ -121,11 +121,11 @@ if (!empty($action)) {
         $CAPCLASS->createTransaction();
         $hash = $CAPCLASS->getHash();
 
-    echo'<div class="panel panel-default">
-    <div class="panel-heading">
+    echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-envelope-fill"></span> ' . $_language->module['contact'] . '
                         </div>
-     <div class="panel-body">
+     <div class="card-body">
     <a href="admincenter.php?site=contact" class="white">' . $_language->module['contact'] . '</a> &raquo; ' . $_language->module['edit_contact'] . '<br></br>';
 
     echo '<form class="form-horizontal" method="post" action="admincenter.php?site=contact" name="post">
@@ -154,11 +154,11 @@ if (!empty($action)) {
 
 else {
 
-  echo '<div class="panel panel-default">
-  <div class="panel-heading">
+  echo '<div class="card">
+  <div class="card-header">
                             <span class="bi bi-envelope-fill"></span> ' . $_language->module['contact'] . '
                         </div>
-  <div class="panel-body">
+  <div class="card-body">
 
 
   <a href="admincenter.php?site=contact&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_contact' ] . '</a><br /><br />';

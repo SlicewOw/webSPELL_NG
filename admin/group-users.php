@@ -186,11 +186,11 @@ if (!empty($action)) {
         );
     }
 
-    echo'<div class="panel panel-default">
-    <div class="panel-heading">
+    echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-person-dash-fill"></span> ' . $_language->module[ 'group_users' ] . '
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
    <a href="admincenter.php?site=group-users" class="white">'.$_language->module['group_users'].'</a> &raquo; '.$_language->module['edit_group_users'].'<br><br>';
     echo '<script type="text/javascript">
     function setUser(userID,group,status){
@@ -283,11 +283,11 @@ if (!empty($action)) {
         $selector = 1;
     }
 
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-person-dash-fill"></span> ' . $_language->module[ 'group_users' ] . '
                         </div>
-            <div class="panel-body">';
+            <div class="card-body">';
 
     echo '<script type="text/javascript">
   /*<![CDATA[*/

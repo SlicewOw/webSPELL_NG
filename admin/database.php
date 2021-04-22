@@ -203,11 +203,11 @@ if ($action == "optimize") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-server"></span> '.$_language->module['database'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 
 
 
@@ -254,11 +254,11 @@ if ($action == "optimize") {
 
 
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-server"></span> '.$_language->module['sql_query'].'
                         </div>
-            <div class="panel-body">';
+            <div class="card-body">';
 
   echo '<form method="post" action="admincenter.php?site=database">
   <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#DDDDDD">

@@ -110,13 +110,13 @@ echo '
 
 <div class="col-md-6">
 
-<div class="panel panel-default">
-                        <div class="panel-heading">
+<div class="card">
+                        <div class="card-header">
                             <span class="bi bi-people-fill"></span> '.$_language->module['visitor'].'
                         </div>
 
 
-<div class="panel-body">
+<div class="card-body">
 
 
     <div class="row bt"><div class="col-md-6">'.$_language->module['today'].':</div><div class="col-md-6"><span class="pull-right text-muted small"><em>'.$today.'</em></span></div></div>
@@ -131,13 +131,13 @@ echo '
 
 <div class="col-md-6">
 
-<div class="panel panel-default">
-                        <div class="panel-heading">
+<div class="card">
+                        <div class="card-header">
                             <span class="bi bi-bar-chart-fill"></span> '.$_language->module['stats'].'
                         </div>
 
 
-<div class="panel-body">
+<div class="card-body">
 
     <div class="row bt"><div class="col-md-6">'.$_language->module['days_online'].':</div><div class="col-md-6"><span class="pull-right text-muted small"><em>'.$days_online.'</em></span></div></div>
     <div class="row bt"><div class="col-md-6">'.$_language->module['visits_month'].':</div><div class="col-md-6"><span class="pull-right text-muted small"><em>'.$permonth.'</em></span></div></div>
@@ -160,12 +160,12 @@ echo '
 ';
 
 
-echo '<div class="panel panel-default">
-                        <div class="panel-heading">
+echo '<div class="card">
+                        <div class="card-header">
                             <span class="bi bi-arrow-clockwise"></span> '.$_language->module['visitor_stats_graphics'].'
                         </div>
 
-<div class="panel-body">';
+<div class="card-body">';
 
 if (isset($_SESSION[ 'size_x' ])) {
     $size_x = $_SESSION[ 'size_x' ];
@@ -280,8 +280,8 @@ if (isset($_SESSION[ 'count_months' ])) {
 
 
 <div class="col-md-4">
-<div class="panel panel-default">
-<div class="panel-body">
+<div class="card">
+<div class="card-body">
 <p><?php echo $_language->module['settings']; ?>:</p>
 <?php echo $_language->module['last']; ?> <input type="text" id="count_days" value="<?php echo $count_days; ?>" style="width:30px;" /> <?php echo $_language->module['days']; ?><br /><br />
 <?php echo $_language->module['last']; ?> <input type="text" id="count_months" value="<?php echo $count_months; ?>" style="width:30px;" /> <?php echo $_language->module['months']; ?> <input class="btn btn-primary btn-xs" type="button" onclick="update_count(document.getElementById('count_days').value, document.getElementById('count_months').value);" value="<?php echo $_language->module['show']; ?>" />
@@ -289,8 +289,8 @@ if (isset($_SESSION[ 'count_months' ])) {
 
 
 <div class="col-md-4">
-<div class="panel panel-default">
-<div class="panel-body">
+<div class="card">
+<div class="card-body">
 <p><?php echo $_language->module['change_size']; ?>:</p>
 <input type="text" id="new_x" value="<?php echo $size_x; ?>" style="width:40px;" /> x <input type="text" id="new_y" value="<?php echo $size_y; ?>" style="width:40px;" /> <input class="btn btn-primary btn-xs" type="button" onclick="update_size(document.getElementById('new_x').value, document.getElementById('new_y').value);" value="<?php echo $_language->module['show']; ?>" /> <?php echo $_language->module['width_height']; ?><br /><br /><br />
 </div></div></div>
@@ -298,8 +298,8 @@ if (isset($_SESSION[ 'count_months' ])) {
 
 
 <div class="col-md-4">
-<div class="panel panel-default">
-<div class="panel-body">
+<div class="card">
+<div class="card-body">
 
 <p><?php echo $_language->module['show_year_month']; ?>:</p>
 <input type="text" id="year" style="width:40px;" /> <input class="btn btn-primary btn-xs" type="button" onclick="display_stat(document.getElementById('year').value, 0);" value="<?php echo $_language->module['show']; ?>" /> <?php echo $_language->module['yyyy']; ?><br /><br />
@@ -317,13 +317,13 @@ if (isset($_SESSION[ 'count_months' ])) {
 
 
 <div class="col-md-6">
-<div class="panel panel-default">
+<div class="card">
 
-                        <div class="panel-heading" id="last_days_h2">
+                        <div class="card-header" id="last_days_h2">
                             <span class="bi bi-graph-up"></span> <?php echo $_language->module[ 'last' ]; ?> <?php echo $count_days; ?> <?php echo $_language->module[ 'days' ]; ?>
                         </div>
 
-<div class="panel-body">
+<div class="card-body">
 
 
 
@@ -333,13 +333,13 @@ if (isset($_SESSION[ 'count_months' ])) {
 
 <div class="col-md-6">
 
-<div class="panel panel-default">
+<div class="card">
 
-                        <div class="panel-heading" id="last_months_h2">
+                        <div class="card-header" id="last_months_h2">
                             <span class="bi bi-graph-up"></span> <?php echo $_language->module['last']; ?> <?php echo $count_months; ?> <?php echo $_language->module['months']; ?>
                         </div>
 
-<div class="panel-body">
+<div class="card-body">
 
 
 <img width="100%" id="last_months" src="visitor_statistic_image.php?last=months&amp;count=<?php echo $count_months; ?>" alt="" /></div>

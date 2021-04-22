@@ -102,11 +102,11 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-text-indent-left"></span> ' . $_language->module[ 'news_rubrics' ] . '
                         </div>
-            <div class="panel-body">
+            <div class="card-body">
 
 <a href="admincenter.php?site=rubrics" class="white">'.$_language->module['news_rubrics'].'</a> &raquo; '.$_language->module['add_rubric'].'<br><br>';
 
@@ -134,10 +134,10 @@ if ($action == "add") {
     $CAPCLASS = new \webspell\Captcha;
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
-    echo '<div class="panel panel-default"><div class="panel-heading">
+    echo '<div class="card"><div class="card-header">
                             <span class="bi bi-text-indent-left"></span> ' . $_language->module[ 'news_rubrics' ] . '
                         </div>
-                <div class="panel-body">
+                <div class="card-body">
 
 <a href="admincenter.php?site=rubrics" class="white">' . $_language->module[ 'news_rubrics' ] .
         '</a> &raquo; ' . $_language->module[ 'edit_rubric' ] . '<br><br>';
@@ -175,11 +175,11 @@ if ($action == "add") {
 
 else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-text-indent-left"></span> ' . $_language->module[ 'news_rubrics' ] . '
                         </div>
-    <div class="panel-body">
+    <div class="card-body">
 
 <div class="row">
 <div class="col-md-12">';

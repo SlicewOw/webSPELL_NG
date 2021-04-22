@@ -96,11 +96,11 @@ if ($action == "add") {
     $addbbcode = $GLOBALS["_template"]->replaceTemplate("addbbcode", array());
     $addflags = $GLOBALS["_template"]->replaceTemplate("flags_admin", array());
 
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-controller"></span> '.$_language->module['servers'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 
   <a href="admincenter.php?site=servers" class="white">' . $_language->module[ 'servers' ] .
         '</a> &raquo; ' . $_language->module[ 'add_server' ] . '<br><br>';
@@ -168,11 +168,11 @@ if ($action == "add") {
   </div>';
 } elseif ($action=="edit") {
 
-  echo'<div class="panel panel-default">
-    <div class="panel-heading">
+  echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-controller"></span> '.$_language->module['servers'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
 
   <a href="admincenter.php?site=servers" class="white">'.$_language->module['servers'].'</a> &raquo; '.$_language->module['edit_server'].'<br><br>';
 
@@ -263,11 +263,11 @@ if ($action == "add") {
 
 else {
 
-  echo'<div class="panel panel-default">
-    <div class="panel-heading">
+  echo'<div class="card">
+    <div class="card-header">
                             <span class="bi bi-controller"></span> '.$_language->module['servers'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=servers&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_server' ] . '</a><br /><br />';
 

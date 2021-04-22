@@ -36,11 +36,11 @@ $filepath = "../images/bannerrotation/";
 $action = getAction();
 
 if ($action == "add") {
-    echo '<div class="panel panel-default">
-    <div class="panel-heading">
+    echo '<div class="card">
+    <div class="card-header">
                             <span class="bi bi-arrow-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
     <a href="admincenter.php?site=bannerrotation" class="white">' .
     $_language->module['bannerrotation'] . '</a> &raquo; ' . $_language->module['add_banner'] . '<br><br>';
 
@@ -97,11 +97,11 @@ if ($action == "add") {
   </div>';
 } elseif ($action=="edit") {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-arrow-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
   <a href="admincenter.php?site=bannerrotation" class="white">'.$_language->module['bannerrotation'].'</a> &raquo; '.$_language->module['edit_banner'].'<br><br>';
 
 	$ds = mysqli_fetch_array(
@@ -322,11 +322,11 @@ if ($action == "add") {
     }
 } else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-arrow-repeat"></span> '.$_language->module['bannerrotation'].'
                         </div>
-        <div class="panel-body">';
+        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=bannerrotation&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_banner' ] . '</a><br /><br />';
 

@@ -181,13 +181,13 @@ hr { margin: 0px; }
 
 
 
-<div class="panel panel-default">
-<div class="panel-heading">
+<div class="card">
+<div class="card-header">
                             <span class="bi bi-newspaper"></span> <?php echo $_language->module['newsletter']; ?>
                         </div>
 
 
-<div class="panel-body">
+<div class="card-body">
 
 
 <form class="form-horizontal" action="admincenter.php?site=newsletter" method="post">

@@ -143,8 +143,8 @@ if (isset($id) && getnickname($id) != '') {
 
         echo '<div class="row">
 	<div class="col-xs-8">
-<div class="panel panel-default">
-<div class="panel-heading">' . $_language->module[ 'galleries' ] . ' ' . $_language->module[ 'by' ] . ' ' . getnickname($id) . '</div>
+<div class="card">
+<div class="card-header">' . $_language->module[ 'galleries' ] . ' ' . $_language->module[ 'by' ] . ' ' . getnickname($id) . '</div>
 <table class="table table-hover">
         <tr>
             <td></td>

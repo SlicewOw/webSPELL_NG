@@ -139,11 +139,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-download"></span> '.$_language->module['file_categories'].'
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
   <a href="admincenter.php?site=filecategories" class="white">'.$_language->module['file_categories'].'</a> &raquo; '.$_language->module['add_category'].'<br><br>';
 
 	echo'<form class="form-horizontal" method="post" action="admincenter.php?site=filecategories">
@@ -182,11 +182,11 @@ if ($action == "add") {
     $CAPCLASS->createTransaction();
     $hash = $CAPCLASS->getHash();
 
-	echo'<div class="panel panel-default">
-  <div class="panel-heading">
+	echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-download"></span> '.$_language->module['file_categories'].'
                         </div>
-        <div class="panel-body">
+        <div class="card-body">
 	<a href="admincenter.php?site=filecategories" class="white">'.$_language->module['file_categories'].'</a> &raquo; '.$_language->module['edit_category'].'<br><br>';
 
   echo'<form class="form-horizontal" method="post" action="admincenter.php?site=filecategories" enctype="multipart/form-data">
@@ -213,11 +213,11 @@ if ($action == "add") {
 
 else {
 
-  echo'<div class="panel panel-default">
-  <div class="panel-heading">
+  echo'<div class="card">
+  <div class="card-header">
                             <span class="bi bi-download"></span> '.$_language->module['file_categories'].'
                         </div>
-                        <div class="panel-body">';
+                        <div class="card-body">';
 
   echo'<a href="admincenter.php?site=filecategories&amp;action=add" class="btn btn-primary btn-xs" type="button">' . $_language->module[ 'new_category' ] . '</a><br /><br />';
 
