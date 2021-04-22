@@ -138,8 +138,7 @@ if ($getavatar = getavatar($userID)) {
     <title>Webspell NOR - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../components/bootstrap/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../components/admin/css/page.css" rel="stylesheet">
@@ -148,7 +147,7 @@ if ($getavatar = getavatar($userID)) {
     <link href="../components/admin/css/menu.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../components/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../node_modules/bootstrap-icons/font/boostrap-icons.css" rel="stylesheet" type="text/css">
 
     <!-- Style CSS -->
     <link href="../components/admin/css/style.css" rel="stylesheet">
@@ -210,7 +209,7 @@ if ($getavatar = getavatar($userID)) {
     <!-- /#wrapper -->
 
  <!-- jQuery -->
-    <script src="../components/jquery/jquery.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="../components/admin/css/style-nav.css">
     <link href="../components/admin/css/bootstrap-colorpicker.min.css" rel="stylesheet">
     <script src="../components/admin/js/bootstrap-colorpicker.js"></script>
@@ -245,21 +244,18 @@ if ($getavatar = getavatar($userID)) {
             });
         });
     </script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../components/bootstrap/bootstrap.min.js"></script>
 
-    <!-- Menu Plugin JavaScript -->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../components/admin/js/menu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
     <script src="../components/admin/js/page.js"></script>
+    <script src="../components/admin/js/index.js"></script>
 
-<script src="../components/admin/js/index.js"></script>
-<script>
+    <script>
         var calledfrom='admin';
     </script>
     <script src="../js/bbcode.js"></script>
-<script src="../components/admin/js/bootstrap-switch.js"></script>
+
+    <script src="../components/admin/js/bootstrap-switch.js"></script>
 
 </body>
 </html>

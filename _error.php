@@ -84,7 +84,7 @@ function system_error($text, $system = 1, $strace = 0)
 
 <!-- Head & Title include -->
 <title>webSPELL - Error</title>
-<link href="components/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="_stylesheet.css" rel="stylesheet">
 <!-- end Head & Title include -->
 </head>
@@ -113,8 +113,8 @@ function system_error($text, $system = 1, $strace = 0)
         </div>
     </div>
 </div>
-<script src="components/jquery/jquery.min.js"></script>
-<script src="components/bootstrap/bootstrap.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>');
 }

@@ -286,32 +286,32 @@ $ds = mysqli_fetch_array(
 if (is_dir("development")) {
     $components = array(
         'css' => array(
-            'components/bootstrap/dist/css/bootstrap.css',
+            'node_modules/bootstrap/dist/css/bootstrap.css',
             'node_modules/bootstrap-icons/font/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
             'components/profile.css',
             'components/emoji.css'
         ),
         'js' => array(
-            'components/jquery/dist/jquery.js',
-            'components/bootstrap/dist/js/bootstrap.js',
-            'components/webshim/js-webshim/dev/polyfiller.js',
+            'node_modules/jquery/dist/jquery.js',
+            'node_modules/bootstrap/dist/js/bootstrap.js',
+            'node_modules/webshim/js-webshim/dev/polyfiller.js',
             'components/scrolltotop/js/scrolltotop.js'
         )
     );
 } else {
     $components = array(
         'css' => array(
-            'components/bootstrap/bootstrap.min.css',
+            'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap-icons/font/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
             'components/profile/profile.css',
             'components/emoji/emoji.css'
         ),
         'js' => array(
-            'components/jquery/jquery.min.js',
-            'components/bootstrap/bootstrap.min.js',
-            'components/webshim/polyfiller.js',
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/bootstrap/dist/js/bootstrap.min.js',
+            'node_modules/webshim/js-webshim/minified/polyfiller.js',
             'components/scrolltotop/js/scrolltotop.js'
         )
     );

@@ -409,7 +409,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </div>
 
 <script>
-    webshim.setOptions('basePath', 'components/webshim/js-webshim/minified/shims/');
+    webshim.setOptions('basePath', 'node_modules/webshim/js-webshim/minified/shims/');
     //request the features you need:
     webshim.setOptions("forms-ext",
     {

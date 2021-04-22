@@ -72,7 +72,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         echo '<link href="' . $component . '" rel="stylesheet">';
 	}
     ?>
-    <link href="components/font-awesome.min.css" rel="stylesheet">
+    <link href="../node_modules/bootstrap-icons/font/boostrap-icons.css" rel="stylesheet">
     <link href="css/page.css" rel="stylesheet">
     <link href="_stylesheet.css" rel="stylesheet">
     <link href="css/test.css.php" rel="styleSheet" type="text/css">
@@ -343,7 +343,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </div>
 
 <script>
-    webshim.setOptions('basePath', 'components/webshim/js-webshim/minified/shims/');
+    webshim.setOptions('basePath', 'node_modules/webshim/js-webshim/minified/shims/');
     //request the features you need:
     webshim.setOptions("forms-ext",
     {

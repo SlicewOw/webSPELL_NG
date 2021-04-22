@@ -57,6 +57,10 @@
     "test": "grunt codecheck --verbose"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.4.1"
+    "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.4.1",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+    "webshim": "^1.16.0"
   }
 }
