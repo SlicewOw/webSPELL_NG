@@ -495,16 +495,15 @@ function update_base_6($_database)
   `tag` varchar(10) NOT NULL,
   `short` varchar(50) NULL,
   PRIMARY KEY  (`gameID`)
-) PACK_KEYS=0 AUTO_INCREMENT=8
-  DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
+) PACK_KEYS=0 AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
 
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (1, 'Counter-Strike', 'cs', 'CS1.6')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (2, 'Unreal Tournament', 'ut', 'UT')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (3, 'Tactical Ops', 'to', 'TO')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (4, 'Half-Life 2', 'hl2', 'HL2')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (5, 'Warcraft 3', 'wc3', 'WC3)");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (6, 'Half-Life', 'hl', 'HL')");
-    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`) VALUES (7, 'Battlefield', 'bf', 'BF')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`, `short`) VALUES (1, 'Counter-Strike', 'cs', 'CS1.6')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`, `short`) VALUES (2, 'Unreal Tournament', 'ut', 'UT')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`, `short`) VALUES (3, 'Tactical Ops', 'to', 'TO')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`, `short`) VALUES (4, 'Half-Life 2', 'hl2', 'HL2')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`, `short`) VALUES (5, 'Warcraft 3', 'wc3', 'WC3')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`, `short`) VALUES (6, 'Half-Life', 'hl', 'HL')");
+    $transaction->addQuery("INSERT IGNORE INTO `" . PREFIX . "games` (`gameID`, `tag`, `name`, `short`) VALUES (7, 'Battlefield', 'bf', 'BF')");
 
     $transaction->addQuery("DROP TABLE IF EXISTS `" . PREFIX . "guestbook`");
     $transaction->addQuery("CREATE TABLE `" . PREFIX . "guestbook` (
@@ -517,8 +516,8 @@ function update_base_6($_database)
   `ip` varchar(255) NOT NULL default '',
   `comment` text NOT NULL,
   PRIMARY KEY  (`gbID`)
-) AUTO_INCREMENT=1
-  DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
+) AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci");
+
     if ($transaction->successful()) {
         return array('status' => 'success', 'message' => 'Created tables starting with "g"');
     } else {
@@ -2897,7 +2896,7 @@ function update_40101_420_6($_database)
     $transaction->addQuery("ALTER TABLE `" . PREFIX . "scrolltext` ADD `color` VARCHAR(7) NOT NULL DEFAULT '#000000'");
 
     //add new games
-    $transaction->addQuery("UPDATE `" . PREFIX . "games` SET `name` = 'Battlefield 1942', WHERE `name` = 'Battlefield'");
+    $transaction->addQuery("UPDATE `" . PREFIX . "games` SET `name` = 'Battlefield 1942', `short` = 'BF 1942' WHERE `name` = 'Battlefield'");
     $transaction->addQuery("INSERT INTO `" . PREFIX . "games` ( `gameID` , `tag` , `name`, `short` )
 		VALUES
 			('', 'aa', 'Americas Army', 'AA'),
