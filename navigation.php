@@ -84,7 +84,7 @@ function navigation_nodropdown($default_link) {
 		}
 	} catch (Exception $e) {
 		if (DEBUG==="ON") {
-			return $e->message();
+			return $e->getMessage();
 		}
 	}
 }
@@ -155,6 +155,6 @@ try {
 		echo $head;
 	}
 } catch (Exception $e) {
-	echo $e->message();
+	echo $e->getMessage();
 	return false;
 }
