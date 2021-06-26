@@ -8,7 +8,5 @@
         "webspell_ng/query_builder": "dev-master",
         "webspell_ng/data_structures": "dev-master"
     },
-    "require-dev": {
-        "phpunit/phpunit": "^9.2"
-    }
+    "require-dev": {}
 }
