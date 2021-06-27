@@ -74,12 +74,12 @@ $_language->readModule('step' . $step, true, false, false, true);
 
     <title>webSPELL NG Installation</title>
 
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/twbs/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
     <link href="../_stylesheet.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../vendor/jquery/jquery/jquery-3.6.0.min.js"></script>
     <script src="install.js"></script>
 
 </head>
@@ -126,7 +126,7 @@ $_language->readModule('step' . $step, true, false, false, true);
     </div>
 
     <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $("body").tooltip({
         selector: "[data-toggle='tooltip']",

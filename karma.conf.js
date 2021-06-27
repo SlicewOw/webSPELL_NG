@@ -15,9 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'node_modules/jquery/dist/jquery.min.js',
+        'vendor/jquery/jquery/jquery-3.6.0.min.js',
         'node_modules/popper.js/dist/umd/popper.js',
-        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+        'vendor/twbs/bootstrap/dist/js/bootstrap.min.js',
         'node_modules/webshim/js-webshim/minified/polyfiller.js',
         'static/js/*.js',
         'tests/karma/**/*Spec.js'

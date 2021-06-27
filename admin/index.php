@@ -72,7 +72,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         echo '<link href="' . $component . '" rel="stylesheet">';
 	}
     ?>
-    <link href="../node_modules/bootstrap-icons/font/boostrap-icons.css" rel="stylesheet">
+    <link href="../vendor/twbs/bootstrap-icons/boostrap-icons.css" rel="stylesheet">
     <link href="static/css/page.css" rel="stylesheet">
     <link href="_stylesheet.css" rel="stylesheet">
     <link href="static/css/test.css.php" rel="styleSheet" type="text/css">

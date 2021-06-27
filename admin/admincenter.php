@@ -138,7 +138,7 @@ if ($getavatar = getavatar($userID)) {
     <title>webSPELL NG - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../components/admin/css/page.css" rel="stylesheet">
@@ -147,7 +147,7 @@ if ($getavatar = getavatar($userID)) {
     <link href="../components/admin/css/menu.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../node_modules/bootstrap-icons/font/boostrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/twbs/bootstrap-icons/boostrap-icons.css" rel="stylesheet" type="text/css">
 
     <!-- Style CSS -->
     <link href="../components/admin/css/style.css" rel="stylesheet">
@@ -209,7 +209,7 @@ if ($getavatar = getavatar($userID)) {
     <!-- /#wrapper -->
 
  <!-- jQuery -->
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../vendor/jquery/jquery/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="../components/admin/css/style-nav.css">
     <link href="../components/admin/css/bootstrap-colorpicker.min.css" rel="stylesheet">
     <script src="../components/admin/js/bootstrap-colorpicker.js"></script>
@@ -246,7 +246,7 @@ if ($getavatar = getavatar($userID)) {
     </script>
 
     <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../components/admin/js/menu.min.js"></script>
     <script src="../components/admin/js/page.js"></script>
     <script src="../components/admin/js/index.js"></script>

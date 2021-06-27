@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d06fff28355ac048905312ef7eda081b",
+    "content-hash": "3df8d151c0e28ab480d086d9aecd666e",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -553,6 +553,15 @@
             "time": "2020-12-07T16:04:15+00:00"
         },
         {
+            "name": "jquery/jquery",
+            "version": "3.6.0",
+            "dist": {
+                "type": "file",
+                "url": "https://code.jquery.com/jquery-3.6.0.min.js"
+            },
+            "type": "library"
+        },
+        {
             "name": "phpmailer/phpmailer",
             "version": "v6.5.0",
             "source": {
@@ -1062,6 +1071,65 @@
                 }
             ],
             "time": "2021-02-19T12:13:01+00:00"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v5.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "688bce4fa695cc360a0d084e34f029b0c192b223"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/688bce4fa695cc360a0d084e34f029b0c192b223",
+                "reference": "688bce4fa695cc360a0d084e34f029b0c192b223",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                },
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "https://getbootstrap.com/",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "mobile-first",
+                "responsive",
+                "sass",
+                "web"
+            ],
+            "support": {
+                "issues": "https://github.com/twbs/bootstrap/issues",
+                "source": "https://github.com/twbs/bootstrap/tree/v5.0.2"
+            },
+            "time": "2021-06-22T18:29:16+00:00"
+        },
+        {
+            "name": "twbs/bootstrap-icons",
+            "version": "1.5.0",
+            "dist": {
+                "type": "file",
+                "url": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+            },
+            "type": "library"
         },
         {
             "name": "vlucas/phpdotenv",

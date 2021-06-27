@@ -226,8 +226,7 @@ function safe_query($query = "")
         if (DEBUG == "OFF") {
             $result = $_database->query($query) or system_error('Query failed!');
         } else {
-            $result = $_database->query($query) or
-            system_error(
+            $result = $_database->query($query) or system_error(
                 '<strong>Query failed</strong> ' . '<ul>' .
                 '<li>MySQL error no.: <mark>' . $_database->errno . '</mark></li>' .
                 '<li>MySQL error: <mark>' . $_database->error . '</mark></li>' .
@@ -286,15 +285,15 @@ $ds = mysqli_fetch_array(
 if (is_dir("development")) {
     $components = array(
         'css' => array(
-            'node_modules/bootstrap/dist/css/bootstrap.css',
-            'node_modules/bootstrap-icons/font/bootstrap-icons.css',
+            'vendor/twbs/bootstrap/dist/css/bootstrap.css',
+            'vendor/twbs/bootstrap-icons/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
             'components/profile.css'
         ),
         'js' => array(
-            'node_modules/jquery/dist/jquery.js',
+            'vendor/jquery/jquery/jquery-3.6.0.min.js',
             'node_modules/popper.js/dist/umd/popper.js',
-            'node_modules/bootstrap/dist/js/bootstrap.js',
+            'vendor/twbs/bootstrap/dist/js/bootstrap.js',
             'node_modules/webshim/js-webshim/dev/polyfiller.js',
             'components/scrolltotop/js/scrolltotop.js'
         )
@@ -302,15 +301,15 @@ if (is_dir("development")) {
 } else {
     $components = array(
         'css' => array(
-            'node_modules/bootstrap/dist/css/bootstrap.min.css',
-            'node_modules/bootstrap-icons/font/bootstrap-icons.css',
+            'vendor/twbs/bootstrap/dist/css/bootstrap.min.css',
+            'vendor/twbs/bootstrap-icons/bootstrap-icons.css',
             'components/scrolltotop/css/scrolltotop.css',
             'components/profile/profile.css'
         ),
         'js' => array(
-            'node_modules/jquery/dist/jquery.min.js',
+            'vendor/jquery/jquery/jquery-3.6.0.min.js',
             'node_modules/popper.js/dist/umd/popper.min.js',
-            'node_modules/bootstrap/dist/js/bootstrap.min.js',
+            'vendor/twbs/bootstrap/dist/js/bootstrap.min.js',
             'node_modules/webshim/js-webshim/minified/polyfiller.js',
             'components/scrolltotop/js/scrolltotop.js'
         )
